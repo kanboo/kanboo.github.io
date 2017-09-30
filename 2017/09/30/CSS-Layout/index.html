@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MarkDown,寫作," />
+  <meta name="keywords" content="CSS,排版,Layout," />
 
 
 
@@ -94,21 +94,18 @@
 
 
 
-<meta name="description" content="程式碼區段inline codeheight: 50px; code blockCSS型態123456.container &amp;#123;    max-width: 960px;    margin: 0 auto;    /* 起手式 */    margin-top: 10px;`&amp;#125;">
-<meta name="keywords" content="MarkDown,寫作">
+<meta name="description" content="[display屬性]每一個html標籤都有一個預設的display屬性，通常是block(區塊元素)或者是inline(行內元素)。  block：會從新的一行開始且在占據網頁的一整行，具自己個寬高。 inline：無法設定寬高，依照包含的內容先是寬度。 inline-block：可設定寬高，但又不占據一整行。 none：不顯示，可用來跟使用者互動。">
+<meta name="keywords" content="CSS,排版,Layout">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MarkDown常用寫法">
-<meta property="og:url" content="http://yoursite.com/2017/09/30/MarkDownWrite/index.html">
+<meta property="og:title" content="CSS - 排版重點整理">
+<meta property="og:url" content="http://yoursite.com/2017/09/30/CSS-Layout/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="程式碼區段inline codeheight: 50px; code blockCSS型態123456.container &amp;#123;    max-width: 960px;    margin: 0 auto;    /* 起手式 */    margin-top: 10px;`&amp;#125;">
+<meta property="og:description" content="[display屬性]每一個html標籤都有一個預設的display屬性，通常是block(區塊元素)或者是inline(行內元素)。  block：會從新的一行開始且在占據網頁的一整行，具自己個寬高。 inline：無法設定寬高，依照包含的內容先是寬度。 inline-block：可設定寬高，但又不占據一整行。 none：不顯示，可用來跟使用者互動。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="http://yoursite.com/2017/09/30/MarkDownWrite/logo.png">
-<meta property="og:image" content="https://goo.gl/2Dty9K">
-<meta property="og:updated_time" content="2017-09-30T05:15:24.000Z">
+<meta property="og:updated_time" content="2017-09-30T05:12:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MarkDown常用寫法">
-<meta name="twitter:description" content="程式碼區段inline codeheight: 50px; code blockCSS型態123456.container &amp;#123;    max-width: 960px;    margin: 0 auto;    /* 起手式 */    margin-top: 10px;`&amp;#125;">
-<meta name="twitter:image" content="http://yoursite.com/2017/09/30/MarkDownWrite/logo.png">
+<meta name="twitter:title" content="CSS - 排版重點整理">
+<meta name="twitter:description" content="[display屬性]每一個html標籤都有一個預設的display屬性，通常是block(區塊元素)或者是inline(行內元素)。  block：會從新的一行開始且在占據網頁的一整行，具自己個寬高。 inline：無法設定寬高，依照包含的內容先是寬度。 inline-block：可設定寬高，但又不占據一整行。 none：不顯示，可用來跟使用者互動。">
 
 
 
@@ -137,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/30/MarkDownWrite/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/30/CSS-Layout/"/>
 
 
 
 
 
-  <title>MarkDown常用寫法 | Kanboo Notes</title>
+  <title>CSS - 排版重點整理 | Kanboo Notes</title>
   
 
 
@@ -276,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/MarkDownWrite/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/CSS-Layout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -293,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MarkDown常用寫法</h1>
+          <h1 class="post-title" itemprop="name headline">CSS - 排版重點整理</h1>
         
 
         <div class="post-meta">
@@ -305,7 +302,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-09-30T00:03:49+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-09-30T12:09:28+08:00">
                 2017-09-30
               </time>
             
@@ -328,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/寫作/" itemprop="url" rel="index">
-                    <span itemprop="name">寫作</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -365,41 +362,75 @@
       
 
       
-        <h2 id="程式碼區段"><a href="#程式碼區段" class="headerlink" title="程式碼區段"></a>程式碼區段</h2><h3 id="inline-code"><a href="#inline-code" class="headerlink" title="inline code"></a>inline code</h3><p><code>height: 50px;</code></p>
-<h3 id="code-block"><a href="#code-block" class="headerlink" title="code block"></a>code block</h3><h4 id="CSS型態"><a href="#CSS型態" class="headerlink" title="CSS型態"></a>CSS型態</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">max-width</span>: <span class="number">960px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">    <span class="comment">/* 起手式 */</span></div><div class="line">    margin-top: 10px;`</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="display屬性"><a href="#display屬性" class="headerlink" title="[display屬性]"></a>[display屬性]</h2><p>每一個html標籤都有一個預設的display屬性，通常是block(區塊元素)或者是inline(行內元素)。</p>
+<ul>
+<li>block：會從新的一行開始且在占據網頁的一整行，具自己個寬高。</li>
+<li>inline：無法設定寬高，依照包含的內容先是寬度。</li>
+<li>inline-block：可設定寬高，但又不占據一整行。</li>
+<li>none：不顯示，可用來跟使用者互動。</li>
+</ul>
 <a id="more"></a>
-<h4 id="javascript型態"><a href="#javascript型態" class="headerlink" title="javascript型態"></a>javascript型態</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkList</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> num = e.target.dataset.num;</div><div class="line">        <span class="comment">// console.log(e.target.nodeName);</span></div><div class="line">        <span class="keyword">if</span> (e.target.nodeName !== <span class="string">'LI'</span>) &#123;</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125;;</div><div class="line">        country.splice(num, <span class="number">1</span>);</div><div class="line">        updateList();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="插入圖片"><a href="#插入圖片" class="headerlink" title="插入圖片"></a>插入圖片</h2><hr>
-<h3 id="內部圖片"><a href="#內部圖片" class="headerlink" title="內部圖片"></a>內部圖片</h3><img src="/2017/09/30/MarkDownWrite/logo.png" alt="logo" title="logo">
-<h3 id="外部圖片"><a href="#外部圖片" class="headerlink" title="外部圖片"></a>外部圖片</h3><p><img src="https://goo.gl/2Dty9K" alt="Mario"></p>
-<h2 id="文字超連結"><a href="#文字超連結" class="headerlink" title="文字超連結"></a>文字超連結</h2><hr>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<p>Google連結：<a href="https://www.google.com.tw/" target="_blank" rel="external">Google</a></p>
-<h2 id="項目標籤"><a href="#項目標籤" class="headerlink" title="項目標籤"></a>項目標籤</h2><hr>
-<h3 id="符號"><a href="#符號" class="headerlink" title="符號"></a>符號</h3><ul>
-<li>序列1</li>
-<li>序列2</li>
-<li>序列3</li>
-<li>序列4</li>
+<h2 id="定位"><a href="#定位" class="headerlink" title="[定位]"></a>[定位]</h2><ul>
+<li>position，設定區塊的座標方式。如下[position]</li>
+<li>left/top/right/bottom，設定區塊的左/上/右/下的座標。</li>
+<li>z-index，設定區塊的重疊時的顯示優先權。</li>
+<li>overflow，當內容超出區塊範圍時候的顯示方式。</li>
 </ul>
-<h3 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h3><ul>
-<li style="list-style: none"><input type="checkbox"> 序列1</li>
-<li style="list-style: none"><input type="checkbox"> 序列2</li>
-<li style="list-style: none"><input type="checkbox"> 序列3</li>
-<li style="list-style: none"><input type="checkbox"> 序列4</li>
+<h2 id="position"><a href="#position" class="headerlink" title="[position]"></a>[position]</h2><ul>
+<li>static:預設，各元素不用設定即是static，遵守網頁規則由左至右，由上至下。</li>
+<li>relative:依照原來存在位置進行調整。absolute:會找上一層(找不到再往上找)有誰設定過</li>
+<li>position，依照這個父元素進行位置調整，如果都沒有那就依body進行調整。</li>
+<li>fixed:依目前看得網頁進行定位。若是要對齊容器內（div）的對位置，採用absolute比較方便。不用特別計算跟父容器的距離。</li>
 </ul>
-<h3 id="數字"><a href="#數字" class="headerlink" title="數字"></a>數字</h3><ol>
-<li>序列1</li>
-<li>序列2</li>
-<li>序列3</li>
-<li>序列4</li>
-</ol>
-<h2 id="重點標示"><a href="#重點標示" class="headerlink" title="重點標示"></a>重點標示</h2><hr>
-<p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
-<p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
-<p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
-<p>Strikethrough uses two tildes. <del>Scratch this.</del></p>
-<hr>
+<h2 id="float"><a href="#float" class="headerlink" title="[float]"></a>[float]</h2><p>設定區塊間的流動方式，像是doc當中的文繞圖。</p>
+<ul>
+<li>left:往網頁左邊流動。</li>
+<li>right:往網頁右邊流動。</li>
+<li>clear:both ：清除流動關係。</li>
+</ul>
+<h2 id="區塊"><a href="#區塊" class="headerlink" title="[區塊]"></a>[區塊]</h2><ul>
+<li>width，設定區塊寬度。width:1080px;</li>
+<li>height，設定區塊高度。height:500px;</li>
+<li>float，設定區塊流動方向。float:left;</li>
+<li>clear，解除區塊流動。</li>
+<li>margin，設定區塊外間距離。如下[margin]。</li>
+<li>padding，設定區塊內距。同margin。</li>
+</ul>
+<h2 id="margin設定"><a href="#margin設定" class="headerlink" title="[margin設定]"></a>[margin設定]</h2><ul>
+<li>margin:10px 20px 30px 40px;  依序為上 右 下 左</li>
+<li>margin:10xp 20px 30px;    上 右 下 ?–&gt;找對面的來補,所以是找右的設定來補</li>
+<li>margin:10px 20px; 依序為上下 左右</li>
+<li>margin:10px;  全都一樣</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="[背景]"></a>[背景]</h2><ul>
+<li>background-color，背景顏色</li>
+<li>background-image，背景圖案</li>
+<li>background-attachment，背景是否固定不動</li>
+<li>background-repeat，背景是否重複</li>
+<li>background-position，背景位置</li>
+</ul>
+<h2 id="邊框"><a href="#邊框" class="headerlink" title="[邊框]"></a>[邊框]</h2><ul>
+<li>border-color，四邊的顏色</li>
+<li>border-style，四邊的樣式</li>
+<li>border-width，四邊的寬度</li>
+<li>border-top-color，上邊框的顏色，top可以置換成為right、bottom、left。</li>
+<li>border-top-style，上邊框的樣式，top可以置換成為right、bottom、left。</li>
+<li>border-top-width，上邊框的寬度，top可以置換成為right、bottom、left。</li>
+<li>border-top，上邊框的顏色、樣式與寬度。top可以置換成為right、bottom、left。</li>
+<li>border，寬度、樣式、顏色。</li>
+</ul>
+<h2 id="文字"><a href="#文字" class="headerlink" title="[文字]"></a>[文字]</h2><ul>
+<li>font-family，設定字型</li>
+<li>font-size，字體大小</li>
+<li>color，字體顏色</li>
+<li>line-height，文字行高</li>
+<li>font-weight，文字粗體</li>
+<li>text-decoration，文字底線</li>
+<li>word-spacing，間距</li>
+<li>letter-spacing，間距</li>
+<li>text-aling，水平對齊方向</li>
+<li>text-indent，字首縮排</li>
+</ul>
 
       
     </div>
@@ -417,9 +448,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MarkDown/" rel="tag"># MarkDown</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
-            <a href="/tags/寫作/" rel="tag"># 寫作</a>
+            <a href="/tags/排版/" rel="tag"># 排版</a>
+          
+            <a href="/tags/Layout/" rel="tag"># Layout</a>
           
         </div>
       
@@ -432,14 +465,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/09/30/CSS-ForgetfulNotes/" rel="next" title="CSS - 健忘筆記">
+                <i class="fa fa-chevron-left"></i> CSS - 健忘筆記
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/30/HTML-Semanticlabel/" rel="prev" title="HTML - 語意架構">
-                HTML - 語意架構 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/30/CSS-Flex/" rel="prev" title="CSS - Flex">
+                CSS - Flex <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -574,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#程式碼區段"><span class="nav-number">1.</span> <span class="nav-text">程式碼區段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inline-code"><span class="nav-number">1.1.</span> <span class="nav-text">inline code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-block"><span class="nav-number">1.2.</span> <span class="nav-text">code block</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS型態"><span class="nav-number">1.2.1.</span> <span class="nav-text">CSS型態</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript型態"><span class="nav-number">1.2.2.</span> <span class="nav-text">javascript型態</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入圖片"><span class="nav-number">2.</span> <span class="nav-text">插入圖片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#內部圖片"><span class="nav-number">2.1.</span> <span class="nav-text">內部圖片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部圖片"><span class="nav-number">2.2.</span> <span class="nav-text">外部圖片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字超連結"><span class="nav-number">3.</span> <span class="nav-text">文字超連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#項目標籤"><span class="nav-number">4.</span> <span class="nav-text">項目標籤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#符號"><span class="nav-number">4.1.</span> <span class="nav-text">符號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check"><span class="nav-number">4.2.</span> <span class="nav-text">Check</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#數字"><span class="nav-number">4.3.</span> <span class="nav-text">數字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重點標示"><span class="nav-number">5.</span> <span class="nav-text">重點標示</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#display屬性"><span class="nav-number">1.</span> <span class="nav-text">[display屬性]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">2.</span> <span class="nav-text">[定位]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position"><span class="nav-number">3.</span> <span class="nav-text">[position]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#float"><span class="nav-number">4.</span> <span class="nav-text">[float]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#區塊"><span class="nav-number">5.</span> <span class="nav-text">[區塊]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin設定"><span class="nav-number">6.</span> <span class="nav-text">[margin設定]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">7.</span> <span class="nav-text">[背景]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邊框"><span class="nav-number">8.</span> <span class="nav-text">[邊框]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字"><span class="nav-number">9.</span> <span class="nav-text">[文字]</span></a></li></ol></div>
             
 
           </div>
