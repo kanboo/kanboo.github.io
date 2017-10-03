@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,筆記," />
+  <meta name="keywords" content="CSS,Flex,排版," />
 
 
 
@@ -94,18 +94,25 @@
 
 
 
-<meta name="description" content="a 連結取消 a 連結下底線123a &amp;#123; text-decoration: none;&amp;#125;">
-<meta name="keywords" content="CSS,筆記">
+<meta name="description" content="常用屬性">
+<meta name="keywords" content="CSS,Flex,排版">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS - 健忘筆記">
-<meta property="og:url" content="http://yoursite.com/2017/09/30/CSS-ForgetfulNotes/index.html">
+<meta property="og:title" content="CSS - Flex">
+<meta property="og:url" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="a 連結取消 a 連結下底線123a &amp;#123; text-decoration: none;&amp;#125;">
+<meta property="og:description" content="常用屬性">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-09-30T05:12:12.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/flex-property.png">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/flex-direction.png">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/flex-direction2.png">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/justify-content.png">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/align-items.png">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/align-self.png">
+<meta property="og:updated_time" content="2017-10-03T17:18:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS - 健忘筆記">
-<meta name="twitter:description" content="a 連結取消 a 連結下底線123a &amp;#123; text-decoration: none;&amp;#125;">
+<meta name="twitter:title" content="CSS - Flex">
+<meta name="twitter:description" content="常用屬性">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/30/CSS-Flex20170930/flex-property.png">
 
 
 
@@ -134,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/30/CSS-ForgetfulNotes/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/30/CSS-Flex20170930/"/>
 
 
 
 
 
-  <title>CSS - 健忘筆記 | Kanboo Notes</title>
+  <title>CSS - Flex | Kanboo Notes</title>
   
 
 
@@ -273,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/CSS-ForgetfulNotes/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/CSS-Flex20170930/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -290,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS - 健忘筆記</h1>
+          <h1 class="post-title" itemprop="name headline">CSS - Flex</h1>
         
 
         <div class="post-meta">
@@ -302,7 +309,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-09-30T11:50:28+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-09-30T14:09:28+08:00">
                 2017-09-30
               </time>
             
@@ -362,26 +369,20 @@
       
 
       
-        <h2 id="a-連結"><a href="#a-連結" class="headerlink" title="a 連結"></a>a 連結</h2><h3 id="取消-a-連結下底線"><a href="#取消-a-連結下底線" class="headerlink" title="取消 a 連結下底線"></a>取消 a 連結下底線</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line"> <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="常用屬性"><a href="#常用屬性" class="headerlink" title="常用屬性"></a>常用屬性</h2><img src="/2017/09/30/CSS-Flex20170930/flex-property.png" alt="常用屬性" title="常用屬性">
 <a id="more"></a>
-<h3 id="hover-移至-a-連結的效果"><a href="#hover-移至-a-連結的效果" class="headerlink" title=":hover 移至 a 連結的效果"></a>:hover 移至 a 連結的效果</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line"> <span class="attribute">border-bottom</span>: <span class="number">3px</span> solid <span class="number">#00cc99</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>註：a 連結 預設display為inline，但為了讓 User有更好的操作體驗，<br>會變更成 block，增加「寬、高」範圍，讓 User較易點擊到目標連結。</p>
-</blockquote>
-<h2 id="文字粗體"><a href="#文字粗體" class="headerlink" title="文字粗體"></a>文字粗體</h2><p><code>font-weight: bold;</code></p>
-<h2 id="斷點"><a href="#斷點" class="headerlink" title="斷點"></a>斷點</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">768px</span>) &#123;</div><div class="line"> //iPad</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">767px</span>) &#123;</div><div class="line"> //iPhone</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="陰影"><a href="#陰影" class="headerlink" title="陰影"></a>陰影</h2><p><code>box-shadow: 2px 2px 10px grey;</code></p>
-<h2 id="圓角"><a href="#圓角" class="headerlink" title="圓角"></a>圓角</h2><p><code>border-radius: 4px;</code></p>
-<h2 id="新單位：高度vh、寬度vw"><a href="#新單位：高度vh、寬度vw" class="headerlink" title="新單位：高度vh、寬度vw"></a>新單位：高度vh、寬度vw</h2><p><strong>vh</strong> 代表的是view height，也就是螢幕可視範圍高度的百分比；<br><strong>vw</strong> 表示的是view width，也就是螢幕可是範圍寬度的百分比。</p>
-<h2 id="ul-ol-list-style"><a href="#ul-ol-list-style" class="headerlink" title="ul ol list-style"></a>ul ol list-style</h2><h3 id="取消樣式"><a href="#取消樣式" class="headerlink" title="取消樣式"></a>取消樣式</h3><p><code>ol,ul {list-style: none;}</code></p>
-<h3 id="設定樣式"><a href="#設定樣式" class="headerlink" title="設定樣式"></a>設定樣式</h3><p><code>list-style: circle;</code></p>
-<blockquote>
-<p>其他樣式參考：<a href="http://www.w3school.com.cn/cssref/pr_list-style-type.asp" target="_blank" rel="external">CSS list-style</a></p>
-</blockquote>
-<h2 id="指定滑鼠游標的型態"><a href="#指定滑鼠游標的型態" class="headerlink" title="指定滑鼠游標的型態"></a>指定滑鼠游標的型態</h2><p><code>cursor: pointer; /*手型，表示超連結*/</code></p>
-<blockquote>
-<p>參考網址： <a href="http://www.eion.com.tw/Blogger/?Pid=1117" target="_blank" rel="external">游標的型態</a></p>
-</blockquote>
+<h2 id="概念圖"><a href="#概念圖" class="headerlink" title="概念圖"></a>概念圖</h2><img src="/2017/09/30/CSS-Flex20170930/flex-direction.png" alt="flex-direction.png" title="">
+<img src="/2017/09/30/CSS-Flex20170930/flex-direction2.png" alt="flex-direction2.png" title="">
+<h2 id="Flex-外容器屬性："><a href="#Flex-外容器屬性：" class="headerlink" title="Flex 外容器屬性："></a>Flex 外容器屬性：</h2><h3 id="flex-direction：決定-flex-主軸線-方向"><a href="#flex-direction：決定-flex-主軸線-方向" class="headerlink" title="flex-direction：決定 flex 主軸線 方向"></a>flex-direction：決定 flex 主軸線 方向</h3><p>[ row | row-reverse | column | column-reverse ]</p>
+<h3 id="justify-content：主要軸線-左右-的對齊"><a href="#justify-content：主要軸線-左右-的對齊" class="headerlink" title="justify-content：主要軸線(左右)的對齊"></a>justify-content：主要軸線(左右)的對齊</h3><p>[ flex-start | flex-end | center | space-between | space-around ]</p>
+<img src="/2017/09/30/CSS-Flex20170930/justify-content.png" alt="justify-content.png" title="">
+<h3 id="align-items：交錯軸線-上下-的對齊"><a href="#align-items：交錯軸線-上下-的對齊" class="headerlink" title="align-items：交錯軸線(上下)的對齊"></a>align-items：交錯軸線(上下)的對齊</h3><p>[ flex-start | flex-end | center | baseline | stretch ]</p>
+<img src="/2017/09/30/CSS-Flex20170930/align-items.png" alt="align-items.png" title="">
+<h2 id="Flex-內元件屬性："><a href="#Flex-內元件屬性：" class="headerlink" title="Flex 內元件屬性："></a>Flex 內元件屬性：</h2><h3 id="align-self：單一個物件的交錯軸對齊"><a href="#align-self：單一個物件的交錯軸對齊" class="headerlink" title="align-self：單一個物件的交錯軸對齊"></a>align-self：單一個物件的交錯軸對齊</h3><p>[ auto | flex-start | flex-end | center | baseline | stretch ]</p>
+<img src="/2017/09/30/CSS-Flex20170930/align-self.png" alt="align-self.png" title="">
+<hr>
+<h2 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h2><p><a href="https://wcc723.github.io/css/2017/07/21/css-flex/" target="_blank" rel="external">圖解：CSS Flex 屬性一點也不難</a></p>
+<p><a href="http://sweeteason.pixnet.net/blog/post/42781628-css-flexbox-layout-%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97" target="_blank" rel="external">CSS Flexbox Layout 學習心得筆記</a></p>
 
       
     </div>
@@ -401,7 +402,9 @@
           
             <a href="/tags/CSS/" rel="tag"># CSS</a>
           
-            <a href="/tags/筆記/" rel="tag"># 筆記</a>
+            <a href="/tags/Flex/" rel="tag"># Flex</a>
+          
+            <a href="/tags/排版/" rel="tag"># 排版</a>
           
         </div>
       
@@ -414,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/30/HTML-Semanticlabel20170930/" rel="next" title="HTML - 語意架構">
-                <i class="fa fa-chevron-left"></i> HTML - 語意架構
+              <a href="/2017/09/30/CSS-Layout20170930/" rel="next" title="CSS - 排版重點整理">
+                <i class="fa fa-chevron-left"></i> CSS - 排版重點整理
               </a>
             
           </div>
@@ -424,8 +427,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/30/CSS-Layout20170930/" rel="prev" title="CSS - 排版重點整理">
-                CSS - 排版重點整理 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/04/CSS-float20171004/" rel="prev" title="CSS - float排版問題">
+                CSS - float排版問題 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -560,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-連結"><span class="nav-number">1.</span> <span class="nav-text">a 連結</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取消-a-連結下底線"><span class="nav-number">1.1.</span> <span class="nav-text">取消 a 連結下底線</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hover-移至-a-連結的效果"><span class="nav-number">1.2.</span> <span class="nav-text">:hover 移至 a 連結的效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字粗體"><span class="nav-number">2.</span> <span class="nav-text">文字粗體</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斷點"><span class="nav-number">3.</span> <span class="nav-text">斷點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陰影"><span class="nav-number">4.</span> <span class="nav-text">陰影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圓角"><span class="nav-number">5.</span> <span class="nav-text">圓角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新單位：高度vh、寬度vw"><span class="nav-number">6.</span> <span class="nav-text">新單位：高度vh、寬度vw</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ul-ol-list-style"><span class="nav-number">7.</span> <span class="nav-text">ul ol list-style</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取消樣式"><span class="nav-number">7.1.</span> <span class="nav-text">取消樣式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定樣式"><span class="nav-number">7.2.</span> <span class="nav-text">設定樣式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定滑鼠游標的型態"><span class="nav-number">8.</span> <span class="nav-text">指定滑鼠游標的型態</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用屬性"><span class="nav-number">1.</span> <span class="nav-text">常用屬性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念圖"><span class="nav-number">2.</span> <span class="nav-text">概念圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-外容器屬性："><span class="nav-number">3.</span> <span class="nav-text">Flex 外容器屬性：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction：決定-flex-主軸線-方向"><span class="nav-number">3.1.</span> <span class="nav-text">flex-direction：決定 flex 主軸線 方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#justify-content：主要軸線-左右-的對齊"><span class="nav-number">3.2.</span> <span class="nav-text">justify-content：主要軸線(左右)的對齊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-items：交錯軸線-上下-的對齊"><span class="nav-number">3.3.</span> <span class="nav-text">align-items：交錯軸線(上下)的對齊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-內元件屬性："><span class="nav-number">4.</span> <span class="nav-text">Flex 內元件屬性：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#align-self：單一個物件的交錯軸對齊"><span class="nav-number">4.1.</span> <span class="nav-text">align-self：單一個物件的交錯軸對齊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考網站"><span class="nav-number">5.</span> <span class="nav-text">參考網站</span></a></li></ol></div>
             
 
           </div>
