@@ -94,18 +94,20 @@
 
 
 
-<meta name="description" content="a 連結取消 a 連結下底線123a &amp;#123; text-decoration: none;&amp;#125;">
+<meta name="description" content="圓角123456div.circle&amp;#123;    width:80px;    height:80px;    border-radius:50%;    background-color:blue;&amp;#125;  2個重點： 圓的直徑，長寬 一定要等長 border-radius:50%     參考網址： 圓角詳解、CSS3技巧之形狀">
 <meta name="keywords" content="CSS,筆記">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS - 健忘筆記">
 <meta property="og:url" content="http://yoursite.com/2017/09/30/CSS-ForgetfulNotes/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="a 連結取消 a 連結下底線123a &amp;#123; text-decoration: none;&amp;#125;">
+<meta property="og:description" content="圓角123456div.circle&amp;#123;    width:80px;    height:80px;    border-radius:50%;    background-color:blue;&amp;#125;  2個重點： 圓的直徑，長寬 一定要等長 border-radius:50%     參考網址： 圓角詳解、CSS3技巧之形狀">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-09-30T05:12:12.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/09/30/CSS-ForgetfulNotes/cursor.png">
+<meta property="og:updated_time" content="2017-10-06T14:58:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS - 健忘筆記">
-<meta name="twitter:description" content="a 連結取消 a 連結下底線123a &amp;#123; text-decoration: none;&amp;#125;">
+<meta name="twitter:description" content="圓角123456div.circle&amp;#123;    width:80px;    height:80px;    border-radius:50%;    background-color:blue;&amp;#125;  2個重點： 圓的直徑，長寬 一定要等長 border-radius:50%     參考網址： 圓角詳解、CSS3技巧之形狀">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/30/CSS-ForgetfulNotes/cursor.png">
 
 
 
@@ -362,16 +364,29 @@
       
 
       
-        <h2 id="a-連結"><a href="#a-連結" class="headerlink" title="a 連結"></a>a 連結</h2><h3 id="取消-a-連結下底線"><a href="#取消-a-連結下底線" class="headerlink" title="取消 a 連結下底線"></a>取消 a 連結下底線</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line"> <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="圓角"><a href="#圓角" class="headerlink" title="圓角"></a>圓角</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-class">.circle</span>&#123;</div><div class="line">    <span class="attribute">width</span>:<span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">80px</span>;</div><div class="line">    <span class="attribute">border-radius</span>:<span class="number">50%</span>;</div><div class="line">    <span class="attribute">background-color</span>:blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>2個重點：<ul>
+<li>圓的直徑，長寬 一定要等長</li>
+<li>border-radius:50%</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>參考網址： <a href="http://www.jianshu.com/p/7f46b8e29b1b" target="_blank" rel="external">圓角詳解</a>、<a href="https://kknews.cc/zh-tw/news/aezgo8v.html" target="_blank" rel="external">CSS3技巧之形狀</a></p>
+</blockquote>
 <a id="more"></a>
+<h2 id="區塊陰影、文字立體感"><a href="#區塊陰影、文字立體感" class="headerlink" title="區塊陰影、文字立體感"></a>區塊陰影、文字立體感</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 外層的陰影 */</span></div><div class="line"><span class="selector-tag">box-shadow</span>: 1<span class="selector-tag">px</span> 1<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.3</span>);</div><div class="line"></div><div class="line"><span class="comment">/* 內層的陰影(多加 inset) */</span></div><div class="line"><span class="selector-tag">box-shadow</span>: <span class="selector-tag">inset</span> 1<span class="selector-tag">px</span> 1<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.3</span>);</div><div class="line"></div><div class="line"><span class="comment">/* 文字的陰影 */</span></div><div class="line"><span class="selector-tag">text-shadow</span>: 1<span class="selector-tag">px</span> 1<span class="selector-tag">px</span> 1<span class="selector-tag">px</span> <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.5</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>參考網址： <a href="http://www.jianshu.com/p/18bdcd17b4f2" target="_blank" rel="external">玩转box-shadow</a>、<a href="http://www.jianshu.com/p/34d8dcb75dd8" target="_blank" rel="external">文字立體感</a></p>
+</blockquote>
+<h2 id="文字粗體"><a href="#文字粗體" class="headerlink" title="文字粗體"></a>文字粗體</h2><p><code>font-weight: 600;</code><br>數字：500、600、700…</p>
+<h2 id="a-連結"><a href="#a-連結" class="headerlink" title="a 連結"></a>a 連結</h2><h3 id="取消-a-連結下底線"><a href="#取消-a-連結下底線" class="headerlink" title="取消 a 連結下底線"></a>取消 a 連結下底線</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line"> <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="hover-移至-a-連結的效果"><a href="#hover-移至-a-連結的效果" class="headerlink" title=":hover 移至 a 連結的效果"></a>:hover 移至 a 連結的效果</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line"> <span class="attribute">border-bottom</span>: <span class="number">3px</span> solid <span class="number">#00cc99</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>註：a 連結 預設display為inline，但為了讓 User有更好的操作體驗，<br>會變更成 block，增加「寬、高」範圍，讓 User較易點擊到目標連結。</p>
 </blockquote>
-<h2 id="文字粗體"><a href="#文字粗體" class="headerlink" title="文字粗體"></a>文字粗體</h2><p><code>font-weight: bold;</code></p>
 <h2 id="斷點"><a href="#斷點" class="headerlink" title="斷點"></a>斷點</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">768px</span>) &#123;</div><div class="line"> //iPad</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">767px</span>) &#123;</div><div class="line"> //iPhone</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="陰影"><a href="#陰影" class="headerlink" title="陰影"></a>陰影</h2><p><code>box-shadow: 2px 2px 10px grey;</code></p>
-<h2 id="圓角"><a href="#圓角" class="headerlink" title="圓角"></a>圓角</h2><p><code>border-radius: 4px;</code></p>
 <h2 id="新單位：高度vh、寬度vw"><a href="#新單位：高度vh、寬度vw" class="headerlink" title="新單位：高度vh、寬度vw"></a>新單位：高度vh、寬度vw</h2><p><strong>vh</strong> 代表的是view height，也就是螢幕可視範圍高度的百分比；<br><strong>vw</strong> 表示的是view width，也就是螢幕可是範圍寬度的百分比。</p>
 <h2 id="ul-ol-list-style"><a href="#ul-ol-list-style" class="headerlink" title="ul ol list-style"></a>ul ol list-style</h2><h3 id="取消樣式"><a href="#取消樣式" class="headerlink" title="取消樣式"></a>取消樣式</h3><p><code>ol,ul {list-style: none;}</code></p>
 <h3 id="設定樣式"><a href="#設定樣式" class="headerlink" title="設定樣式"></a>設定樣式</h3><p><code>list-style: circle;</code></p>
@@ -379,6 +394,7 @@
 <p>其他樣式參考：<a href="http://www.w3school.com.cn/cssref/pr_list-style-type.asp" target="_blank" rel="external">CSS list-style</a></p>
 </blockquote>
 <h2 id="指定滑鼠游標的型態"><a href="#指定滑鼠游標的型態" class="headerlink" title="指定滑鼠游標的型態"></a>指定滑鼠游標的型態</h2><p><code>cursor: pointer; /*手型，表示超連結*/</code></p>
+<img src="/2017/09/30/CSS-ForgetfulNotes/cursor.png" alt="cursor.png" title="">
 <blockquote>
 <p>參考網址： <a href="http://www.eion.com.tw/Blogger/?Pid=1117" target="_blank" rel="external">游標的型態</a></p>
 </blockquote>
@@ -560,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-連結"><span class="nav-number">1.</span> <span class="nav-text">a 連結</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取消-a-連結下底線"><span class="nav-number">1.1.</span> <span class="nav-text">取消 a 連結下底線</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hover-移至-a-連結的效果"><span class="nav-number">1.2.</span> <span class="nav-text">:hover 移至 a 連結的效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字粗體"><span class="nav-number">2.</span> <span class="nav-text">文字粗體</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斷點"><span class="nav-number">3.</span> <span class="nav-text">斷點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陰影"><span class="nav-number">4.</span> <span class="nav-text">陰影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圓角"><span class="nav-number">5.</span> <span class="nav-text">圓角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新單位：高度vh、寬度vw"><span class="nav-number">6.</span> <span class="nav-text">新單位：高度vh、寬度vw</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ul-ol-list-style"><span class="nav-number">7.</span> <span class="nav-text">ul ol list-style</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取消樣式"><span class="nav-number">7.1.</span> <span class="nav-text">取消樣式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定樣式"><span class="nav-number">7.2.</span> <span class="nav-text">設定樣式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定滑鼠游標的型態"><span class="nav-number">8.</span> <span class="nav-text">指定滑鼠游標的型態</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#圓角"><span class="nav-number">1.</span> <span class="nav-text">圓角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#區塊陰影、文字立體感"><span class="nav-number">2.</span> <span class="nav-text">區塊陰影、文字立體感</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字粗體"><span class="nav-number">3.</span> <span class="nav-text">文字粗體</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-連結"><span class="nav-number">4.</span> <span class="nav-text">a 連結</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取消-a-連結下底線"><span class="nav-number">4.1.</span> <span class="nav-text">取消 a 連結下底線</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hover-移至-a-連結的效果"><span class="nav-number">4.2.</span> <span class="nav-text">:hover 移至 a 連結的效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斷點"><span class="nav-number">5.</span> <span class="nav-text">斷點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新單位：高度vh、寬度vw"><span class="nav-number">6.</span> <span class="nav-text">新單位：高度vh、寬度vw</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ul-ol-list-style"><span class="nav-number">7.</span> <span class="nav-text">ul ol list-style</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取消樣式"><span class="nav-number">7.1.</span> <span class="nav-text">取消樣式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定樣式"><span class="nav-number">7.2.</span> <span class="nav-text">設定樣式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定滑鼠游標的型態"><span class="nav-number">8.</span> <span class="nav-text">指定滑鼠游標的型態</span></a></li></ol></div>
             
 
           </div>
