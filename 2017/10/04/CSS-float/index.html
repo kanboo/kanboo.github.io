@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="HTML,語意架構," />
+  <meta name="keywords" content="CSS,排版,float," />
 
 
 
@@ -94,21 +94,23 @@
 
 
 
-<meta name="description" content="概念圖">
-<meta name="keywords" content="HTML,語意架構">
+<meta name="description" content="紀錄一下 float排版問題">
+<meta name="keywords" content="CSS,排版,float">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML - 語意架構">
-<meta property="og:url" content="https://kanboo.github.io/2017/09/30/HTML-Semanticlabel20170930/index.html">
+<meta property="og:title" content="CSS - float排版問題">
+<meta property="og:url" content="https://kanboo.github.io/2017/10/04/CSS-float/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="概念圖">
+<meta property="og:description" content="紀錄一下 float排版問題">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://kanboo.github.io/2017/09/30/HTML-Semanticlabel20170930/label1.png">
-<meta property="og:image" content="https://kanboo.github.io/2017/09/30/HTML-Semanticlabel20170930/label2.png">
-<meta property="og:updated_time" content="2017-10-03T17:22:42.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2017/10/04/CSS-float/Q1.jpg">
+<meta property="og:image" content="https://kanboo.github.io/2017/10/04/CSS-float/Q2.jpg">
+<meta property="og:image" content="https://kanboo.github.io/2017/10/04/CSS-float/A1.jpg">
+<meta property="og:image" content="https://kanboo.github.io/2017/10/04/CSS-float/A2.jpg">
+<meta property="og:updated_time" content="2017-10-12T13:50:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML - 語意架構">
-<meta name="twitter:description" content="概念圖">
-<meta name="twitter:image" content="https://kanboo.github.io/2017/09/30/HTML-Semanticlabel20170930/label1.png">
+<meta name="twitter:title" content="CSS - float排版問題">
+<meta name="twitter:description" content="紀錄一下 float排版問題">
+<meta name="twitter:image" content="https://kanboo.github.io/2017/10/04/CSS-float/Q1.jpg">
 
 
 
@@ -137,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://kanboo.github.io/2017/09/30/HTML-Semanticlabel20170930/"/>
+  <link rel="canonical" href="https://kanboo.github.io/2017/10/04/CSS-float/"/>
 
 
 
 
 
-  <title>HTML - 語意架構 | Kanboo Notes</title>
+  <title>CSS - float排版問題 | Kanboo Notes</title>
   
 
 
@@ -276,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/09/30/HTML-Semanticlabel20170930/">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/10/04/CSS-float/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -293,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTML - 語意架構</h1>
+          <h1 class="post-title" itemprop="name headline">CSS - float排版問題</h1>
         
 
         <div class="post-meta">
@@ -305,8 +307,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-09-30T11:40:28+08:00">
-                2017-09-30
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-04T00:45:03+08:00">
+                2017-10-04
               </time>
             
 
@@ -328,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -365,10 +367,16 @@
       
 
       
-        <h2 id="概念圖"><a href="#概念圖" class="headerlink" title="概念圖"></a>概念圖</h2><img src="/2017/09/30/HTML-Semanticlabel20170930/label1.png" alt="label1.png" title="">
+        <p>紀錄一下 float排版問題</p>
 <a id="more"></a>
-<p><br><br><img src="/2017/09/30/HTML-Semanticlabel20170930/label2.png" alt="label2.png" title=""></p>
-<h2 id="起手式"><a href="#起手式" class="headerlink" title="起手式"></a>起手式</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.wrap &#123;</div><div class="line">    max-width: 960px;</div><div class="line">    margin: 0 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="問題："><a href="#問題：" class="headerlink" title="問題："></a>問題：</h2><p>在練習Bootstrap3將表單驗證功能加進去，卻遇到畫面「跑版」的問題，<br>目前是查到 「名稱」底下的<br><code>&lt;div class=&quot;help-block with-errors&quot;&gt;&lt;/div&gt;</code><br>所導致。</p>
+<p>可能原因為 float？ margin？</p>
+<p>問題點：<br>1.單點 「名稱」欄位，就會造成下方欄位跑版。<br><img src="/2017/10/04/CSS-float/Q1.jpg" alt="Q1.jpg" title=""><br>2.若同時有驗證 左右二邊，欄位又有對齊了。<br><img src="/2017/10/04/CSS-float/Q2.jpg" alt="Q2.jpg" title=""></p>
+<h3 id="codepen：排版偏移程式碼"><a href="#codepen：排版偏移程式碼" class="headerlink" title="codepen：排版偏移程式碼"></a>codepen：<a href="https://codepen.io/Kanboo/pen/EwwNJW" target="_blank" rel="external">排版偏移程式碼</a></h3><h2 id="解決："><a href="#解決：" class="headerlink" title="解決："></a>解決：</h2><img src="/2017/10/04/CSS-float/A1.jpg" alt="A1.jpg" title="">
+<p><br><br>如上圖所述，第一個「名稱」腳變長，造成第三個「Email」排不進去被往後推，<br>導致第四個「聯絡電話」也被往後推擠，造成排版歪掉。</p>
+<img src="/2017/10/04/CSS-float/A2.jpg" alt="A2.jpg" title="">
+<p><br><br>解法為 外層用 row 包起來，<strong>清除float的浮動(clearfix)</strong>。</p>
+<h3 id="codepen：修正後程式碼"><a href="#codepen：修正後程式碼" class="headerlink" title="codepen：修正後程式碼"></a>codepen：<a href="https://codepen.io/Kanboo/pen/PJJWRY" target="_blank" rel="external">修正後程式碼</a></h3>
       
     </div>
     
@@ -385,9 +393,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTML/" rel="tag"># HTML</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
-            <a href="/tags/語意架構/" rel="tag"># 語意架構</a>
+            <a href="/tags/排版/" rel="tag"># 排版</a>
+          
+            <a href="/tags/float/" rel="tag"># float</a>
           
         </div>
       
@@ -400,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/30/MarkDownWrite20170930/" rel="next" title="MarkDown常用寫法">
-                <i class="fa fa-chevron-left"></i> MarkDown常用寫法
+              <a href="/2017/09/30/CSS-Flex/" rel="next" title="CSS - Flex">
+                <i class="fa fa-chevron-left"></i> CSS - Flex
               </a>
             
           </div>
@@ -410,8 +420,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/30/CSS-ForgetfulNotes/" rel="prev" title="CSS - 健忘筆記">
-                CSS - 健忘筆記 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/09/Tool-gulp/" rel="prev" title="Tool-gulp">
+                Tool-gulp <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,7 +556,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念圖"><span class="nav-number">1.</span> <span class="nav-text">概念圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#起手式"><span class="nav-number">2.</span> <span class="nav-text">起手式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題："><span class="nav-number">1.</span> <span class="nav-text">問題：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#codepen：排版偏移程式碼"><span class="nav-number">1.1.</span> <span class="nav-text">codepen：排版偏移程式碼</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解決："><span class="nav-number">2.</span> <span class="nav-text">解決：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#codepen：修正後程式碼"><span class="nav-number">2.1.</span> <span class="nav-text">codepen：修正後程式碼</span></a></li></ol></li></ol></div>
             
 
           </div>
