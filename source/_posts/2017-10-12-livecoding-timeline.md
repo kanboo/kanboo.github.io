@@ -11,6 +11,19 @@ tags:
 - scss
 ---
 
+## 教學來源
+
+
+Youtube：[直播 - 切個垂直時間軸](https://youtu.be/0Y7D-ZayhmA)
+
+* GitHub 分支：https://goo.gl/VEbWkm
+* 參考版型：https://goo.gl/rqjErS
+* 螢幕吸顏色 Sip：https://goo.gl/Vh6YIo
+* LiveCoding 官方網站：https://goo.gl/weYx5q
+* LiveCoding Youtube 頻道：https://goo.gl/Hyih3u
+* LiveCoding 臉書粉絲專頁：https://goo.gl/yhDg0l
+
+
 ## 排版小技巧紀錄
 
 * 切版過程中，可常利用新增「外層的紅框線」，先確認位置是否正確，事後再拿掉。
@@ -142,7 +155,7 @@ h3{
 }
 ```
 
-雖然CSS通常都是 **後面 蓋掉 前面 的屬性**，但是 img+h3 權重 > h3 權重，
+雖然CSS通常都是 `權重一樣大` 的話，就是 **後面 蓋掉 前面 的屬性**，但是 img+h3 權重 > h3 權重，
 所以 **img+h3** 不會被後面 **單一個h3** 屬性蓋掉。
 
 > [CSS權重](http://kailian.github.io/2017/02/21/css-selector-level)
