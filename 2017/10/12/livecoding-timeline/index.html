@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="排版,LiveCoding,timeline,切版,scss," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="教學來源Youtube：直播 - 切個垂直時間軸  GitHub 分支：https://goo.gl/VEbWkm 參考版型：https://goo.gl/rqjErS 螢幕吸顏色 Sip：https://goo.gl/Vh6YIo LiveCoding 官方網站：https://goo.gl/weYx5q LiveCoding Youtube 頻道：https://goo.gl/Hyih3u L">
+<meta name="keywords" content="排版,LiveCoding,timeline,切版,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LiveCoding-切個垂直時間軸">
+<meta property="og:url" content="https://kanboo.github.io/2017/10/12/livecoding-timeline/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="教學來源Youtube：直播 - 切個垂直時間軸  GitHub 分支：https://goo.gl/VEbWkm 參考版型：https://goo.gl/rqjErS 螢幕吸顏色 Sip：https://goo.gl/Vh6YIo LiveCoding 官方網站：https://goo.gl/weYx5q LiveCoding Youtube 頻道：https://goo.gl/Hyih3u L">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-10-14T11:55:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LiveCoding-切個垂直時間軸">
+<meta name="twitter:description" content="教學來源Youtube：直播 - 切個垂直時間軸  GitHub 分支：https://goo.gl/VEbWkm 參考版型：https://goo.gl/rqjErS 螢幕吸顏色 Sip：https://goo.gl/Vh6YIo LiveCoding 官方網站：https://goo.gl/weYx5q LiveCoding Youtube 頻道：https://goo.gl/Hyih3u L">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2017/10/12/livecoding-timeline/"/>
+
+
+
+
+
+  <title>LiveCoding-切個垂直時間軸 | Kanboo Notes</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">健忘筆記本</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/10/12/livecoding-timeline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LiveCoding-切個垂直時間軸</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-12T23:06:34+08:00">
+                2017-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/切版/" itemprop="url" rel="index">
+                    <span itemprop="name">切版</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="教學來源"><a href="#教學來源" class="headerlink" title="教學來源"></a>教學來源</h2><p>Youtube：<a href="https://youtu.be/0Y7D-ZayhmA" target="_blank" rel="external">直播 - 切個垂直時間軸</a></p>
+<ul>
+<li>GitHub 分支：<a href="https://goo.gl/VEbWkm" target="_blank" rel="external">https://goo.gl/VEbWkm</a></li>
+<li>參考版型：<a href="https://goo.gl/rqjErS" target="_blank" rel="external">https://goo.gl/rqjErS</a></li>
+<li>螢幕吸顏色 Sip：<a href="https://goo.gl/Vh6YIo" target="_blank" rel="external">https://goo.gl/Vh6YIo</a></li>
+<li>LiveCoding 官方網站：<a href="https://goo.gl/weYx5q" target="_blank" rel="external">https://goo.gl/weYx5q</a></li>
+<li>LiveCoding Youtube 頻道：<a href="https://goo.gl/Hyih3u" target="_blank" rel="external">https://goo.gl/Hyih3u</a></li>
+<li>LiveCoding 臉書粉絲專頁：<a href="https://goo.gl/yhDg0l" target="_blank" rel="external">https://goo.gl/yhDg0l</a></li>
+</ul>
+<h2 id="排版小技巧紀錄"><a href="#排版小技巧紀錄" class="headerlink" title="排版小技巧紀錄"></a>排版小技巧紀錄</h2><ul>
+<li><p>切版過程中，可常利用新增「外層的紅框線」，先確認位置是否正確，事後再拿掉。</p>
+<p>  <code>border: 1px solid rgba(255, 0, 0, .3)</code></p>
+</li>
+<li><p>CSS之calc可做運算式運算</p>
+<p>  <code>calc(50% — 10px / 2)</code></p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>z-index</p>
+<p>  z-index 記得搭配 <strong>position : relative 、 absolute</strong> 使用<br>  z-index 數字越大的在越上面，反之則在越下面</p>
+</li>
+</ul>
+<ul>
+<li><p>行高</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">H3</span>&#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">45px</span>;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">45px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://muki.tw/tech/css-line-height/" target="_blank" rel="external">深入 CSS 之 line-height 應用</a></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="時間紀錄點"><a href="#時間紀錄點" class="headerlink" title="時間紀錄點"></a>時間紀錄點</h2><h3 id="頭像"><a href="#頭像" class="headerlink" title="頭像"></a>頭像</h3><p>(10分開始)</p>
+<h3 id="頭像-白色圓外框-黑色的陰影"><a href="#頭像-白色圓外框-黑色的陰影" class="headerlink" title="頭像+白色圓外框+黑色的陰影"></a>頭像+白色圓外框+黑色的陰影</h3><p>(12分30秒)</p>
+<h3 id="時間軸的-垂直中線-位置的偏移"><a href="#時間軸的-垂直中線-位置的偏移" class="headerlink" title="時間軸的 垂直中線 位置的偏移"></a>時間軸的 垂直中線 位置的偏移</h3><p>(14分30秒開始)</p>
+<h3 id="按鈕-載入更多"><a href="#按鈕-載入更多" class="headerlink" title="按鈕(載入更多)"></a>按鈕(載入更多)</h3><p>(28分19秒開始)</p>
+<h3 id="時間軸的icon"><a href="#時間軸的icon" class="headerlink" title="時間軸的icon"></a>時間軸的icon</h3><p>(38分30秒開始)</p>
+<h3 id="資訊卡之小箭頭"><a href="#資訊卡之小箭頭" class="headerlink" title="資訊卡之小箭頭"></a>資訊卡之小箭頭</h3><p>(1時3分30秒)</p>
+<p>使用 <a href="http://www.cssarrowplease.com/" target="_blank" rel="external">CSS Arrow Please</a>，再修改部份css</p>
+<h3 id="將-資訊卡區塊-開始變-左右-排版"><a href="#將-資訊卡區塊-開始變-左右-排版" class="headerlink" title="將 資訊卡區塊 開始變 左右 排版"></a>將 資訊卡區塊 開始變 左右 排版</h3><p>(1時7分 開始)</p>
+<p>可用的方法有：</p>
+<ol>
+<li>針對左右給不同的 class</li>
+<li>用 js 控制</li>
+<li>用 nth-child</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* content底下的</span></div><div class="line"><span class="comment">第一子元素是:&lt;i&gt;</span></div><div class="line"><span class="comment">第二個是&lt;button&gt;</span></div><div class="line"><span class="comment">第三個是&lt;div 資訊卡&gt; */</span></div><div class="line"></div><div class="line"><span class="comment">/* 從content底下的子元素，從第3個元素開始並每次加2的倍數(奇數) */</span></div><div class="line"><span class="selector-pseudo">:nth-child(2n</span> + 3)</div><div class="line"></div><div class="line"><span class="comment">/* 從content底下的子元素，從第4個元素開始並每次加2的倍數(偶數) */</span></div><div class="line"><span class="selector-pseudo">:nth-child(2n</span> + 4)</div></pre></td></tr></table></figure>
+<h3 id="用-js-動態新增資訊卡"><a href="#用-js-動態新增資訊卡" class="headerlink" title="用 js 動態新增資訊卡"></a>用 js 動態新增資訊卡</h3><p>(1h 15分 開始)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在div底下</span></div><div class="line"><span class="comment">// 新增img HTML</span></div><div class="line">$(<span class="string">'&lt;div /&gt;'</span>).append ($(<span class="string">'&lt;img /&gt;'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 新增 info 的Class</span></div><div class="line">$(<span class="string">'&lt;div /&gt;'</span>).addClass (<span class="string">'info'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 新增 data-time 屬性</span></div><div class="line">$(<span class="string">'&lt;div /&gt;'</span>).attr (<span class="string">'data-time'</span>, <span class="string">"2017-10-10"</span>)</div><div class="line"></div><div class="line"><span class="comment">// 新增 純文字</span></div><div class="line">$(<span class="string">'&lt;div /&gt;'</span>).text(<span class="string">'我是單純顯示的文字'</span>)</div></pre></td></tr></table></figure>
+<h3 id="資訊卡之圖片"><a href="#資訊卡之圖片" class="headerlink" title="資訊卡之圖片"></a>資訊卡之圖片</h3><p>(1時28分 開始)</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.content</span> &#123;</div><div class="line">    <span class="attribute">content</span>屬性設定</div><div class="line">    </div><div class="line">    <span class="selector-class">.img</span> &#123;</div><div class="line">        <span class="selector-tag">img</span>屬性設定</div><div class="line">        </div><div class="line">        +<span class="selector-tag">h3</span> &#123;</div><div class="line">            <span class="selector-tag">h3</span>屬性設定-特例</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="selector-class">.h3</span> &#123;</div><div class="line">        <span class="selector-tag">h3</span>屬性設定</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li>img 底下有加一個 <strong>+h3</strong> 的設定</li>
+<li>另外 img 平行也有一個 h3 的設定</li>
+</ol>
+<p>這裡的觀念為 <strong>CSS權重</strong>，下列有二個 <strong>h3</strong> 的設定</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span>+<span class="selector-tag">h3</span>&#123;</div><div class="line">    屬性設定-特例</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h3</span>&#123;</div><div class="line">    屬性設定</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>雖然CSS通常都是 <code>權重一樣大</code> 的話，就是 <strong>後面 蓋掉 前面 的屬性</strong>，但是 img+h3 權重 &gt; h3 權重，<br>所以 <strong>img+h3</strong> 不會被後面 <strong>單一個h3</strong> 屬性蓋掉。</p>
+<blockquote>
+<p><a href="http://kailian.github.io/2017/02/21/css-selector-level" target="_blank" rel="external">CSS權重</a></p>
+</blockquote>
+<h3 id="改寫-RWD的格式"><a href="#改寫-RWD的格式" class="headerlink" title="改寫 RWD的格式"></a>改寫 RWD的格式</h3><p>(1時34分30秒)</p>
+<h3 id="js-塞入html方式-改寫用-object-json格式"><a href="#js-塞入html方式-改寫用-object-json格式" class="headerlink" title="js 塞入html方式 改寫用 object(json格式)"></a>js 塞入html方式 改寫用 object(json格式)</h3><p>(1時50分 開始)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/排版/" rel="tag"># 排版</a>
+          
+            <a href="/tags/LiveCoding/" rel="tag"># LiveCoding</a>
+          
+            <a href="/tags/timeline/" rel="tag"># timeline</a>
+          
+            <a href="/tags/切版/" rel="tag"># 切版</a>
+          
+            <a href="/tags/scss/" rel="tag"># scss</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/09/Tool-gulp/" rel="next" title="Tool-gulp">
+                <i class="fa fa-chevron-left"></i> Tool-gulp
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/14/Hexo-Create/" rel="prev" title="Hexo-環境建置">
+                Hexo-環境建置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#教學來源"><span class="nav-number">1.</span> <span class="nav-text">教學來源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排版小技巧紀錄"><span class="nav-number">2.</span> <span class="nav-text">排版小技巧紀錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#時間紀錄點"><span class="nav-number">3.</span> <span class="nav-text">時間紀錄點</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#頭像"><span class="nav-number">3.1.</span> <span class="nav-text">頭像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#頭像-白色圓外框-黑色的陰影"><span class="nav-number">3.2.</span> <span class="nav-text">頭像+白色圓外框+黑色的陰影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#時間軸的-垂直中線-位置的偏移"><span class="nav-number">3.3.</span> <span class="nav-text">時間軸的 垂直中線 位置的偏移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按鈕-載入更多"><span class="nav-number">3.4.</span> <span class="nav-text">按鈕(載入更多)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#時間軸的icon"><span class="nav-number">3.5.</span> <span class="nav-text">時間軸的icon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#資訊卡之小箭頭"><span class="nav-number">3.6.</span> <span class="nav-text">資訊卡之小箭頭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#將-資訊卡區塊-開始變-左右-排版"><span class="nav-number">3.7.</span> <span class="nav-text">將 資訊卡區塊 開始變 左右 排版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-js-動態新增資訊卡"><span class="nav-number">3.8.</span> <span class="nav-text">用 js 動態新增資訊卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#資訊卡之圖片"><span class="nav-number">3.9.</span> <span class="nav-text">資訊卡之圖片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改寫-RWD的格式"><span class="nav-number">3.10.</span> <span class="nav-text">改寫 RWD的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js-塞入html方式-改寫用-object-json格式"><span class="nav-number">3.11.</span> <span class="nav-text">js 塞入html方式 改寫用 object(json格式)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

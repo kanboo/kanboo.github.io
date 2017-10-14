@@ -1,0 +1,424 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2017 OA Wu Design
+ * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/
+ */
+
+@import "_oa";
+* {
+  &,
+  &:after,
+  &:before {
+    vertical-align: top;
+    @include box-sizing(border-box);
+    @include selection(rgba(150, 200, 255, 1), rgba(255, 255, 255, 1));
+    @include font-smoothing(antialiased);
+  }
+}
+
+html {
+  min-height: 100%;
+  body {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    color: rgba(90, 90, 90, 1.00);
+    text-align: center;
+    font-size: medium;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
+    background: rgba(235, 235, 235, 1.00);
+    @include font-smoothing(antialiased);
+  }
+}
+
+#main {
+  display: inline-block;
+  width: 100%;
+  max-width: 640px;
+  /* 圓形頭像 */
+  .avatar {
+    position: relative;
+    /* z-index 記得搭配 position : relative 或 position : absolute 使用 */
+    /* z-index 要大於 垂直中線，為了讓頭像要蓋住 垂直中線 */
+    z-index: 2;
+    display: inline-block;
+    /* 要變圓角，寬高一定要一樣長 */
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    /* 圖片變圓角 */
+    @include border-radius(50%);
+    /* 新增 頭像的白色圓外框 */
+    border: 3px solid rgba(255, 255, 255, 1);
+    /* 新增白色圓外框的黑色陰影 */
+    @include box-shadow(1px 1px 5px rgba(0, 0, 0, .5));
+    /* box-shadow: 1px 1px 5px rgba(0,0,0,0.5) ; */
+    img {
+      width: 100%;
+    }
+  }
+}
+
+
+/* 時間軸的 垂直中線 位置的偏移 */
+
+$iconSize: 36px;
+#infos {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 60px;
+  padding-bottom: 40px;
+  >i {
+    position: absolute;
+    top: 0;
+    /* 垂直中線 位置偏移至中間 */
+    /* 10px/2的用意，是讓中線可以真的在正中間的位置 */
+    left: calc(50% - 10px / 2);
+    display: inline-block;
+    width: 10px;
+    /* 因為下方要放button，所以將線往上移一點 */
+    height: calc(100% - (25px + 8px));
+    z-index: 1;
+    &:before,
+    &:after {
+      /* before,after之共用的屬性 */
+      content: '';
+      position: absolute;
+      display: inline-block;
+    }
+    &:before {
+      /* 負責 時間軸的垂直中線 */
+      left: calc(50% - 2px / 2);
+      top: 0;
+      width: 2px;
+      height: 100%;
+      /* 淺灰色 */
+      background-color: rgba(210, 210, 210, 1);
+      /* 加 白色外框線，讓中線有凹進去的錯覺感 */
+      border-right: 1px solid rgba(255, 255, 255, 1);
+    }
+    &:after {
+      /* 負責 時間軸底下的小圓球 */
+      left: 0;
+      bottom: 0;
+      width: 10px;
+      height: 10px;
+      /* 淺灰色 */
+      background-color: rgba(210, 210, 210, 1);
+      @include border-radius(50%);
+      /* 小圓球 新增內外層的陰影，讓圓球有凹進去的錯覺感 */
+      /* 左上角→黑色陰影，右下角→白色陰影 */
+      /* 有加 inset 的話，代表是 內層的陰影 */
+      @include box-shadow(1px 1px 1px rgba(255, 255, 255, 1), inset 1px 1px 1px rgba(0, 0, 0, .1));
+    }
+  }
+  /* 按鈕：載入更多 */
+  #load {
+    @include button;
+    position: absolute;
+    bottom: 0;
+    /* 位置置中 */
+    left: calc(50% - 80px / 2);
+    display: inline-block;
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    z-index: 2;
+  }
+  /* 資訊卡 */
+  .info {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    @include clearfix();
+    z-index: 3;
+    /* 與上面的資訊卡，相隔一段距離 */
+    margin-top: 22px;
+    >i {
+      /* 每個時間點的icon */
+      position: absolute;
+      /* 位置偏移 */
+      left: calc(50% - #{$iconSize} / 2);
+      top: 0;
+      display: inline-block;
+      width: $iconSize;
+      height: $iconSize;
+      line-height: $iconSize;
+      font-size: 20px;
+      color: white;
+      z-index: 1;
+      text-align: center;
+      @include border-radius(50%);
+      /* 將文字加陰影，讓字有浮起來的感覺 */
+      @include text-shadow(1px 1px 1px rgba(0, 0, 0, .4));
+      @include box-shadow(1px 1px 4px rgba(0, 0, 0, .4));
+      &.icon-location {
+        background-color: rgba(253, 96, 89, 1.00);
+      }
+      &.icon-star-full {
+        background-color: rgba(254, 192, 61, 1.00);
+      }
+      &.icon-heart {
+        background-color: rgba(52, 204, 77, 1.00);
+      }
+    }
+    >time {
+      /* 時間資訊 */
+      position: absolute;
+      top: 0;
+      display: inline-block;
+      width: 120px;
+      height: 40px;
+      /* 因應RWD,將移至下 */
+      /* 50% - 時間icon/2 - 時間資訊寬度 - 稍微再移一點點 */
+      /* left: calc(50% - #{$iconSize} / 2 - 120px - 4px); */
+      /* 因應RWD,將移至下 */
+      /* 文字靠右 */
+      /* text-align: right; */
+      font-size: 13px;
+      color: rgba(120, 120, 120, 1);
+      padding-top: 4px;
+      &:before {
+        /* 利用data-屬性，取得HTML標籤的值 */
+        content: attr(data-time);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        font-size: 10px;
+        color: rgba(160, 160, 160, 1);
+      }
+    }
+    .content {
+      /* 資訊卡內容 */
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      /* 因應RWD,將移至下 */
+      /* 寬度: 50% - (時間icon+ 稍微偏移) / 2 */
+      /* width: calc(50% - #{$iconSize + 10px} / 2); */
+      min-height: 50px;
+      background-color: white;
+      text-align: left;
+      @include border-radius(3px);
+      @include box-shadow(1px 1px 5px rgba(0, 0, 0, .3));
+      @include clearfix();
+      img {
+        float: left;
+        width: 30px;
+        height: 30px; // display: none;
+        margin-top: 8px;
+        margin-left: 16px;
+        @include border-radius(2px); // @include box-shadow(1px 1px 4px rgba(0, 0, 0, .4));
+        +h3 {
+          /* 此區h3前面有緊接著img，編譯css後會變 img+h3，權重會高於下面單一個的h3 */
+          float: left;
+          width: calc(100% - (30px + 16px));
+          padding: 0 8px;
+        }
+      }
+      h3 {
+        display: inline-block;
+        width: 100%;
+        /* h3預設有margin，將預設取消，避免與其他元素離太遠 */
+        margin: 0;
+        float: left;
+        height: 45px;
+        line-height: 45px;
+        padding: 0 16px;
+      }
+      p {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        padding: 0 16px;
+        font-size: 13px;
+      }
+      a {
+        /* 詳細內容 */
+        @include a;
+        display: inline-block;
+        width: 100%;
+        font-size: 12px;
+        text-align: right;
+        height: 35px;
+        line-height: 35px;
+        padding-right: 16px;
+        border-top: 1px solid rgba(222, 222, 222, 1);
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+@include range-width(0, 400px) {
+  #infos {
+    .info {
+      margin-top: 32px;
+      +.info {
+        margin-top: 48px;
+      }
+      >i {
+        z-index: 4;
+        top: -$iconSize / 2;
+      }
+      >time {
+        display: none;
+      }
+      .content {
+        padding-top: 16px;
+        @include border-radius(0);
+      }
+    }
+  }
+}
+
+;
+@include range-width(400px, 600px) {
+  #main {
+    text-align: left;
+    .avatar {
+      margin-left: 45px;
+    }
+  }
+  #infos {
+    >i {
+      left: 45px + 75px / 2 - 10px / 2;
+    }
+    #load {
+      left: 45px;
+    }
+    .info {
+      >i {
+        left: 45px + $iconSize / 2;
+      }
+      >time {
+        left: 0;
+        top: 34px;
+        text-align: right;
+        width: 45px + 75px / 2 - 4px;
+      }
+      .content {
+        float: right;
+        width: calc(100% - (45px + 75px - 8px));
+        margin-right: 8px;
+        &:after,
+        &:before {
+          right: 100%;
+          top: 19px;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        $t: 7px;
+        &:after {
+          border-color: transparent;
+          border-right-color: rgba(255, 255, 255, 1.00);
+          border-width: $t;
+          margin-top: -$t;
+        }
+        &:before {
+          border-color: transparent;
+          border-right-color: rgba(200, 200, 200, 1.00);
+          border-width: ($t + 1px);
+          margin-top: -($t + 1px);
+        }
+      }
+    }
+  }
+}
+
+;
+@include range-width(600px) {
+  #infos {
+    .info {
+      .content {
+        width: calc(50% - #{$iconSize + 10px} / 2);
+      }
+      /* content底下的第一子元素是:<i>,第二個是:<button>,第三個開始才是:<div 資訊卡> */
+      /* 從content底下的子元素，從第3個元素開始並每次加2的倍數 */
+      &:nth-child(2n + 3) {
+        >time {
+          left: calc(50% - #{$iconSize} / 2 - 120px - 4px);
+          text-align: right;
+        }
+        .content {
+          float: right;
+          /* 資訊卡之箭頭 --- Start */
+          &:after,
+          &:before {
+            right: 100%;
+            top: 19px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+          $t: 7px;
+          &:after {
+            border-color: transparent;
+            border-right-color: rgba(255, 255, 255, 1.00);
+            border-width: $t;
+            margin-top: -$t;
+          }
+          &:before {
+            border-color: transparent;
+            border-right-color: rgba(200, 200, 200, 1.00);
+            border-width: ($t + 1px);
+            margin-top: -($t + 1px);
+          }
+          /* 資訊卡之箭頭 --- End */
+        }
+      }
+      /* 從content底下的子元素，從第4個元素開始並每次加2的倍數 */      
+      &:nth-child(2n + 4) {
+        >time {
+          right: calc(50% - #{$iconSize} / 2 - 120px - 4px);
+          text-align: left;
+        }
+        .content {
+          float: left;
+          /* 資訊卡之箭頭 --- Start */
+          $t: 7px;
+          &:after,
+          &:before {
+            left: 100%;
+            top: 19px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+          &:after {
+            border-color: transparent;
+            border-left-color: rgba(255, 255, 255, 1.00);
+            border-width: $t;
+            margin-top: -$t;
+          }
+          &:before {
+            border-color: transparent;
+            border-left-color: rgba(200, 200, 200, 1.00);
+            border-width: ($t + 1px);
+            margin-top: -($t + 1px);
+          }
+          /* 資訊卡之箭頭 --- End */
+        }
+      }
+    }
+  }
+}
+
+;
