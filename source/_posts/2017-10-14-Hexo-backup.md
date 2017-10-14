@@ -15,6 +15,16 @@ tags:
 如果日後換新電腦或要在不同台電腦撰寫Blog的話，
 請參考下面的 `更換環境` 的操作。
 
+## 實作順序
+
+第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。
+
+1. 安裝 hexo-git-backup 
+2. _config.yml文件中，設定好**github路徑**及**分支名稱**
+3. 執行 `hexo b`
+
+<!-- more -->
+
 ## 安裝插件
 
 ```
@@ -22,8 +32,6 @@ npm install hexo-git-backup --save
 ```
 
 > [hexo-git-backup插件](https://github.com/coneycode/hexo-git-backup)
-
-<!-- more -->
 
 ## 設置
 
@@ -49,14 +57,6 @@ hexo backup
 ```
 hexo b
 ```
-
-## 實作順序
-
-第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。
-
-1. 安裝 hexo-git-backup 
-2. _config.yml文件中，設定好**github路徑**及**分支名稱**
-3. 執行 `hexo b`
 
 ***
 
@@ -107,8 +107,9 @@ hexo d //發佈至github-master
 hexo b //備份至github-Hexo
 ```
 
+***
 
-參考網站
+# 參考網站
 
 [實現不同電腦上 Hexo 部落格的同步](https://hsins.github.io/2016/12/30/hexo-sync-with-multiple-computer/)
 
