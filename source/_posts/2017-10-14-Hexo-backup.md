@@ -27,7 +27,7 @@ tags:
 
 ## 安裝插件
 
-```
+``` npm
 npm install hexo-git-backup --save
 ```
 
@@ -37,7 +37,7 @@ npm install hexo-git-backup --save
 
 在 hexo/_config.yml文件中为插件添加设置
 
-```
+``` npm
 # 備份Hexo
 backup:
     type: git
@@ -48,13 +48,13 @@ backup:
 
 ## 備份指令
 
-```
+``` npm
 hexo backup
 ```
 
 或者
 
-```
+``` npm
 hexo b
 ```
 
@@ -64,12 +64,12 @@ hexo b
 
 如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。
 
-```
-#1.切換到blog目錄;
-cd blog目錄
+``` npm
+#1.克隆到本地
+git clone https://github.com/用户名/用户名.github.io.git Kanbooblog
 
-#2.克隆到本地
-git clone https://github.com/用户名/用户名.github.io.git
+#2.切換到blog目錄;
+cd blog目錄
 
 #3.切換備份的分支分稱
 git checkout Hexo
