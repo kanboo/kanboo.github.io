@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tool,gulp," />
+  <meta name="keywords" content="Mac,iTerm2,ZSH,終端機,terminal," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="gulp環境安裝安裝 Global Gulp 環境npm install gulp -g   如果無法安裝  Global Gulp 環境，請用以下並輸入系統密碼sudo npm install gulp -g">
-<meta name="keywords" content="tool,gulp">
+<meta name="description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
+<meta name="keywords" content="Mac,iTerm2,ZSH,終端機,terminal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tool-gulp">
-<meta property="og:url" content="https://kanboo.github.io/2017/10/09/Tool-gulp/index.html">
+<meta property="og:title" content="MAC-讓終端機變好看">
+<meta property="og:url" content="https://kanboo.github.io/2017/10/15/MAC-iTerm2-Zsh/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="gulp環境安裝安裝 Global Gulp 環境npm install gulp -g   如果無法安裝  Global Gulp 環境，請用以下並輸入系統密碼sudo npm install gulp -g">
+<meta property="og:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-10-14T02:05:01.000Z">
+<meta property="og:updated_time" content="2017-10-15T13:44:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tool-gulp">
-<meta name="twitter:description" content="gulp環境安裝安裝 Global Gulp 環境npm install gulp -g   如果無法安裝  Global Gulp 環境，請用以下並輸入系統密碼sudo npm install gulp -g">
+<meta name="twitter:title" content="MAC-讓終端機變好看">
+<meta name="twitter:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://kanboo.github.io/2017/10/09/Tool-gulp/"/>
+  <link rel="canonical" href="https://kanboo.github.io/2017/10/15/MAC-iTerm2-Zsh/"/>
 
 
 
 
 
-  <title>Tool-gulp | Kanboo Notes</title>
+  <title>MAC-讓終端機變好看 | Kanboo Notes</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/10/09/Tool-gulp/">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/10/15/MAC-iTerm2-Zsh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tool-gulp</h1>
+          <h1 class="post-title" itemprop="name headline">MAC-讓終端機變好看</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-09T12:56:20+08:00">
-                2017-10-09
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-15T18:57:32+08:00">
+                2017-10-15
               </time>
             
 
@@ -325,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tool/" itemprop="url" rel="index">
-                    <span itemprop="name">tool</span>
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
                   </a>
                 </span>
 
@@ -362,40 +362,34 @@
       
 
       
-        <h1 id="gulp環境安裝"><a href="#gulp環境安裝" class="headerlink" title="gulp環境安裝"></a>gulp環境安裝</h1><h2 id="安裝-Global-Gulp-環境"><a href="#安裝-Global-Gulp-環境" class="headerlink" title="安裝 Global Gulp 環境"></a>安裝 Global Gulp 環境</h2><p><code>npm install gulp -g</code> </p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，<br>不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 <code>卡卡的歷程</code>。</p>
 <blockquote>
-<p>如果無法安裝  Global Gulp 環境，請用以下並輸入系統密碼<br><code>sudo npm install gulp -g</code></p>
+<p><a href="https://pjchender.blogspot.tw/2017/02/mac-terminal-iterm-2-oh-my-zsh.html" target="_blank" rel="external">為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機</a></p>
+<p><a href="https://paper.dropbox.com/doc/MAC--JrxAtuSA7DKDCsPpK3jf1" target="_blank" rel="external">讓 MAC 終端機變好看</a></p>
+<p><a href="https://gist.github.com/kevin-smets/8568070" target="_blank" rel="external">iterm2-solarized 原文</a></p>
 </blockquote>
 <a id="more"></a>
-<h2 id="有沒有加入-g-差異在哪裡呢？"><a href="#有沒有加入-g-差異在哪裡呢？" class="headerlink" title="有沒有加入 -g 差異在哪裡呢？"></a>有沒有加入 -g 差異在哪裡呢？</h2><ul>
-<li><p>有加入 “-g”：<br>這是安裝全域的套件<br>也就是安裝在目前的電腦上<br>目的是啟用 “gulp” 這個指令</p>
-</li>
-<li><p>沒有加入：<br>這是 local 套件安裝的指令<br>是裝在<strong>目前的專案資料夾內</strong><br>目的是執行 gulp 時可以取用的套件</p>
-</li>
-</ul>
-<h2 id="總結："><a href="#總結：" class="headerlink" title="總結："></a>總結：</h2><p>只有 npm install gulp -g  才會使用到全域的指令，在教學中， -g 也只會出現一次喔～<br>其餘 gulp 套件只會用到 “npm install –save”。</p>
 <hr>
-<h1 id="gulp設定"><a href="#gulp設定" class="headerlink" title="gulp設定"></a>gulp設定</h1><ol>
-<li><p>建立 npm 環境 (<strong>package.json</strong>用於紀錄安裝什麼套件)</p>
-<p> <code>npm init</code></p>
-</li>
-<li><p>建立 專案用的gulp環境</p>
-<p> <code>npm install gulp --save-dev</code></p>
+<h1 id="問題紀錄"><a href="#問題紀錄" class="headerlink" title="問題紀錄"></a>問題紀錄</h1><h2 id="zsh指令失效"><a href="#zsh指令失效" class="headerlink" title="zsh指令失效"></a>zsh指令失效</h2><p>安裝完zsh，在使用相關shell命令，出現了<br><code>zsh: command not found Node</code><br><code>zsh: command not found: hexo</code><br>等一系列error</p>
+<p>字面意思是相關命令沒有沒有找到，其實就是bash shell 以及 zsh shell是 <code>兩種讀取系統環境變量</code>，<br>簡單來說就是說 <code>node、Hexo</code>…等套件 是在使用 <code>bash</code> 時候，安裝好的，所以會設定在 <code>.bash_profile</code>裡，<br>後來改使用 <code>zsh shell</code> 的時候，你並沒有把相關的環境變量的配置設置到 <code>.zshrc</code> 中（功能上類似bash 的.bash_profile），<br>所以 .zshrc 沒有配置相關環境變量設置，就把bash 中.bash_profile 全部環境變量加入 .zshrc 就好。</p>
+<p>加入方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#打開 zsh 的設定檔</div><div class="line">open ~/.zshrc</div><div class="line"></div><div class="line"># 最后一行加入下面指令</div><div class="line"># 解決OSX使用oh-my-zsh後.bash_profile自定義失效</div><div class="line">source ~/.bash_profile</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>註1：最後面加 –save 代表將安裝紀錄，記在 package.json<br>註2：安裝完後，會產生node_modules 資料夾(裡面會有許多npm的相依套件)</p>
+<p><a href="http://www.chongchonggou.com/g_841616996.html" target="_blank" rel="external">zsh: command not found</a><br><a href="http://www.jianshu.com/p/d5cab693c5d4" target="_blank" rel="external">zsh: command not found</a><br><a href="http://to-u.xyz/2016/08/07/zsh-bash/" target="_blank" rel="external">解决OSX使用oh-my-zsh后.bash_profile自定义失效</a></p>
 </blockquote>
+<h2 id="安裝字型"><a href="#安裝字型" class="headerlink" title="安裝字型"></a>安裝字型</h2><p>原先是跟著最上面文章教學，安裝 字型(Meslo LG M Regular for Powerline)，再修改相關設定後，<br>此字型在 iTerm 上，顯示箭頭是正常的，不過在VScode上面，顯示 <code>箭頭</code> 卻還是有亂碼，<br>所以去Google一下，結果如下</p>
+<ol>
+<li><p>先安裝 字型</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安裝字型</span></div><div class="line">$ git <span class="built_in">clone</span> git://github.com/powerline/fonts ~/.powerline_fonts</div><div class="line">$ <span class="built_in">cd</span> ~/.powerline_fonts</div><div class="line">$ ./install.sh</div></pre></td></tr></table></figure>
 </li>
-<li><p>新增一個檔案：<strong>gulpfile.js</strong> (用於撰寫預執行的<strong>任務</strong>)</p>
+<li><p>iTerm設定 字型<br>iTerm –&gt; Preferences –&gt; Profiles –&gt; Text –&gt; Change Font<br>推薦使用 <code>Source Code Pro</code> (Adobe的）與 <code>Ubuntu Mono</code>，這兩個字型都相當適合寫程式使用。</p>
 </li>
-<li><p>可搭配 <strong>Bower</strong> 一起建置開發環境。</p>
+<li><p>VSCode設定 字型<br>在設定參數裡，新增下列二行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;terminal.integrated.fontFamily&quot;: &quot;Source Code Pro for Powerline&quot;,</div><div class="line">&quot;terminal.integrated.fontSize&quot;: 14</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">npm install gulp-sass --save	    -&gt;給「正式環境」使用</div><div class="line">npm install gulp-sass --save-dev    -&gt;給「開發環境」使用</div><div class="line"></div><div class="line">--save-dev是你開發時候依賴的東西，--save是你發布之後還依賴的東西。</div><div class="line"></div><div class="line">比如，你寫ES6代碼，如果你想編譯成ES5發布那麼babel就是devDependencies。</div><div class="line">如果你用了jQuery，由於發布之後還是依賴jQuery，所以是dependencies。</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="gulp-bower-設定範本"><a href="#gulp-bower-設定範本" class="headerlink" title="gulp+bower 設定範本"></a>gulp+bower 設定範本</h2><p>已建置完成範本：<a href="https://github.com/kanboo/gulp-setting" target="_blank" rel="external">gulp-setting</a></p>
-<p>當上述都已設定好，只要將設定檔放置新專案資料夾後，依序執行下列指令即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bower install</div><div class="line">nmp install</div><div class="line">gulp</div></pre></td></tr></table></figure>
-<hr>
+<blockquote>
+<p><a href="http://oomusou.io/osx/iterm2-setup/#安裝Powerline專屬字型" target="_blank" rel="external">安裝Powerline專屬字型</a><br><a href="https://medium.com/appworks-school/%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E7%B5%82%E7%AB%AF%E6%A9%9F-7af0dabcf368" target="_blank" rel="external">美化你的終端機</a></p>
+</blockquote>
 
       
     </div>
@@ -413,9 +407,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/tool/" rel="tag"># tool</a>
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
           
-            <a href="/tags/gulp/" rel="tag"># gulp</a>
+            <a href="/tags/iTerm2/" rel="tag"># iTerm2</a>
+          
+            <a href="/tags/ZSH/" rel="tag"># ZSH</a>
+          
+            <a href="/tags/終端機/" rel="tag"># 終端機</a>
+          
+            <a href="/tags/terminal/" rel="tag"># terminal</a>
           
         </div>
       
@@ -428,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/04/CSS-float/" rel="next" title="CSS - float排版問題">
-                <i class="fa fa-chevron-left"></i> CSS - float排版問題
+              <a href="/2017/10/14/Hexo-backup/" rel="next" title="Hexo-備份">
+                <i class="fa fa-chevron-left"></i> Hexo-備份
               </a>
             
           </div>
@@ -437,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/12/livecoding-timeline/" rel="prev" title="LiveCoding-切個垂直時間軸">
-                LiveCoding-切個垂直時間軸 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -574,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gulp環境安裝"><span class="nav-number">1.</span> <span class="nav-text">gulp環境安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝-Global-Gulp-環境"><span class="nav-number">1.1.</span> <span class="nav-text">安裝 Global Gulp 環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有沒有加入-g-差異在哪裡呢？"><span class="nav-number">1.2.</span> <span class="nav-text">有沒有加入 -g 差異在哪裡呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結："><span class="nav-number">1.3.</span> <span class="nav-text">總結：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gulp設定"><span class="nav-number">2.</span> <span class="nav-text">gulp設定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-bower-設定範本"><span class="nav-number">2.1.</span> <span class="nav-text">gulp+bower 設定範本</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#問題紀錄"><span class="nav-number">2.</span> <span class="nav-text">問題紀錄</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh指令失效"><span class="nav-number">2.1.</span> <span class="nav-text">zsh指令失效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝字型"><span class="nav-number">2.2.</span> <span class="nav-text">安裝字型</span></a></li></ol></li></ol></div>
             
 
           </div>

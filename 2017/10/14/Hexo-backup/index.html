@@ -102,10 +102,12 @@
 <meta property="og:site_name" content="Kanboo Notes">
 <meta property="og:description" content="初次備份環境建立此動作僅需在第一台撰寫Blog電腦上執行即可，如果日後換新電腦或要在不同台電腦撰寫Blog的話，請參考下面的 更換環境 的操作。 實作順序第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。  安裝 hexo-git-backup  _config.yml文件中，設定好github路徑及分支名稱 執行 hexo b">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-10-15T13:41:01.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2017/10/14/Hexo-backup/hexo01.png">
+<meta property="og:updated_time" content="2017-10-15T13:44:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-備份">
 <meta name="twitter:description" content="初次備份環境建立此動作僅需在第一台撰寫Blog電腦上執行即可，如果日後換新電腦或要在不同台電腦撰寫Blog的話，請參考下面的 更換環境 的操作。 實作順序第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。  安裝 hexo-git-backup  _config.yml文件中，設定好github路徑及分支名稱 執行 hexo b">
+<meta name="twitter:image" content="https://kanboo.github.io/2017/10/14/Hexo-backup/hexo01.png">
 
 
 
@@ -380,8 +382,16 @@
 <p>或者</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo b</div></pre></td></tr></table></figure>
 <hr>
-<h1 id="更換環境"><a href="#更換環境" class="headerlink" title="更換環境"></a>更換環境</h1><p>如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#1.切換到blog目錄;</div><div class="line">cd blog目錄</div><div class="line"></div><div class="line">#2.克隆到本地</div><div class="line">git clone https://github.com/用户名/用户名.github.io.git</div><div class="line"></div><div class="line">#3.切換備份的分支分稱</div><div class="line">git checkout Hexo</div><div class="line"></div><div class="line">#4.安装各种npm包</div><div class="line">npm install -g hexo-cli</div><div class="line">npm install</div><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hexo-git-backup --save</div><div class="line"></div><div class="line">#5 部署</div><div class="line">hexo clean</div><div class="line">hexo g //產生發佈文件</div><div class="line">hexo d //發佈至github-master</div><div class="line">hexo b //備份至github-Hexo</div></pre></td></tr></table></figure>
+<h1 id="更換環境"><a href="#更換環境" class="headerlink" title="更換環境"></a>更換環境</h1><h2 id="執行步驟"><a href="#執行步驟" class="headerlink" title="執行步驟"></a>執行步驟</h2><p>如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#1.克隆到本地</div><div class="line">git clone https://github.com/用户名/用户名.github.io.git Kanbooblog</div><div class="line"></div><div class="line">#2.切換到blog目錄;</div><div class="line">cd blog目錄</div><div class="line"></div><div class="line">#3.切換備份的分支分稱</div><div class="line">git checkout Hexo</div><div class="line"></div><div class="line">#4.安装各种npm包</div><div class="line">npm install -g hexo-cli</div><div class="line">npm install</div><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hexo-git-backup --save</div><div class="line"></div><div class="line">#5 部署</div><div class="line">hexo clean</div><div class="line">hexo g //產生發佈文件</div><div class="line">hexo d //發佈至github-master</div><div class="line">hexo b //備份至github-Hexo</div></pre></td></tr></table></figure>
+<h2 id="可能遇到的問題"><a href="#可能遇到的問題" class="headerlink" title="可能遇到的問題"></a>可能遇到的問題</h2><h3 id="1-warning-LF-will-be-replaced-by-CRLF"><a href="#1-warning-LF-will-be-replaced-by-CRLF" class="headerlink" title="1.warning: LF will be replaced by CRLF"></a>1.warning: LF will be replaced by CRLF</h3><p>在 <code>Windows</code> 中廣泛使用來標識一行的結束。而在Linux / UNIX系統中只有換行符。<br>也就是說在Windows中的換行符為CRLF，而在linux的下的換行符為：LF，<br>當執行 <strong>git指令</strong> 時，系統提示：LF將被轉換成CRLF。</p>
+<p><strong>解決方法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.autocrlf false</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://blog.bflyer.com/2015/09/17/git%E6%8F%90%E7%A4%BAwarning-LF-will-be-replaced-by-CRLF/" target="_blank" rel="external">git提示警告：LF將被CRLF替換</a><br><a href="https://gaomf.cn/2017/01/13/Hexo_Git_CRLF/" target="_blank" rel="external">Hexo Git部署警告”warning： LF will be replaced by CRLF”的去除方法</a></p>
+</blockquote>
+<h3 id="2-備份失敗"><a href="#2-備份失敗" class="headerlink" title="2.備份失敗"></a>2.備份失敗</h3><p>若是第一次執行 <code>hexo b</code> 的話，可能會遇到備份無法正常上傳至github,<br>只要先執行一次 <code>git push</code> 後，以後再次要備份的話，就再執行 <code>hexo b</code> 即可。</p>
+<img src="/2017/10/14/Hexo-backup/hexo01.png" alt="hexo01.png" title="">
 <hr>
 <h1 id="部落格更新與部署新文章"><a href="#部落格更新與部署新文章" class="headerlink" title="部落格更新與部署新文章"></a>部落格更新與部署新文章</h1><p>日後在不同電腦上要新增文件的話，就重覆下列的動作即可。</p>
 <ol>
@@ -438,6 +448,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/15/MAC-iTerm2-Zsh/" rel="prev" title="MAC-讓終端機變好看">
+                MAC-讓終端機變好看 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -514,7 +528,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -525,7 +539,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -536,7 +550,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -571,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初次備份環境建立"><span class="nav-number">1.</span> <span class="nav-text">初次備份環境建立</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#實作順序"><span class="nav-number">1.1.</span> <span class="nav-text">實作順序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝插件"><span class="nav-number">1.2.</span> <span class="nav-text">安裝插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設置"><span class="nav-number">1.3.</span> <span class="nav-text">設置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#備份指令"><span class="nav-number">1.4.</span> <span class="nav-text">備份指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更換環境"><span class="nav-number">2.</span> <span class="nav-text">更換環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部落格更新與部署新文章"><span class="nav-number">3.</span> <span class="nav-text">部落格更新與部署新文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考網站"><span class="nav-number">4.</span> <span class="nav-text">參考網站</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初次備份環境建立"><span class="nav-number">1.</span> <span class="nav-text">初次備份環境建立</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#實作順序"><span class="nav-number">1.1.</span> <span class="nav-text">實作順序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝插件"><span class="nav-number">1.2.</span> <span class="nav-text">安裝插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設置"><span class="nav-number">1.3.</span> <span class="nav-text">設置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#備份指令"><span class="nav-number">1.4.</span> <span class="nav-text">備份指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更換環境"><span class="nav-number">2.</span> <span class="nav-text">更換環境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行步驟"><span class="nav-number">2.1.</span> <span class="nav-text">執行步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的問題"><span class="nav-number">2.2.</span> <span class="nav-text">可能遇到的問題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-warning-LF-will-be-replaced-by-CRLF"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.warning: LF will be replaced by CRLF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-備份失敗"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.備份失敗</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部落格更新與部署新文章"><span class="nav-number">3.</span> <span class="nav-text">部落格更新與部署新文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考網站"><span class="nav-number">4.</span> <span class="nav-text">參考網站</span></a></li></ol></div>
             
 
           </div>
