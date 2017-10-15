@@ -27,7 +27,7 @@ tags:
 
 ## 安裝插件
 
-```
+``` npm
 npm install hexo-git-backup --save
 ```
 
@@ -37,7 +37,7 @@ npm install hexo-git-backup --save
 
 在 hexo/_config.yml文件中为插件添加设置
 
-```
+``` npm
 # 備份Hexo
 backup:
     type: git
@@ -48,13 +48,13 @@ backup:
 
 ## 備份指令
 
-```
+``` npm
 hexo backup
 ```
 
 或者
 
-```
+``` npm
 hexo b
 ```
 
@@ -62,14 +62,16 @@ hexo b
 
 # 更換環境
 
+## 執行步驟
+
 如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。
 
-```
-#1.切換到blog目錄;
-cd blog目錄
+``` npm
+#1.克隆到本地
+git clone https://github.com/用户名/用户名.github.io.git Kanbooblog
 
-#2.克隆到本地
-git clone https://github.com/用户名/用户名.github.io.git
+#2.切換到blog目錄;
+cd blog目錄
 
 #3.切換備份的分支分稱
 git checkout Hexo
@@ -86,6 +88,31 @@ hexo g //產生發佈文件
 hexo d //發佈至github-master
 hexo b //備份至github-Hexo
 ```
+
+## 可能遇到的問題
+
+### 1.warning: LF will be replaced by CRLF
+
+在 `Windows` 中廣泛使用來標識一行的結束。而在Linux / UNIX系統中只有換行符。
+也就是說在Windows中的換行符為CRLF，而在linux的下的換行符為：LF，
+當執行 **git指令** 時，系統提示：LF將被轉換成CRLF。
+
+**解決方法：**
+
+``` git
+$ git config --global core.autocrlf false
+```
+
+> [git提示警告：LF將被CRLF替換](http://blog.bflyer.com/2015/09/17/git%E6%8F%90%E7%A4%BAwarning-LF-will-be-replaced-by-CRLF/)
+> [Hexo Git部署警告"warning： LF will be replaced by CRLF"的去除方法](https://gaomf.cn/2017/01/13/Hexo_Git_CRLF/)
+
+### 2.備份失敗
+
+若是第一次執行 `hexo b` 的話，可能會遇到備份無法正常上傳至github, 
+只要先執行一次 `git push` 後，以後再次要備份的話，就再執行 `hexo b` 即可。
+
+{% asset_img hexo01.png %}
+
 ***
 
 # 部落格更新與部署新文章
