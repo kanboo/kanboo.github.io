@@ -65,7 +65,7 @@ hexo b
 如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。
 
 ``` npm
-#1.克隆到本地
+#1.克隆到本地1
 git clone https://github.com/用户名/用户名.github.io.git Kanbooblog
 
 #2.切換到blog目錄;
