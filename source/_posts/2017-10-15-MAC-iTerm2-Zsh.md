@@ -79,4 +79,4 @@ iTerm --> Preferences --> Profiles --> Text --> Change Font
 ```
 
 > [安裝Powerline專屬字型](http://oomusou.io/osx/iterm2-setup/#安裝Powerline專屬字型)
-> [美化你的終端機](https://medium.com/appworks-school/%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E7%B5%82%E7%AB%AF%E6%A9%9F-7af0dabcf368)
+> [美化你的終端機](https://medium.com/appworks-school/%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E7%B5%82%E7%AB%AF%E6%A9%9F-7af0dabcf368)
