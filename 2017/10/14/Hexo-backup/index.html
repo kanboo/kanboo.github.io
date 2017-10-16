@@ -103,7 +103,7 @@
 <meta property="og:description" content="前言簡單來說，實現備份方法就是利用 二個分支線 個別放我們要的檔案，一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案，  master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面 hexo: 利用 git command 推送，存放部落格原始碼   由於 Github Page 本身限制頁面主要分支必須為 master，因此考慮增設分支 hexo 用以存放部">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2017/10/14/Hexo-backup/backup01.png">
-<meta property="og:updated_time" content="2017-10-16T15:10:08.000Z">
+<meta property="og:updated_time" content="2017-10-16T16:04:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-備份">
 <meta name="twitter:description" content="前言簡單來說，實現備份方法就是利用 二個分支線 個別放我們要的檔案，一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案，  master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面 hexo: 利用 git command 推送，存放部落格原始碼   由於 Github Page 本身限制頁面主要分支必須為 master，因此考慮增設分支 hexo 用以存放部">
@@ -382,7 +382,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch hexo</div></pre></td></tr></table></figure>
 </li>
 <li><p>將檔案備份至 hexo 分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m “backup”</div><div class="line">$ git push origin hexo</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin hexo</div></pre></td></tr></table></figure>
 </li>
 <li><p>github上設定 hexo 為 默認分支 </p>
 <p> 日後不同電腦clone下來時，不用再特別切換 hexo 分支 </p>
