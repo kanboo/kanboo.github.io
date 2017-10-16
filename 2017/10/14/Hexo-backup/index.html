@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="初次備份環境建立此動作僅需在第一台撰寫Blog電腦上執行即可，如果日後換新電腦或要在不同台電腦撰寫Blog的話，請參考下面的 更換環境 的操作。 實作順序第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。  安裝 hexo-git-backup  _config.yml文件中，設定好github路徑及分支名稱 執行 hexo b">
+<meta name="description" content="前言簡單來說，實現備份方法就是利用 二個分支線 個別放我們要的檔案，一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案，  master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面 hexo: 利用 git command 推送，存放部落格原始碼   由於 Github Page 本身限制頁面主要分支必須為 master，因此考慮增設分支 hexo 用以存放部">
 <meta name="keywords" content="Hexo,備份">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-備份">
 <meta property="og:url" content="https://kanboo.github.io/2017/10/14/Hexo-backup/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="初次備份環境建立此動作僅需在第一台撰寫Blog電腦上執行即可，如果日後換新電腦或要在不同台電腦撰寫Blog的話，請參考下面的 更換環境 的操作。 實作順序第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。  安裝 hexo-git-backup  _config.yml文件中，設定好github路徑及分支名稱 執行 hexo b">
+<meta property="og:description" content="前言簡單來說，實現備份方法就是利用 二個分支線 個別放我們要的檔案，一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案，  master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面 hexo: 利用 git command 推送，存放部落格原始碼   由於 Github Page 本身限制頁面主要分支必須為 master，因此考慮增設分支 hexo 用以存放部">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://kanboo.github.io/2017/10/14/Hexo-backup/hexo01.png">
-<meta property="og:updated_time" content="2017-10-15T13:44:13.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2017/10/14/Hexo-backup/backup01.png">
+<meta property="og:updated_time" content="2017-10-16T14:59:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-備份">
-<meta name="twitter:description" content="初次備份環境建立此動作僅需在第一台撰寫Blog電腦上執行即可，如果日後換新電腦或要在不同台電腦撰寫Blog的話，請參考下面的 更換環境 的操作。 實作順序第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。  安裝 hexo-git-backup  _config.yml文件中，設定好github路徑及分支名稱 執行 hexo b">
-<meta name="twitter:image" content="https://kanboo.github.io/2017/10/14/Hexo-backup/hexo01.png">
+<meta name="twitter:description" content="前言簡單來說，實現備份方法就是利用 二個分支線 個別放我們要的檔案，一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案，  master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面 hexo: 利用 git command 推送，存放部落格原始碼   由於 Github Page 本身限制頁面主要分支必須為 master，因此考慮增設分支 hexo 用以存放部">
+<meta name="twitter:image" content="https://kanboo.github.io/2017/10/14/Hexo-backup/backup01.png">
 
 
 
@@ -364,34 +364,44 @@
       
 
       
-        <h1 id="初次備份環境建立"><a href="#初次備份環境建立" class="headerlink" title="初次備份環境建立"></a>初次備份環境建立</h1><p>此動作僅需在<code>第一台撰寫Blog電腦</code>上執行即可，<br>如果日後換新電腦或要在不同台電腦撰寫Blog的話，<br>請參考下面的 <code>更換環境</code> 的操作。</p>
-<h2 id="實作順序"><a href="#實作順序" class="headerlink" title="實作順序"></a>實作順序</h2><p>第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。</p>
-<ol>
-<li>安裝 hexo-git-backup </li>
-<li>_config.yml文件中，設定好<strong>github路徑</strong>及<strong>分支名稱</strong></li>
-<li>執行 <code>hexo b</code></li>
-</ol>
-<a id="more"></a>
-<h2 id="安裝插件"><a href="#安裝插件" class="headerlink" title="安裝插件"></a>安裝插件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-git-backup --save</div></pre></td></tr></table></figure>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>簡單來說，實現備份方法就是利用 <code>二個分支線</code> 個別放我們要的檔案，<br>一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案，</p>
+<ul>
+<li>master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面</li>
+<li>hexo: 利用 git command 推送，存放部落格原始碼</li>
+</ul>
 <blockquote>
-<p><a href="https://github.com/coneycode/hexo-git-backup" target="_blank" rel="external">hexo-git-backup插件</a></p>
+<p>由於 Github Page 本身限制頁面主要分支必須為 master，<br>因此考慮增設分支 hexo 用以存放部落格原始碼。</p>
 </blockquote>
-<h2 id="設置"><a href="#設置" class="headerlink" title="設置"></a>設置</h2><p>在 hexo/_config.yml文件中为插件添加设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 備份Hexo</div><div class="line">backup:</div><div class="line">    type: git</div><div class="line">    theme: next,landscape  //可選，主题備份</div><div class="line">    repository:</div><div class="line">       github: https://github.com/用户名/用户名.github.io.git,Hexo  //備份的目的路径，必填branch分支</div></pre></td></tr></table></figure>
-<h2 id="備份指令"><a href="#備份指令" class="headerlink" title="備份指令"></a>備份指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo backup</div></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo b</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="重點提醒"><a href="#重點提醒" class="headerlink" title="重點提醒"></a>重點提醒</h1><p>當環境都設定好以後，日後不管是在哪一台電腦上撰寫文件、發佈文件、備份檔案，<br>都是在</p>
+<p><code>hexo 分支上</code><br><code>hexo 分支上</code><br><code>hexo 分支上</code></p>
+<p>因為很重要，所以說三次。</p>
+<h1 id="初次備份環境建立"><a href="#初次備份環境建立" class="headerlink" title="初次備份環境建立"></a>初次備份環境建立</h1><p>此動作僅需在<code>第一台撰寫Blog電腦</code>上執行即可，<br>如果日後換新電腦或要在不同台電腦撰寫Blog的話，<br>請參考下面的 <code>更換環境</code> 的操作。</p>
+<h2 id="實作步驟"><a href="#實作步驟" class="headerlink" title="實作步驟"></a>實作步驟</h2><ol>
+<li><p>新建 hexo 分支 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch hexo</div></pre></td></tr></table></figure>
+</li>
+<li><p>將檔案備份至 hexo 分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit -m “backup”</div><div class="line">$ git push origin hexo</div><div class="line">$ git push orgin hexo</div></pre></td></tr></table></figure>
+</li>
+<li><p>github上設定 hexo 為 默認分支 </p>
+<p> 日後不同電腦clone下來時，不用再特別切換 hexo 分支 </p>
+ <img src="/2017/10/14/Hexo-backup/backup01.png" alt="backup01.png" title="">
+</li>
+<li><p>確認 配置hexo deploy 的参数</p>
+<p> 確認 branch參數一定是設定 <code>master</code> 分支,因為日後操作都在 <code>hexo 分支上</code>，<br> 至於要發佈文件的話，就靠指令 <code>hexo d</code> 幫我們建立發佈的文章。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repository: https://github.com/用戶名/用戶名.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <hr>
 <h1 id="更換環境"><a href="#更換環境" class="headerlink" title="更換環境"></a>更換環境</h1><h2 id="執行步驟"><a href="#執行步驟" class="headerlink" title="執行步驟"></a>執行步驟</h2><p>如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#1.克隆到本地</div><div class="line">git clone https://github.com/用户名/用户名.github.io.git Kanbooblog</div><div class="line"></div><div class="line">#2.切換到blog目錄;</div><div class="line">cd blog目錄</div><div class="line"></div><div class="line">#3.切換備份的分支分稱</div><div class="line">git checkout Hexo</div><div class="line"></div><div class="line">#4.安装各种npm包</div><div class="line">npm install -g hexo-cli</div><div class="line">npm install</div><div class="line">npm install hexo-deployer-git --save</div><div class="line">npm install hexo-git-backup --save</div><div class="line"></div><div class="line">#5 部署</div><div class="line">hexo clean</div><div class="line">hexo g //產生發佈文件</div><div class="line">hexo d //發佈至github-master</div><div class="line">hexo b //備份至github-Hexo</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#1.克隆到本地</div><div class="line">git clone https://github.com/用户名/用户名.github.io.git Kanbooblog</div><div class="line"></div><div class="line">#2.切換到blog目錄;</div><div class="line">cd blog目錄</div><div class="line"></div><div class="line">#3.確認目前分支是否為hexo，若不是，則切換備份的分支分稱(hexo)</div><div class="line">git checkout Hexo</div><div class="line"></div><div class="line">#4.安装各种npm包</div><div class="line">npm install -g hexo-cli</div><div class="line">npm install</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <h2 id="可能遇到的問題"><a href="#可能遇到的問題" class="headerlink" title="可能遇到的問題"></a>可能遇到的問題</h2><h3 id="1-warning-LF-will-be-replaced-by-CRLF"><a href="#1-warning-LF-will-be-replaced-by-CRLF" class="headerlink" title="1.warning: LF will be replaced by CRLF"></a>1.warning: LF will be replaced by CRLF</h3><p>在 <code>Windows</code> 中廣泛使用來標識一行的結束。而在Linux / UNIX系統中只有換行符。<br>也就是說在Windows中的換行符為CRLF，而在linux的下的換行符為：LF，<br>當執行 <strong>git指令</strong> 時，系統提示：LF將被轉換成CRLF。</p>
 <p><strong>解決方法：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.autocrlf false</div></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="http://blog.bflyer.com/2015/09/17/git%E6%8F%90%E7%A4%BAwarning-LF-will-be-replaced-by-CRLF/" target="_blank" rel="external">git提示警告：LF將被CRLF替換</a><br><a href="https://gaomf.cn/2017/01/13/Hexo_Git_CRLF/" target="_blank" rel="external">Hexo Git部署警告”warning： LF will be replaced by CRLF”的去除方法</a></p>
 </blockquote>
-<h3 id="2-備份失敗"><a href="#2-備份失敗" class="headerlink" title="2.備份失敗"></a>2.備份失敗</h3><p>若是第一次執行 <code>hexo b</code> 的話，可能會遇到備份無法正常上傳至github,<br>只要先執行一次 <code>git push</code> 後，以後再次要備份的話，就再執行 <code>hexo b</code> 即可。</p>
-<img src="/2017/10/14/Hexo-backup/hexo01.png" alt="hexo01.png" title="">
 <hr>
 <h1 id="部落格更新與部署新文章"><a href="#部落格更新與部署新文章" class="headerlink" title="部落格更新與部署新文章"></a>部落格更新與部署新文章</h1><p>日後在不同電腦上要新增文件的話，就重覆下列的動作即可。</p>
 <ol>
@@ -401,11 +411,12 @@
 <li><p>修改部落格配置或撰寫新文章</p>
 </li>
 <li><p>添加變更並推送</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g //產生發佈的文件</div><div class="line">hexo d //發佈至github-master</div><div class="line">hexo b //備份至github-Hexo</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo g //產生發佈的文件</div><div class="line">$ hexo d //發佈至github-master</div><div class="line"></div><div class="line">//備份至github-Hexo</div><div class="line">$ git add .</div><div class="line">$ git commit -m &quot;message&quot;</div><div class="line">$ git push origin hexo</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
-<h1 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h1><p><a href="https://hsins.github.io/2016/12/30/hexo-sync-with-multiple-computer/" target="_blank" rel="external">實現不同電腦上 Hexo 部落格的同步</a></p>
+<h1 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h1><p><a href="http://www.dxjia.cn/2016/01/27/hexo-write-everywhere/" target="_blank" rel="external">Hexo利用Github分支在不同电脑上写博客</a></p>
+<p><a href="https://hsins.github.io/2016/12/30/hexo-sync-with-multiple-computer/" target="_blank" rel="external">實現不同電腦上 Hexo 部落格的同步</a></p>
 <p><a href="http://luckylau.tech/2017/01/21/hexo%E5%A4%87%E4%BB%BD%E5%B0%8F%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">hexo备份小技巧</a></p>
 
       
@@ -585,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初次備份環境建立"><span class="nav-number">1.</span> <span class="nav-text">初次備份環境建立</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#實作順序"><span class="nav-number">1.1.</span> <span class="nav-text">實作順序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝插件"><span class="nav-number">1.2.</span> <span class="nav-text">安裝插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設置"><span class="nav-number">1.3.</span> <span class="nav-text">設置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#備份指令"><span class="nav-number">1.4.</span> <span class="nav-text">備份指令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更換環境"><span class="nav-number">2.</span> <span class="nav-text">更換環境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行步驟"><span class="nav-number">2.1.</span> <span class="nav-text">執行步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的問題"><span class="nav-number">2.2.</span> <span class="nav-text">可能遇到的問題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-warning-LF-will-be-replaced-by-CRLF"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.warning: LF will be replaced by CRLF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-備份失敗"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.備份失敗</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部落格更新與部署新文章"><span class="nav-number">3.</span> <span class="nav-text">部落格更新與部署新文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考網站"><span class="nav-number">4.</span> <span class="nav-text">參考網站</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重點提醒"><span class="nav-number">2.</span> <span class="nav-text">重點提醒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初次備份環境建立"><span class="nav-number">3.</span> <span class="nav-text">初次備份環境建立</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#實作步驟"><span class="nav-number">3.1.</span> <span class="nav-text">實作步驟</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更換環境"><span class="nav-number">4.</span> <span class="nav-text">更換環境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行步驟"><span class="nav-number">4.1.</span> <span class="nav-text">執行步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的問題"><span class="nav-number">4.2.</span> <span class="nav-text">可能遇到的問題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-warning-LF-will-be-replaced-by-CRLF"><span class="nav-number">4.2.1.</span> <span class="nav-text">1.warning: LF will be replaced by CRLF</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部落格更新與部署新文章"><span class="nav-number">5.</span> <span class="nav-text">部落格更新與部署新文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考網站"><span class="nav-number">6.</span> <span class="nav-text">參考網站</span></a></li></ol></div>
             
 
           </div>

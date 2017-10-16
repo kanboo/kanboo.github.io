@@ -513,13 +513,14 @@
 
       
         
-          <h1 id="初次備份環境建立"><a href="#初次備份環境建立" class="headerlink" title="初次備份環境建立"></a>初次備份環境建立</h1><p>此動作僅需在<code>第一台撰寫Blog電腦</code>上執行即可，<br>如果日後換新電腦或要在不同台電腦撰寫Blog的話，<br>請參考下面的 <code>更換環境</code> 的操作。</p>
-<h2 id="實作順序"><a href="#實作順序" class="headerlink" title="實作順序"></a>實作順序</h2><p>第一次執行備份至 github的分支(Hexo) 時，他會自動幫你建立新的分支(Hexo)。</p>
-<ol>
-<li>安裝 hexo-git-backup </li>
-<li>_config.yml文件中，設定好<strong>github路徑</strong>及<strong>分支名稱</strong></li>
-<li>執行 <code>hexo b</code></li>
-</ol>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>簡單來說，實現備份方法就是利用 <code>二個分支線</code> 個別放我們要的檔案，<br>一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案，</p>
+<ul>
+<li>master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面</li>
+<li>hexo: 利用 git command 推送，存放部落格原始碼</li>
+</ul>
+<blockquote>
+<p>由於 Github Page 本身限制頁面主要分支必須為 master，<br>因此考慮增設分支 hexo 用以存放部落格原始碼。</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/14/Hexo-backup/#more" rel="contents">
