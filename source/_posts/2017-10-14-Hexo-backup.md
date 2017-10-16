@@ -49,8 +49,6 @@ $ git branch hexo
 
 2. 將檔案備份至 hexo 分支
 ```
-$ git add .
-$ git commit -m “backup”
 $ git push origin hexo
 ```
 
