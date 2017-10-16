@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Kanboo Notes">
 <meta property="og:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-10-15T13:44:13.000Z">
+<meta property="og:updated_time" content="2017-10-16T15:14:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC-讓終端機變好看">
 <meta name="twitter:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
@@ -371,6 +371,9 @@
 <a id="more"></a>
 <hr>
 <h1 id="問題紀錄"><a href="#問題紀錄" class="headerlink" title="問題紀錄"></a>問題紀錄</h1><h2 id="zsh指令失效"><a href="#zsh指令失效" class="headerlink" title="zsh指令失效"></a>zsh指令失效</h2><p>安裝完zsh，在使用相關shell命令，出現了<br><code>zsh: command not found Node</code><br><code>zsh: command not found: hexo</code><br>等一系列error</p>
+<blockquote>
+<p>zsh 和bash 的環境變量<br>bash的環境變量是.bash_profile文件。<br>zsh的環境變量是.zshrc文件。</p>
+</blockquote>
 <p>字面意思是相關命令沒有沒有找到，其實就是bash shell 以及 zsh shell是 <code>兩種讀取系統環境變量</code>，<br>簡單來說就是說 <code>node、Hexo</code>…等套件 是在使用 <code>bash</code> 時候，安裝好的，所以會設定在 <code>.bash_profile</code>裡，<br>後來改使用 <code>zsh shell</code> 的時候，你並沒有把相關的環境變量的配置設置到 <code>.zshrc</code> 中（功能上類似bash 的.bash_profile），<br>所以 .zshrc 沒有配置相關環境變量設置，就把bash 中.bash_profile 全部環境變量加入 .zshrc 就好。</p>
 <p>加入方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#打開 zsh 的設定檔</div><div class="line">open ~/.zshrc</div><div class="line"></div><div class="line"># 最后一行加入下面指令</div><div class="line"># 解決OSX使用oh-my-zsh後.bash_profile自定義失效</div><div class="line">source ~/.bash_profile</div></pre></td></tr></table></figure></p>
 <blockquote>
