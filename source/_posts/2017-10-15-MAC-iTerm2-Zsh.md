@@ -34,6 +34,10 @@ tags:
 `zsh: command not found: hexo` 
 等一系列error
 
+> zsh 和bash 的環境變量
+> bash的環境變量是.bash_profile文件。
+> zsh的環境變量是.zshrc文件。
+
 字面意思是相關命令沒有沒有找到，其實就是bash shell 以及 zsh shell是 `兩種讀取系統環境變量`，
 簡單來說就是說 `node、Hexo`...等套件 是在使用 `bash` 時候，安裝好的，所以會設定在 `.bash_profile`裡，
 後來改使用 `zsh shell` 的時候，你並沒有把相關的環境變量的配置設置到 `.zshrc` 中（功能上類似bash 的.bash_profile），

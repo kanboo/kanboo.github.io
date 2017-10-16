@@ -155,18 +155,27 @@ hexo d == hexo deploy
 3. [NexT細項功能設定](http://theme-next.iissnan.com/getting-started.html#theme-settings)
 
 
-> 如果啟用 **分類、標籤** 的話，並不會自動幫你建立，可參考下列插件協助產生
-> 
+如果啟用 **分類、標籤** 的話，並不會自動幫你建立，可參考下列協助產生
+
+```
+新建分類、標籤、關於頁面：
+$ hexo new page ‘categories’
+$ hexo new page ‘tags’
+$ hexo new page ‘about’
+```
+
 > [hexo-generator-category	產生分類頁](https://github.com/hexojs/hexo-generator-category)
 > `$ npm install hexo-generator-category --save`
 >
 > [hexo-generator-tag	產生標籤頁](https://github.com/hexojs/hexo-generator-tag)
 > `$ npm install hexo-generator-tag --save`
 
+***
 
 # 參考網站
 
 [Hexo搭建GitHub博客 系列文章](http://zhiho.github.io/categories/hexo/)
+[Github Pages + Hexo搭建博客](http://fanzhenyu.me/categories/Hexo/)
 [當個部落客](http://blog.30cm.net/2017/01/21/%E7%95%B6%E5%80%8B%E9%83%A8%E8%90%BD%E5%AE%A2%EF%BC%81%E3%80%8C-Hexo-%E3%80%8D%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E5%AD%B8/)
 [McK-Note](https://www.mcknote.com/2016/04/04/Set-up-McK-Note/)
 
