@@ -61,16 +61,16 @@ tags:
 
 若您的電腦已經安裝上述的必備軟體，那麼恭喜您！只需要透過 npm 即可完成 Hexo 的安裝。
 
-```
+```zsh
 $ npm install -g hexo-cli
 ```
 
 ## 建立
 
-```
-$ hexo init yourname ( 初始化新的 Hexo )
-$ cd yourname  ( 進入您剛剛建立的 Hexo 資料夾當中 )
-$ npm install （ 安裝 Hexo )
+``` zsh
+$ hexo init yourname # ( 初始化新的 Hexo )
+$ cd yourname  # ( 進入您剛剛建立的 Hexo 資料夾當中 )
+$ npm install #（ 安裝 Hexo )
 ```
 
 > **yourname** 就是指在電腦裡的檔案名稱，可以隨意取，例如「myhexoblog」
@@ -125,14 +125,14 @@ deploy:
 
 ### 指令
 
-```
-hexo new "postName"  #新建文章
-hexo clean #清除快取
-hexo generate #生成靜態頁面至public目錄
-hexo server #開啟預覽訪問端口（默認端口4000，'ctrl + c'關閉server）
-hexo deploy  #將.deploy目錄部署到GitHub
-hexo help   #查看幫助
-hexo version   #查看Hexo的版本
+``` zsh
+$ hexo new "postName"  #新建文章
+$ hexo clean #清除快取
+$ hexo generate #生成靜態頁面至public目錄
+$ hexo server #開啟預覽訪問端口（默認端口4000，'ctrl + c'關閉server）
+$ hexo deploy  #將.deploy目錄部署到GitHub
+$ hexo help   #查看幫助
+$ hexo version   #查看Hexo的版本
 ```
 
 指令簡寫

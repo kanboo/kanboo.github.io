@@ -43,12 +43,12 @@ tags:
 ## 實作步驟
 
 1. 新建 hexo 分支 
-```
+``` dos
 $ git branch hexo
 ```
 
 2. 將檔案備份至 hexo 分支
-```
+``` powershell
 $ git push origin hexo
 ```
 
@@ -77,20 +77,20 @@ $ git push origin hexo
 
 如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。
 
-``` npm
+``` zsh
 #1.克隆到本地
-git clone https://github.com/用户名/用户名.github.io.git Kanbooblog
+$ git clone https://github.com/用户名/用户名.github.io.git Kanbooblog
 
 #2.切換到blog目錄;
-cd blog目錄
+$ cd blog目錄
 
 #3.確認目前分支是否為hexo，若不是，則切換備份的分支分稱(hexo)
-git checkout Hexo
+$ git checkout Hexo
 
 #4.安装各种npm包
-npm install -g hexo-cli
-npm install
-npm install hexo-deployer-git --save
+$ npm install -g hexo-cli
+$ npm install
+$ npm install hexo-deployer-git --save
 
 ```
 
@@ -104,7 +104,7 @@ npm install hexo-deployer-git --save
 
 **解決方法：**
 
-``` git
+``` zsh
 $ git config --global core.autocrlf false
 ```
 
@@ -125,12 +125,14 @@ $ git pull
 2. 修改部落格配置或撰寫新文章
 
 3. 添加變更並推送
-```
+``` zsh
 $ hexo clean
-$ hexo g //產生發佈的文件
-$ hexo d //發佈至github-master
+# 產生發佈的文件
+$ hexo g 
+# 發佈至github-master
+$ hexo d 
 
-//備份至github-Hexo
+# 備份至github-Hexo
 $ git add .
 $ git commit -m "message"
 $ git push origin hexo

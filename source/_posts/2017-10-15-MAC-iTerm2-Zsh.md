@@ -44,7 +44,7 @@ tags:
 所以 .zshrc 沒有配置相關環境變量設置，就把bash 中.bash_profile 全部環境變量加入 .zshrc 就好。
 
 加入方法：
-``` 
+``` zsh
 #打開 zsh 的設定檔
 open ~/.zshrc
 
@@ -77,7 +77,7 @@ iTerm --> Preferences --> Profiles --> Text --> Change Font
 
 3. VSCode設定 字型
 在設定參數裡，新增下列二行
-```
+``` zsh
 "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
 "terminal.integrated.fontSize": 14
 ```
