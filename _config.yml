@@ -90,3 +90,10 @@ deploy:
 #     theme: next,landscape
 #     repository:
 #        github: https://github.com/kanboo/kanboo.github.io.git,Hexo
+
+# 啟動搜尋
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 50
