@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[MAC-讓終端機變好看]]></title>
+    <url>%2F2017%2F10%2F15%2FMAC-iTerm2-Zsh%2F</url>
+    <content type="text"><![CDATA[前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。 為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文 問題紀錄zsh指令失效安裝完zsh，在使用相關shell命令，出現了zsh: command not found Nodezsh: command not found: hexo等一系列error zsh 和bash 的環境變量bash的環境變量是.bash_profile文件。zsh的環境變量是.zshrc文件。 字面意思是相關命令沒有沒有找到，其實就是bash shell 以及 zsh shell是 兩種讀取系統環境變量，簡單來說就是說 node、Hexo…等套件 是在使用 bash 時候，安裝好的，所以會設定在 .bash_profile裡，後來改使用 zsh shell 的時候，你並沒有把相關的環境變量的配置設置到 .zshrc 中（功能上類似bash 的.bash_profile），所以 .zshrc 沒有配置相關環境變量設置，就把bash 中.bash_profile 全部環境變量加入 .zshrc 就好。 加入方法：123456#打開 zsh 的設定檔open ~/.zshrc# 最后一行加入下面指令# 解決OSX使用oh-my-zsh後.bash_profile自定義失效source ~/.bash_profile zsh: command not foundzsh: command not found解决OSX使用oh-my-zsh后.bash_profile自定义失效 安裝字型原先是跟著最上面文章教學，安裝 字型(Meslo LG M Regular for Powerline)，再修改相關設定後，此字型在 iTerm 上，顯示箭頭是正常的，不過在VScode上面，顯示 箭頭 卻還是有亂碼，所以去Google一下，結果如下 先安裝 字型 1234# 安裝字型$ git clone git://github.com/powerline/fonts ~/.powerline_fonts$ cd ~/.powerline_fonts$ ./install.sh iTerm設定 字型iTerm –&gt; Preferences –&gt; Profiles –&gt; Text –&gt; Change Font推薦使用 Source Code Pro (Adobe的）與 Ubuntu Mono，這兩個字型都相當適合寫程式使用。 VSCode設定 字型在設定參數裡，新增下列二行 12"terminal.integrated.fontFamily": "Source Code Pro for Powerline","terminal.integrated.fontSize": 14 安裝Powerline專屬字型美化你的終端機]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>iTerm2</tag>
+        <tag>ZSH</tag>
+        <tag>終端機</tag>
+        <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo-備份]]></title>
+    <url>%2F2017%2F10%2F14%2FHexo-backup%2F</url>
+    <content type="text"><![CDATA[前言簡單來說，實現備份方法就是利用 二個分支線 個別放我們要的檔案，一個分支線 放 發佈的文章，另一個分支線 放 備份的檔案， master: 利用 hexo deploy 直接推送，存放由 hexo 產生的靜態頁面 hexo: 利用 git command 推送，存放部落格原始碼 由於 Github Page 本身限制頁面主要分支必須為 master，因此考慮增設分支 hexo 用以存放部落格原始碼。 重點提醒當環境都設定好以後，日後不管是在哪一台電腦上撰寫文件、發佈文件、備份檔案，都是在 hexo 分支上hexo 分支上hexo 分支上 因為很重要，所以說三次。 初次備份環境建立此動作僅需在第一台撰寫Blog電腦上執行即可，如果日後換新電腦或要在不同台電腦撰寫Blog的話，請參考下面的 更換環境 的操作。 實作步驟 新建 hexo 分支 1$ git branch hexo 將檔案備份至 hexo 分支 1$ git push origin hexo github上設定 hexo 為 默認分支 日後不同電腦clone下來時，不用再特別切換 hexo 分支 確認 配置hexo deploy 的参数 確認 branch參數一定是設定 master 分支,因為日後操作都在 hexo 分支上， 至於要發佈文件的話，就靠指令 hexo d 幫我們建立發佈的文章。 1234deploy:type: gitrepository: https://github.com/用戶名/用戶名.github.io.gitbranch: master 更換環境執行步驟如果是第一次在新電腦的話，請先參考下列動作，先建立Blog的環境。 12345678910111213#1.克隆到本地$ git clone https://github.com/用户名/用户名.github.io.git Kanbooblog#2.切換到blog目錄;$ cd blog目錄#3.確認目前分支是否為hexo，若不是，則切換備份的分支分稱(hexo)$ git checkout Hexo#4.安装各种npm包$ npm install -g hexo-cli$ npm install$ npm install hexo-deployer-git --save 可能遇到的問題1.warning: LF will be replaced by CRLF在 Windows 中廣泛使用來標識一行的結束。而在Linux / UNIX系統中只有換行符。也就是說在Windows中的換行符為CRLF，而在linux的下的換行符為：LF，當執行 git指令 時，系統提示：LF將被轉換成CRLF。 解決方法： 1$ git config --global core.autocrlf false git提示警告：LF將被CRLF替換Hexo Git部署警告”warning： LF will be replaced by CRLF”的去除方法 部落格更新與部署新文章日後在不同電腦上要新增文件的話，就重覆下列的動作即可。 拉取遠端版本庫上的更新內容 1$ git pull 修改部落格配置或撰寫新文章 添加變更並推送 12345678910$ hexo clean# 產生發佈的文件$ hexo g # 發佈至github-master$ hexo d # 備份至github-Hexo$ git add .$ git commit -m "message"$ git push origin hexo 參考網站Hexo利用Github分支在不同电脑上写博客 實現不同電腦上 Hexo 部落格的同步 hexo备份小技巧]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>備份</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo-環境建置]]></title>
+    <url>%2F2017%2F10%2F14%2FHexo-Create%2F</url>
+    <content type="text"><![CDATA[前言建立Hexo環境，需要完成的事情有： 建置github空間 安裝 Node.js（如果還沒有的話） 安裝 Hexo 初始化 Hexo，並在目標資料夾建立所需檔案 安裝 hexo-deployer-git (很重要) 在_config.yml 中設定 Git 等資訊 空間：GitHub因為Blog需要上傳至雲端，所以這裡使用github的免費空間。 創建github page倉庫的名字 要和 你的帳號 一樣，如：用戶名.github.io 進入github page項目設置頁面選擇Settings 創建一個默認的頁面直接選擇Launch automatic -&gt; Continue to layouts page generator -&gt; Publish page,其他東西都不用修改。 查看效果至此，你的github page已經創建完成，你可以訪問自己的站點了。如：https://用戶名.github.io/ Hexo安裝安裝 Hexo 相當簡單；然而，在安裝前您必須先檢查下列您的電腦是否已經安裝下列軟體： Node.js Git 若您的電腦已經安裝上述的必備軟體，那麼恭喜您！只需要透過 npm 即可完成 Hexo 的安裝。 1$ npm install -g hexo-cli 建立123$ hexo init yourname # ( 初始化新的 Hexo )$ cd yourname # ( 進入您剛剛建立的 Hexo 資料夾當中 )$ npm install #（ 安裝 Hexo ) yourname 就是指在電腦裡的檔案名稱，可以隨意取，例如「myhexoblog」 設定進入您 Hexo 主目錄下之後，先找到 _config.yml 這個檔案！ 123456title: Kanboo Notes (輸入您的標題)subtitle: 健忘筆記本 （輸入您的至理名言）description:(輸入您的網站描述)author: Kanboo （輸入您的姓名）language: zh-TW （輸入您所使用的語言）timezone: (留空可以使用系統時間！) 同樣 _config.yml 這個檔案底下，找到 deploy 設定github 123456# Deployment## Docs: https://hexo.io/docs/deployment.htmldeploy: type: git repository: https://github.com/用戶名/用戶名.github.io.git branch: master 用戶名 就是指你自己的github帳號，記得改對，然後按存檔。 撰寫文件及常用指令撰寫文件至於內文採用的 Markdown 格式不難學，只需要記幾個常用的指令，遇到不懂的再上網查就好。 123456789斜體： *斜體* 粗體： **粗體** 粗斜體： ***粗斜體*** 刪除線：~~刪除~~ 引言： &gt; 引言 章節： # 章節 次級章節（以此類推）： ## 次級章節 表格（註1）：|一行|一行|疊| 插入超連結： [超連結文字](網址) 插入外部圖片： ![圖片描述](圖片網址) Markdown文件Markdown CheatsheetMarkdown 寫表格 指令1234567$ hexo new "postName" #新建文章$ hexo clean #清除快取$ hexo generate #生成靜態頁面至public目錄$ hexo server #開啟預覽訪問端口（默認端口4000，'ctrl + c'關閉server）$ hexo deploy #將.deploy目錄部署到GitHub$ hexo help #查看幫助$ hexo version #查看Hexo的版本 指令簡寫 1234hexo n == hexo newhexo g == hexo generatehexo s == hexo serverhexo d == hexo deploy 更換Blog主題(NexT)主要完成的步驟如下： 安裝 Blog主題(NexT) _config.yml 修改theme:NexT NexT細項功能設定 如果啟用 分類、標籤 的話，並不會自動幫你建立，可參考下列協助產生 1234新建分類、標籤、關於頁面：$ hexo new page ‘categories’$ hexo new page ‘tags’$ hexo new page ‘about’ hexo-generator-category 產生分類頁$ npm install hexo-generator-category --save hexo-generator-tag 產生標籤頁$ npm install hexo-generator-tag --save 參考網站Hexo搭建GitHub博客 系列文章Github Pages + Hexo搭建博客當個部落客McK-Note Hexo 官網NexT 官網]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LiveCoding-切個垂直時間軸]]></title>
+    <url>%2F2017%2F10%2F12%2Flivecoding-timeline%2F</url>
+    <content type="text"><![CDATA[教學來源Youtube：直播 - 切個垂直時間軸 GitHub 分支：https://goo.gl/VEbWkm 參考版型：https://goo.gl/rqjErS 螢幕吸顏色 Sip：https://goo.gl/Vh6YIo LiveCoding 官方網站：https://goo.gl/weYx5q LiveCoding Youtube 頻道：https://goo.gl/Hyih3u LiveCoding 臉書粉絲專頁：https://goo.gl/yhDg0l 排版小技巧紀錄 切版過程中，可常利用新增「外層的紅框線」，先確認位置是否正確，事後再拿掉。 border: 1px solid rgba(255, 0, 0, .3) CSS之calc可做運算式運算 calc(50% — 10px / 2) z-index z-index 記得搭配 position : relative 、 absolute 使用 z-index 數字越大的在越上面，反之則在越下面 行高 1234H3&#123; height: 45px; line-height: 45px;&#125; 深入 CSS 之 line-height 應用 時間紀錄點頭像(10分開始) 頭像+白色圓外框+黑色的陰影(12分30秒) 時間軸的 垂直中線 位置的偏移(14分30秒開始) 按鈕(載入更多)(28分19秒開始) 時間軸的icon(38分30秒開始) 資訊卡之小箭頭(1時3分30秒) 使用 CSS Arrow Please，再修改部份css 將 資訊卡區塊 開始變 左右 排版(1時7分 開始) 可用的方法有： 針對左右給不同的 class 用 js 控制 用 nth-child 12345678910/* content底下的第一子元素是:&lt;i&gt;第二個是&lt;button&gt;第三個是&lt;div 資訊卡&gt; *//* 從content底下的子元素，從第3個元素開始並每次加2的倍數(奇數) */:nth-child(2n + 3)/* 從content底下的子元素，從第4個元素開始並每次加2的倍數(偶數) */:nth-child(2n + 4) 用 js 動態新增資訊卡(1h 15分 開始) 123456789101112// 在div底下// 新增img HTML$('&lt;div /&gt;').append ($('&lt;img /&gt;')// 新增 info 的Class$('&lt;div /&gt;').addClass ('info')// 新增 data-time 屬性$('&lt;div /&gt;').attr ('data-time', "2017-10-10")// 新增 純文字$('&lt;div /&gt;').text('我是單純顯示的文字') 資訊卡之圖片(1時28分 開始) 123456789101112131415.content &#123; content屬性設定 .img &#123; img屬性設定 +h3 &#123; h3屬性設定-特例 &#125; &#125; .h3 &#123; h3屬性設定 &#125;&#125; 注意： img 底下有加一個 +h3 的設定 另外 img 平行也有一個 h3 的設定 這裡的觀念為 CSS權重，下列有二個 h3 的設定 1234567img+h3&#123; 屬性設定-特例&#125;h3&#123; 屬性設定&#125; 雖然CSS通常都是 權重一樣大 的話，就是 後面 蓋掉 前面 的屬性，但是 img+h3 權重 &gt; h3 權重，所以 img+h3 不會被後面 單一個h3 屬性蓋掉。 CSS權重 改寫 RWD的格式(1時34分30秒) js 塞入html方式 改寫用 object(json格式)(1時50分 開始)]]></content>
+      <categories>
+        <category>切版</category>
+      </categories>
+      <tags>
+        <tag>排版</tag>
+        <tag>LiveCoding</tag>
+        <tag>timeline</tag>
+        <tag>切版</tag>
+        <tag>scss</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Tool-gulp]]></title>
+    <url>%2F2017%2F10%2F09%2FTool-gulp%2F</url>
+    <content type="text"><![CDATA[gulp環境安裝安裝 Global Gulp 環境npm install gulp -g 如果無法安裝 Global Gulp 環境，請用以下並輸入系統密碼sudo npm install gulp -g 有沒有加入 -g 差異在哪裡呢？ 有加入 “-g”：這是安裝全域的套件也就是安裝在目前的電腦上目的是啟用 “gulp” 這個指令 沒有加入：這是 local 套件安裝的指令是裝在目前的專案資料夾內目的是執行 gulp 時可以取用的套件 總結：只有 npm install gulp -g 才會使用到全域的指令，在教學中， -g 也只會出現一次喔～其餘 gulp 套件只會用到 “npm install –save”。 gulp設定 建立 npm 環境 (package.json用於紀錄安裝什麼套件) npm init 建立 專案用的gulp環境 npm install gulp --save-dev 註1：最後面加 –save 代表將安裝紀錄，記在 package.json註2：安裝完後，會產生node_modules 資料夾(裡面會有許多npm的相依套件) 新增一個檔案：gulpfile.js (用於撰寫預執行的任務) 可搭配 Bower 一起建置開發環境。 1234567npm install gulp-sass --save -&gt;給「正式環境」使用npm install gulp-sass --save-dev -&gt;給「開發環境」使用--save-dev是你開發時候依賴的東西，--save是你發布之後還依賴的東西。比如，你寫ES6代碼，如果你想編譯成ES5發布那麼babel就是devDependencies。如果你用了jQuery，由於發布之後還是依賴jQuery，所以是dependencies。 gulp+bower 設定範本已建置完成範本：gulp-setting 當上述都已設定好，只要將設定檔放置新專案資料夾後，依序執行下列指令即可 123bower installnmp installgulp]]></content>
+      <categories>
+        <category>tool</category>
+      </categories>
+      <tags>
+        <tag>tool</tag>
+        <tag>gulp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS - float排版問題]]></title>
+    <url>%2F2017%2F10%2F04%2FCSS-float%2F</url>
+    <content type="text"><![CDATA[紀錄一下 float排版問題 問題：在練習Bootstrap3將表單驗證功能加進去，卻遇到畫面「跑版」的問題，目前是查到 「名稱」底下的&lt;div class=&quot;help-block with-errors&quot;&gt;&lt;/div&gt;所導致。 可能原因為 float？ margin？ 問題點：1.單點 「名稱」欄位，就會造成下方欄位跑版。2.若同時有驗證 左右二邊，欄位又有對齊了。 codepen：排版偏移程式碼解決： 如上圖所述，第一個「名稱」腳變長，造成第三個「Email」排不進去被往後推，導致第四個「聯絡電話」也被往後推擠，造成排版歪掉。 解法為 外層用 row 包起來，清除float的浮動(clearfix)。 codepen：修正後程式碼]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>排版</tag>
+        <tag>float</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS - Flex]]></title>
+    <url>%2F2017%2F09%2F30%2FCSS-Flex%2F</url>
+    <content type="text"><![CDATA[常用屬性 概念圖 Flex 外容器屬性：flex-direction：決定 flex 主軸線 方向[ row | row-reverse | column | column-reverse ] justify-content：主要軸線(左右)的對齊[ flex-start | flex-end | center | space-between | space-around ] align-items：交錯軸線(上下)的對齊[ flex-start | flex-end | center | baseline | stretch ] Flex 內元件屬性：align-self：單一個物件的交錯軸對齊[ auto | flex-start | flex-end | center | baseline | stretch ] 參考網站圖解：CSS Flex 屬性一點也不難 CSS Flexbox Layout 學習心得筆記]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>Flex</tag>
+        <tag>排版</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS - 排版重點整理]]></title>
+    <url>%2F2017%2F09%2F30%2FCSS-Layout%2F</url>
+    <content type="text"><![CDATA[[display屬性]每一個html標籤都有一個預設的display屬性，通常是block(區塊元素)或者是inline(行內元素)。 block：會從新的一行開始且在占據網頁的一整行，具自己個寬高。 inline：無法設定寬高，依照包含的內容先是寬度。 inline-block：可設定寬高，但又不占據一整行。 none：不顯示，可用來跟使用者互動。 [定位] position，設定區塊的座標方式。如下[position] left/top/right/bottom，設定區塊的左/上/右/下的座標。 z-index，設定區塊的重疊時的顯示優先權。 overflow，當內容超出區塊範圍時候的顯示方式。 [position] static:預設，各元素不用設定即是static，遵守網頁規則由左至右，由上至下。 relative:依照原來存在位置進行調整。absolute:會找上一層(找不到再往上找)有誰設定過 position，依照這個父元素進行位置調整，如果都沒有那就依body進行調整。 fixed:依目前看得網頁進行定位。若是要對齊容器內（div）的對位置，採用absolute比較方便。不用特別計算跟父容器的距離。 [float]設定區塊間的流動方式，像是doc當中的文繞圖。 left:往網頁左邊流動。 right:往網頁右邊流動。 clear:both ：清除流動關係。 [區塊] width，設定區塊寬度。width:1080px; height，設定區塊高度。height:500px; float，設定區塊流動方向。float:left; clear，解除區塊流動。 margin，設定區塊外間距離。如下[margin]。 padding，設定區塊內距。同margin。 [margin設定] margin:10px 20px 30px 40px; 依序為上 右 下 左 margin:10xp 20px 30px; 上 右 下 ?–&gt;找對面的來補,所以是找右的設定來補 margin:10px 20px; 依序為上下 左右 margin:10px; 全都一樣 [背景] background-color，背景顏色 background-image，背景圖案 background-attachment，背景是否固定不動 background-repeat，背景是否重複 background-position，背景位置 [邊框] border-color，四邊的顏色 border-style，四邊的樣式 border-width，四邊的寬度 border-top-color，上邊框的顏色，top可以置換成為right、bottom、left。 border-top-style，上邊框的樣式，top可以置換成為right、bottom、left。 border-top-width，上邊框的寬度，top可以置換成為right、bottom、left。 border-top，上邊框的顏色、樣式與寬度。top可以置換成為right、bottom、left。 border，寬度、樣式、顏色。 [文字] font-family，設定字型 font-size，字體大小 color，字體顏色 line-height，文字行高 font-weight，文字粗體 text-decoration，文字底線 word-spacing，間距 letter-spacing，間距 text-aling，水平對齊方向 text-indent，字首縮排]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>排版</tag>
+        <tag>Layout</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS - 健忘筆記]]></title>
+    <url>%2F2017%2F09%2F30%2FCSS-ForgetfulNotes%2F</url>
+    <content type="text"><![CDATA[圓角123456div.circle&#123; width:80px; height:80px; border-radius:50%; background-color:blue;&#125; 2個重點： 圓的直徑，長寬 一定要等長 border-radius:50% 參考網址： 圓角詳解、CSS3技巧之形狀 區塊陰影、文字立體感12345678/* 外層的陰影 */box-shadow: 1px 1px 5px rgba(0,0,0,0.3);/* 內層的陰影(多加 inset) */box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);/* 文字的陰影 */text-shadow: 1px 1px 1px rgba(0,0,0,0.5); 參考網址： 玩转box-shadow、文字立體感 文字粗體font-weight: 600;數字：500、600、700… a 連結取消 a 連結下底線123a &#123; text-decoration: none;&#125; :hover 移至 a 連結的效果123a:hover &#123; border-bottom: 3px solid #00cc99;&#125; 註：a 連結 預設display為inline，但為了讓 User有更好的操作體驗，會變更成 block，增加「寬、高」範圍，讓 User較易點擊到目標連結。 斷點123456@media (max-width: 768px) &#123; //iPad&#125;@media (max-width: 767px) &#123; //iPhone&#125; 新單位：高度vh、寬度vwvh 代表的是view height，也就是螢幕可視範圍高度的百分比；vw 表示的是view width，也就是螢幕可是範圍寬度的百分比。 ul ol list-style取消樣式ol,ul {list-style: none;} 設定樣式list-style: circle; 其他樣式參考：CSS list-style 指定滑鼠游標的型態cursor: pointer; /*手型，表示超連結*/ 參考網址： 游標的型態]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>筆記</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HTML - 語意架構]]></title>
+    <url>%2F2017%2F09%2F30%2FHTML-Semanticlabel%2F</url>
+    <content type="text"><![CDATA[概念圖 起手式1234.wrap &#123; max-width: 960px; margin: 0 auto;&#125;]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>語意架構</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MarkDown常用寫法]]></title>
+    <url>%2F2017%2F09%2F30%2FMarkDownWrite%2F</url>
+    <content type="text"><![CDATA[程式碼區段inline codeheight: 50px; code blockCSS型態123456.container &#123; max-width: 960px; margin: 0 auto; /* 起手式 */ margin-top: 10px;`&#125; javascript型態1234567891011.container &#123; function checkList(e) &#123; var num = e.target.dataset.num; // console.log(e.target.nodeName); if (e.target.nodeName !== 'LI') &#123; return &#125;; country.splice(num, 1); updateList(); &#125;&#125; 插入圖片 內部圖片 外部圖片 文字超連結 More info: Writing Google連結：Google 項目標籤 符號 序列1 序列2 序列3 序列4 Check 序列1 序列2 序列3 序列4 數字 序列1 序列2 序列3 序列4 重點標示 Emphasis, aka italics, with asterisks or underscores. Strong emphasis, aka bold, with asterisks or underscores. Combined emphasis with asterisks and underscores. Strikethrough uses two tildes. Scratch this.]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>MarkDown</tag>
+      </tags>
+  </entry>
+</search>
