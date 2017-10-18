@@ -152,7 +152,7 @@ hexo d == hexo deploy
 
 1. [安裝 Blog主題(NexT)](http://theme-next.iissnan.com/getting-started.html#download-next-theme)
 2. [_config.yml 修改theme:NexT ](http://theme-next.iissnan.com/getting-started.html#activate-next-theme)
-3. [NexT細項功能設定](http://theme-next.iissnan.com/getting-started.html#theme-settings)
+3. [NexT細項功能設定](http://theme-next.iissnan.com/getting-started.html#theme-settings)
 
 
 如果啟用 **分類、標籤** 的話，並不會自動幫你建立，可參考下列協助產生
