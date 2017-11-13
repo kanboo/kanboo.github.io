@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS - 常用筆記]]></title>
+    <url>%2F2017%2F11%2F13%2FCSS-ForgetfulNotes%2F</url>
+    <content type="text"><![CDATA[背景圖123456789101112131415/* 圖片滿版 */.img-cover &#123; background-image: url(./bg.png); background-position: center; background-size: cover; background-repeat: no-repeat;&#125;/* 圖片居中 */.img-contain &#123; background-image: url(./bg.png); background-position: center; background-size: contain; background-repeat: no-repeat;&#125; 其他背景圖範例：固定、滿版、置中background-attachment是背景固定模式的屬性註：作为背景的圖片是撑不起元素的，須額外需要给div新增「寬、高」 圓角123456div.circle&#123; width:80px; height:80px; border-radius:50%; background-color:blue;&#125; 2個重點： 圓的直徑，長寬 一定要等長 border-radius:50% 參考網址： 圓角詳解、CSS3技巧之形狀 區塊陰影、文字立體感12345678/* 外層的陰影 */box-shadow: 1px 1px 5px rgba(0,0,0,0.3);/* 內層的陰影(多加 inset) */box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);/* 文字的陰影 */text-shadow: 1px 1px 1px rgba(0,0,0,0.5); 參考網址： 玩转box-shadow、文字立體感 文字粗體font-weight: 600;數字：500、600、700… a 連結取消 a 連結下底線123a &#123; text-decoration: none;&#125; :hover 移至 a 連結的效果123a:hover &#123; border-bottom: 3px solid #00cc99;&#125; 註：a 連結 預設display為inline，但為了讓 User有更好的操作體驗，會變更成 block，增加「寬、高」範圍，讓 User較易點擊到目標連結。 斷點123456@media (max-width: 768px) &#123; //iPad&#125;@media (max-width: 767px) &#123; //iPhone&#125; 新單位：高度vh、寬度vwvh 代表的是view height，也就是螢幕可視範圍高度的百分比；vw 表示的是view width，也就是螢幕可是範圍寬度的百分比。 ul ol list-style取消樣式ol,ul {list-style: none;} 設定樣式list-style: circle; 其他樣式參考：CSS list-style 指定滑鼠游標的型態cursor: pointer; /*手型，表示超連結*/ 參考網址： 游標的型態]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>筆記</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo-Search]]></title>
     <url>%2F2017%2F10%2F18%2FHexo-Search%2F</url>
     <content type="text"><![CDATA[前言在新增 Hexo 的 Local Search 時，參考下列的連結文章，跟著步驟安裝及設定即可，不過剛裝好後，發現搜尋功能無法正常使用，後來有查到原因，在此紀錄一下Debug過程。 Local SearchHexo博客添加站內搜索 安裝順序安裝hexo-generator-searchdb在站點的根目錄下執行以下命令 1$ npm install hexo-generator-searchdb --save 編輯站點配置文件(Hexo)新增以下內容到任意位置： 12345search: path: search.xml field: post format: html limit: 10000 編輯主題配置文件(Next)啟用本地搜索功能： 123# Local searchlocal_search: enable: true 問題紀錄 點了搜尋後，畫面一直轉圈圈沒停止，查看Console也沒出現Error 查看XHR，目前我有10篇文章，卻只產生三筆entry，且其中一筆entry的content內容沒產生 並且有此錯誤訊息 後來針對有問題那篇文章複製內容，貼到 notepad++ 看看，發現有一亂碼，將亂碼刪除後，Local Search就可以正常運作了。]]></content>
@@ -114,18 +126,6 @@
         <tag>CSS</tag>
         <tag>排版</tag>
         <tag>Layout</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[CSS - 健忘筆記]]></title>
-    <url>%2F2017%2F09%2F30%2FCSS-ForgetfulNotes%2F</url>
-    <content type="text"><![CDATA[圓角123456div.circle&#123; width:80px; height:80px; border-radius:50%; background-color:blue;&#125; 2個重點： 圓的直徑，長寬 一定要等長 border-radius:50% 參考網址： 圓角詳解、CSS3技巧之形狀 區塊陰影、文字立體感12345678/* 外層的陰影 */box-shadow: 1px 1px 5px rgba(0,0,0,0.3);/* 內層的陰影(多加 inset) */box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);/* 文字的陰影 */text-shadow: 1px 1px 1px rgba(0,0,0,0.5); 參考網址： 玩转box-shadow、文字立體感 文字粗體font-weight: 600;數字：500、600、700… a 連結取消 a 連結下底線123a &#123; text-decoration: none;&#125; :hover 移至 a 連結的效果123a:hover &#123; border-bottom: 3px solid #00cc99;&#125; 註：a 連結 預設display為inline，但為了讓 User有更好的操作體驗，會變更成 block，增加「寬、高」範圍，讓 User較易點擊到目標連結。 斷點123456@media (max-width: 768px) &#123; //iPad&#125;@media (max-width: 767px) &#123; //iPhone&#125; 新單位：高度vh、寬度vwvh 代表的是view height，也就是螢幕可視範圍高度的百分比；vw 表示的是view width，也就是螢幕可是範圍寬度的百分比。 ul ol list-style取消樣式ol,ul {list-style: none;} 設定樣式list-style: circle; 其他樣式參考：CSS list-style 指定滑鼠游標的型態cursor: pointer; /*手型，表示超連結*/ 參考網址： 游標的型態]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-        <tag>筆記</tag>
       </tags>
   </entry>
   <entry>
