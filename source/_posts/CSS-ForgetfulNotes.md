@@ -1,6 +1,6 @@
 ---
-title: CSS - 健忘筆記
-date: 2017-09-30 11:50:28
+title: CSS - 常用筆記
+date: 2017-11-13 11:50:28
 categories: 
 - CSS
 tags:
@@ -8,7 +8,35 @@ tags:
 - 筆記
 ---
 
+## 背景圖
+
+``` css
+/* 圖片滿版 */
+.img-cover {
+    background-image: url(./bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* 圖片居中 */
+.img-contain {
+    background-image: url(./bg.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+```
+
+> 其他背景圖範例：[固定、滿版、置中](https://codepen.io/Kanboo/pen/boKpwG)
+> background-attachment是背景固定模式的屬性
+註：作为背景的圖片是撑不起元素的，須額外需要给div新增「寬、高」
+
+<!-- more -->
+
 ## 圓角
+
 ``` css
 div.circle{
     width:80px;
@@ -22,8 +50,6 @@ div.circle{
  - border-radius:50%
 
 >參考網址： [圓角詳解](http://www.jianshu.com/p/7f46b8e29b1b)、[CSS3技巧之形狀](https://kknews.cc/zh-tw/news/aezgo8v.html)
-
-<!-- more -->
 
 ## 區塊陰影、文字立體感
 
