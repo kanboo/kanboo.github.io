@@ -6,6 +6,7 @@ categories:
 tags:
 - CSS
 - 筆記
+top: 100000
 ---
 
 ## 背景圖
@@ -66,34 +67,6 @@ text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 
 >參考網址： [玩转box-shadow](http://www.jianshu.com/p/18bdcd17b4f2)、[文字立體感](http://www.jianshu.com/p/34d8dcb75dd8)
 
-## icon 利用 position 位移
-
-
-{% asset_img icon_position.png %}
-
-``` SCSS
-//記得input的左邊要留padding,保留一些位置給icon
-input {
-    padding: 6px 0 6px 28px;
-}
-
-
-//位移 icon 至 input 裡
-.row {
-    position: relative;
-
-    .icon {
-        position: absolute;
-        top: 26px;
-        left: 9px;
-        font-size: 16px;
-        z-index: 10;
-        color: rgba(61, 17, 1, 0.5);
-    }
-}
-```
-
->codepen範例: [LoginForm](https://codepen.io/Kanboo/pen/ooKBYb)
 
 ## a 連結
 ### 取消 a 連結下底線

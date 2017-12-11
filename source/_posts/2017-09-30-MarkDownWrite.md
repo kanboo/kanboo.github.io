@@ -8,6 +8,21 @@ tags:
 - MarkDown
 ---
 
+
+## 文字加顏色
+
+<font color="blue">藍色字</font>
+<font color="red">紅色的字</font>
+<font style="color:green;font-size:20px;">20px - 綠色的字</font>
+
+``` html
+<font color="blue">藍色字</font>
+<font color="red">紅色的字</font>
+<font style="color:green;font-size:20px;">20px - 綠色的字</font>
+ ```
+
+[MARKDOWN/HTML常用語法小結](https://xiwan.io/archive/markdown-html-common-syntax-summary.html)
+
 ## 程式碼區段
 
 ### inline code
