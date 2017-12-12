@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS-Transition 轉場效果]]></title>
+    <url>%2F2017%2F12%2F12%2FCSS-Transition%2F</url>
+    <content type="text"><![CDATA[前言 轉場是從 A 狀態，轉變成 B 狀態，中間的過程，就叫轉場，在 CSS 中叫做 transition。 語法1234567891011transition: property duration timing-function delay;transition: 套用的屬性 花費時間 時間速率 等待時間;transition: all 2s ease-out 1s;// 等同於：transition-property: all; // default: alltransition-duration: 2s; // default: 0；2s 表示 2 秒；2ms 表示 2 毫秒。transition-timing-function: ease-out;transition-delay: 1s; // 開始進行轉場效果之前，所要等待的時間。 transition-timing-function 時間速率 See the Pen transition 各種速率 by Kanboo (@Kanboo) on CodePen. 範例範例 1：hoverSee the Pen Transition - hover by Kanboo (@Kanboo) on CodePen. 範例 2：設定Two CSS propertiesSee the Pen Transition - 設定Two CSS properties by Kanboo (@Kanboo) on CodePen. 特別的點：12//設定二個 CSS屬性，設定不同 時間、速率..等transition: background .2s linear, border-radius 1s ease-in 1s; 上面案例，特別於在 :hover 時，有改變 背景色 和 圓角 效果，不過在 transition 的設定，分別針對 二個屬性設定不同的時間、速率…等 參考資料[CSS][Transition] 轉場效果 CSS3轉場效果(transitions) CSS transition 各種速率]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>transition</tag>
+        <tag>動畫</tag>
+        <tag>轉場效果</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2017-12-11-RWDlayout]]></title>
+    <url>%2F2017%2F12%2F11%2FCSS-RWDlayout%2F</url>
+    <content type="text"><![CDATA[紀錄練習切版時，遇到卡卡的問題 icon 利用 position 位移示意圖 重點 row 的 position 設置 relative; icon 的 position 設置 absolute; 移動 icon 的位置， top 、 left 將 icon 移進去在 input 時，input 需增加 左邊padding，保留位置給 icon。 HTML 程式碼123456&lt;div class="row"&gt; &lt;label for="email"&gt;Email Address*&lt;/label&gt; &lt;label for="email" class="icon"&gt;&lt;i class="fa fa-envelope-o" aria-hidden="true"&gt;&lt;/i&gt;&lt;/label&gt; &lt;input type="email" name="email" id="email"&gt;&lt;/div&gt; SCSS 程式碼12345678910111213141516171819//記得input的左邊要留padding,保留一些位置給iconinput &#123; padding: 6px 0 6px 28px;&#125;//位移 icon 至 input 裡.row &#123; position: relative; .icon &#123; position: absolute; top: 26px; left: 9px; font-size: 16px; z-index: 10; color: rgba(61, 17, 1, 0.5); &#125;&#125; codepen範例: LoginForm 緞帶效果 重點 .tag-wrap 為 藍色框線 .tag 為 紅色框線(熱賣) .tag-wrap 的 position 設置 absolute ，並且位移要超出原有的框架，才能做出緞帶效果; 新增 .tag 的 width、background-color…等屬性 利用 transform ，位移翻轉 .tag 移動好 .tag 後，在 .tag-wrap 新增 overflow: hidden;， 將多餘的部份隱藏 利用 .tag 的偽元素 :before、:after，新增 小三角 ▲ html 程式碼123456789101112&lt;div class="card"&gt; &lt;!-- 不影響結構 --&gt; &lt;div class="tag-wrap"&gt; &lt;div class="tag"&gt; 熱賣!! &lt;/div&gt; &lt;/div&gt; &lt;!-- 主要結構 --&gt; &lt;div class="card-block"&gt; &lt;/div&gt;&lt;/div&gt; SCSS 程式碼1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556.card &#123; width: 230px; height: 200px; position: relative;&#125;//緞帶效果.tag-wrap &#123; $p: 5px; $size: 80px; position: absolute; //位移要超出原有的框架，才能做出緞帶效果 top: -$p; right: -$p; //超出的部份隱藏 overflow: hidden; width: $size * 2; height: $size * 2; //查看位置 border: 1px solid blue; .tag &#123; position: relative; width: $size*2; background-color: orange; padding-top: 0.25rem; padding-bottom: 0.25rem; text-align: center; margin-top: -$p * 2; color: white; //rotate為旋轉、translate為移動、skew為傾斜、scale為縮放 transform: translateX(50%) rotate(45deg) translateY(150%); //查看位置 border: 1px solid red; &amp;:before &#123; content: ""; position: absolute; //利用 加粗邊框 + 邊框上方顏色，達到小三角的效果 border: $p solid transparent; border-top-color: darken(orange, 15%); bottom: -10px; left: 6px; &#125; &amp;:after &#123; content: ""; position: absolute; //利用 加粗邊框 + 邊框上方顏色，達到小三角的效果 border: $p solid transparent; border-top-color: darken(orange, 15%); bottom: -10px; right: 14px; &#125; &#125;&#125; codepen範例: CSS-緞帶效果(乾淨版本)codepen範例: CSS-緞帶效果 觀念補充六角範例從 Sketch 設計到 CSS 切版 本日範例：https://codepen.io/Wcc723/pen/zEYXdN 本日設計參考：https://codepen.io/Wcc723/pen/pWzxXO transform CSS 程式碼123456789101112/* rotate為旋轉skew為傾斜scale為縮放translate為移動 *//* 範例1：移動X軸 → 旋轉 → 移動Y軸 */transform: translateX(150%) rotate(45deg) translateY(50%);/* 範例2：旋轉 → 移動X軸 → 移動Y軸 */transform: rotate(45deg) translateX(150%) translateY(50%); 上列 CSS程式碼 「範例1 、 範例2」，雖然同樣都做了「移動X軸、移動Y軸、旋轉」的動作，但是因為 執行順序 不同，所以二個範例呈現出來的結果也會不一樣。 上述程式碼範例： transform_執行順序 transform基本介紹1.CSS transform 概觀2.CSS transform 軸線的謊言3.CSS transform-origin4.CSS transform-3D的透視 SCSS顏色函數範例123456789.box&#123; background: rgba(#000,.5); //變半透明 background: invert(#f00); //變反向色彩 background: lighten(#06C, 30%); //變亮 background: darken(#06C,15%); //變暗 background: saturate(#06C,50%); //提高飽和度 background: desaturate(#06C,50%); //降低飽和度 background: grayscale(#06C); //灰階&#125; SCSS相關 linear-gradient讓顏色有漸層效果 CSS 程式碼1background-image: linear-gradient(165deg, white, white 50%, $bg-color 50%); background: linear-gradient( 方向, 第一個顏色, 第二個顏色, … ); 背景色 — 线性渐变背景色 — 漸層效果 繪製幾何圖形(支援度不高) 1clip-path: polygon(0 0, 280px 0, 370px 100%, 0% 100%); CSS clip-path 生成器利用CSS繪製更多形狀不可思议的CSS之CLIP-PATH]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>transform</tag>
+        <tag>translateX</tag>
+        <tag>rotate</tag>
+        <tag>translateY</tag>
+        <tag>SCSS</tag>
+        <tag>linear-gradient</tag>
+        <tag>clip-path</tag>
+        <tag>position</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS - 常用筆記]]></title>
     <url>%2F2017%2F11%2F13%2FCSS-ForgetfulNotes%2F</url>
-    <content type="text"><![CDATA[背景圖123456789101112131415/* 圖片滿版 */.img-cover &#123; background-image: url(./bg.png); background-position: center; background-size: cover; background-repeat: no-repeat;&#125;/* 圖片居中 */.img-contain &#123; background-image: url(./bg.png); background-position: center; background-size: contain; background-repeat: no-repeat;&#125; 其他背景圖範例：固定、滿版、置中background-attachment是背景固定模式的屬性註：作为背景的圖片是撑不起元素的，須額外需要给div新增「寬、高」 圓角123456div.circle&#123; width:80px; height:80px; border-radius:50%; background-color:blue;&#125; 2個重點： 圓的直徑，長寬 一定要等長 border-radius:50% 參考網址： 圓角詳解、CSS3技巧之形狀 區塊陰影、文字立體感12345678/* 外層的陰影 */box-shadow: 1px 1px 5px rgba(0,0,0,0.3);/* 內層的陰影(多加 inset) */box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);/* 文字的陰影 */text-shadow: 1px 1px 1px rgba(0,0,0,0.5); 參考網址： 玩转box-shadow、文字立體感 文字粗體font-weight: 600;數字：500、600、700… a 連結取消 a 連結下底線123a &#123; text-decoration: none;&#125; :hover 移至 a 連結的效果123a:hover &#123; border-bottom: 3px solid #00cc99;&#125; 註：a 連結 預設display為inline，但為了讓 User有更好的操作體驗，會變更成 block，增加「寬、高」範圍，讓 User較易點擊到目標連結。 斷點123456@media (max-width: 768px) &#123; //iPad&#125;@media (max-width: 767px) &#123; //iPhone&#125; 新單位：高度vh、寬度vwvh 代表的是view height，也就是螢幕可視範圍高度的百分比；vw 表示的是view width，也就是螢幕可是範圍寬度的百分比。 ul ol list-style取消樣式ol,ul {list-style: none;} 設定樣式list-style: circle; 其他樣式參考：CSS list-style 指定滑鼠游標的型態cursor: pointer; /*手型，表示超連結*/ 參考網址： 游標的型態]]></content>
+    <content type="text"><![CDATA[背景圖123456789101112131415/* 圖片滿版 */.img-cover &#123; background-image: url(./bg.png); background-position: center; background-size: cover; background-repeat: no-repeat;&#125;/* 圖片居中 */.img-contain &#123; background-image: url(./bg.png); background-position: center; background-size: contain; background-repeat: no-repeat;&#125; 其他背景圖範例：固定、滿版、置中background-attachment是背景固定模式的屬性註：作为背景的圖片是撑不起元素的，須額外需要给div新增「寬、高」 圓角123456div.circle&#123; width:80px; height:80px; border-radius:50%; background-color:blue;&#125; 2個重點： 圓的直徑，長寬 一定要等長 border-radius:50% 參考網址： 圓角詳解、CSS3技巧之形狀 區塊陰影、文字立體感12345678/* 外層的陰影 */box-shadow: 1px 1px 5px rgba(0,0,0,0.3);/* 內層的陰影(多加 inset) */box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);/* 文字的陰影 */text-shadow: 1px 1px 1px rgba(0,0,0,0.5); 參考網址： 玩转box-shadow、文字立體感 a 連結取消 a 連結下底線123a &#123; text-decoration: none;&#125; :hover 移至 a 連結的效果123a:hover &#123; border-bottom: 3px solid #00cc99;&#125; 註：a 連結 預設display為inline，但為了讓 User有更好的操作體驗，會變更成 block，增加「寬、高」範圍，讓 User較易點擊到目標連結。 斷點123456@media (max-width: 768px) &#123; //iPad&#125;@media (max-width: 767px) &#123; //iPhone&#125; 新單位：高度vh、寬度vwvh 代表的是view height，也就是螢幕可視範圍高度的百分比；vw 表示的是view width，也就是螢幕可是範圍寬度的百分比。 ul ol list-style取消樣式ol,ul {list-style: none;} 設定樣式list-style: circle; 其他樣式參考：CSS list-style 指定滑鼠游標的型態cursor: pointer; /*手型，表示超連結*/ 參考網址： 游標的型態]]></content>
       <categories>
         <category>CSS</category>
       </categories>
@@ -143,7 +176,7 @@
   <entry>
     <title><![CDATA[MarkDown常用寫法]]></title>
     <url>%2F2017%2F09%2F30%2FMarkDownWrite%2F</url>
-    <content type="text"><![CDATA[程式碼區段inline codeheight: 50px; code blockCSS型態123456.container &#123; max-width: 960px; margin: 0 auto; /* 起手式 */ margin-top: 10px;`&#125; javascript型態1234567891011.container &#123; function checkList(e) &#123; var num = e.target.dataset.num; // console.log(e.target.nodeName); if (e.target.nodeName !== 'LI') &#123; return &#125;; country.splice(num, 1); updateList(); &#125;&#125; 插入圖片 內部圖片 外部圖片 文字超連結 More info: Writing Google連結：Google 項目標籤 符號 序列1 序列2 序列3 序列4 Check 序列1 序列2 序列3 序列4 數字 序列1 序列2 序列3 序列4 重點標示 Emphasis, aka italics, with asterisks or underscores. Strong emphasis, aka bold, with asterisks or underscores. Combined emphasis with asterisks and underscores. Strikethrough uses two tildes. Scratch this.]]></content>
+    <content type="text"><![CDATA[文字加顏色藍色字紅色的字20px - 綠色的字 123&lt;font color="blue"&gt;藍色字&lt;/font&gt;&lt;font color="red"&gt;紅色的字&lt;/font&gt;&lt;font style="color:green;font-size:20px;"&gt;20px - 綠色的字&lt;/font&gt; MARKDOWN/HTML常用語法小結 程式碼區段inline codeheight: 50px; code blockCSS型態123456.container &#123; max-width: 960px; margin: 0 auto; /* 起手式 */ margin-top: 10px;`&#125; javascript型態1234567891011.container &#123; function checkList(e) &#123; var num = e.target.dataset.num; // console.log(e.target.nodeName); if (e.target.nodeName !== 'LI') &#123; return &#125;; country.splice(num, 1); updateList(); &#125;&#125; 插入圖片 內部圖片 外部圖片 文字超連結 More info: Writing Google連結：Google 項目標籤 符號 序列1 序列2 序列3 序列4 Check 序列1 序列2 序列3 序列4 數字 序列1 序列2 序列3 序列4 重點標示 Emphasis, aka italics, with asterisks or underscores. Strong emphasis, aka bold, with asterisks or underscores. Combined emphasis with asterisks and underscores. Strikethrough uses two tildes. Scratch this.]]></content>
       <categories>
         <category>Hexo</category>
       </categories>

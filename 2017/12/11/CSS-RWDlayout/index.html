@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS,transform,translateX,rotate,translateY,SCSS,linear-gradient,clip-path,position," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="紀錄練習切版時，遇到卡卡的問題">
+<meta name="keywords" content="CSS,transform,translateX,rotate,translateY,SCSS,linear-gradient,clip-path,position">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017-12-11-RWDlayout">
+<meta property="og:url" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="紀錄練習切版時，遇到卡卡的問題">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/Exercise.png">
+<meta property="og:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/icon_position.png">
+<meta property="og:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/ribbon.png">
+<meta property="og:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/transform.png">
+<meta property="og:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/transform_order.png">
+<meta property="og:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/deg.png">
+<meta property="og:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/clip.png">
+<meta property="og:updated_time" content="2017-12-12T13:08:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017-12-11-RWDlayout">
+<meta name="twitter:description" content="紀錄練習切版時，遇到卡卡的問題">
+<meta name="twitter:image" content="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/Exercise.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/"/>
+
+
+
+
+
+  <title>2017-12-11-RWDlayout | Kanboo Notes</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">健忘筆記本</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/12/11/CSS-RWDlayout/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2017-12-11-RWDlayout</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-11T13:55:46+08:00">
+                2017-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/11/CSS-RWDlayout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/11/CSS-RWDlayout/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <font style="font-size:18px;"><br>紀錄練習切版時，遇到卡卡的問題<br></font>
+
+<p><br><br><img src="/2017/12/11/CSS-RWDlayout/Exercise.png" alt="Exercise.png" title=""></p>
+<a id="more"></a>
+<hr>
+<h2 id="icon-利用-position-位移"><a href="#icon-利用-position-位移" class="headerlink" title="icon 利用 position 位移"></a>icon 利用 position 位移</h2><h3 id="示意圖"><a href="#示意圖" class="headerlink" title="示意圖"></a>示意圖</h3><img src="/2017/12/11/CSS-RWDlayout/icon_position.png" alt="icon_position.png" title="">
+<h3 id="重點"><a href="#重點" class="headerlink" title="重點"></a>重點</h3><ol>
+<li>row 的 position 設置 <strong><em>relative</em></strong>;</li>
+<li>icon 的 position 設置 <strong><em>absolute</em></strong>;</li>
+<li>移動 icon 的位置， top 、 left</li>
+<li>將 icon 移進去在 input 時，input 需增加 <em><strong>左邊padding</strong></em>，保留位置給 icon。</li>
+</ol>
+<h3 id="HTML-程式碼"><a href="#HTML-程式碼" class="headerlink" title="HTML 程式碼"></a>HTML 程式碼</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"email"</span>&gt;</span>Email Address*<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"email"</span> <span class="attr">class</span>=<span class="string">"icon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-envelope-o"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">id</span>=<span class="string">"email"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="SCSS-程式碼"><a href="#SCSS-程式碼" class="headerlink" title="SCSS 程式碼"></a>SCSS 程式碼</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//記得input的左邊要留padding,保留一些位置給icon</span></div><div class="line"><span class="selector-tag">input</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">6px</span> <span class="number">0</span> <span class="number">6px</span> <span class="number">28px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//位移 icon 至 input 裡</span></div><div class="line"><span class="selector-class">.row</span> &#123;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line"></div><div class="line">    <span class="selector-class">.icon</span> &#123;</div><div class="line">        <span class="attribute">position</span>: absolute;</div><div class="line">        <span class="attribute">top</span>: <span class="number">26px</span>;</div><div class="line">        <span class="attribute">left</span>: <span class="number">9px</span>;</div><div class="line">        <span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">        <span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">        <span class="attribute">color</span>: rgba(<span class="number">61</span>, <span class="number">17</span>, <span class="number">1</span>, <span class="number">0.5</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>codepen範例: <a href="https://codepen.io/Kanboo/pen/ooKBYb" target="_blank" rel="external">LoginForm</a></p>
+</blockquote>
+<h2 id="緞帶效果"><a href="#緞帶效果" class="headerlink" title="緞帶效果"></a>緞帶效果</h2><img src="/2017/12/11/CSS-RWDlayout/ribbon.png" alt="ribbon.png" title="">
+<h3 id="重點-1"><a href="#重點-1" class="headerlink" title="重點"></a>重點</h3><ul>
+<li><font style="color:blue;">.tag-wrap 為 藍色框線</font></li>
+<li><font style="color:red;">.tag 為 紅色框線(熱賣)</font>
+
+
+</li>
+</ul>
+<ol>
+<li><font style="color:blue;"><strong><em>.tag-wrap</em></strong></font> 的 position 設置 <strong><em>absolute</em></strong> ，並且位移要<em><strong>超出原有的框架</strong></em>，才能做出緞帶效果;</li>
+<li>新增 <font style="color:red;">.tag</font> 的 width、background-color…等屬性</li>
+<li>利用 <strong><em>transform</em></strong> ，位移翻轉 <font style="color:red;">.tag</font> </li>
+<li>移動好 <font style="color:red;">.tag</font> 後，在 <font style="color:blue;">.tag-wrap</font>  新增 <em><strong>overflow: hidden;</strong></em>， 將多餘的部份隱藏</li>
+<li>利用 <font style="color:red;">.tag</font>  的偽元素 <strong><em>:before、:after</em></strong>，新增 <strong><em>小三角 ▲</em></strong> </li>
+</ol>
+<h3 id="html-程式碼"><a href="#html-程式碼" class="headerlink" title="html 程式碼"></a>html 程式碼</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!--  不影響結構  --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag-wrap"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag"</span>&gt;</span></div><div class="line">      熱賣!!</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  </div><div class="line">  <span class="comment">&lt;!--  主要結構  --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-block"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="SCSS-程式碼-1"><a href="#SCSS-程式碼-1" class="headerlink" title="SCSS 程式碼"></a>SCSS 程式碼</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.card</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">230px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//緞帶效果</span></div><div class="line"><span class="selector-class">.tag-wrap</span> &#123;</div><div class="line">  <span class="variable">$p</span>: <span class="number">5px</span>;</div><div class="line">  <span class="variable">$size</span>: <span class="number">80px</span>;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="comment">//位移要超出原有的框架，才能做出緞帶效果</span></div><div class="line">  <span class="attribute">top</span>: -<span class="variable">$p</span>;</div><div class="line">  <span class="attribute">right</span>: -<span class="variable">$p</span>;</div><div class="line">  <span class="comment">//超出的部份隱藏</span></div><div class="line">  <span class="attribute">overflow</span>: hidden;</div><div class="line">  <span class="attribute">width</span>: <span class="variable">$size</span> * <span class="number">2</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="variable">$size</span> * <span class="number">2</span>;</div><div class="line">  <span class="comment">//查看位置</span></div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid blue;</div><div class="line"></div><div class="line">  <span class="selector-class">.tag</span> &#123;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">width</span>: <span class="variable">$size</span>*<span class="number">2</span>;</div><div class="line">    <span class="attribute">background-color</span>: orange;</div><div class="line">    <span class="attribute">padding-top</span>: <span class="number">0.25rem</span>;</div><div class="line">    <span class="attribute">padding-bottom</span>: <span class="number">0.25rem</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">    <span class="attribute">margin-top</span>: -<span class="variable">$p</span> * <span class="number">2</span>;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="comment">//rotate為旋轉、translate為移動、skew為傾斜、scale為縮放</span></div><div class="line">    <span class="attribute">transform</span>: translateX(<span class="number">50%</span>) rotate(<span class="number">45deg</span>) translateY(<span class="number">150%</span>);</div><div class="line">     <span class="comment">//查看位置</span></div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</div><div class="line"></div><div class="line">    &amp;:before &#123;</div><div class="line">      <span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">      <span class="attribute">position</span>: absolute;</div><div class="line">      <span class="comment">//利用 加粗邊框 + 邊框上方顏色，達到小三角的效果</span></div><div class="line">      <span class="attribute">border</span>: <span class="variable">$p</span> solid transparent;</div><div class="line">      <span class="attribute">border-top-color</span>: darken(orange, <span class="number">15%</span>);</div><div class="line">      <span class="attribute">bottom</span>: -<span class="number">10px</span>;</div><div class="line">      <span class="attribute">left</span>: <span class="number">6px</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    &amp;:after &#123;</div><div class="line">      <span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">      <span class="attribute">position</span>: absolute;</div><div class="line">      <span class="comment">//利用 加粗邊框 + 邊框上方顏色，達到小三角的效果</span></div><div class="line">      <span class="attribute">border</span>: <span class="variable">$p</span> solid transparent;</div><div class="line">      <span class="attribute">border-top-color</span>: darken(orange, <span class="number">15%</span>);</div><div class="line">      <span class="attribute">bottom</span>: -<span class="number">10px</span>;</div><div class="line">      <span class="attribute">right</span>: <span class="number">14px</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>codepen範例: <a href="https://codepen.io/Kanboo/pen/eyOgBP" target="_blank" rel="external">CSS-緞帶效果(乾淨版本)</a><br>codepen範例: <a href="https://codepen.io/Kanboo/pen/ZagBev" target="_blank" rel="external">CSS-緞帶效果</a></p>
+</blockquote>
+<hr>
+<h2 id="觀念補充"><a href="#觀念補充" class="headerlink" title="觀念補充"></a>觀念補充</h2><h3 id="六角範例"><a href="#六角範例" class="headerlink" title="六角範例"></a>六角範例</h3><p><a href="https://www.youtube.com/watch?v=ev9bGi_XCqU" target="_blank" rel="external">從 Sketch 設計到 CSS 切版</a></p>
+<p><a href="https://codepen.io/Wcc723/pen/zEYXdN" target="_blank" rel="external">本日範例：https://codepen.io/Wcc723/pen/zEYXdN</a></p>
+<p><a href="https://codepen.io/Wcc723/pen/pWzxXO" target="_blank" rel="external">本日設計參考：https://codepen.io/Wcc723/pen/pWzxXO</a></p>
+<h3 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h3><img src="/2017/12/11/CSS-RWDlayout/transform.png" alt="transform.png" title="">
+<h3 id="CSS-程式碼"><a href="#CSS-程式碼" class="headerlink" title="CSS 程式碼"></a>CSS 程式碼</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* </span></div><div class="line"><span class="comment">rotate為旋轉</span></div><div class="line"><span class="comment">skew為傾斜</span></div><div class="line"><span class="comment">scale為縮放</span></div><div class="line"><span class="comment">translate為移動 </span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="comment">/* 範例1：移動X軸 → 旋轉 → 移動Y軸 */</span></div><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(150%) <span class="selector-tag">rotate</span>(45<span class="selector-tag">deg</span>)  <span class="selector-tag">translateY</span>(50%);</div><div class="line"></div><div class="line"><span class="comment">/* 範例2：旋轉 → 移動X軸 → 移動Y軸 */</span></div><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(45<span class="selector-tag">deg</span>) <span class="selector-tag">translateX</span>(150%)  <span class="selector-tag">translateY</span>(50%);</div></pre></td></tr></table></figure>
+<img src="/2017/12/11/CSS-RWDlayout/transform_order.png" alt="transform_order.png" title="">
+<p>上列 CSS程式碼 「<em><strong>範例1 、 範例2</strong></em>」，<br>雖然同樣都做了「移動X軸、移動Y軸、旋轉」的動作，<br>但是因為 <strong><em>執行順序</em></strong>  不同，<br>所以二個範例呈現出來的結果也會<strong>不一樣</strong>。</p>
+<p>上述程式碼範例： <a href="https://codepen.io/Kanboo/pen/xpxKQJ" target="_blank" rel="external"><strong>transform_執行順序</strong></a></p>
+<blockquote>
+<p><a href="https://www.great-good.tw/learn/css-transform/" target="_blank" rel="external">transform基本介紹</a><br><a href="https://wcc723.github.io/css/2013/10/08/css-transform/" target="_blank" rel="external">1.CSS transform 概觀</a><br><a href="https://wcc723.github.io/css/2013/10/09/css-transform-mistake/" target="_blank" rel="external">2.CSS transform 軸線的謊言</a><br><a href="https://wcc723.github.io/css/2013/10/10/css-transform-origin/" target="_blank" rel="external">3.CSS transform-origin</a><br><a href="https://wcc723.github.io/css/2013/10/11/css-perspective/" target="_blank" rel="external">4.CSS transform-3D的透視</a></p>
+</blockquote>
+<h3 id="SCSS顏色函數範例"><a href="#SCSS顏色函數範例" class="headerlink" title="SCSS顏色函數範例"></a>SCSS顏色函數範例</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">    <span class="attribute">background</span>: rgba(<span class="number">#000</span>,.<span class="number">5</span>); <span class="comment">//變半透明</span></div><div class="line">    <span class="attribute">background</span>: invert(<span class="number">#f00</span>); <span class="comment">//變反向色彩</span></div><div class="line">    <span class="attribute">background</span>: lighten(<span class="number">#06C</span>, <span class="number">30%</span>); <span class="comment">//變亮</span></div><div class="line">    <span class="attribute">background</span>: darken(<span class="number">#06C</span>,<span class="number">15%</span>); <span class="comment">//變暗</span></div><div class="line">    <span class="attribute">background</span>: saturate(<span class="number">#06C</span>,<span class="number">50%</span>); <span class="comment">//提高飽和度</span></div><div class="line">    <span class="attribute">background</span>: desaturate(<span class="number">#06C</span>,<span class="number">50%</span>); <span class="comment">//降低飽和度</span></div><div class="line">    <span class="attribute">background</span>: grayscale(<span class="number">#06C</span>); <span class="comment">//灰階</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://blog.user.today/scss/" target="_blank" rel="external">SCSS相關</a></p>
+</blockquote>
+<h3 id="linear-gradient讓顏色有漸層效果"><a href="#linear-gradient讓顏色有漸層效果" class="headerlink" title="linear-gradient讓顏色有漸層效果"></a>linear-gradient讓顏色有漸層效果</h3><img src="/2017/12/11/CSS-RWDlayout/deg.png" alt="deg.png" title="">
+<h3 id="CSS-程式碼-1"><a href="#CSS-程式碼-1" class="headerlink" title="CSS 程式碼"></a>CSS 程式碼</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-image: linear-gradient(165deg, white, white 50%, $bg-color 50%);</div></pre></td></tr></table></figure>
+<p>background: linear-gradient( 方向, 第一個顏色, 第二個顏色, … );</p>
+<blockquote>
+<p><a href="http://www.jianshu.com/p/7a2eb94c91da" target="_blank" rel="external">背景色 — 线性渐变</a><br><a href="https://medium.com/@savemuse/%E6%87%89%E7%94%A8css3-gradients%E8%A3%BD%E4%BD%9C%E6%BC%B8%E5%B1%A4%E6%95%88%E6%9E%9C-490cf0efd634" target="_blank" rel="external">背景色 — 漸層效果</a></p>
+</blockquote>
+<h3 id="繪製幾何圖形-支援度不高"><a href="#繪製幾何圖形-支援度不高" class="headerlink" title="繪製幾何圖形(支援度不高)"></a>繪製幾何圖形(支援度不高)</h3><img src="/2017/12/11/CSS-RWDlayout/clip.png" alt="clip.png" title="">
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">clip-path</span>: <span class="selector-tag">polygon</span>(0 0, 280<span class="selector-tag">px</span> 0, 370<span class="selector-tag">px</span> 100%, 0% 100%);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://www.css88.com/tool/css-clip-path" target="_blank" rel="external">CSS clip-path 生成器</a><br><a href="https://www.webdesigns.com.tw/css_clip-path.asp" target="_blank" rel="external">利用CSS繪製更多形狀</a><br><a href="https://juejin.im/entry/59a6dab4f265da24976003d3" target="_blank" rel="external">不可思议的CSS之CLIP-PATH</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/transform/" rel="tag"># transform</a>
+          
+            <a href="/tags/translateX/" rel="tag"># translateX</a>
+          
+            <a href="/tags/rotate/" rel="tag"># rotate</a>
+          
+            <a href="/tags/translateY/" rel="tag"># translateY</a>
+          
+            <a href="/tags/SCSS/" rel="tag"># SCSS</a>
+          
+            <a href="/tags/linear-gradient/" rel="tag"># linear-gradient</a>
+          
+            <a href="/tags/clip-path/" rel="tag"># clip-path</a>
+          
+            <a href="/tags/position/" rel="tag"># position</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/13/CSS-ForgetfulNotes/" rel="next" title="CSS - 常用筆記">
+                <i class="fa fa-chevron-left"></i> CSS - 常用筆記
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/12/CSS-Transition/" rel="prev" title="CSS-Transition 轉場效果">
+                CSS-Transition 轉場效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#icon-利用-position-位移"><span class="nav-number">1.</span> <span class="nav-text">icon 利用 position 位移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示意圖"><span class="nav-number">1.1.</span> <span class="nav-text">示意圖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重點"><span class="nav-number">1.2.</span> <span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-程式碼"><span class="nav-number">1.3.</span> <span class="nav-text">HTML 程式碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCSS-程式碼"><span class="nav-number">1.4.</span> <span class="nav-text">SCSS 程式碼</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#緞帶效果"><span class="nav-number">2.</span> <span class="nav-text">緞帶效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重點-1"><span class="nav-number">2.1.</span> <span class="nav-text">重點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html-程式碼"><span class="nav-number">2.2.</span> <span class="nav-text">html 程式碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCSS-程式碼-1"><span class="nav-number">2.3.</span> <span class="nav-text">SCSS 程式碼</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#觀念補充"><span class="nav-number">3.</span> <span class="nav-text">觀念補充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#六角範例"><span class="nav-number">3.1.</span> <span class="nav-text">六角範例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transform"><span class="nav-number">3.2.</span> <span class="nav-text">transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-程式碼"><span class="nav-number">3.3.</span> <span class="nav-text">CSS 程式碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCSS顏色函數範例"><span class="nav-number">3.4.</span> <span class="nav-text">SCSS顏色函數範例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linear-gradient讓顏色有漸層效果"><span class="nav-number">3.5.</span> <span class="nav-text">linear-gradient讓顏色有漸層效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-程式碼-1"><span class="nav-number">3.6.</span> <span class="nav-text">CSS 程式碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#繪製幾何圖形-支援度不高"><span class="nav-number">3.7.</span> <span class="nav-text">繪製幾何圖形(支援度不高)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://kanboo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://kanboo.github.io/2017/12/11/CSS-RWDlayout/';
+          this.page.identifier = '2017/12/11/CSS-RWDlayout/';
+          this.page.title = '2017-12-11-RWDlayout';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kanboo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
