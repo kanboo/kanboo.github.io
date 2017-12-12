@@ -4,6 +4,7 @@ date: 2017-12-11 13:55:46
 categories: 
 - CSS
 tags:
+- CSS
 - transform
 - translateX
 - rotate
@@ -14,7 +15,9 @@ tags:
 - position
 ---
 
-<font style="font-size:18px;">紀錄練習切版時，遇到卡卡的問題</font>
+<font style="font-size:18px;">
+紀錄練習切版時，遇到卡卡的問題
+</font>
 
 <br>
 {% asset_img Exercise.png %}
@@ -199,17 +202,21 @@ translate為移動
 */
 
 /* 範例1：移動X軸 → 旋轉 → 移動Y軸 */
-transform: translateX(50%) rotate(45deg) translateY(150%);
+transform: translateX(150%) rotate(45deg)  translateY(50%);
 
 /* 範例2：旋轉 → 移動X軸 → 移動Y軸 */
-transform: rotate(45deg) translateX(50%)  translateY(150%);
+transform: rotate(45deg) translateX(150%)  translateY(50%);
 
 ```
 
+{% asset_img transform_order.png %}
+
 上列 CSS程式碼 「_**範例1 、 範例2**_」，
 雖然同樣都做了「移動X軸、移動Y軸、旋轉」的動作，
-但是因為 **_執行順序_** 不同，
+但是因為 **_執行順序_**  不同，
 所以二個範例呈現出來的結果也會**不一樣**。
+
+上述程式碼範例： [**transform_執行順序**](https://codepen.io/Kanboo/pen/xpxKQJ)
 
 >[transform基本介紹](https://www.great-good.tw/learn/css-transform/)
 >[1.CSS transform 概觀](https://wcc723.github.io/css/2013/10/08/css-transform/)
