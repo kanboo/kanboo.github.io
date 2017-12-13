@@ -6,7 +6,7 @@ categories:
 tags:
 - CSS
 - 筆記
-top: 100000
+#top: 100000
 ---
 
 ## 背景圖
