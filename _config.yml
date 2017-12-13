@@ -97,3 +97,18 @@ search:
   field: post
   format: html
   limit: 10000
+
+
+## 修改归档页面、某一分类页面、某一标签页面的显示篇数
+## 参考：http://theme-next.iissnan.com/faqs.html#setting-page-size
+archive_generator:
+  per_page: 0
+  yearly: false
+  monthly: false
+  daily: false
+
+category_generator:
+  per_page: 0
+  
+tag_generator:
+  per_page: 0
