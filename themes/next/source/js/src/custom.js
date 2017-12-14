@@ -84,9 +84,9 @@ $("figure").hover(
             $copyBtn.stop();
             $copyBtn.css("opacity", 0.8);
             $copyBtn.css("display", "block");
-            $copyBtn.css("top", parseInt($copyBtn.css("top")) + $(this).offset().top - $copyBtn.offset().top + 6);
+            $copyBtn.css("top", parseInt($copyBtn.css("top")) + $(this).offset().top - $copyBtn.offset().top + 2);
             // $copyBtn.css("right", -$copyBtn.width() - 3);
-            $copyBtn.css("right", 5);
+            $copyBtn.css("right", 0);
         }
     },
     function() {
