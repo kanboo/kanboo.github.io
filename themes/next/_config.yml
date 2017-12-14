@@ -1,12 +1,18 @@
 # ---------------------------------------------------------------
 # Site Information Settings
 # ---------------------------------------------------------------
+# 站點圖標啦，直接去https://realfavicongenerator.net
+# 選項弄好後，下載壓縮包，解壓複製粘貼
+# 建議放在hexo-site/source/images/ 裡（沒有自己建）
+# 這樣可以避免更新NexT 主題的時候遇到麻煩
+# 最後記得要稍微改下文件名，與下面的保持一致
 
 # Put your favicon.ico into `hexo-site/source/` directory.
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+# 站點關鍵字，利於SEO 大概，記得用英文逗號分隔
+keywords: "Kanboo, Hexo, NexT"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -14,12 +20,17 @@ keywords: "Hexo, NexT"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+# 建站年份
+since: 2017
 
 # icon between year and author @Footer
+# 年份後面的圖標，為Font Awesome 圖標
+# 自己去糾結http://fontawesome.io/icons/
+# 然後更改名字就行，下面的有關圖標的設置都一樣
 authoricon: child
 
 # Footer `powered-by` and `theme-info` copyright
+# 如果不定義，默認用站點配置文件的author 名
 copyright: true
 
 
@@ -45,6 +56,13 @@ index_with_subtitle: false
 # ---------------------------------------------------------------
 
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
+# 菜單設置|| 菜單圖標設置（圖標上面說了，不重複）
+# 項目換行可以更改顯示順序
+# 如果這個項前會顯示.menu
+# 解決方法：編輯~/blog/themes/next/languages 下的相應文件
+# 比如添加一個“留言”菜單，站點配置文件的language 是zh-Hans
+# 則編輯zh-Hans.yml，在menu: 項內添加一行留言: 留言
+# 注意空格，且符號: 為英文字符！
 menu:
   home: /
   categories: /categories/
@@ -59,6 +77,7 @@ menu:
 #   Map a menu item to a specific FontAwesome icon name.
 #   Key is the name of menu item and value is the name of FontAwesome icon. Key is case-senstive.
 #   When an question mask icon presenting up means that the item has no mapping icon.
+# 是否開啟菜單圖標
 menu_icons:
   enable: true
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
@@ -74,6 +93,8 @@ menu_icons:
 
 # ---------------------------------------------------------------
 # Scheme Settings
+# 設計板式，都長啥樣，去README 裡面的鏈接裡看看
+# https://github.com/iissnan/hexo-theme-next#live-preview
 # ---------------------------------------------------------------
 
 # Schemes
@@ -87,6 +108,7 @@ scheme: Mist
 # Sidebar Settings
 # ---------------------------------------------------------------
 
+# 側欄社交鏈接設置，與上面菜單差不多，要生效記得把前面的# 去掉
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
@@ -126,16 +148,26 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
+# 側欄頭像設置
+# 圓形以及旋轉效果在本文4.2 節的代碼裡
+# 點擊回到博客首頁教程見本文5.13 節
+# 建議放在hexo-site/source/uploads/ 裡（沒有自己建）
+# 這樣可以避免更新NexT 主題的時候遇到麻煩
 avatar: /images/avatar.jpg
 
 # Table Of Contents in the Sidebar
+# 側欄文章目錄設置（前提是Markdown 書寫正確）
+# Markdown 教程見本文6.2 節
 toc:
   enable: true
 
   # Automatically add list number to toc.
+  # 自動加數字序號
   number: true
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
+  # 如果標題太長，則放到下一行繼續顯示
+  # 開啟後可能要在custom.styl 裡加代碼，本文4.2 節有
   wrap: false
 
 # Creative Commons 4.0 International License.
@@ -146,6 +178,7 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
+  # 側欄位置設置，可用值：左| 右（只對Pisces 和Gemini 設計版式有效！）
   position: left
   #position: right
 
@@ -154,6 +187,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
+  # 側欄顯示方式，post 代表只有點進一篇文章內
+  # 且文章有目錄，側欄才會彈出顯
   display: post
   #display: always
   #display: hide
@@ -178,21 +213,29 @@ sidebar:
 # ---------------------------------------------------------------
 
 # Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
+# 點擊[Read More]，頁面自動滾動到<!-- more --> 標記處
+scroll_to_more: false
 
 # Automatically saving scroll position on each post/page in cookies.
+# 用cookies 保存瀏覽的位置信息，意味著重新打開這個頁面後
+# 頁面就會自動滾動到上次的位置，除非讀者清理瀏覽器cookies
 save_scroll: false
 
 # Automatically excerpt description in homepage as preamble text.
+# 將每篇文章Front-matter 裡description 的文字作為頁面顯示的文章摘要
 excerpt_description: true
 
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
+# 按字數自動加入[Read More]，不建議！
+# 建議在文章中加入<!-- more -->
+# 自定義[Read More] 按鈕之前要顯示的內容！
 auto_excerpt:
   enable: false
   length: 150
 
 # Post meta display settings
+# 文章頂部顯示的文章元數據設置
 post_meta:
   item_text: true
   created_at: true
@@ -201,6 +244,9 @@ post_meta:
 
 # Post wordcount display settings
 # Dependencies: https://github.com/willin/hexo-wordcount
+# 顯示統計字數和估計閱讀時長
+# 注意：這個要安裝插件，先進入站點文件夾根目錄
+# 然後：npm install hexo-wordcount --save
 post_wordcount:
   item_text: true
   wordcount: false
@@ -231,9 +277,12 @@ post_copyright:
 # ---------------------------------------------------------------
 
 # Reduce padding / margin indents on devices with narrow width.
+# 移動端把頁面兩邊留白去除，個人不建議
+# 移動端樣式可以參考本文4.2 節的相關代碼
 mobile_layout_economy: false
 
 # Android Chrome header panel color ($black-deep).
+# Android 上Chrome 瀏覽器頂部顏色設置
 android_chrome_color: "#222"
 
 # Custom Logo.
@@ -249,6 +298,8 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
+# 代碼高亮主題設置
+# 都長啥樣自己點開上面的鏈接查看
 highlight_theme: normal
 
 
@@ -260,6 +311,7 @@ highlight_theme: normal
 # - Be aware that setting too much fonts will cause site running slowly
 # - Introduce in 5.0.1
 # ---------------------------------------------------------------
+# 字體設置
 font:
   enable: true
 
@@ -424,6 +476,9 @@ rating:
 
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
+# 可以顯示每篇文章的閱讀量
+# 然後可以通過閱讀量建立TopX 頁面，教程鏈接：
+# https://notes.wanghao.work/2015-10-21-為NexT主題添加文章閱讀量統計功能.html
 leancloud_visitors:
   enable: false
   app_id: #<app_id>
@@ -431,6 +486,7 @@ leancloud_visitors:
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
+# 不蒜子統計，用於在頁腳顯示總訪客數和總瀏覽量，將false 改為true 就能直接使用
 busuanzi_count:
   # count values only if the other configs are false
   enable: false
@@ -443,6 +499,9 @@ busuanzi_count:
   site_pv_header: <i class="fa fa-eye"></i>
   site_pv_footer:
   # custom pv span for one page only
+  # 頁面瀏覽量，不建議開啟，建議用上面的leancloud_visitors
+  # 首先leancloud 更穩定，其次leancloud 便於管理
+  # 最後，可以利用leancloud 的api 建立TopX 頁面
   page_pv: true
   page_pv_header: <i class="fa fa-file-o"></i>
   page_pv_footer:
@@ -487,6 +546,8 @@ algolia_search:
 
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search
+# 要安裝插件才能使用，先進入站點文件夾根目錄
+# 然後：npm install hexo-generator-searchdb --sav
 local_search:
   enable: true
   # if auto, trigger search by changing input
@@ -584,54 +645,49 @@ canvas_ribbon: false
 #    jquery: https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js
 # Be aware that you should use the same version as internal ones to avoid potential problems.
 # Please use the https protocol of CDN files when you enable https on your site.
+# 相關內容用CDN 地址取代，加速網站訪問，注意版本盡可能要一致
 vendors:
   # Internal path prefix. Please do not edit it.
   _internal: lib
 
   # Internal version: 2.1.3
-  jquery:
+  jquery: https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
 
   # Internal version: 2.1.5
   # See: http://fancyapps.com/fancybox/
-  fancybox:
-  fancybox_css:
+  # 自定義fancybox（暫時）
+  fancybox: https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js
+  fancybox_css: https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css
 
   # Internal version: 1.0.6
   # See: https://github.com/ftlabs/fastclick
-  fastclick:
+  fastclick: https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js
 
   # Internal version: 1.9.7
   # See: https://github.com/tuupola/jquery_lazyload
-  lazyload:
+  lazyload: https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js
 
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
-  velocity:
+  velocity: https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js
 
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
-  velocity_ui:
+  velocity_ui: https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js
 
   # Internal version: 0.7.9
   # See: https://faisalman.github.io/ua-parser-js/
-  ua_parser:
+  ua_parser: https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.9/ua-parser.min.js
 
   # Internal version: 4.6.2
   # See: http://fontawesome.io/
-  fontawesome:
-
-  # Internal version: 1
-  # https://www.algolia.com
-  algolia_instant_js:
-  algolia_instant_css:
-
+  fontawesome: https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css
+    
   # Internal version: 1.0.2
   # See: https://github.com/HubSpot/pace
   # Or use direct links below:
-  # pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
-  # pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
-  pace:
-  pace_css:
+  pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
+  pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js

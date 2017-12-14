@@ -81,15 +81,6 @@ deploy:
   repository: https://github.com/kanboo/kanboo.github.io.git
   branch: master
 
-# 備份Hexo
-# 參考網址：https://github.com/coneycode/hexo-git-backup
-# 安裝：npm install hexo-git-backup --save
-# 移除：npm remove hexo-git-backup
-# backup:
-#     type: git
-#     theme: next,landscape
-#     repository:
-#        github: https://github.com/kanboo/kanboo.github.io.git,Hexo
 
 # 啟動搜尋
 search:
