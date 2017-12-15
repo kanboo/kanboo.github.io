@@ -1,5 +1,5 @@
 ---
-title: CSS-Transition 轉場效果
+title: CSS-transition 轉場效果
 date: 2017-12-12 15:37:29
 categories: 
 - CSS
@@ -9,8 +9,6 @@ tags:
 - 動畫
 - 轉場效果
 ---
-
-## 前言
 
 {% asset_img transition_01.png %}
 

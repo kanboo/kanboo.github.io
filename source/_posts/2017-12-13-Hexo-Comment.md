@@ -15,6 +15,10 @@ tags:
 
 {% asset_img Disqus.png %}
 
+<!-- more -->
+
+***
+
 新增 Hexo 的留言版，需要完成的事情有：
 
 1. 註冊 Disqus 的帳號
@@ -22,9 +26,7 @@ tags:
 3. 配置 Hexo
 
 
-<!-- more -->
 
-***
 
 ## 操作步骤
 

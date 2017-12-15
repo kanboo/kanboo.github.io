@@ -1,26 +1,44 @@
 ---
-title: MarkDown常用寫法
+title: MarkDown常用寫法(置頂)
 date: 2017-09-30 00:03:49
 categories: 
 - Hexo
 tags:
 - Hexo
 - MarkDown
+top: 100
 ---
 
+{% cq %}
+將常用的 MarkDown 紀錄在這，
+
+<span id="inline-blue"> Ctrl + C  </span> 、 <span id="inline-green"> Ctrl + V </span>  
+
+比較方便。
+{% endcq %}
+
+<!-- more -->
+***
 
 ## 文字加顏色
 
 <font color="blue">藍色字</font>
-<font color="red">紅色的字</font>
-<font style="color:green;font-size:20px;">20px - 綠色的字</font>
 
-``` html html
+```
 <font color="blue">藍色字</font>
+```
+
 <font color="red">紅色的字</font>
+
+```
+<font color="red">紅色的字</font>
+```
+
 <font style="color:green;font-size:20px;">20px - 綠色的字</font>
 
- ```
+```
+<font style="color:green;font-size:20px;">20px - 綠色的字</font>
+```
 
 >[MARKDOWN/HTML常用語法小結](https://xiwan.io/archive/markdown-html-common-syntax-summary.html)
 
@@ -48,7 +66,21 @@ tags:
 <div class="note info">下列 自定義樣式，參考 [超深度优化](https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#好玩的写作样式)
 </div>
 
-### 自定義樣式 数字塊
+### 文本置中引用
+
+{% cq %}
+
+我不是一個偉大的程式設計師,我只是一個具有良好習慣的優秀程式設計師。
+
+{% endcq %}
+
+```
+{% cq %}
+我不是一個偉大的程式設計師,我只是一個具有良好習慣的優秀程式設計師。
+{% endcq %}
+```
+
+### 数字塊
 
 <span id="inline-toc">1.</span>左邊是效果。
 <span id="inline-toc">2.</span>我是第二行。
@@ -58,7 +90,7 @@ tags:
 <span id="inline-toc">2.</span>
 ```
 
-### 主题自带样式 label標籤
+### label標籤
 
 {% label default@default %}
 
@@ -96,51 +128,51 @@ tags:
 {% label danger@danger %}
 ```
 
-### 主题自带样式 note 標籤
+### note 標籤
 
-<div class="note default no-icon"><p>default no-icon</p></div>
-
-``` html
-<div class="note default no-icon"><p>default no-icon</p></div>
-```
-
-<div class="note default"><p>default</p></div>
+<div class="note default no-icon">default no-icon</div>
 
 ``` html
-<div class="note default"><p>default</p></div>
+<div class="note default no-icon">default no-icon</div>
 ```
 
-<div class="note primary"><p>primary</p></div>
+<div class="note default">default</div>
 
 ``` html
-<div class="note primary"><p>primary</p></div>
+<div class="note default">default</div>
 ```
 
-<div class="note success"><p>success</p></div>
+<div class="note primary">primary</div>
 
 ``` html
-<div class="note success"><p>success</p></div>
+<div class="note primary">primary</div>
 ```
 
-<div class="note info"><p>info</p></div>
+<div class="note success">success</div>
 
 ``` html
-<div class="note info"><p>info</p></div>
+<div class="note success">success</div>
 ```
 
-<div class="note warning"><p>warning</p></div>
+<div class="note info">info</div>
 
 ``` html
-<div class="note warning"><p>warning</p></div>
+<div class="note info">info</div>
 ```
 
-<div class="note danger"><p>danger</p></div>
+<div class="note warning">warning</div>
 
 ``` html
-<div class="note danger"><p>danger</p></div>
+<div class="note warning">warning</div>
 ```
 
-### 自定義樣式 引用
+<div class="note danger">danger</div>
+
+``` html
+<div class="note danger">danger</div>
+```
+
+### 引用
 
 <blockquote class="question">内容</blockquote>
 
@@ -148,21 +180,37 @@ tags:
 <blockquote class="question">内容</blockquote>
 ```
 
-## 程式碼區段
+***
 
-``` html [language] [title] [url] [link-text]
+## 程式碼
+
+
+### 行內
+
+`height: 50px;`
+
+``` md 
+ `height: 50px;` 
+ ```
+
+
+### 區段
+
+```` md 區段寫法
+``` [language] [title] [url] [link-text]
 - [language] 是代碼語言的名稱，用來設置代碼塊顏色高亮，非必須；
 - [title] 是頂部左邊的說明，非必須；
 - [url] 是頂部右邊的超鏈接地址，非必須；
 - [link text] 如它的字面意思，超鏈接的名稱，非必須。
-```
+````
 
-### inline code
-`height: 50px;`
+上述4項應該是根據 {% label success@空格 %} 來分隔，而不是 `[]`，故請不要加 `[]`。
+除非如果你想寫後面兩個，但不想寫前面兩個，那麼就必須加 `[]` 了，
+要這樣寫： `[] [] [url] [link text]`。
 
-### code block
+MarkDown寫法：
 
-#### CSS型態
+```` [] CSS
 ``` CSS
 .container {
     max-width: 960px;
@@ -171,11 +219,11 @@ tags:
     margin-top: 10px;`
 }
 ```
+````
 
-<!-- more -->
 
-#### javascript型態
-``` javascript
+```` [] js
+``` js
 .container {
     function checkList(e) {
         var num = e.target.dataset.num;
@@ -188,6 +236,11 @@ tags:
     }
 }
 ```
+````
+
+<div class="note info">可支援的語法： [連結](https://almostover.ru/2016-07/hexo-highlight-code-styles/)</div>
+
+***
 
 ## 插入圖片
 ---
@@ -195,9 +248,16 @@ tags:
 ### 內部圖片
 {% asset_img logo.png logo %}
 
+``` md
+{% asset_img logo.png logo %}
+```
+
 ### 外部圖片
 ![Mario](https://goo.gl/2Dty9K)
 
+``` md
+![Mario](https://goo.gl/2Dty9K)
+```
 
 ## 文字超連結
 ---
@@ -206,7 +266,11 @@ More info: [Writing](https://hexo.io/docs/writing.html)
 
 Google連結：[Google](https://www.google.com.tw/)
 
+``` md
+More info: [Writing](https://hexo.io/docs/writing.html)
 
+Google連結：[Google](https://www.google.com.tw/)
+```
 
 
 ## 項目標籤
@@ -216,7 +280,12 @@ Google連結：[Google](https://www.google.com.tw/)
 * 序列1
 * 序列2
 * 序列3
-* 序列4
+
+``` md
+* 序列1
+* 序列2
+* 序列3
+```
 
 ### Check
 - [ ] 序列1
@@ -224,17 +293,27 @@ Google連結：[Google](https://www.google.com.tw/)
 - [ ] 序列3
 - [ ] 序列4
 
+``` md
+- [ ] 序列1
+- [ ] 序列2
+- [ ] 序列3
+- [ ] 序列4
+```
+
 ### 數字
 1. 序列1
 2. 序列2
 3. 序列3
 4. 序列4
 
+``` md
+1. 序列1
+2. 序列2
+3. 序列3
+4. 序列4
+```
 
 ## 重點標示
----
-
-Emphasis, aka italics, with *asterisks* or _underscores_.
 
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
@@ -242,5 +321,12 @@ Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 
----
+``` md
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+```
+
 

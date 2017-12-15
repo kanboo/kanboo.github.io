@@ -15,12 +15,11 @@ tags:
 - position
 ---
 
+{% asset_img Exercise.png %}
+
 <font style="font-size:18px;">
 紀錄練習切版時，遇到卡卡的問題
 </font>
-
-<br>
-{% asset_img Exercise.png %}
 
 <!-- more -->
 ***
