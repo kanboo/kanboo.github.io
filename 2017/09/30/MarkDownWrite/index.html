@@ -107,6 +107,9 @@
 
 
 
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
 
 
 <meta name="description" content="將常用的 MarkDown 紀錄在這，  Ctrl + C   、  Ctrl + V    比較方便。">
@@ -160,6 +163,24 @@
 
   <title>MarkDown常用寫法(置頂) | Kanboo Notes</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -405,8 +426,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/09/30/MarkDownWrite/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/30/MarkDownWrite/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/09/30/MarkDownWrite/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -572,6 +592,22 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
       
 
       
@@ -616,11 +652,11 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2017/09/30/MarkDownWrite/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
       </div>
     
   </div>
@@ -863,26 +899,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://kanboo.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://kanboo.github.io/2017/09/30/MarkDownWrite/';
-          this.page.identifier = '2017/09/30/MarkDownWrite/';
-          this.page.title = 'MarkDown常用寫法(置頂)';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://kanboo.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -895,6 +911,10 @@
   
 
 
+
+
+
+  
 
 
 

@@ -107,6 +107,9 @@
 
 
 
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
 
 
 <meta name="description" content="前言建立Hexo環境，需要完成的事情有：   建置github空間 安裝 Node.js（如果還沒有的話） 安裝 Hexo 初始化 Hexo，並在目標資料夾建立所需檔案 安裝 hexo-deployer-git (很重要) 在_config.yml 中設定 Git 等資訊">
@@ -121,7 +124,7 @@
 <meta property="og:image" content="https://kanboo.github.io/2017/10/14/Hexo-Create/githubpage2.png">
 <meta property="og:image" content="https://kanboo.github.io/2017/10/14/Hexo-Create/githubpage3.png">
 <meta property="og:image" content="https://kanboo.github.io/2017/10/14/Hexo-Create/githubpage5.png">
-<meta property="og:updated_time" content="2017-10-25T11:23:01.000Z">
+<meta property="og:updated_time" content="2017-12-16T06:04:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-環境建置">
 <meta name="twitter:description" content="前言建立Hexo環境，需要完成的事情有：   建置github空間 安裝 Node.js（如果還沒有的話） 安裝 Hexo 初始化 Hexo，並在目標資料夾建立所需檔案 安裝 hexo-deployer-git (很重要) 在_config.yml 中設定 Git 等資訊">
@@ -162,6 +165,24 @@
 
   <title>Hexo-環境建置 | Kanboo Notes</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -407,8 +428,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/10/14/Hexo-Create/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/14/Hexo-Create/" itemprop="commentCount"></span>
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/10/14/Hexo-Create/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -525,6 +545,22 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
       
 
       
@@ -573,11 +609,11 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2017/10/14/Hexo-Create/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
       </div>
     
   </div>
@@ -820,26 +856,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://kanboo.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://kanboo.github.io/2017/10/14/Hexo-Create/';
-          this.page.identifier = '2017/10/14/Hexo-Create/';
-          this.page.title = 'Hexo-環境建置';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://kanboo.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -852,6 +868,10 @@
   
 
 
+
+
+
+  
 
 
 
