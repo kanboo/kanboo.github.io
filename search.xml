@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS-transform 2D]]></title>
+    <url>%2F2017%2F12%2F16%2FCSS-transform-2D%2F</url>
+    <content type="text"><![CDATA[利用 transform 將元素加入 位移、旋轉、縮放和傾斜 的效果。 基本語法transform 屬性可以設定 一個 或 多個 的參數，若設定多個參數的話，中間的區隔使用 空白 即可。 123transform: 第一個參數 第二個參數 ...transform: translate(100px) rotate(20deg); 常用的參數如下列 位移 - translate()、translateX()、translateY() 旋轉 - rotate() 縮放 - scale()、scaleX()、scaleY() 傾斜 - skew()、skewX()、skewY() 位移translate語法 若設定二個，用 逗號 區隔 translate(tx) → 若僅設定一個參數，代表只 位移X translate(tx, ty) 設定 X軸 位移 translateX() 設定 Y軸 位移 translateY() 範例 位移 X軸 50px,位移 Y軸 50px 12345.moved &#123; transform: translate( 50px, 50px); // 上下二段語法，結果一樣 transform: translateX( 50px) translateY( 50px);&#125; See the Pen transform-translate by Kanboo (@Kanboo) on CodePen. 旋轉rotate語法 rotate( 旋轉角度 ) =&gt; rotate( 20deg ) 旋轉30度角 = 30deg旋轉90度角 = 90deg 範例 旋轉45度角 123.rotate &#123; transform: rotate( 45deg);&#125; See the Pen transform-rotate by Kanboo (@Kanboo) on CodePen. 縮放scale語法 參數預設大小為 1 ，若設定 小於 1 就是 縮小，大於 1 就是 放大。 若設定二個，用 逗號 區隔 scale(sx) → 若僅設定一個參數，代表同時縮放 X 和 Y scale(sx, sy) 縮放 X軸 scaleX() 縮放 Y軸 scaleY() 範例 縮小至0.7倍 12345.scaled &#123; transform: scale(0.7); // 上下二段語法，結果一樣 transform: scaleX(0.7) scaleY(0.7);&#125; See the Pen transform-scale by Kanboo (@Kanboo) on CodePen. 傾斜skew語法 若設定二個，用 逗號 區隔 skew(ax) → 若僅設定一個參數，代表只 傾斜X skew(ax, ay) 傾斜 X軸 skewX() 傾斜 Y軸 skewY() 範例 skewed1 傾斜 X , skewed1 傾斜 X 和 Y 1234567891011 .skewed1 &#123; transform: skew(10deg); // 等同 skewX(10deg) transform: skewX(10deg);&#125;.skewed2 &#123; transform: skew(10deg, 10deg); // 等同 skewX(10deg) skewY(10deg) transform: skewX(10deg) skewY(10deg);&#125; See the Pen transform-skew by Kanboo (@Kanboo) on CodePen.]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>transform</tag>
+        <tag>2D</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS-transform-origin 軸心]]></title>
     <url>%2F2017%2F12%2F15%2FCSS-transform-origin%2F</url>
     <content type="text"><![CDATA[在學習 transform 之前，先了解 transform-origin 軸心 怎麼變化？ 說明在撰寫CSS transform 時，預設的 軸心 是在Box的正中央位置(如下圖)， 所以要製作一些比較特別的效果的話，如：時間、開門 …等 就利用變更軸心的位置，再配合 transform 來達成。 1transform-origin: x y; 範例：利用 transform: rotate(90deg) 旋轉 90度，呈現因 軸心位置不同 ，而旋轉的結果有何不一樣。 C 軸心： 正中間(預設) F 軸心： 右下角 E 軸心： 左邊中間 See the Pen transform-origin 更改軸心 by Kanboo (@Kanboo) on CodePen. 其他範例teaching transform-originTransform Origin Examples 參考文章CSS沒有極限 - CSS transform-origin]]></content>
