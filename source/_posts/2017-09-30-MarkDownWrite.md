@@ -34,10 +34,10 @@ top: 100
 <font color="red">紅色的字</font>
 ```
 
-<font style="color:green;font-size:20px;">20px - 綠色的字</font>
+<font style="color:#f90;font-size:20px;">20px的字</font>
 
 ```
-<font style="color:green;font-size:20px;">20px - 綠色的字</font>
+<font style="color:#f90;font-size:20px;">20px的字</font>
 ```
 
 >[MARKDOWN/HTML常用語法小結](https://xiwan.io/archive/markdown-html-common-syntax-summary.html)

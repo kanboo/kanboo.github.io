@@ -1,11 +1,11 @@
 ---
-title: CSS - Flex
+title: CSS - Flexbox
 date: 2017-09-30 14:09:28
 categories: 
 - CSS
 tags:
 - CSS
-- Flex
+- Flexbox
 - 排版
 ---
 
