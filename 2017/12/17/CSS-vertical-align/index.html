@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,transform,2D," />
+  <meta name="keywords" content="CSS,vertical-align,垂直置中," />
 
 
 
@@ -112,18 +112,18 @@
 
 
 
-<meta name="description" content="利用 transform 將元素加入 位移、旋轉、縮放和傾斜 的效果。">
-<meta name="keywords" content="CSS,transform,2D">
+<meta name="description" content="整理常用CSS常用的 垂直置中 的方法。">
+<meta name="keywords" content="CSS,vertical-align,垂直置中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS-transform 2D">
-<meta property="og:url" content="https://kanboo.github.io/2017/12/16/CSS-transform-2D/index.html">
+<meta property="og:title" content="CSS-垂直置中的方法">
+<meta property="og:url" content="https://kanboo.github.io/2017/12/17/CSS-vertical-align/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="利用 transform 將元素加入 位移、旋轉、縮放和傾斜 的效果。">
+<meta property="og:description" content="整理常用CSS常用的 垂直置中 的方法。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-12-16T17:01:07.000Z">
+<meta property="og:updated_time" content="2017-12-17T15:51:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS-transform 2D">
-<meta name="twitter:description" content="利用 transform 將元素加入 位移、旋轉、縮放和傾斜 的效果。">
+<meta name="twitter:title" content="CSS-垂直置中的方法">
+<meta name="twitter:description" content="整理常用CSS常用的 垂直置中 的方法。">
 
 
 
@@ -152,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="https://kanboo.github.io/2017/12/16/CSS-transform-2D/"/>
+  <link rel="canonical" href="https://kanboo.github.io/2017/12/17/CSS-vertical-align/"/>
 
 
 
 
 
-  <title>CSS-transform 2D | Kanboo Notes</title>
+  <title>CSS-垂直置中的方法 | Kanboo Notes</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -352,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/12/16/CSS-transform-2D/">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/12/17/CSS-vertical-align/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -369,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS-transform 2D</h1>
+          <h1 class="post-title" itemprop="name headline">CSS-垂直置中的方法</h1>
         
 
         <div class="post-meta">
@@ -381,8 +381,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-16T23:01:54+08:00">
-                2017-12-16
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-17T14:37:42+08:00">
+                2017-12-17
               </time>
             
 
@@ -422,8 +422,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/16/CSS-transform-2D/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/12/16/CSS-transform-2D/" itemprop="commentCount">0</span> comments
+                <a href="/2017/12/17/CSS-vertical-align/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/12/17/CSS-vertical-align/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -451,102 +451,44 @@
       
 
       
-        <blockquote class="blockquote-center"><p>利用 transform 將元素加入 <span id="inline-blue">位移、旋轉、縮放和傾斜</span> 的效果。</p>
+        <blockquote class="blockquote-center"><p>整理常用CSS常用的 <span id="inline-blue">垂直置中</span> 的方法。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="基本語法"><a href="#基本語法" class="headerlink" title="基本語法"></a>基本語法</h2><p>transform 屬性可以設定 <code>一個</code> 或 <code>多個</code> 的參數，<br>若設定多個參數的話，中間的區隔使用 <span id="inline-blue">空白</span> 即可。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">transform</span>: 第一個參數 第二個參數 ...</div><div class="line"></div><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(100<span class="selector-tag">px</span>) <span class="selector-tag">rotate</span>(20<span class="selector-tag">deg</span>);</div></pre></td></tr></table></figure>
-<p>常用的參數如下列</p>
-<ul>
-<li>位移 - translate()、translateX()、translateY()</li>
-<li>旋轉 - rotate()</li>
-<li>縮放 - scale()、scaleX()、scaleY()</li>
-<li>傾斜 - skew()、skewX()、skewY()</li>
-</ul>
 <hr>
-<h2 id="位移translate"><a href="#位移translate" class="headerlink" title="位移translate"></a>位移translate</h2><p>語法</p>
-<ul>
-<li><p>若設定二個，用 <span id="inline-blue">逗號</span> 區隔</p>
-<ul>
-<li>translate(tx) → 若僅設定一個參數，代表只 <span class="label primary">位移X</span> </li>
-<li>translate(tx, ty)</li>
-</ul>
-</li>
-<li><p>設定 X軸 位移</p>
-<ul>
-<li>translate<span class="label danger">X</span>()</li>
-</ul>
-</li>
-<li><p>設定 Y軸 位移</p>
-<ul>
-<li>translate<span class="label danger">Y</span>()</li>
-</ul>
-</li>
-</ul>
-<p>範例</p>
-<p>位移 X軸 50px,位移 Y軸 50px</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.moved</span> &#123;</div><div class="line">  <span class="attribute">transform</span>: translate( <span class="number">50px</span>, <span class="number">50px</span>);</div><div class="line">  <span class="comment">// 上下二段語法，結果一樣</span></div><div class="line">  <span class="attribute">transform</span>: translateX( <span class="number">50px</span>) translateY( <span class="number">50px</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p></p><p data-height="189" data-theme-id="0" data-slug-hash="PEPREv" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="transform-translate" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/PEPREv/" target="_blank" rel="external">transform-translate</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<h2 id="文字的垂直置中方法"><a href="#文字的垂直置中方法" class="headerlink" title="文字的垂直置中方法"></a>文字的垂直置中方法</h2><p>此方法適用 <font style="color:#f90;font-size:20px;">單行</font>，因為是行高，所以會在行內元素的上下都加上行高的 1/2 ，<br>如果<font style="color:#f90;font-size:20px;">多行</font>，第二行與第一行的間距會變超大，就會導致沒有垂直置中的效果。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// height 和 line-height 要一樣高</div><div class="line"></div><div class="line">.div0,.div1 &#123;</div><div class="line">  width: 300px;</div><div class="line"><span class="addition">+ height: 250px;</span></div><div class="line"><span class="addition">+ line-height: 250px;</span></div><div class="line">  text-align: center;</div><div class="line">  border: 1px solid #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p></p><p data-height="326" data-theme-id="0" data-slug-hash="BJoMKJ" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - line-height" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/BJoMKJ/" target="_blank" rel="external">垂直置中 - line-height</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="旋轉rotate"><a href="#旋轉rotate" class="headerlink" title="旋轉rotate"></a>旋轉rotate</h2><p>語法</p>
-<p>rotate( <code>旋轉角度</code> ) =&gt;  rotate( 20<span class="label primary">deg</span> )</p>
-<p>旋轉30度角 = 30deg<br>旋轉90度角 = 90deg</p>
-<p>範例</p>
-<p>旋轉45度角</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.rotate</span> &#123;</div><div class="line">  <span class="attribute">transform</span>: rotate( <span class="number">45deg</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p></p><p data-height="181" data-theme-id="0" data-slug-hash="dJYmQQ" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="transform-rotate" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/dJYmQQ/" target="_blank" rel="external">transform-rotate</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<hr>
+<h2 id="calc-amp-transform"><a href="#calc-amp-transform" class="headerlink" title="calc &amp; transform"></a>calc &amp; transform</h2><p>使用 <font style="color:red;font-size:20px;">calc</font> 動態計算的能力，讓要置中的 div 的 top 屬性，<br>與上方的距離是<font style="color:#f90;font-size:20px;">「50% 的外框高度 + 50% 的 div 高度」</font>，就可以做到垂直置中。</p>
+<p>範例1：設定top：50%，再扣掉 div 的 高度/2</p>
+<ul>
+<li>方法1：top: calc( 50% - (高度/2) )</li>
+<li>方法2：top: 50%; margin-top: -(高度/2);</li>
+<li>方法3：top: 50%; transform: translateY(-50%);  <font style="color:red;font-size:16px;"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>自行計算50%的div高度</font></li>
+</ul>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">.redbox &#123;</div><div class="line">    background: #c00;</div><div class="line">    float: left;</div><div class="line"><span class="addition">+   position: relative; //要宣告position，才能使用 top、left</span></div><div class="line">    width: 30px;</div><div class="line"><span class="deletion">-   //計算方法1</span></div><div class="line"><span class="addition">+   height: 30px;</span></div><div class="line"><span class="addition">+   top: calc(50% - 15px); //高：30/2=15</span></div><div class="line">  &#125;</div><div class="line">  .greenbox &#123;</div><div class="line">    background: #0c0;</div><div class="line">    float: left;</div><div class="line">    position: relative;</div><div class="line">    width: 30px;</div><div class="line"><span class="deletion">-   //計算方法2</span></div><div class="line"><span class="addition">+   height: 80px;</span></div><div class="line"><span class="addition">+   top: 50%;</span></div><div class="line"><span class="addition">+   margin-top: -40px;  //高：80/2=40</span></div><div class="line">  &#125;</div><div class="line">  .bluebox &#123;</div><div class="line">    background: #00f;</div><div class="line">    float: left;</div><div class="line">    position: relative;</div><div class="line">    width: 30px;</div><div class="line">    height: 50px;</div><div class="line"><span class="deletion">-   //計算方法3</span></div><div class="line"><span class="addition">+   top:50%;</span></div><div class="line"><span class="addition">+   transform: translateY(-50%);</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="ppjYBR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - calc 動態計算1" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/ppjYBR/" target="_blank" rel="external">垂直置中 - calc 動態計算1</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="縮放scale"><a href="#縮放scale" class="headerlink" title="縮放scale"></a>縮放scale</h2><p>語法</p>
-<p>參數<code>預設</code>大小為 <code>1</code> ，若設定 <code>小於</code> 1 就是 <code>縮小</code>，<code>大於</code> 1 就是 <code>放大</code>。 </p>
-<ul>
-<li><p>若設定二個，用 <span id="inline-blue">逗號</span> 區隔</p>
-<ul>
-<li>scale(sx) → 若僅設定一個參數，代表<span class="label primary">同時</span>縮放 X 和 Y </li>
-<li>scale(sx, sy)</li>
-</ul>
-</li>
-<li><p>縮放 X軸</p>
-<ul>
-<li>scale<span class="label danger">X</span>()</li>
-</ul>
-</li>
-<li><p>縮放 Y軸</p>
-<ul>
-<li>scale<span class="label danger">Y</span>()</li>
-</ul>
-</li>
-</ul>
-<p>範例</p>
-<p>縮小至0.7倍</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.scaled</span> &#123;</div><div class="line">  <span class="attribute">transform</span>: scale(<span class="number">0.7</span>); </div><div class="line">  <span class="comment">// 上下二段語法，結果一樣</span></div><div class="line">  <span class="attribute">transform</span>: scaleX(<span class="number">0.7</span>) scaleY(<span class="number">0.7</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p></p><p data-height="235" data-theme-id="0" data-slug-hash="QajrLG" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="transform-scale" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/QajrLG/" target="_blank" rel="external">transform-scale</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<p>範例2：將三個div設定寬高各30px，將滑鼠移到黑框內，可觀看效果。</p>
+<p></p><p data-height="277" data-theme-id="0" data-slug-hash="xpwozp" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - calc 動態計算2" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/xpwozp/" target="_blank" rel="external">垂直置中 - calc 動態計算2</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="傾斜skew"><a href="#傾斜skew" class="headerlink" title="傾斜skew"></a>傾斜skew</h2><p>語法</p>
-<ul>
-<li><p>若設定二個，用 <span id="inline-blue">逗號</span> 區隔</p>
-<ul>
-<li>skew(ax) → 若僅設定一個參數，代表只 <span class="label primary">傾斜X</span> </li>
-<li>skew(ax, ay)</li>
-</ul>
-</li>
-<li><p>傾斜 X軸</p>
-<ul>
-<li>skew<span class="label danger">X</span>()</li>
-</ul>
-</li>
-<li><p>傾斜 Y軸</p>
-<ul>
-<li>skew<span class="label danger">Y</span>()</li>
-</ul>
-</li>
-</ul>
-<p>範例</p>
-<p>skewed1 傾斜 X , skewed1 傾斜 X 和 Y</p>
- <figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-class">.skewed1</span> &#123;</div><div class="line">  <span class="attribute">transform</span>: skew(<span class="number">10deg</span>);</div><div class="line">  <span class="comment">// 等同 skewX(10deg)</span></div><div class="line">  <span class="attribute">transform</span>: skewX(<span class="number">10deg</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.skewed2</span> &#123;</div><div class="line">  <span class="attribute">transform</span>: skew(<span class="number">10deg</span>, <span class="number">10deg</span>);</div><div class="line">  <span class="comment">// 等同 skewX(10deg) skewY(10deg)</span></div><div class="line">  <span class="attribute">transform</span>: skewX(<span class="number">10deg</span>) skewY(<span class="number">10deg</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> </p><p data-height="318" data-theme-id="0" data-slug-hash="zpvjqL" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="transform-skew" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/zpvjqL/" target="_blank" rel="external">transform-skew</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<hr>
+<h2 id="絕對定位"><a href="#絕對定位" class="headerlink" title="絕對定位"></a>絕對定位</h2><p>利用絕對位置來指定，要將 <font style="color:red;font-size:20px;">上下</font> 的數值都設為 <font style="color:red;font-size:20px;">0</font>，再搭配一個 <font style="color:red;font-size:20px;">margin:auto</font>，就可以辦到垂直置中。</p>
+<div class="note info">邏輯：<br>這個方法同時設定top和bottom為0，使得這個div完全不可能符合，最後再透過margin這個指令，讓它達到垂直置中的效果<br></div>
+
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  .redbox &#123;</div><div class="line"><span class="deletion">-   // 垂直置中</span></div><div class="line">    background: #c00;</div><div class="line">    position: absolute; //要宣告，才能使用 top、left</div><div class="line"><span class="addition">+   top: 0;</span></div><div class="line"><span class="addition">+   bottom: 0;</span></div><div class="line"><span class="addition">+   margin: auto;</span></div><div class="line">  &#125;</div><div class="line">  .bluebox &#123;</div><div class="line"><span class="deletion">-   // 垂直置中 + 水平置中</span></div><div class="line">    background: blue;</div><div class="line">    position: absolute; //要宣告，才能使用 top、left</div><div class="line">    top: 0;</div><div class="line">    bottom: 0;</div><div class="line"><span class="addition">+   left: 0;</span></div><div class="line"><span class="addition">+   right: 0;</span></div><div class="line">    margin: auto;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p></p><p data-height="230" data-theme-id="0" data-slug-hash="baVzBM" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - 絕對定位" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/baVzBM/" target="_blank" rel="external">垂直置中 - 絕對定位</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h2 id="Flexbox"><a href="#Flexbox" class="headerlink" title="Flexbox"></a>Flexbox</h2><p>CSS3 最威的盒子模型：Flexbox，使用 <font style="color:#f90;font-size:20px;">align-items</font> 或 <font style="color:#f90;font-size:20px;">align-content</font> 的屬性，</p>
+<p>輕輕鬆鬆就可以做到垂直置中的效果喔，Bootstrap 4 也有用喔。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">.div0 &#123;</div><div class="line"><span class="addition">+ display: flex;</span></div><div class="line"><span class="addition">+ align-items: center;</span></div><div class="line"><span class="addition">+ justify-content: center;</span></div><div class="line">  width: 150px;</div><div class="line">  height: 150px;</div><div class="line">  border: 1px solid #000;</div><div class="line"></div><div class="line">  .redbox &#123;</div><div class="line">    width: 30px;</div><div class="line">    height: 30px;</div><div class="line">    background: #c00;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p></p><p data-height="225" data-theme-id="0" data-slug-hash="Zvbger" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - Flexbox" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/Zvbger/" target="_blank" rel="external">垂直置中 - Flexbox</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
       
     </div>
@@ -566,9 +508,9 @@
           
             <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
           
-            <a href="/tags/transform/" rel="tag"><i class="fa fa-tag"></i> transform</a>
+            <a href="/tags/vertical-align/" rel="tag"><i class="fa fa-tag"></i> vertical-align</a>
           
-            <a href="/tags/2D/" rel="tag"><i class="fa fa-tag"></i> 2D</a>
+            <a href="/tags/垂直置中/" rel="tag"><i class="fa fa-tag"></i> 垂直置中</a>
           
         </div>
       
@@ -597,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/15/CSS-transform-origin/" rel="next" title="CSS-transform-origin 軸心">
-                <i class="fa fa-chevron-left"></i> CSS-transform-origin 軸心
+              <a href="/2017/12/16/CSS-transform-2D/" rel="next" title="CSS-transform 2D">
+                <i class="fa fa-chevron-left"></i> CSS-transform 2D
               </a>
             
           </div>
@@ -606,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/17/CSS-vertical-align/" rel="prev" title="CSS-垂直置中的方法">
-                CSS-垂直置中的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -640,7 +578,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="https://kanboo.github.io/2017/12/16/CSS-transform-2D/"
+           data-href="https://kanboo.github.io/2017/12/17/CSS-vertical-align/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -750,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本語法"><span class="nav-number">1.</span> <span class="nav-text">基本語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位移translate"><span class="nav-number">2.</span> <span class="nav-text">位移translate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旋轉rotate"><span class="nav-number">3.</span> <span class="nav-text">旋轉rotate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#縮放scale"><span class="nav-number">4.</span> <span class="nav-text">縮放scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#傾斜skew"><span class="nav-number">5.</span> <span class="nav-text">傾斜skew</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字的垂直置中方法"><span class="nav-number">1.</span> <span class="nav-text">文字的垂直置中方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#calc-amp-transform"><span class="nav-number">2.</span> <span class="nav-text">calc & transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#絕對定位"><span class="nav-number">3.</span> <span class="nav-text">絕對定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexbox"><span class="nav-number">4.</span> <span class="nav-text">Flexbox</span></a></li></ol></div>
             
 
           </div>
