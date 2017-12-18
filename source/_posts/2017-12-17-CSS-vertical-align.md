@@ -151,3 +151,10 @@ CSS3 最威的盒子模型：Flexbox，使用 <font style="color:#f90;font-size:
 
 <p data-height="225" data-theme-id="0" data-slug-hash="Zvbger" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - Flexbox" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/Zvbger/">垂直置中 - Flexbox</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+***
+## 參考文章
+
+<div class="note info">[CSS 垂直置中的七個方法](http://www.oxxostudio.tw/articles/201502/css-vertical-align-7methods.html)
+[CSS垂直置中的方法](https://pjchender.blogspot.tw/2015/04/css_15.html)
+</div>
