@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HTML5 - 語義元素]]></title>
+    <url>%2F2017%2F12%2F18%2FHTML5-Semantics%2F</url>
+    <content type="text"><![CDATA[重新認識HTML5的語義元素 常用元素&lt;header&gt;區塊標題，不要把它只用來取代 &lt;div class=”header”&gt;它也可以是文章的標題，一頁可以有好多個 &lt;header&gt;，&lt;header&gt; 裡面至少要有一個 h1~h6。 &lt;nav&gt;導覽列。裡面裝的東西應該只有 主要 的navigation links，不要把各種link都丟到&lt;nav&gt;裡面。舉例來說，footer裡面常常會有一排link，那個就不需要包進&lt;nav&gt;。 &lt;main&gt;一個頁面只有一個! 任何 global 都不能放在 main 裡面( e.g. &lt;header&gt; &lt;footer&gt; logo) &lt;section&gt;通常用來把一些相關的元素組合在一起，一般來說，裡面都會包含heading。如果這個區塊的內容可以分成幾個部分的話，那應該使用article。 1234&lt;section&gt; &lt;h2&gt;Section title&lt;/h2&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;&lt;/section&gt; &lt;article&gt;文章中可以脫離其他部分，獨立出來而又完整，甚至可以復用的一部分，通常有自己的標題，當article內嵌article時，裡外層的內容應該是相關的，比如一篇文章和它的留言，而section雖然也具有獨立表達內容的能力，但是對外層有一定的相依性，例如這篇文章中的一個章節。 123456789101112131415&lt;article&gt; &lt;header&gt; &lt;h3&gt; &lt;a href="/my-blog-post"&gt;My blog post&lt;/a&gt; &lt;/h3&gt; &lt;/header&gt; &lt;section&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt; &lt;/section&gt; &lt;footer&gt; &lt;small&gt; Posted on &lt;time datetime="2017-04-29T19:00"&gt;Apr 29&lt;/time&gt; in &lt;a href="/category/code"&gt;Code&lt;/a&gt; &lt;/small&gt; &lt;/footer&gt;&lt;/article&gt; &lt;aside&gt;通常用來包含一些和當前頁面內容有關的額外信息，比如廣告、個人資料信息或相關連結。 &lt;footer&gt;通常包含作者、版權信息或者相關鏈接等。 簡易分辦 &lt;section&gt;&lt;article&gt;&lt;article&gt;: 就算脫離了整體也是一個可以獨立存在、具有完整內容的區塊，例如這篇文章。&lt;section&gt;: 具有獨立表達內容的能力，但是對外層有一定的相依性，例如這篇文章中的一個章節。 下面是簡單的問題，讓我們決定要用 &lt;section&gt; / &lt;article&gt; / &lt;div&gt; 具有完整內容的區塊，而且可以出現在你的閱讀器內嗎? 是的話就是 &lt;article&gt; 跟主要內容是有相關並且列入 outline 裡不會奇怪的? 是的話就是 &lt;section&gt; 跟內容無關或只用來 styling 的? 是的話就是 &lt;div&gt; 建議的架構範例 參考文章结构性元素HTML5 Semantic ElementsHTML5 SemanticsSemantic in HTML5]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+        <tag>語義架構</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS-垂直置中的方法]]></title>
     <url>%2F2017%2F12%2F17%2FCSS-vertical-align%2F</url>
-    <content type="text"><![CDATA[整理常用CSS常用的 垂直置中 的方法。 文字的垂直置中方法此方法適用 單行，因為是行高，所以會在行內元素的上下都加上行高的 1/2 ，如果多行，第二行與第一行的間距會變超大，就會導致沒有垂直置中的效果。 123456789// height 和 line-height 要一樣高.div0,.div1 &#123; width: 300px;+ height: 250px;+ line-height: 250px; text-align: center; border: 1px solid #000;&#125; See the Pen 垂直置中 - line-height by Kanboo (@Kanboo) on CodePen. calc &amp; transform使用 calc 動態計算的能力，讓要置中的 div 的 top 屬性，與上方的距離是「50% 的外框高度 + 50% 的 div 高度」，就可以做到垂直置中。 範例1：設定top：50%，再扣掉 div 的 高度/2 方法1：top: calc( 50% - (高度/2) ) 方法2：top: 50%; margin-top: -(高度/2); 方法3：top: 50%; transform: translateY(-50%); 自行計算50%的div高度 1234567891011121314151617181920212223242526272829.redbox &#123; background: #c00; float: left;+ position: relative; //要宣告position，才能使用 top、left width: 30px;- //計算方法1+ height: 30px;+ top: calc(50% - 15px); //高：30/2=15 &#125; .greenbox &#123; background: #0c0; float: left; position: relative; width: 30px;- //計算方法2+ height: 80px;+ top: 50%;+ margin-top: -40px; //高：80/2=40 &#125; .bluebox &#123; background: #00f; float: left; position: relative; width: 30px; height: 50px;- //計算方法3+ top:50%;+ transform: translateY(-50%); &#125; See the Pen 垂直置中 - calc 動態計算1 by Kanboo (@Kanboo) on CodePen. 範例2：將三個div設定寬高各30px，將滑鼠移到黑框內，可觀看效果。 See the Pen 垂直置中 - calc 動態計算2 by Kanboo (@Kanboo) on CodePen. 絕對定位利用絕對位置來指定，要將 上下 的數值都設為 0，再搭配一個 margin:auto，就可以辦到垂直置中。 邏輯：這個方法同時設定top和bottom為0，使得這個div完全不可能符合，最後再透過margin這個指令，讓它達到垂直置中的效果 123456789101112131415161718 .redbox &#123;- // 垂直置中 background: #c00; position: absolute; //要宣告，才能使用 top、left+ top: 0;+ bottom: 0;+ margin: auto; &#125; .bluebox &#123;- // 垂直置中 + 水平置中 background: blue; position: absolute; //要宣告，才能使用 top、left top: 0; bottom: 0;+ left: 0;+ right: 0; margin: auto; &#125; See the Pen 垂直置中 - 絕對定位 by Kanboo (@Kanboo) on CodePen. FlexboxCSS3 最威的盒子模型：Flexbox，使用 align-items 或 align-content 的屬性， 輕輕鬆鬆就可以做到垂直置中的效果喔，Bootstrap 4 也有用喔。 1234567891011121314.div0 &#123;+ display: flex;+ align-items: center;+ justify-content: center; width: 150px; height: 150px; border: 1px solid #000; .redbox &#123; width: 30px; height: 30px; background: #c00; &#125;&#125; See the Pen 垂直置中 - Flexbox by Kanboo (@Kanboo) on CodePen.]]></content>
+    <content type="text"><![CDATA[整理常用CSS常用的 垂直置中 的方法。 文字的垂直置中方法此方法適用 單行，因為是行高，所以會在行內元素的上下都加上行高的 1/2 ，如果多行，第二行與第一行的間距會變超大，就會導致沒有垂直置中的效果。 123456789// height 和 line-height 要一樣高.div0,.div1 &#123; width: 300px;+ height: 250px;+ line-height: 250px; text-align: center; border: 1px solid #000;&#125; See the Pen 垂直置中 - line-height by Kanboo (@Kanboo) on CodePen. calc &amp; transform使用 calc 動態計算的能力，讓要置中的 div 的 top 屬性，與上方的距離是「50% 的外框高度 + 50% 的 div 高度」，就可以做到垂直置中。 範例1：設定top：50%，再扣掉 div 的 高度/2 方法1：top: calc( 50% - (高度/2) ) 方法2：top: 50%; margin-top: -(高度/2); 方法3：top: 50%; transform: translateY(-50%); 自行計算50%的div高度 1234567891011121314151617181920212223242526272829.redbox &#123; background: #c00; float: left;+ position: relative; //要宣告position，才能使用 top、left width: 30px;- //計算方法1+ height: 30px;+ top: calc(50% - 15px); //高：30/2=15 &#125; .greenbox &#123; background: #0c0; float: left; position: relative; width: 30px;- //計算方法2+ height: 80px;+ top: 50%;+ margin-top: -40px; //高：80/2=40 &#125; .bluebox &#123; background: #00f; float: left; position: relative; width: 30px; height: 50px;- //計算方法3+ top:50%;+ transform: translateY(-50%); &#125; See the Pen 垂直置中 - calc 動態計算1 by Kanboo (@Kanboo) on CodePen. 範例2：將三個div設定寬高各30px，將滑鼠移到黑框內，可觀看效果。 See the Pen 垂直置中 - calc 動態計算2 by Kanboo (@Kanboo) on CodePen. 絕對定位利用絕對位置來指定，要將 上下 的數值都設為 0，再搭配一個 margin:auto，就可以辦到垂直置中。 邏輯：這個方法同時設定top和bottom為0，使得這個div完全不可能符合，最後再透過margin這個指令，讓它達到垂直置中的效果 123456789101112131415161718 .redbox &#123;- // 垂直置中 background: #c00; position: absolute; //要宣告，才能使用 top、left+ top: 0;+ bottom: 0;+ margin: auto; &#125; .bluebox &#123;- // 垂直置中 + 水平置中 background: blue; position: absolute; //要宣告，才能使用 top、left top: 0; bottom: 0;+ left: 0;+ right: 0; margin: auto; &#125; See the Pen 垂直置中 - 絕對定位 by Kanboo (@Kanboo) on CodePen. FlexboxCSS3 最威的盒子模型：Flexbox，使用 align-items 或 align-content 的屬性， 輕輕鬆鬆就可以做到垂直置中的效果喔，Bootstrap 4 也有用喔。 1234567891011121314.div0 &#123;+ display: flex;+ align-items: center;+ justify-content: center; width: 150px; height: 150px; border: 1px solid #000; .redbox &#123; width: 30px; height: 30px; background: #c00; &#125;&#125; See the Pen 垂直置中 - Flexbox by Kanboo (@Kanboo) on CodePen. 參考文章CSS 垂直置中的七個方法CSS垂直置中的方法]]></content>
       <categories>
         <category>CSS</category>
       </categories>
@@ -237,8 +249,8 @@
       </categories>
       <tags>
         <tag>CSS</tag>
-        <tag>排版</tag>
         <tag>Flexbox</tag>
+        <tag>排版</tag>
       </tags>
   </entry>
   <entry>
@@ -252,18 +264,6 @@
         <tag>CSS</tag>
         <tag>排版</tag>
         <tag>Layout</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[HTML - 語意架構]]></title>
-    <url>%2F2017%2F09%2F30%2FHTML-Semanticlabel%2F</url>
-    <content type="text"><![CDATA[概念圖 起手式1234.wrap &#123; max-width: 960px; margin: 0 auto;&#125;]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
-        <tag>語意架構</tag>
       </tags>
   </entry>
   <entry>
