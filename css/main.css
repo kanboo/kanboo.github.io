@@ -1880,7 +1880,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2af5a1;
+  background: #58c6d6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3169,6 +3169,9 @@ blockquote.question {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   margin-bottom: 20px;
+}
+.posts-expand blockquote .fancybox img {
+  margin: 0 auto;
 }
 span#inline-toc {
   display: inline-block;

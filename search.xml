@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS-練習-自刻時鐘]]></title>
+    <url>%2F2017%2F12%2F20%2FCSS-Exercise-Clock%2F</url>
+    <content type="text"><![CDATA[練習-自刻時鐘 步驟 先建立骨架(HTML) 12345678&lt;div class="warp"&gt; &lt;div class="clock"&gt; &lt;div class="centerpoint"&gt;&lt;/div&gt; &lt;div class="hour"&gt;&lt;/div&gt; &lt;div class="minute"&gt;&lt;/div&gt; &lt;div class="second"&gt;&lt;/div&gt; &lt;/div&gt;&lt;/div&gt; 將時鐘元件垂直置中 將「圓點、時針、分針、秒針」移至時鐘的中心點。 123456position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto; 修改transform-origin與position位置 下列說明以 時針 為例(分針、秒針比照辦理)： 垂直置中後的 時針 css 12345678910111213$handwidth: 7px;.hour &#123; width: $handwidth; height: 80px; background-color: blue; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;&#125; 先修改 transform-origin 的軸心 12345678910111213.hour &#123; width: $handwidth; height: 80px; background-color: blue;+ //將軸心變更到 中下方 的位置+ transform-origin: 50% 80%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;&#125; 加上旋轉的動畫效果 123456789101112131415161718192021.hour &#123; width: $handwidth; height: 80px; background-color: blue; //將軸心變更到 中下方 的位置 transform-origin: 50% 80%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;+ animation: time 25s infinite linear;&#125;+ //旋轉的動畫效果+ @keyframes time &#123;+ to &#123;+ transform: rotate(360deg);+ &#125;+ &#125; 修改 position 位置 此時可以開啟Chrome的開發者工具，先利用工具微調好 時針 的position位置，讓他旋轉效果有繞著時鐘的中心點旋轉後，再將程式碼複製貼回去。 1234567891011121314151617181920212223.hour &#123; width: $handwidth; height: 80px; background-color: blue; //將軸心變更到 中下方 的位置 transform-origin: 50% 80%; position: absolute;- top: 0;+ top: -49px; bottom: 0;- left: 0;+ left: -1px; right: 0; margin: auto; animation: time 25s infinite linear;&#125;//旋轉的動畫效果@keyframes time &#123; to &#123; transform: rotate(360deg); &#125;&#125; 範例See the Pen 練習-自刻時鐘 by Kanboo (@Kanboo) on CodePen.]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>練習</tag>
+        <tag>時鐘</tag>
+        <tag>clock</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HTML5 - 語義元素]]></title>
     <url>%2F2017%2F12%2F18%2FHTML5-Semantics%2F</url>
     <content type="text"><![CDATA[重新認識HTML5的語義元素 常用元素&lt;header&gt;區塊標題，不要把它只用來取代 &lt;div class=”header”&gt;它也可以是文章的標題，一頁可以有好多個 &lt;header&gt;，&lt;header&gt; 裡面至少要有一個 h1~h6。 &lt;nav&gt;導覽列。裡面裝的東西應該只有 主要 的navigation links，不要把各種link都丟到&lt;nav&gt;裡面。舉例來說，footer裡面常常會有一排link，那個就不需要包進&lt;nav&gt;。 &lt;main&gt;一個頁面只有一個! 任何 global 都不能放在 main 裡面( e.g. &lt;header&gt; &lt;footer&gt; logo) &lt;section&gt;通常用來把一些相關的元素組合在一起，一般來說，裡面都會包含heading。如果這個區塊的內容可以分成幾個部分的話，那應該使用article。 1234&lt;section&gt; &lt;h2&gt;Section title&lt;/h2&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;&lt;/section&gt; &lt;article&gt;文章中可以脫離其他部分，獨立出來而又完整，甚至可以復用的一部分，通常有自己的標題，當article內嵌article時，裡外層的內容應該是相關的，比如一篇文章和它的留言，而section雖然也具有獨立表達內容的能力，但是對外層有一定的相依性，例如這篇文章中的一個章節。 123456789101112131415&lt;article&gt; &lt;header&gt; &lt;h3&gt; &lt;a href="/my-blog-post"&gt;My blog post&lt;/a&gt; &lt;/h3&gt; &lt;/header&gt; &lt;section&gt; &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt; &lt;/section&gt; &lt;footer&gt; &lt;small&gt; Posted on &lt;time datetime="2017-04-29T19:00"&gt;Apr 29&lt;/time&gt; in &lt;a href="/category/code"&gt;Code&lt;/a&gt; &lt;/small&gt; &lt;/footer&gt;&lt;/article&gt; &lt;aside&gt;通常用來包含一些和當前頁面內容有關的額外信息，比如廣告、個人資料信息或相關連結。 &lt;footer&gt;通常包含作者、版權信息或者相關鏈接等。 簡易分辦 &lt;section&gt;&lt;article&gt;&lt;article&gt;: 就算脫離了整體也是一個可以獨立存在、具有完整內容的區塊，例如這篇文章。&lt;section&gt;: 具有獨立表達內容的能力，但是對外層有一定的相依性，例如這篇文章中的一個章節。 下面是簡單的問題，讓我們決定要用 &lt;section&gt; / &lt;article&gt; / &lt;div&gt; 具有完整內容的區塊，而且可以出現在你的閱讀器內嗎? 是的話就是 &lt;article&gt; 跟主要內容是有相關並且列入 outline 裡不會奇怪的? 是的話就是 &lt;section&gt; 跟內容無關或只用來 styling 的? 是的話就是 &lt;div&gt; 建議的架構範例 參考文章结构性元素HTML5 Semantic ElementsHTML5 SemanticsSemantic in HTML5]]></content>
