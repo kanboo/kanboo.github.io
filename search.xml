@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS-Animation 動畫]]></title>
+    <url>%2F2017%2F12%2F21%2FCSS-Animation%2F</url>
+    <content type="text"><![CDATA[CSS的Animation分為兩個部分，一個是決定動畫該如何跑的 Keyframe，另一個是將動畫載入元素的 Animation。 Keyframes 語法123456789101112//第一種寫法@keyframes 自訂的name &#123; from &#123; ... &#125; to &#123; ... &#125;&#125;//第二種寫法@keyframes 自訂的name &#123; 0% &#123; ... &#125; 50% &#123; ... &#125; 100% &#123; ... &#125;&#125; Animation 屬性1234567//完整語法animation: 自訂的name duration timing-function delay iteration-count direction fill-mode play-state;//常用寫法animation: 自訂的name duration timing-function iteration-count;animation: time 3s linear infinite; Name：@keyframes 動畫名稱。 Duration：動畫時間。 Timing Function：動畫進行的速度曲線。 ease：是預設的。慢進 → 加速 → 減速到結束。 ease-in：慢進 → 加速到結束。 ease-out：快進 → 減速到結束。 ease-in-out：開始跟結束都是慢的狀態。 linear：以相同速度前進。 steps()：無連續的動作，直接跳至各步 ( step ) 的指定 css。 cubic-bezier()：指定動畫滑動的曲線。 Delay：延遲動畫開始的時間。 Iteration Count：動畫重複次數(預設一次)。 infinite(無限) | 次數 Direction：動畫播放方向。 normal ：每次播放都是從 0% 至 100% reverse ：每次播放都是從 100% 至 0% alternate ：播放兩次以上的話，會從 0% 至 100% ，再從 100% 回到 0% ，以此類推 alternate-reverse ：跟 alternate 相反，會先從 100% 開始播放 Fill Mode：控制動畫播放完後的最終狀態。 none ：回到未播放動畫效果前的狀態 forwards ：停在動畫的最後一個狀態上 backwards ：停在動畫的第一個狀態上 (實測不出來) both ：視 animation-direction 來決定停在哪一個狀態上。 Play State：指定動畫播放或暫停。 可以的選項有 running|pause，與影片的播放、暫停是同樣的意思；這在與 JS 搭配時，可妥善控制動畫。 範例翻轉效果 See the Pen CSS Animation-範例1 by Kanboo (@Kanboo) on CodePen. 滾動效果 See the Pen CSS Animation-範例2 by Kanboo (@Kanboo) on CodePen. 參考文章CSS3 動畫基礎CSS3 AnimationAnimation動畫效果]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>動畫</tag>
+        <tag>animattion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS-練習-自刻時鐘]]></title>
     <url>%2F2017%2F12%2F20%2FCSS-Exercise-Clock%2F</url>
     <content type="text"><![CDATA[練習-自刻時鐘 步驟 先建立骨架(HTML) 12345678&lt;div class="warp"&gt; &lt;div class="clock"&gt; &lt;div class="centerpoint"&gt;&lt;/div&gt; &lt;div class="hour"&gt;&lt;/div&gt; &lt;div class="minute"&gt;&lt;/div&gt; &lt;div class="second"&gt;&lt;/div&gt; &lt;/div&gt;&lt;/div&gt; 將時鐘元件垂直置中 將「圓點、時針、分針、秒針」移至時鐘的中心點。 123456position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto; 修改transform-origin與position位置 下列說明以 時針 為例(分針、秒針比照辦理)： 垂直置中後的 時針 css 12345678910111213$handwidth: 7px;.hour &#123; width: $handwidth; height: 80px; background-color: blue; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;&#125; 先修改 transform-origin 的軸心 12345678910111213.hour &#123; width: $handwidth; height: 80px; background-color: blue;+ //將軸心變更到 中下方 的位置+ transform-origin: 50% 80%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;&#125; 加上旋轉的動畫效果 123456789101112131415161718192021.hour &#123; width: $handwidth; height: 80px; background-color: blue; //將軸心變更到 中下方 的位置 transform-origin: 50% 80%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;+ animation: time 25s infinite linear;&#125;+ //旋轉的動畫效果+ @keyframes time &#123;+ to &#123;+ transform: rotate(360deg);+ &#125;+ &#125; 修改 position 位置 此時可以開啟Chrome的開發者工具，先利用工具微調好 時針 的position位置，讓他旋轉效果有繞著時鐘的中心點旋轉後，再將程式碼複製貼回去。 1234567891011121314151617181920212223.hour &#123; width: $handwidth; height: 80px; background-color: blue; //將軸心變更到 中下方 的位置 transform-origin: 50% 80%; position: absolute;- top: 0;+ top: -49px; bottom: 0;- left: 0;+ left: -1px; right: 0; margin: auto; animation: time 25s infinite linear;&#125;//旋轉的動畫效果@keyframes time &#123; to &#123; transform: rotate(360deg); &#125;&#125; 範例See the Pen 練習-自刻時鐘 by Kanboo (@Kanboo) on CodePen.]]></content>
