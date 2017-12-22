@@ -45,19 +45,19 @@ top: 100
 
 ## 文字增加背景色塊
 
-<span id="inline-blue"> 站点配置文件 </span>
+<span id="inline-blue">站点配置文件</span>
 
-<span id="inline-purple"> 主题配置文件 </span>
+<span id="inline-purple">主题配置文件</span>
 
-<span id="inline-yellow"> 站点配置文件 </span>
+<span id="inline-yellow">站点配置文件</span>
 
-<span id="inline-green"> 主题配置文件 </span>
+<span id="inline-green">主题配置文件</span>
 
 ``` html
-<span id="inline-blue"> 站点配置文件 </span>
-<span id="inline-purple"> 主题配置文件 </span>
-<span id="inline-yellow"> 站点配置文件 </span>
-<span id="inline-green"> 主题配置文件 </span>
+<span id="inline-blue">站点配置文件</span>
+<span id="inline-purple">主题配置文件</span>
+<span id="inline-yellow">站点配置文件</span>
+<span id="inline-green">主题配置文件</span>
 ```
 
 ***
