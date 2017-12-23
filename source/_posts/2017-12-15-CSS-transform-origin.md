@@ -9,12 +9,15 @@ tags:
 - transform-origin
 ---
 
+{% cq %}
+
 {% asset_img transform-origin.png %}
 
 <font style="font-size:18px;">
 在學習 transform 之前，先了解 transform-origin 軸心 怎麼變化？
 </font>
 
+{% endcq %}
 <!-- more -->
 ***
 
