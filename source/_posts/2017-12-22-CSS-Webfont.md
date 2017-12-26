@@ -30,7 +30,7 @@ font-family: 'Noto Sans SC Sliced', sans-serif;
 
 ## 範例
 
-<p data-height="286" data-theme-id="0" data-slug-hash="dJpzZm" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="Webfont - 思源體" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/dJpzZm/">Webfont - 思源體</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="322" data-theme-id="0" data-slug-hash="dJpzZm" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="Webfont - 思源體" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/dJpzZm/">Webfont - 思源體</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ***

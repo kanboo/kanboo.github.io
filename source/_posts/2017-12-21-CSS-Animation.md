@@ -82,12 +82,12 @@ animation: time 3s linear infinite;
 
 翻轉效果
 
-<p data-height="149" data-theme-id="0" data-slug-hash="opzgRa" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="CSS Animation-範例1" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/opzgRa/">CSS Animation-範例1</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="158" data-theme-id="0" data-slug-hash="opzgRa" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="CSS Animation-範例1" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/opzgRa/">CSS Animation-範例1</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 滾動效果
 
-<p data-height="202" data-theme-id="0" data-slug-hash="vpXOOw" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="CSS Animation-範例2" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/vpXOOw/">CSS Animation-範例2</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="220" data-theme-id="0" data-slug-hash="vpXOOw" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="CSS Animation-範例2" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/vpXOOw/">CSS Animation-範例2</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ***

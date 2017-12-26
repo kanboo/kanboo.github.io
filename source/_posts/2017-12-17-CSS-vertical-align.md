@@ -82,7 +82,7 @@ tags:
   }
 ```
 
-<p data-height="265" data-theme-id="0" data-slug-hash="ppjYBR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - calc 動態計算1" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/ppjYBR/">垂直置中 - calc 動態計算1</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="280" data-theme-id="0" data-slug-hash="ppjYBR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - calc 動態計算1" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/ppjYBR/">垂直置中 - calc 動態計算1</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 範例2：將三個div設定寬高各30px，將滑鼠移到黑框內，可觀看效果。

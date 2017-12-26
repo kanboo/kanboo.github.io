@@ -26,12 +26,12 @@ $font-l: $font-m * 1.2;
 $font-s: $font-m * 0.8;
 
 .box01 {
-    color: $fontcolor;
+    color: $font-color;
     font-size: $font-l;
 }
 
 .box02 {
-    color: $fontcolor;
+    color: $font-color;
     font-size: $font-s;
 }
 ```
@@ -120,9 +120,33 @@ $font-s: $font-m * 0.8;
     }
 }
 ```
-***
 
+***
+## Sass顏色函數
+
+``` scss 常用函數
+$bg-color: #ff0000;
+
+.darken:hover {
+  background: darken($bg-color, 20%); //將紅色調暗10%
+}
+
+.lighten:hover {
+  background: lighten($bg-color, 20%); //將紅色調亮10%
+}
+
+.invert:hover {
+  background: invert($bg-color); //返回一個反相色
+}
+```
+
+範例
+<p data-height="199" data-theme-id="0" data-slug-hash="XVprKR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="Sass-顏色函數" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/XVprKR/">Sass-顏色函數</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+***
 ## 參考文章
 
 <div class="note info">[30天掌握Sass語法](https://ithelp.ithome.com.tw/users/20040221/ironman/562)
+[SassMe顏色函數](http://jim-nielsen.com/sassme/)
 </div>
