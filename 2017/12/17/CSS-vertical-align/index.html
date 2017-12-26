@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Kanboo Notes">
 <meta property="og:description" content="整理常用CSS常用的 垂直置中 的方法。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-12-18T16:27:07.000Z">
+<meta property="og:updated_time" content="2017-12-26T14:33:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS-垂直置中的方法">
 <meta name="twitter:description" content="整理常用CSS常用的 垂直置中 的方法。">
@@ -469,7 +469,7 @@
 <li>方法3：top: 50%; transform: translateY(-50%);  <font style="color:red;font-size:16px;"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>自行計算50%的div高度</font></li>
 </ul>
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">.redbox &#123;</div><div class="line">    background: #c00;</div><div class="line">    float: left;</div><div class="line"><span class="addition">+   position: relative; //要宣告position，才能使用 top、left</span></div><div class="line">    width: 30px;</div><div class="line"><span class="deletion">-   //計算方法1</span></div><div class="line"><span class="addition">+   height: 30px;</span></div><div class="line"><span class="addition">+   top: calc(50% - 15px); //高：30/2=15</span></div><div class="line">  &#125;</div><div class="line">  .greenbox &#123;</div><div class="line">    background: #0c0;</div><div class="line">    float: left;</div><div class="line">    position: relative;</div><div class="line">    width: 30px;</div><div class="line"><span class="deletion">-   //計算方法2</span></div><div class="line"><span class="addition">+   height: 80px;</span></div><div class="line"><span class="addition">+   top: 50%;</span></div><div class="line"><span class="addition">+   margin-top: -40px;  //高：80/2=40</span></div><div class="line">  &#125;</div><div class="line">  .bluebox &#123;</div><div class="line">    background: #00f;</div><div class="line">    float: left;</div><div class="line">    position: relative;</div><div class="line">    width: 30px;</div><div class="line">    height: 50px;</div><div class="line"><span class="deletion">-   //計算方法3</span></div><div class="line"><span class="addition">+   top:50%;</span></div><div class="line"><span class="addition">+   transform: translateY(-50%);</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="ppjYBR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - calc 動態計算1" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/ppjYBR/" target="_blank" rel="external">垂直置中 - calc 動態計算1</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<p></p><p data-height="280" data-theme-id="0" data-slug-hash="ppjYBR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="垂直置中 - calc 動態計算1" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/ppjYBR/" target="_blank" rel="external">垂直置中 - calc 動態計算1</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>範例2：將三個div設定寬高各30px，將滑鼠移到黑框內，可觀看效果。</p>
@@ -638,7 +638,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -649,7 +649,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -660,7 +660,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
