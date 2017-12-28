@@ -451,7 +451,7 @@ $ npm install body-parser --save
 <span id="inline-purple">範例</span>
 
 1. 在search搜尋頁面的 `searchText` 輸入搜尋文字後，點擊`送出`按鈕
-2. 此時會將表單資料傳送給`/searchList`，
+2. 此時會將表單資料傳送(<font color="red">post</font>)給`/searchList`
 3. 再透過後端 `req.body` 取得到表單資料，進行後續解析。
 
 ``` html search搜尋頁面
@@ -493,3 +493,7 @@ app.post('/searchList', function (req, res) {
     res.redirect('search');
 })
 ```
+<div class="note primary">注意
+搜尋頁面(search) 是使用 app.<font color="red">get</font>
+接收表單頁面(searchList) 是使用 app.<font color="red">post</font>
+</div>
