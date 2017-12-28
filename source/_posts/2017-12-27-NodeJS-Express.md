@@ -4,6 +4,7 @@ date: 2017-12-27 23:23:49
 categories: 
 - NodeJS
 tags:
+- NodeJS
 - Express
 ---
 
@@ -40,6 +41,9 @@ app.get('/',function(req,res){
 // 監聽 port
 var port = process.env.PORT || 3000;
 app.listen(port); 
+
+//執行 node app.js
+//網頁連結 http://127.0.0.1:3000/
 ```
 
 
@@ -51,7 +55,7 @@ app.listen(port);
 PS：設定為<font color="red">變數</font>的重點為前面加個<font color="red">冒號</font>。
 
 
-``` js 網址：http://127.0.0.1:3000/user
+``` js 網址：http://127.0.0.1:3000/user/kanboo
 //http://127.0.0.1:3000/user/kanboo
 
 app.get('/user/:name', function (req, res) {
@@ -74,8 +78,8 @@ app.get('/user/:name', function (req, res) {
 //http://127.0.0.1:3000/user/kanboo/abcd
 app.get('/user/:name/:data', function (req, res) {
     console.log(req.params);
-    var myName = req.params.name;
-    var myData = req.params.data;
+    var myName = req.params.name; // kanboo
+    var myData = req.params.data; // abcd
     console.log(myName,myData);
 
     res.send('<html><body><h1>' + myName + '<br>' + myData + '</h1></body></html>');
@@ -89,10 +93,11 @@ app.get('/user/:name/:data', function (req, res) {
 我要用從<font color="red">?(問號)</font>切開，
 前段網址：`http://127.0.0.1:3000/user/kanboo`
 後段網址：`limit=100&q=張惠妹`
+
 要取得`前段`網址的資料可用 <span id="inline-blue">params</span> ，
 若要取`後段`網址的資料就要用 <span id="inline-green">query</span>。
 
-下列示範利用 `req.query` 取得網址參數
+下列示範利用 `req.query` 取得 `後段` 網址的參數
 
 ``` js 
 //網址：http://127.0.0.1:3000/user/kanboo?limit=100&q=張惠妹
@@ -125,9 +130,9 @@ app.get('/user/:name', function (req, res) {
 簡單來說，Middleware的功能就有點像<font color="blue">卡控機制</font>，
 例如：我要進去會員頁面時，Middleware可以幫我先<font color="blue">確認</font>是否已登入，再看要不要放行？
 
-範例：
+<span id="inline-purple">範例</span>
 
-當我網址要切換至 http://127.0.0.1:3000/<font color="red">user</font> 頁面時，此時可利用 app.<font color="#f90">use</font> 先確認是否已登入，再決定是否使用  `next()` 放行，可讀取到 app.<font color="#f90">get</font>。
+當我網址要切換至 http://127.0.0.1:3000/<font color="red">user</font> 頁面時，此時可利用 app.<font color="red">use</font> 先確認是否已登入，再決定是否使用  `next()` 放行，可讀取到 app.<font color="red">get</font>。
 
 
 ``` js 網址：http://127.0.0.1:3000/user
@@ -163,13 +168,14 @@ app.get('/user', function (req, res) {
 ```
 <div class="note warning">注意：使用 app.<font color="red">use</font> 的話，要放在 app.<font color="red">get</font> 的前面，否則就沒有作用！</div>
 
+***
 ## Middleware - 404頁面
 
-假設user在網站亂打網址`http://127.0.0.1:3000/alskdjlasdjf`，而根本無此頁面的話，這時會客制一個404頁面回應給user知道無此頁面。
+假設user開到一個錯誤的網址 `http://127.0.0.1:3000/alskdjlasdjf`，而根本無此網頁的話，這時會客制一個404頁面回應給user知道無此網頁。
 
-範例：
+<span id="inline-purple">範例</span>
 
-利用 `res.status(404)`,判斷當無此頁面時，回應 `抱歉，你的頁面找不到` 的訊息給User知道。
+利用 `res.status(404)` 判斷當無此頁面時，回應 `抱歉，你的頁面找不到` 的訊息給User知道。
 
 ``` js 網址：http://127.0.0.1:3000/alskdjlasdjf
 // 404頁面  
@@ -184,9 +190,9 @@ app.use(function (req, res, next) {
 ***
 ## Middleware - 錯誤頁面
 
-另一種情形是當user要進入某個頁面時，有可能是<font color="red">程式碼執行有誤</font>，這時我們可以先將畫面切換至錯誤頁面，告知User待修復，稍後嘗試。
+另一種情形是當user要進入某個頁面時，有可能是<font color="red">程式碼執行有誤</font>，這時我們可以先將畫面切換至一個客制的錯誤頁面，告知User待修復，稍後嘗試。
 
-範例：
+<span id="inline-purple">範例</span>
 
 程式碼執行 <font color="red">cc()</font> 這個Function出錯了，這時利用 `app.use` 的新參數 <font color="red">err</font> ,接收程式碼的錯誤訊息，並回應User系統有誤待修復。
 
@@ -215,8 +221,9 @@ app.use(function (err, req, res, next) {
 假設我們有`很多頁面`要進入時，都需要先確認user是否已登入，才能進入頁面的話，
 這時我們可以將 `確認登入程式碼(isLogin)` 包成一個 Function，然後在 `app.get` 插入 isLogin 進行確認。
 
-下列重點為 isLogin 插入的位置
-app.get('/', <font color="red">isLogin</font>, function (req, res){ 程式碼 })
+<span id="inline-purple">範例</span>
+
+下列重點為 isLogin 插入的位置，app.get('/', <font color="red">isLogin</font>, function (req, res){ 程式碼 })
 
 ``` js 
 var isLogin = function (req, res, next) {
@@ -266,12 +273,14 @@ app.get('/user', isLogin, function (req, res) {
 
 若我們在頁面需要提供「圖片、txt檔…」等檔案，如下列範例需使用到 img圖檔，我們要先利用 `express.static` 指定我們的`目錄起點`在哪，這樣img圖檔的路徑才能使用`相對路徑`取得資源。
 
+<span id="inline-purple">範例</span>
+
 ``` js 
 var express = require('express');
 var app = express();
 
 //增加靜態檔案的路徑
-app.use(express.static('public'));
+app.use(express.static('public')); // 設定 目錄起點位置
 
 app.get('/', function (req, res) {
 
@@ -281,48 +290,64 @@ app.get('/', function (req, res) {
         '</h1></body></html>');
 
 })
-//http://127.0.0.1:3000/
 
+//監聽port
+var port = process.env.PORT || 3000;
+console.log(port);
+app.listen(port);
+
+//執行 node app.js
+//網頁連結 http://127.0.0.1:3000/
 ```
+
+示意圖
+{% asset_img express_02.png %}
 
 ***
 ## EJS - 樣板語言
 
-安裝語法
+<span id="inline-blue">安裝語法</span>
 ``` zsh
 $ npm install ejs-locals --save
 ```
 
-使用方式
+<span id="inline-purple">使用方法</span>
 
 1. 宣告 樣板語言
-2. 使用 res.render 讀取哪個ejs檔案，如：res.render('index')
+2. 使用 res.render 讀取哪個ejs檔案，如：res.render('<font color="red">index</font>')
 
 ``` js
 var express = require('express');
 var app = express();
 
 //增加靜態檔案的路徑
-app.use(express.static('public'));
+app.use(express.static('public')); // 設定 目錄起點位置
 
 //宣告 樣板語言
 var engine = require('ejs-locals');
 app.engine('ejs',engine);
-app.set('views','./views'); // 宣告樣板程式碼放在哪裡
-app.set('view engine','ejs'); // 宣告樣板是用哪種語言？ejs、pug、handlebars
+app.set('views','./views'); // 設定「樣板程式碼」放在哪裡
+app.set('view engine','ejs'); // 設定「樣板語言」是用哪種？ejs、pug、handlebars
 
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index'); //渲染 index.ejs 的檔案
 })
 //http://127.0.0.1:3000/
 ```
+示意圖
+{% asset_img express_03.png %}
 
+***
 ## EJS - 參數導入
 
-下列範例示範res.render如何 `傳送參數` ，以及 `ejs接收參數的寫法`
+除了一般將.ejs檔案渲染成HTML外，有時也會因為<font color="red">條件的不同</font>，要渲染出不一樣的HTML格式，這時就可以透過<font color="red">參數的傳遞</font>，來達成此需求。
 
-``` js 
+<span id="inline-purple">範例</span>
+
+下列範例示範 <font color="red">res.render</font>，如何`傳送參數`以及`ejs接收參數的寫法`
+
+``` js 傳送 參數
 app.get('/', function (req, res) {
     res.render('index', {
         'title': '我是傳入的值',
@@ -335,14 +360,17 @@ app.get('/', function (req, res) {
 //http://127.0.0.1:3000/
 ```
 
-``` ejs ejs寫法
+``` ejs ejs接收參數的寫法
 <!-- 
 = 是 渲染成字串
 - 是 渲染成HTML
 -->
 
 <%= html %>
+=> <h1>我是HTML</h1>
+
 <%- html %>
+=> 我是HTML
 
 
 <!-- if寫法 -->
@@ -353,24 +381,78 @@ app.get('/', function (req, res) {
 
 <!-- forloop寫法 -->
 <ul>
-<% for(var i=0;course.length>i;i++){  %>
-<li> <%- course[i] %> </li>
-<% } %>
+    <% for(var i=0;course.length>i;i++){  %>
+        <li> <%- course[i] %> </li>
+    <% } %>
 </ul>
 
 ```
+***
+## EJS - 設定layout
+
+當有很多頁面都有用到<font color="red">共同的元素</font>(如：表頭、表尾...等)，這時我們可以將會一直重覆的區塊取出，撰寫在 `layout.ejs`，若有其他頁面需要`表頭、表尾`的部份，我只要將`layout.ejs` include在頁面即可。
+
+<span id="inline-purple">範例</span>
+
+<font style="color:blue;font-size:20px;">layout.ejs</font>
+1. 將共用的部份撰寫在 `layout.ejs`
+2. 新增 `<%- body %>` 這段語法，代表要放置不同頁面各自的內容。
+
+``` ejs layout.ejs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+    表頭共用的部份(logo、navbar...等)
+    </header>
+
+    <%- body %>
+
+    <footer>
+    表尾共用的部份(作者、版權信息或者相關鏈接...等)
+    </footer>
+</body>
+</html>
+
+```
+<font style="color:blue;font-size:20px;">search.ejs</font>
+1. 在頁面寫入 `<% layout('layout') %>` 這段語法，代表載入共用HTML部份。
+2. 接著開始撰寫HTML內容，而撰寫好的HTML，就會放置在layout.ejs檔案裡的`<%- body %>`位置。
+
+``` ejs search.ejs搜尋頁面
+<!-- 共用元素 -->
+<% layout('layout') %>
+
+<!-- 表單內容 -->
+<form action="/searchList" method="post" >
+    <input type="text" name="content" id="content" value="">
+    <input type="submit" id="send" value="送出">
+</form>
+
+<script src="/js/all.js"></script>
+```
+
 
 ***
 ## body-parser - 取得表單資料
 
-安裝語法
+<span id="inline-blue">安裝語法</span>
+
 ``` zsh
 $ npm install body-parser --save
 ```
 
-使用方式
+<span id="inline-purple">範例</span>
 
-user在search搜尋頁面的searchText輸入搜尋文字後
+1. 在search搜尋頁面的 `searchText` 輸入搜尋文字後，點擊`送出`按鈕
+2. 此時會將表單資料傳送給`/searchList`，
+3. 再透過後端 `req.body` 取得到表單資料，進行後續解析。
 
 ``` html search搜尋頁面
 <form action="/searchList" method="post" >
@@ -385,7 +467,7 @@ user在search搜尋頁面的searchText輸入搜尋文字後
 ```
 
 
-``` js
+``` js NodeJS的app.js
 var bodyParser = require('body-parser');
 
 // 增加 body 解析
