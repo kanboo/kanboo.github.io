@@ -71,6 +71,7 @@ firebase.database().ref('allName/nameList/name01').set('cc');
     僅向firebase取得<font color="red">一次性</font>資料，所以當firebase資料有<font color="red">異動</font>，需要<font color="red">再一次呼叫</font>，才會取得更新後的資料。
 
     ``` js
+    var myNameRef = firebase.database().ref('allName/nameList/name01');
     // 快照
     myNameRef.once('value', function (snapshot) {
         console.log(snapshot.val());
@@ -83,6 +84,7 @@ firebase.database().ref('allName/nameList/name01').set('cc');
     當firebase資料有<font color="red">異動</font>時，會<font color="red">即時回傳</font>更新資料。
 
     ``` js
+    var myNameRef = firebase.database().ref('allName/nameList/name01');
     //on 隨時監聽
     myNameRef.on('value', function (snapshot) {
         console.log(snapshot.val());
@@ -165,6 +167,7 @@ var people = {
 ```
 
 ``` js 依「體重」排序
+var peopleRef = firebase.database().ref('people');
 // 路徑>>排序('屬性')>>讀取> forEach 依序撈出資料
 peopleRef.orderByChild('height').once('value', function (snapshot) { 
     // console.log(snapshot.val());
@@ -179,6 +182,7 @@ peopleRef.orderByChild('height').once('value', function (snapshot) {
 firebase 只提供一種排序方式，並無 <font color="red">反向</font> 排序的設定，所以若要達成反向排序，需借用 <font color="red">Array.reverse()</font> 的幫忙。
 
 ``` diff 反向範例
+    var peopleRef = firebase.database().ref('people');
     // 路徑>>排序('屬性')>>讀取> forEach 依序撈出資料
     peopleRef.orderByChild('height').once('value', function (snapshot) { 
         // console.log(snapshot.val());
@@ -208,6 +212,7 @@ firebase 只提供一種排序方式，並無 <font color="red">反向</font> �
 
 
 ``` js 一個 過濾條件
+var peopleRef = firebase.database().ref('people');
 // 將 重量 排序後，篩選出 4500 以上的資料
 peopleRef.orderByChild('weight').startAt(4500).once('value', function (snapshot) {
     snapshot.forEach(function (item) {
@@ -219,6 +224,7 @@ peopleRef.orderByChild('weight').startAt(4500).once('value', function (snapshot)
 ```
 
 ``` js 多個 過濾條件
+var peopleRef = firebase.database().ref('people');
 // 將 重量 排序後，篩選出 2500 ~ 3500 之間的資料
 peopleRef.orderByChild('weight').startAt(2500).endAt(3500).once('value', function (snapshot) {
     snapshot.forEach(function (item) {
@@ -237,7 +243,19 @@ peopleRef.orderByChild('weight').startAt(2500).endAt(3500).once('value', functio
     - limitToLast(n) 從 <font color="red">尾</font> 取得 n 筆資料
 
 ``` js 取得第 1 筆資料
+var peopleRef = firebase.database().ref('people');
 peopleRef.orderByChild('weight').limitToFirst(1).once('value', function (snapshot) {
+    snapshot.forEach(function (item) {
+        console.log(item.key);
+        console.log(item.val());
+    })
+    // console.log(snapshot.val());
+})
+```
+
+``` js 取得倒數 5 筆資料
+var peopleRef = firebase.database().ref('people');
+peopleRef.orderByChild('weight').limitToLast(5).once('value', function (snapshot) {
     snapshot.forEach(function (item) {
         console.log(item.key);
         console.log(item.val());

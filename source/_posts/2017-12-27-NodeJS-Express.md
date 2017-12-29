@@ -22,7 +22,7 @@ tags:
 
 下列語法為 `express` 的起手式，後面會慢慢新增功能。
 
-``` js 網址：http://127.0.0.1:3000
+``` js 後端app.js
 var express = require('express'); //引用express模組
 var app = express();
 
@@ -55,7 +55,7 @@ app.listen(port);
 PS：設定為<font color="red">變數</font>的重點為前面加個<font color="red">冒號</font>。
 
 
-``` js 網址：http://127.0.0.1:3000/user/kanboo
+``` js 後端app.js
 //http://127.0.0.1:3000/user/kanboo
 
 app.get('/user/:name', function (req, res) {
@@ -74,8 +74,9 @@ app.get('/user/:name', function (req, res) {
 
 下列範例為可設多個變數(:name、:data)，取得路由的值。
 
-``` js 網址：http://127.0.0.1:3000/user/kanboo/abcd
+``` js 後端app.js
 //http://127.0.0.1:3000/user/kanboo/abcd
+
 app.get('/user/:name/:data', function (req, res) {
     console.log(req.params);
     var myName = req.params.name; // kanboo
@@ -99,7 +100,7 @@ app.get('/user/:name/:data', function (req, res) {
 
 下列示範利用 `req.query` 取得 `後段` 網址的參數
 
-``` js 
+``` js 後端app.js
 //網址：http://127.0.0.1:3000/user/kanboo?limit=100&q=張惠妹
 
 app.get('/user/:name', function (req, res) {
@@ -135,7 +136,9 @@ app.get('/user/:name', function (req, res) {
 當我網址要切換至 http://127.0.0.1:3000/<font color="red">user</font> 頁面時，此時可利用 app.<font color="red">use</font> 先確認是否已登入，再決定是否使用  `next()` 放行，可讀取到 app.<font color="red">get</font>。
 
 
-``` js 網址：http://127.0.0.1:3000/user
+``` js 後端app.js
+//網址：http://127.0.0.1:3000/user
+
 /* app.use參數說明 
 req 是 Request 物件，存放這此請求的所有資訊
 res 是 Response 物件，用來回應該請求
@@ -177,7 +180,9 @@ app.get('/user', function (req, res) {
 
 利用 `res.status(404)` 判斷當無此頁面時，回應 `抱歉，你的頁面找不到` 的訊息給User知道。
 
-``` js 網址：http://127.0.0.1:3000/alskdjlasdjf
+``` js 後端app.js
+// 網址：http://127.0.0.1:3000/alskdjlasdjf
+
 // 404頁面  
 app.use(function (req, res, next) {
     res.status(404).send('<html><body><h1>' +
@@ -196,7 +201,7 @@ app.use(function (req, res, next) {
 
 程式碼執行 <font color="red">cc()</font> 這個Function出錯了，這時利用 `app.use` 的新參數 <font color="red">err</font> ,接收程式碼的錯誤訊息，並回應User系統有誤待修復。
 
-``` js 
+``` js 後端app.js
 // 錯誤程式碼的狀況
 app.use(function (req, res, next) {
 
@@ -225,7 +230,7 @@ app.use(function (err, req, res, next) {
 
 下列重點為 isLogin 插入的位置，app.get('/', <font color="red">isLogin</font>, function (req, res){ 程式碼 })
 
-``` js 
+``` js 後端app.js
 var isLogin = function (req, res, next) {
     //這裡可以撰寫 驗證的Code
 
@@ -275,7 +280,7 @@ app.get('/user', isLogin, function (req, res) {
 
 <span id="inline-purple">範例</span>
 
-``` js 
+``` js 後端app.js
 var express = require('express');
 var app = express();
 
@@ -316,7 +321,7 @@ $ npm install ejs-locals --save
 1. 宣告 樣板語言
 2. 使用 res.render 讀取哪個ejs檔案，如：res.render('<font color="red">index</font>')
 
-``` js
+``` js 後端app.js
 var express = require('express');
 var app = express();
 
@@ -360,7 +365,7 @@ app.get('/', function (req, res) {
 //http://127.0.0.1:3000/
 ```
 
-``` ejs ejs接收參數的寫法
+``` html ejs接收參數的寫法
 <!-- 
 = 是 渲染成字串
 - 是 渲染成HTML
@@ -398,7 +403,7 @@ app.get('/', function (req, res) {
 1. 將共用的部份撰寫在 `layout.ejs`
 2. 新增 `<%- body %>` 這段語法，代表要放置不同頁面各自的內容。
 
-``` ejs layout.ejs
+``` html layout.ejs
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -425,7 +430,7 @@ app.get('/', function (req, res) {
 1. 在頁面寫入 `<% layout('layout') %>` 這段語法，代表載入共用HTML部份。
 2. 接著開始撰寫HTML內容，而撰寫好的HTML，就會放置在layout.ejs檔案裡的`<%- body %>`位置。
 
-``` ejs search.ejs搜尋頁面
+``` html search.ejs搜尋頁面
 <!-- 共用元素 -->
 <% layout('layout') %>
 
@@ -440,7 +445,7 @@ app.get('/', function (req, res) {
 
 
 ***
-## body-parser - 取得表單資料
+## body-parser - 取得表單資料(傳統表單)
 
 <span id="inline-blue">安裝語法</span>
 
@@ -467,7 +472,7 @@ $ npm install body-parser --save
 ```
 
 
-``` js NodeJS的app.js
+``` js 後端app.js
 var bodyParser = require('body-parser');
 
 // 增加 body 解析
@@ -490,10 +495,214 @@ app.post('/searchList', function (req, res) {
     console.log(req.body.searchText);
 
     //轉址
-    res.redirect('search');
+    res.redirect('search'); // 將畫面導回搜尋頁面
 })
 ```
-<div class="note primary">注意
-搜尋頁面(search) 是使用 app.<font color="red">get</font>
+<div class="note primary">搜尋頁面(search) 是使用 app.<font color="red">get</font>
 接收表單頁面(searchList) 是使用 app.<font color="red">post</font>
+
+在<font color="red">searchList</font>處理完資料後，最後記得將畫面導回搜尋畫面 <font color="red">res.redirect('search');</font>
 </div>
+
+***
+## body-parser - 取得表單資料(AJAX)
+
+若達到頁面<font color="red">不跳轉</font>，就可回應相關訊息，此時就需要透過<font color="red">AJAX</font>的方式，達到此需求。
+
+<span id="inline-purple">範例</span>
+
+新增一路由 <font color="red">searchAJAX</font>，用來處理搜尋的相關資料，最後<font color="red">回傳給前端</font>。
+
+``` js 後端app.js
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+
+//增加靜態檔案的路徑
+app.use(express.static('public'));
+
+//宣告 樣板語言
+var engine = require('ejs-locals');
+app.engine('ejs', engine);
+app.set('views', './views'); // 樣板放在哪裡？
+app.set('view engine', 'ejs'); // 宣告樣板是用哪種語言？ejs、pug、handlebars
+
+
+// 增加 body 解析
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+
+
+//搜尋頁面
+app.get('/search', function (req, res) {
+    res.render('search');
+})
+//http://127.0.0.1:3000/search
+
+
+//AJAX
+app.post('/searchAJAX', function (req, res) {
+    //所有body欄位資料
+    console.log(req.body);
+    console.log(req.body.list[1]);
+
+    /* 
+        這裡撰寫程式碼
+    */
+
+    //回傳結果
+    res.send('Hello!');
+})
+
+//監聽port
+var port = process.env.PORT || 3000;
+console.log(port);
+app.listen(port);
+
+//執行 node app.js
+//網頁連結 http://127.0.0.1:3000/
+```
+
+重點在於我們將原本在搜尋頁面的 <font color="red">send按鈕</font> 要Submit的動作取消 `e.preventDefault();`，改用 <font color="red">AJAX</font> 方式，將表單的內容資料，利用 `post` 給 `searchAJAX`。
+
+``` js 前端all.js
+var send = document.querySelector('#send');
+var content = document.querySelector('#content');
+
+send.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    var str = content.value;
+    console.log(str);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('post', '/searchAJAX'); //發送給哪個路由
+
+    //組合表單資料(文字型態)
+    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // var data = 'content=' + str; // content=123&title=abc
+
+    //組合表單資料(json型態)
+    xhr.setRequestHeader("Content-type", "application/json");
+    var searchlist = {
+        "content": str,
+        "list": [1, 2, 3]
+    };
+    var data = JSON.stringify(searchlist); //轉成字串
+
+    //發送表單資料給後端app.js處理
+    xhr.send(data);
+
+    //取得後端app.js回傳的資料
+    xhr.onload = function () {
+        console.log(xhr.responseText); 
+    }
+
+})
+```
+
+***
+## Router - 進階設定
+
+當我們網站有<font color="blue">越來越多頁面</font>的話，不可能把所有網頁的路由判斷在寫app.js裡，這樣會造成程式碼雜亂，導致後續維護不便，所以我們可以將<font color="blue">同類型頁面</font>分別包裝在不同<font color="red">js檔</font>裡，並且使用 <font color="red">module(模組)</font> 輸出，可供 <font color="red">app.js</font> 分別載入，以達到程式碼的簡潔易懂。
+
+
+<span id="inline-purple">範例</span>
+
+app.js 分別載入 {% label success@user模組(個人資料) %}、{% label success@cart模組(購物車) %} ，讓整個app.js變得簡潔易懂。
+
+``` js 後端app.js
+var express = require('express');
+var user = require('./routes/user.js') // 載入 user模組(個人資料)
+var user = require('./routes/cart.js') // 載入 cart模組(購物車)
+
+var app = express();
+
+
+//網址若為 http://127.0.0.1:3000/user/... 之類的話，就會進去user模組執行。
+app.use('/user',user);
+
+//網址若為 http://127.0.0.1:3000/cart/... 之類的話，就會進去cart模組執行。
+app.use('/cart',cart);
+
+
+//監聽port
+var port = process.env.PORT || 3000;
+app.listen(port);
+
+//執行 node app.js
+//網頁連結 http://127.0.0.1:3000/
+```
+
+以{% label success@user模組(個人資料) %}為例，因外部引用此模組，語法設定為 app.use('<font color="red">/user</font>',user);
+所以網址起頭從 http://127.0.0.1:3000/<font color="red">/user</font>/ 開始
+
+``` js user.js
+var express = require('express');
+var router = express.Router(); // 路由器
+
+//因外部引用此模組，語法為 app.use('/user',user);
+//所以網址起頭從 http://127.0.0.1:3000/user/ 開始
+
+
+router.get('/edit-porfile', function (req, res) {
+    //若網址為 http://127.0.0.1:3000/user/edit-porfile 進行此function
+    console.log('porfile頁面');
+    res.send('porfile');
+})
+
+
+router.get('/photo', function (req, res) {
+    //若網址為 http://127.0.0.1:3000/user/photo 進行此function
+    console.log('photo頁面');
+    res.send('photo');
+})
+
+router.get('/card', function (req, res) {
+    //若網址為 http://127.0.0.1:3000/user/card 進行此function
+    console.log('card頁面');
+    res.send('card');
+})
+
+/* 
+原先都是使用 app.get ，要改用成 router.get
+*/
+
+module.exports = router;
+```
+<div class="note primary">注意 user.js，原先都是使用 <font color="red">app</font>.get ，要改用成 <font color="red">router</font>.get
+</div>
+
+***
+## express-generator - 應用程式產生器
+
+經過上述種種的介紹，了解express各種的使用方式後，之後我們可以利用 {% label danger@Express應用程式產生器 %} ，自動幫我們生成一個專案的基本架構，就無須從頭到尾慢慢建構。
+
+<span id="inline-blue">安裝語法</span>
+
+``` zsh
+$ npm install express-generator -g
+```
+
+<span id="inline-purple">建立語法</span>
+
+1. 建立 express 專案資料
+    ``` zsh
+    $ express -e project
+    ```
+
+2. 切換至專案目錄，並安裝 NPM 套件
+    ``` zsh
+    $ cd project
+    $ npm install
+    ```
+
+3. 運行專案
+    ``` zsh
+    $ npm start
+    ```
+4. 專案網址：http://127.0.0.1:3000/
+
+<div class="note info">[官方：Express應用程式產生器](http://expressjs.com/zh-tw/starter/generator.html)</div>
