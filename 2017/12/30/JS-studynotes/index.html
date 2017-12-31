@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-基礎用法">
+<meta property="og:url" content="https://kanboo.github.io/2017/12/30/JS-studynotes/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-12-31T12:09:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS-基礎用法">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2017/12/30/JS-studynotes/"/>
+
+
+
+
+
+  <title>JS-基礎用法 | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/12/30/JS-studynotes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS-基礎用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-30T22:18:55+08:00">
+                2017-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/30/JS-studynotes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/12/30/JS-studynotes/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"></blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="Selector-選擇元素"><a href="#Selector-選擇元素" class="headerlink" title="Selector - 選擇元素"></a>Selector - 選擇元素</h2><ul>
+<li>element = document.querySelector(selectors);<ul>
+<li>element 是<code>元素</code>物件。</li>
+<li>selectors 是以逗號分隔，包含一個或多個 <code>CSS 選擇器</code>的字串。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><figcaption><span>選擇單一元素 querySelector</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//回傳第一個符合條件的元素</span></div><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelector(<span class="string">'#titleId'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>選擇多個元素 querySelectorAll</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//回傳符合條件的元素</span></div><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.titleClass'</span>);</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Attribute-增加標籤屬性"><a href="#Attribute-增加標籤屬性" class="headerlink" title="Attribute - 增加標籤屬性"></a>Attribute - 增加標籤屬性</h2><ul>
+<li><font color="red">set</font>Attribute  設定</li>
+</ul>
+<figure class="highlight js"><figcaption><span>設定 標籤屬性</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelector(<span class="string">'.titleClass a'</span>);</div><div class="line">el.setAttribute(<span class="string">'href'</span>,<span class="string">'http://www.yahoo.com.tw'</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li><font color="red">get</font>Attribute  取得</li>
+</ul>
+<figure class="highlight js"><figcaption><span>取得 標籤屬性</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> el3 = <span class="built_in">document</span>.querySelector(<span class="string">'.titleClass a'</span>).getAttribute(<span class="string">'href'</span>);</div><div class="line"><span class="built_in">console</span>.log(el3);</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="innerHTML-插入HTML"><a href="#innerHTML-插入HTML" class="headerlink" title="innerHTML - 插入HTML"></a>innerHTML - 插入HTML</h2><p>將元素內的html<font color="red">重新覆蓋寫入</font>新的html。</p>
+<figure class="highlight js"><figcaption><span>插入HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'main'</span>);</div><div class="line"><span class="keyword">var</span> str = <span class="string">'&lt;h1 class="blue"&gt;1234&lt;/h1&gt;'</span></div><div class="line">el.innerHTML = str;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="createElement-插入dom元素"><a href="#createElement-插入dom元素" class="headerlink" title="createElement - 插入dom元素"></a>createElement - 插入dom元素</h2><p>建立一個新的DOM元素，然後再使用 <code>appendChild</code> 新增子節點，並不會覆蓋原有的DOM元素。</p>
+<figure class="highlight html"><figcaption><span>新增dom元素</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">em</span>&gt;</span>titile<span class="tag">&lt;/<span class="name">em</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> &gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">    <span class="comment">// 建立元素</span></span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> sonElement = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span></div><div class="line"><span class="javascript">    sonElement.setAttribute(<span class="string">'href'</span>,<span class="string">'www.facebook.com'</span>);</span></div><div class="line"><span class="javascript">    sonElement.textContent = <span class="string">'前往Facebook'</span>;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">    <span class="comment">// 增加子節點</span></span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> fatherElement = <span class="built_in">document</span>.querySelector(<span class="string">'.title'</span>);</span></div><div class="line"><span class="undefined">    fatherElement.appendChild(sonElement);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight diff"><figcaption><span>更新後結果</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;h1 class="title"&gt;</div><div class="line">    &lt;em&gt;titile&lt;/em&gt;</div><div class="line"><span class="addition">+   &lt;a href="www.facebook.com"&gt;前往Facebook&lt;/a&gt;</span></div><div class="line">&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="addEventListener-事件氣泡、事件捕捉"><a href="#addEventListener-事件氣泡、事件捕捉" class="headerlink" title="addEventListener - 事件氣泡、事件捕捉"></a>addEventListener - 事件氣泡、事件捕捉</h2><p><span id="inline-blue">基本語法</span></p>
+<p>element.addEventListener(event, function, useCapture)</p>
+<ul>
+<li>第三個參數：可省略，預設為 <code>false</code>。</li>
+</ul>
+<p><span id="inline-purple">範例</span></p>
+<p>可試試將第三個參數分別改成 <code>true</code> 、 <code>false</code>，各執行一次，會有什麼不一樣的結果。</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"warp"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>預設：事件氣泡-從指定元素往外找</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.querySelector(<span class="string">'.box'</span>);</div><div class="line">el.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  alert(<span class="string">'box'</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'box'</span>);</div><div class="line">&#125;,<span class="literal">false</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> elBody = <span class="built_in">document</span>.querySelector(<span class="string">'.body'</span>);</div><div class="line">elBody.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  alert(<span class="string">'body'</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'body'</span>);</div><div class="line">&#125;,<span class="literal">false</span>);</div><div class="line"><span class="comment">// false (事件氣泡 - event Bubbling) - 從指定元素往外找</span></div><div class="line"><span class="comment">// true (事件捕捉 - event capturing) - 從最外面找到指定元素</span></div></pre></td></tr></table></figure>
+<p></p><p data-height="212" data-theme-id="0" data-slug-hash="MrmOzO" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="addEventListener - 事件氣泡、事件捕捉" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/MrmOzO/" target="_blank" rel="external">addEventListener - 事件氣泡、事件捕捉</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="stopPropagation-中止冒泡行為"><a href="#stopPropagation-中止冒泡行為" class="headerlink" title="stopPropagation - 中止冒泡行為"></a>stopPropagation - 中止冒泡行為</h2><p>依上例 <font color="red">addEventListener-事件氣泡</font> 因素，有時只是想單純針對單一元素監聽，不想因為事件冒泡的行為，而去觸發到其他元素，這時就可利用 <font color="red">stopPropagation</font> 來達成此需求。</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var el = document.querySelector('.box');</div><div class="line">el.addEventListener('click',function(e)&#123;</div><div class="line"><span class="addition">+ e.stopPropagation(); // 中止冒泡行為</span></div><div class="line">  alert('box');</div><div class="line">  console.log('box');</div><div class="line">&#125;,false);</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="事件監聽優化-amp-e-target"><a href="#事件監聽優化-amp-e-target" class="headerlink" title="事件監聽優化 &amp; e.target"></a>事件監聽優化 &amp; e.target</h2><p>有時子元素可能要<font color="red">上千個</font>，每個都要綁上監聽的話，效能不是很優，這時可從父節點下手，使用 <font color="red">e.target.nodeName</font> 判斷是否為 想監聽的子元素，若是為想監聽的子元素，可再用 e.target.value 或是 e.target.textContent 取得 值。</p>
+<ul>
+<li>e.target.nodeName 取得點擊元素的<font color="red">標籤名稱</font>，如：UL、LI、INPUT…</li>
+<li>e.target.value 取得選取元素的值</li>
+</ul>
+<p><span id="inline-purple">範例</span></p>
+<p>當有一個 ul 底下有多個 li 都要監聽的話，這時我們可以利用 <font color="red">addEventListener-事件氣泡</font> 的原理，只要針對 <font color="red">ul</font> 監聽，讓他往上冒泡，當到達 li 時，這時我們就可以針對 li 做事了。</p>
+<figure class="highlight js"><figcaption><span>原始寫法</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//取得ul底下的所有li元素</span></div><div class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.list li'</span>);</div><div class="line"><span class="comment">//forloop，將每個li元素綁上監聽事件(N次)</span></div><div class="line"><span class="keyword">var</span> len = list.length;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;len&gt;i;i++)&#123;</div><div class="line">    list[i].addEventListener(<span class="string">'click'</span>,checkName,<span class="literal">false</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkName</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(e.target.textContent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>優化寫法</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//取得ul元素</span></div><div class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'.list'</span>);</div><div class="line"><span class="comment">//將ul元素綁上監事件(一次)</span></div><div class="line">list.addEventListener(<span class="string">'click'</span>,checkName,<span class="literal">false</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkName</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(e.target.nodeName !== <span class="string">'LI'</span>)&#123;<span class="keyword">return</span>&#125;; <span class="comment">// 判斷是否為li元素</span></div><div class="line">    <span class="built_in">console</span>.log(e.target.textContent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="preventDefault-取消預設觸發行為"><a href="#preventDefault-取消預設觸發行為" class="headerlink" title="preventDefault - 取消預設觸發行為"></a>preventDefault - 取消預設觸發行為</h2><p>比較常用在 <font color="red">a連結的href</font>、<font color="red">Form表單的submit</font> 上，有時可能只是想觸發呼叫Function，而不想使用到原生附與的功能的話，就可利用 <font color="red">preventDefault</font> 達成此需求。</p>
+<figure class="highlight js"><figcaption><span>取消預設觸發行為</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.querySelector(<span class="string">'a'</span>);</div><div class="line">list.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    e.preventDefault(); <span class="comment">//取消預設觸發行為</span></div><div class="line"></div><div class="line">    <span class="comment">/* 撰寫你的Code */</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="localStorage-灠瀏器資料儲存"><a href="#localStorage-灠瀏器資料儲存" class="headerlink" title="localStorage - 灠瀏器資料儲存"></a>localStorage - 灠瀏器資料儲存</h2><p><span id="inline-blue">基本語法</span></p>
+<figure class="highlight js"><figcaption><span>儲存</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(<span class="string">'countryItem'</span>,countryString);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>讀取</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localStorage.getItem(<span class="string">'countryItem'</span>);</div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例</span></p>
+<p>localstorage 只能保存 <code>string</code> 資料，所以當資料非字串型態的話，記得轉為<code>字串string</code>。</p>
+<div class="note default">JSON.<font color="red">stringify</font>() 將 array 轉為 string<br>JSON.<font color="red">parse</font>() 將 string 轉為 array</div>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> country = [</div><div class="line">    &#123;<span class="attr">farmer</span>:<span class="string">'王農夫'</span>&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="comment">//儲存</span></div><div class="line"><span class="keyword">var</span> countryString= <span class="built_in">JSON</span>.stringify(country); <span class="comment">// 轉字串</span></div><div class="line"><span class="built_in">console</span>.log(countryString);</div><div class="line">localStorage.setItem(<span class="string">'countryItem'</span>,countryString);</div><div class="line"></div><div class="line"><span class="comment">//讀取</span></div><div class="line"><span class="keyword">var</span> getData = localStorage.getItem(<span class="string">'countryItem'</span>);</div><div class="line"><span class="keyword">var</span> getDataAry = <span class="built_in">JSON</span>.parse(getData); <span class="comment">// 轉array</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(getDataAry[<span class="number">0</span>].farmer);</div></pre></td></tr></table></figure>
+<div class="note primary">補充小知識<br>var data = listData;<br>var data2 = listData || []; //(建議寫法)<br><br>console.log(‘沒有 []’, data); // 有可能取得資料或 undefined<br>console.log(‘加上 []’, data2); // 有可能</div>
+
+<hr>
+<h2 id="data-透過-dataset-讀取自訂資料"><a href="#data-透過-dataset-讀取自訂資料" class="headerlink" title="data-* - 透過 dataset 讀取自訂資料"></a>data-* - 透過 dataset 讀取自訂資料</h2><ul>
+<li>名字絕對不能以 <font color="red">xml</font> 起頭，無論是否用於 xml、</li>
+<li>名字絕對不能包含<font color="red">分號（U+003A）、</font></li>
+<li>名字絕對不能包含<font color="red">大寫 A 到大小 Z </font>的拉丁字母。</li>
+</ul>
+<p>可透過 HTMLElement.<font color="red">dataset</font>.testValue 或 HTMLElement.<font color="red">dataset</font>[“testValue”] 訪問</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"user"</span> <span class="attr">data-id</span>=<span class="string">"1234567890"</span> <span class="attr">data-user</span>=<span class="string">"johndoe"</span> <span class="attr">data-date-of-birth</span>&gt;</span>John Doe<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">let el = document.querySelector('#user');</div><div class="line"></div><div class="line">// el.id == 'user'</div><div class="line">// el.dataset.id === '1234567890'</div><div class="line">// el.dataset.user === 'johndoe'</div><div class="line">// el.dataset.dateOfBirth === ''</div><div class="line"></div><div class="line">el.dataset.dateOfBirth = '1960-10-03'; // set the DOB.</div><div class="line"></div><div class="line">// 'someDataAttr' in el.dataset === false</div><div class="line">el.dataset.someDataAttr = 'mydata';</div><div class="line">// 'someDataAttr' in el.dataset === true</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="AjAX"><a href="#AjAX" class="headerlink" title="AjAX"></a>AjAX</h2><p><span id="inline-blue">屬性</span></p>
+<p><font color="red">readyState</font>:<br>　０：尚未讀取<br>　１：讀取中<br>　２：已下載完畢<br>　３：資訊交換中<br>　４：處理完畢</p>
+<p><font color="red">Status</font>:即<a href="https://blog.miniasp.com/post/2009/01/16/Web-developer-should-know-about-HTTP-Status-Code.aspx" target="_blank" rel="external">HTTP協定的狀態碼</a></p>
+<p>當 readyState == <font color="red">4</font>，代表有執行完成，但不一定是有正確撈到資料，<br>要配合HTTP status == <font color="red">200</font>，才代表是正確撈到資料。</p>
+<p><span id="inline-purple">範例</span></p>
+<p>利用AJAX傳送(<font color="red">POST</font>)帳號、密碼資料至後端註冊會員帳號。</p>
+<figure class="highlight js"><figcaption><span>POST資料</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> send = <span class="built_in">document</span>.querySelector(<span class="string">'.send'</span>);</div><div class="line">send.addEventListener(<span class="string">'click'</span>,signup,<span class="literal">false</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">signup</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> emailStr = <span class="built_in">document</span>.querySelector(<span class="string">'.account'</span>).value;</div><div class="line">    <span class="keyword">var</span> passwordStr = <span class="built_in">document</span>.querySelector(<span class="string">'.password'</span>).value;</div><div class="line"></div><div class="line">    <span class="comment">//資料丟到物件</span></div><div class="line">    <span class="keyword">var</span> account = &#123;&#125;;</div><div class="line">    account.email = emailStr;</div><div class="line">    account.password = passwordStr;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    xhr.open(<span class="string">'post'</span>,<span class="string">'https://hexschool-tutorial.herokuapp.com/api/signup'</span>,<span class="literal">true</span>);</div><div class="line">    xhr.setRequestHeader(<span class="string">'Content-type'</span>,<span class="string">'application/json'</span>); <span class="comment">//宣告json格式</span></div><div class="line">    <span class="keyword">var</span> data = <span class="built_in">JSON</span>.stringify(account); <span class="comment">//轉成字串</span></div><div class="line">    xhr.send(data); <span class="comment">// 送出</span></div><div class="line"></div><div class="line">    <span class="comment">//ajax完成後，執行此event</span></div><div class="line">    xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</div><div class="line">            <span class="comment">// 萬事具備</span></div><div class="line">            <span class="keyword">var</span> callbackData = <span class="built_in">JSON</span>.parse(xhr.responseText); <span class="comment">//接收回傳後資料</span></div><div class="line">            <span class="built_in">console</span>.log(callbackData);</div><div class="line">            <span class="keyword">var</span> veriStr =  callbackData.message;</div><div class="line">            <span class="keyword">if</span>(veriStr ==<span class="string">"帳號註冊成功"</span>)&#123;</div><div class="line">                alert(<span class="string">'帳號註冊成功！！'</span>);</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                alert(<span class="string">"帳號註冊失敗！"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 似乎有點問題。</span></div><div class="line">            <span class="comment">// 或許伺服器傳回了 404（查無此頁）</span></div><div class="line">            <span class="comment">// 或者 500（內部錯誤）什麼的。</span></div><div class="line">            alert (<span class="string">"伺服器處理錯誤"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>ajax回傳的格式</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"success"</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">"result"</span>: &#123;<span class="string">'結果'</span>&#125;,</div><div class="line">  <span class="string">"message"</span>: <span class="string">"登入成功"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/Guide/AJAX/Getting_Started" target="_blank" rel="external">Asynchronous JavaScript And XML</a></div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/27/NodeJS-Express/" rel="next" title="NodeJS-Express">
+                <i class="fa fa-chevron-left"></i> NodeJS-Express
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2017/12/30/JS-studynotes/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Selector-選擇元素"><span class="nav-number">1.</span> <span class="nav-text">Selector - 選擇元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attribute-增加標籤屬性"><span class="nav-number">2.</span> <span class="nav-text">Attribute - 增加標籤屬性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#innerHTML-插入HTML"><span class="nav-number">3.</span> <span class="nav-text">innerHTML - 插入HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createElement-插入dom元素"><span class="nav-number">4.</span> <span class="nav-text">createElement - 插入dom元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addEventListener-事件氣泡、事件捕捉"><span class="nav-number">5.</span> <span class="nav-text">addEventListener - 事件氣泡、事件捕捉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stopPropagation-中止冒泡行為"><span class="nav-number">6.</span> <span class="nav-text">stopPropagation - 中止冒泡行為</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件監聽優化-amp-e-target"><span class="nav-number">7.</span> <span class="nav-text">事件監聽優化 & e.target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#preventDefault-取消預設觸發行為"><span class="nav-number">8.</span> <span class="nav-text">preventDefault - 取消預設觸發行為</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage-灠瀏器資料儲存"><span class="nav-number">9.</span> <span class="nav-text">localStorage - 灠瀏器資料儲存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-透過-dataset-讀取自訂資料"><span class="nav-number">10.</span> <span class="nav-text">data-* - 透過 dataset 讀取自訂資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AjAX"><span class="nav-number">11.</span> <span class="nav-text">AjAX</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>
