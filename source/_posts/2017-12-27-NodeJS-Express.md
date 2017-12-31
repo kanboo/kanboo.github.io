@@ -399,7 +399,7 @@ app.get('/', function (req, res) {
 
 <span id="inline-purple">範例</span>
 
-<font style="color:blue;font-size:20px;">layout.ejs</font>
+layout.ejs
 1. 將共用的部份撰寫在 `layout.ejs`
 2. 新增 `<%- body %>` 這段語法，代表要放置不同頁面各自的內容。
 
@@ -426,7 +426,8 @@ app.get('/', function (req, res) {
 </html>
 
 ```
-<font style="color:blue;font-size:20px;">search.ejs</font>
+
+search.ejs
 1. 在頁面寫入 `<% layout('layout') %>` 這段語法，代表載入共用HTML部份。
 2. 接著開始撰寫HTML內容，而撰寫好的HTML，就會放置在layout.ejs檔案裡的`<%- body %>`位置。
 
