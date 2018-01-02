@@ -707,3 +707,8 @@ $ npm install express-generator -g
 4. 專案網址：http://127.0.0.1:3000/
 
 <div class="note info">[官方：Express應用程式產生器](http://expressjs.com/zh-tw/starter/generator.html)</div>
+
+***
+## 參考來源
+<div class="note info">[NodeJS 前後端開發實戰](https://www.udemy.com/teachnodejs/)
+[六角學院](http://www.hexschool.com/)</div>

@@ -336,3 +336,8 @@ function reloadList(originData) {
     list.innerHTML = str;
 }
 ```
+
+***
+## 參考來源
+<div class="note info">[NodeJS 前後端開發實戰](https://www.udemy.com/teachnodejs/)
+[六角學院](http://www.hexschool.com/)</div>

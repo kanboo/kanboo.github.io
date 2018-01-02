@@ -263,3 +263,8 @@ peopleRef.orderByChild('weight').limitToLast(5).once('value', function (snapshot
     // console.log(snapshot.val());
 })
 ```
+
+***
+## 參考來源
+<div class="note info">[NodeJS 前後端開發實戰](https://www.udemy.com/teachnodejs/)
+[六角學院](http://www.hexschool.com/)</div>
