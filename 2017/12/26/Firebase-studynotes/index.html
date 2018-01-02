@@ -124,7 +124,7 @@
 <meta property="og:image" content="https://kanboo.github.io/2017/12/26/Firebase-studynotes/firebase_04.png">
 <meta property="og:image" content="https://kanboo.github.io/2017/12/26/Firebase-studynotes/firebase_05.png">
 <meta property="og:image" content="https://kanboo.github.io/2017/12/26/Firebase-studynotes/firebase_06.png">
-<meta property="og:updated_time" content="2017-12-30T06:00:50.000Z">
+<meta property="og:updated_time" content="2018-01-02T14:59:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Firebase-基礎用法">
 <meta name="twitter:image" content="https://kanboo.github.io/2017/12/26/Firebase-studynotes/firebase_01.png">
@@ -522,6 +522,8 @@
 </ul>
 <figure class="highlight js"><figcaption><span>取得第 1 筆資料</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> peopleRef = firebase.database().ref(<span class="string">'people'</span>);</div><div class="line">peopleRef.orderByChild(<span class="string">'weight'</span>).limitToFirst(<span class="number">1</span>).once(<span class="string">'value'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">snapshot</span>) </span>&#123;</div><div class="line">    snapshot.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(item.key);</div><div class="line">        <span class="built_in">console</span>.log(item.val());</div><div class="line">    &#125;)</div><div class="line">    <span class="comment">// console.log(snapshot.val());</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight js"><figcaption><span>取得倒數 5 筆資料</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> peopleRef = firebase.database().ref(<span class="string">'people'</span>);</div><div class="line">peopleRef.orderByChild(<span class="string">'weight'</span>).limitToLast(<span class="number">5</span>).once(<span class="string">'value'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">snapshot</span>) </span>&#123;</div><div class="line">    snapshot.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(item.key);</div><div class="line">        <span class="built_in">console</span>.log(item.val());</div><div class="line">    &#125;)</div><div class="line">    <span class="comment">// console.log(snapshot.val());</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><div class="note info"><a href="https://www.udemy.com/teachnodejs/" target="_blank" rel="external">NodeJS 前後端開發實戰</a><br><a href="http://www.hexschool.com/" target="_blank" rel="external">六角學院</a></div>
       
     </div>
     
@@ -663,7 +665,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -685,7 +687,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -720,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ref-路徑-、set-新增"><span class="nav-number">1.</span> <span class="nav-text">ref(路徑)、set(新增)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#once、on-讀取資料"><span class="nav-number">2.</span> <span class="nav-text">once、on 讀取資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push-新增資料"><span class="nav-number">3.</span> <span class="nav-text">push - 新增資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#child-子路徑、remove-移除"><span class="nav-number">4.</span> <span class="nav-text">child 子路徑、remove 移除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在網頁即時顯示firebase資料"><span class="nav-number">5.</span> <span class="nav-text">在網頁即時顯示firebase資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orderbyForeach-排序"><span class="nav-number">6.</span> <span class="nav-text">orderbyForeach 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#startAt、endAt、equalTo-過濾條件"><span class="nav-number">7.</span> <span class="nav-text">startAt、endAt、equalTo 過濾條件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#limitToFirst、limitToLast-限制筆數"><span class="nav-number">8.</span> <span class="nav-text">limitToFirst、limitToLast 限制筆數</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ref-路徑-、set-新增"><span class="nav-number">1.</span> <span class="nav-text">ref(路徑)、set(新增)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#once、on-讀取資料"><span class="nav-number">2.</span> <span class="nav-text">once、on 讀取資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push-新增資料"><span class="nav-number">3.</span> <span class="nav-text">push - 新增資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#child-子路徑、remove-移除"><span class="nav-number">4.</span> <span class="nav-text">child 子路徑、remove 移除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在網頁即時顯示firebase資料"><span class="nav-number">5.</span> <span class="nav-text">在網頁即時顯示firebase資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#orderbyForeach-排序"><span class="nav-number">6.</span> <span class="nav-text">orderbyForeach 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#startAt、endAt、equalTo-過濾條件"><span class="nav-number">7.</span> <span class="nav-text">startAt、endAt、equalTo 過濾條件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#limitToFirst、limitToLast-限制筆數"><span class="nav-number">8.</span> <span class="nav-text">limitToFirst、limitToLast 限制筆數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">9.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
             
 
           </div>

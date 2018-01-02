@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,MarkDown," />
+  <meta name="keywords" content="NodeJS,Cookie,Session," />
 
 
 
@@ -112,21 +112,20 @@
 
 
 
-<meta name="description" content="將常用的 MarkDown 紀錄在這，  Ctrl + C   、  Ctrl + V    比較方便。">
-<meta name="keywords" content="Hexo,MarkDown">
+<meta name="description" content="紀錄Cookie、Session的差異，以及如何搭配使用。">
+<meta name="keywords" content="NodeJS,Cookie,Session">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MarkDown常用寫法(置頂)">
-<meta property="og:url" content="https://kanboo.github.io/2017/09/30/MarkDownWrite/index.html">
+<meta property="og:title" content="NodeJS-Cookie、Session">
+<meta property="og:url" content="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="將常用的 MarkDown 紀錄在這，  Ctrl + C   、  Ctrl + V    比較方便。">
+<meta property="og:description" content="紀錄Cookie、Session的差異，以及如何搭配使用。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://kanboo.github.io/2017/09/30/MarkDownWrite/logo.png">
-<meta property="og:image" content="https://goo.gl/2Dty9K">
-<meta property="og:updated_time" content="2017-12-22T14:18:14.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/cookie_01.png">
+<meta property="og:updated_time" content="2018-01-02T14:58:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MarkDown常用寫法(置頂)">
-<meta name="twitter:description" content="將常用的 MarkDown 紀錄在這，  Ctrl + C   、  Ctrl + V    比較方便。">
-<meta name="twitter:image" content="https://kanboo.github.io/2017/09/30/MarkDownWrite/logo.png">
+<meta name="twitter:title" content="NodeJS-Cookie、Session">
+<meta name="twitter:description" content="紀錄Cookie、Session的差異，以及如何搭配使用。">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/cookie_01.png">
 
 
 
@@ -155,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="https://kanboo.github.io/2017/09/30/MarkDownWrite/"/>
+  <link rel="canonical" href="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/"/>
 
 
 
 
 
-  <title>MarkDown常用寫法(置頂) | Kanboo Notes</title>
+  <title>NodeJS-Cookie、Session | Kanboo Notes</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -355,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/09/30/MarkDownWrite/">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -372,7 +371,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MarkDown常用寫法(置頂)</h1>
+          <h1 class="post-title" itemprop="name headline">NodeJS-Cookie、Session</h1>
         
 
         <div class="post-meta">
@@ -384,8 +383,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-09-30T00:03:49+08:00">
-                2017-09-30
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-02T20:42:36+08:00">
+                2018-01-02
               </time>
             
 
@@ -407,8 +406,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/NodeJS/" itemprop="url" rel="index">
+                    <span itemprop="name">NodeJS</span>
                   </a>
                 </span>
 
@@ -425,8 +424,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/30/MarkDownWrite/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/09/30/MarkDownWrite/" itemprop="commentCount">0</span> comments
+                <a href="/2018/01/02/NodeJS-CookieSession/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -454,119 +453,52 @@
       
 
       
-        <blockquote class="blockquote-center"><p>將常用的 MarkDown 紀錄在這，</p>
-<p><span id="inline-blue"> Ctrl + C  </span> 、 <span id="inline-green"> Ctrl + V </span>  </p>
-<p>比較方便。</p>
+        <blockquote class="blockquote-center"><font style="font-size:20px;">紀錄Cookie、Session的差異，以及如何搭配使用。</font>
 </blockquote>
 <a id="more"></a>
 <hr>
-<h2 id="文字加顏色"><a href="#文字加顏色" class="headerlink" title="文字加顏色"></a>文字加顏色</h2><font color="blue">藍色字</font>
+<h2 id="COOKIE-與-SESSION-的比較與區別"><a href="#COOKIE-與-SESSION-的比較與區別" class="headerlink" title="COOKIE 與 SESSION 的比較與區別"></a>COOKIE 與 SESSION 的比較與區別</h2><ul>
+<li><p><font color="red">Cookie</font><br>-數據存放在<font color="blue">客戶的瀏覽器</font>上<br>-用戶端的限制約<font color="blue">4K</font><br>-不存放機密資料，避免被他人解析，故僅存放 session id</p>
+</li>
+<li><font color="red">Session</font><br>-數據放在<font color="blue">伺服器</font>上<br>-session資料是 <font color="blue">暫存</font>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;font color=&quot;blue&quot;&gt;藍色字&lt;/font&gt;</div></pre></td></tr></table></figure>
-<font color="red">紅色的字</font>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;font color=&quot;red&quot;&gt;紅色的字&lt;/font&gt;</div></pre></td></tr></table></figure>
-<font style="color:#f90;font-size:20px;">20px的字</font>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;font style=&quot;color:#f90;font-size:20px;&quot;&gt;20px的字&lt;/font&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="前端-Cookie"><a href="#前端-Cookie" class="headerlink" title="前端 Cookie"></a>前端 Cookie</h2><h3 id="寫入-Cookie"><a href="#寫入-Cookie" class="headerlink" title="寫入 Cookie"></a>寫入 Cookie</h3><p><code>document.cookie = &quot;myName=tom&quot;;</code></p>
+<h3 id="寫入-Cookie，並加入過期時間，"><a href="#寫入-Cookie，並加入過期時間，" class="headerlink" title="寫入 Cookie，並加入過期時間，"></a>寫入 Cookie，並加入過期時間，</h3><p><code>document.cookie=&quot;username=bob; expires=Mon, 04 Dec 2017 08:18:32 GMT; path=/&quot;;</code></p>
+<h3 id="GMT-時間"><a href="#GMT-時間" class="headerlink" title="GMT 時間"></a>GMT 時間</h3><p><code>new Date().toGMTString()</code></p>
+<h3 id="寫入-Cookie，設定-10-秒後失效"><a href="#寫入-Cookie，設定-10-秒後失效" class="headerlink" title="寫入 Cookie，設定 10 秒後失效"></a>寫入 Cookie，設定 10 秒後失效</h3><p><code>document.cookie=&quot;username=bob; max-age=10; path=/&quot;;</code></p>
+<hr>
+<h2 id="後端-解析Cookie"><a href="#後端-解析Cookie" class="headerlink" title="後端 解析Cookie"></a>後端 解析Cookie</h2><p><span id="inline-blue">安裝語法</span></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install cookie-parser --save</div></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="https://xiwan.io/archive/markdown-html-common-syntax-summary.html" target="_blank" rel="external">MARKDOWN/HTML常用語法小結</a></p>
+<p><a href="https://github.com/expressjs/cookie-parser" target="_blank" rel="external">cookie-parser</a></p>
 </blockquote>
-<h2 id="文字增加背景色塊"><a href="#文字增加背景色塊" class="headerlink" title="文字增加背景色塊"></a>文字增加背景色塊</h2><p><span id="inline-blue">站点配置文件</span></p>
-<p><span id="inline-purple">主题配置文件</span></p>
-<p><span id="inline-yellow">站点配置文件</span></p>
-<p><span id="inline-green">主题配置文件</span></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-blue"</span>&gt;</span>站点配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-purple"</span>&gt;</span>主题配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-yellow"</span>&gt;</span>站点配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-green"</span>&gt;</span>主题配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例(讀取、寫入)</span></p>
+<figure class="highlight js"><figcaption><span>app.js引用cookie-parser模組</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>) <span class="comment">// 解析cookie模組</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line">app.use(cookieParser()) <span class="comment">//解析前端cookie</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>routes/index.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"></div><div class="line"></div><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//讀取前端的cookies(全部)</span></div><div class="line">  <span class="built_in">console</span>.log(req.cookies);</div><div class="line"></div><div class="line">  <span class="comment">//讀取前端的cookies(單個)</span></div><div class="line">  <span class="built_in">console</span>.log(req.cookies.userName);</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">//後端寫入前端Cookies</span></div><div class="line">  res.cookie(<span class="string">'name'</span>, <span class="string">'lulu'</span>, &#123;</div><div class="line">    maxAge: <span class="number">10000</span>, <span class="comment">// 只存在n秒，n秒後自動消失</span></div><div class="line">    httpOnly: <span class="literal">true</span> <span class="comment">// 僅限後端存取，無法使用前端document.cookie取得</span></div><div class="line">  &#125;)</div><div class="line"></div><div class="line"></div><div class="line">  res.render(<span class="string">'index'</span>, &#123;<span class="attr">title</span>: <span class="string">'Express'</span>&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
 <hr>
-<h2 id="自定義樣式"><a href="#自定義樣式" class="headerlink" title="自定義樣式"></a>自定義樣式</h2><div class="note info">下列 自定義樣式，參考 <a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#好玩的写作样式" target="_blank" rel="external">超深度优化</a><br></div>
-
-<h3 id="文本置中引用"><a href="#文本置中引用" class="headerlink" title="文本置中引用"></a>文本置中引用</h3><blockquote class="blockquote-center"><p>我不是一個偉大的程式設計師,我只是一個具有良好習慣的優秀程式設計師。</p>
+<h2 id="後端-session"><a href="#後端-session" class="headerlink" title="後端 session"></a>後端 session</h2><ul>
+<li>儲存在伺服器的<font color="red">暫存資料</font>，此暫存可放在記憶體或資料庫上</li>
+<li>session可在cookie上儲存一筆辨識你是誰的 session id</li>
+</ul>
+<p><span id="inline-yellow">概念</span></p>
+<img src="/2018/01/02/NodeJS-CookieSession/cookie_01.png" alt="cookie_01.png" title="">
+<p><span id="inline-blue">安裝語法</span></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install express-session --save</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/expressjs/session" target="_blank" rel="external">express-session</a></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% cq %&#125;</div><div class="line">我不是一個偉大的程式設計師,我只是一個具有良好習慣的優秀程式設計師。</div><div class="line">&#123;% endcq %&#125;</div></pre></td></tr></table></figure>
-<h3 id="数字塊"><a href="#数字塊" class="headerlink" title="数字塊"></a>数字塊</h3><p><span id="inline-toc">1.</span>左邊是效果。<br><span id="inline-toc">2.</span>我是第二行。</p>
-<figure class="highlight html"><figcaption><span>客制CSS文件位置：~/blog/themes/next/source/css/_custom/custom.styl</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-toc"</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"inline-toc"</span>&gt;</span>2.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="label標籤"><a href="#label標籤" class="headerlink" title="label標籤"></a>label標籤</h3><span class="label default">default</span>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-variable">&#123;% label <span class="keyword">default</span>@<span class="keyword">default</span> %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
-<span class="label primary">primary</span>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-variable">&#123;% label primary@primary %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
-<span class="label success">success</span>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-variable">&#123;% label success@success %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
-<span class="label info">info</span>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-variable">&#123;% label info@info %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
-<span class="label warning">warning</span>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-variable">&#123;% label warning@warning %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
-<span class="label danger">danger</span>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-variable">&#123;% label danger@danger %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
-<h3 id="note-標籤"><a href="#note-標籤" class="headerlink" title="note 標籤"></a>note 標籤</h3><div class="note default no-icon">default no-icon</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note default no-icon"</span>&gt;</span>default no-icon<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<div class="note default">default</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note default"</span>&gt;</span>default<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<div class="note primary">primary</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note primary"</span>&gt;</span>primary<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<div class="note success">success</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note success"</span>&gt;</span>success<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<div class="note info">info</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note info"</span>&gt;</span>info<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<div class="note warning">warning</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note warning"</span>&gt;</span>warning<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<div class="note danger">danger</div>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"note danger"</span>&gt;</span>danger<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><blockquote class="question">内容</blockquote>
-
-<figure class="highlight html"><figcaption><span>客制CSS文件位置：~/blog/themes/next/source/css/_custom/custom.styl</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">"question"</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例</span></p>
+<p>當User登入後，伺服器先提供一組<font color="red">session id</font>給你，並紀錄在 <font color="red">客戶的瀏覽器的cookie</font></p>
+<figure class="highlight js"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line"><span class="keyword">var</span> parseurl = <span class="built_in">require</span>(<span class="string">'parseurl'</span>)</div><div class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line"><span class="comment">//提供一組session id</span></div><div class="line">app.use(session(&#123;</div><div class="line">  secret: <span class="string">'keyboard cat'</span>,</div><div class="line">  resave: <span class="literal">true</span>,</div><div class="line">  saveUninitialized: <span class="literal">true</span>,</div><div class="line">  cookie:&#123;</div><div class="line">    maxAge: <span class="number">100</span>*<span class="number">1000</span> <span class="comment">//100秒後過期</span></div><div class="line">  &#125;</div><div class="line">&#125;))</div></pre></td></tr></table></figure>
+<p>表單點擊送出後，會將User資料 <font color="red">post</font> 至後端</p>
+<figure class="highlight html"><figcaption><span>html架構</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 顯示user資料 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">userName</span> %&gt;</span> <span class="tag">&lt;<span class="name">%=</span> <span class="attr">email</span> %&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 表單填寫區 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>  <span class="attr">value</span>=<span class="string">"送出"</span>&gt;</span>    </div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>前端post資料後，會先將user資料寫入 <font color="red">session暫存</font>，再將網址導回index，並且傳入資料供渲染畫面。</p>
+<figure class="highlight js"><figcaption><span>index.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"></div><div class="line"><span class="comment">/* GET home page. */</span></div><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//將user資料傳入index.ejs供渲染畫面</span></div><div class="line">  res.render(<span class="string">'index'</span>, &#123; </div><div class="line">    userName: req.session.username,</div><div class="line">    email: req.session.email</div><div class="line">   &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//接收前端傳入的資料</span></div><div class="line">router.post(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//取得前端資料，並寫入至後端session暫存</span></div><div class="line">  req.session.username = req.body.username;</div><div class="line">  req.session.email = req.body.email;</div><div class="line"></div><div class="line">  <span class="comment">//轉址至首頁</span></div><div class="line">  res.redirect(<span class="string">'/'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
 <hr>
-<h2 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h2><h3 id="行內"><a href="#行內" class="headerlink" title="行內"></a>行內</h3><p><code>height: 50px;</code></p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="code">`height: 50px;`</span></div></pre></td></tr></table></figure>
-<h3 id="區段"><a href="#區段" class="headerlink" title="區段"></a>區段</h3><figure class="highlight md"><figcaption><span>區段寫法</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="code">``` [language] [title] [url] [link-text]</span></div><div class="line"><span class="code">- [language] 是代碼語言的名稱，用來設置代碼塊顏色高亮，非必須；</span></div><div class="line"><span class="code">- [title] 是頂部左邊的說明，非必須；</span></div><div class="line"><span class="code">- [url] 是頂部右邊的超鏈接地址，非必須；</span></div><div class="line"><span class="code">- [link text] 如它的字面意思，超鏈接的名稱，非必須。</span></div></pre></td></tr></table></figure>
-<p>上述4項應該是根據 <span class="label success">空格</span> 來分隔，而不是 <code>[]</code>，故請不要加 <code>[]</code>。<br>除非如果你想寫後面兩個，但不想寫前面兩個，那麼就必須加 <code>[]</code> 了，<br>要這樣寫： <code>[] [] [url] [link text]</code>。</p>
-<p>MarkDown寫法：</p>
-<figure class="highlight plain"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">``` CSS</div><div class="line">.container &#123;</div><div class="line">    max-width: 960px;</div><div class="line">    margin: 0 auto;</div><div class="line">    /* 起手式 */</div><div class="line">    margin-top: 10px;`</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">``` js</div><div class="line">.container &#123;</div><div class="line">    function checkList(e) &#123;</div><div class="line">        var num = e.target.dataset.num;</div><div class="line">        // console.log(e.target.nodeName);</div><div class="line">        if (e.target.nodeName !== &apos;LI&apos;) &#123;</div><div class="line">            return</div><div class="line">        &#125;;</div><div class="line">        country.splice(num, 1);</div><div class="line">        updateList();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">```</div></pre></td></tr></table></figure>
-<div class="note info">可支援的語法： <a href="https://almostover.ru/2016-07/hexo-highlight-code-styles/" target="_blank" rel="external">連結</a></div>
-
-<hr>
-<h2 id="插入圖片"><a href="#插入圖片" class="headerlink" title="插入圖片"></a>插入圖片</h2><hr>
-<h3 id="內部圖片"><a href="#內部圖片" class="headerlink" title="內部圖片"></a>內部圖片</h3><img src="/2017/09/30/MarkDownWrite/logo.png" alt="logo" title="logo">
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img logo.png logo %&#125;</div></pre></td></tr></table></figure>
-<h3 id="外部圖片"><a href="#外部圖片" class="headerlink" title="外部圖片"></a>外部圖片</h3><p><img src="https://goo.gl/2Dty9K" alt="Mario"></p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">Mario</span>](<span class="link">https://goo.gl/2Dty9K</span>)</div></pre></td></tr></table></figure>
-<h2 id="文字超連結"><a href="#文字超連結" class="headerlink" title="文字超連結"></a>文字超連結</h2><hr>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<p>Google連結：<a href="https://www.google.com.tw/" target="_blank" rel="external">Google</a></p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">More info: [<span class="string">Writing</span>](<span class="link">https://hexo.io/docs/writing.html</span>)</div><div class="line"></div><div class="line">Google連結：[<span class="string">Google</span>](<span class="link">https://www.google.com.tw/</span>)</div></pre></td></tr></table></figure>
-<h2 id="項目標籤"><a href="#項目標籤" class="headerlink" title="項目標籤"></a>項目標籤</h2><hr>
-<h3 id="符號"><a href="#符號" class="headerlink" title="符號"></a>符號</h3><ul>
-<li>序列1</li>
-<li>序列2</li>
-<li>序列3</li>
-</ul>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">* </span>序列1</div><div class="line"><span class="bullet">* </span>序列2</div><div class="line"><span class="bullet">* </span>序列3</div></pre></td></tr></table></figure>
-<h3 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h3><ul>
-<li style="list-style: none"><input type="checkbox"> 序列1</li>
-<li style="list-style: none"><input type="checkbox"> 序列2</li>
-<li style="list-style: none"><input type="checkbox"> 序列3</li>
-<li style="list-style: none"><input type="checkbox"> 序列4</li>
-</ul>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">- </span>[ ] 序列1</div><div class="line"><span class="bullet">- </span>[ ] 序列2</div><div class="line"><span class="bullet">- </span>[ ] 序列3</div><div class="line"><span class="bullet">- </span>[ ] 序列4</div></pre></td></tr></table></figure>
-<h3 id="數字"><a href="#數字" class="headerlink" title="數字"></a>數字</h3><ol>
-<li>序列1</li>
-<li>序列2</li>
-<li>序列3</li>
-<li>序列4</li>
-</ol>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">1. </span>序列1</div><div class="line"><span class="bullet">2. </span>序列2</div><div class="line"><span class="bullet">3. </span>序列3</div><div class="line"><span class="bullet">4. </span>序列4</div></pre></td></tr></table></figure>
-<h2 id="重點標示"><a href="#重點標示" class="headerlink" title="重點標示"></a>重點標示</h2><p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
-<p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
-<p>Strikethrough uses two tildes. <del>Scratch this.</del></p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Strong emphasis, aka bold, with <span class="strong">**asterisks**</span> or <span class="strong">__underscores__</span>.</div><div class="line"></div><div class="line">Combined emphasis with <span class="strong">**asterisks and _underscores_*</span>*.</div><div class="line"></div><div class="line">Strikethrough uses two tildes. ~~Scratch this.~~</div></pre></td></tr></table></figure>
-
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><div class="note info"><a href="https://www.udemy.com/teachnodejs/" target="_blank" rel="external">NodeJS 前後端開發實戰</a><br><a href="http://www.hexschool.com/" target="_blank" rel="external">六角學院</a></div>
       
     </div>
     
@@ -583,9 +515,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/NodeJS/" rel="tag"><i class="fa fa-tag"></i> NodeJS</a>
           
-            <a href="/tags/MarkDown/" rel="tag"><i class="fa fa-tag"></i> MarkDown</a>
+            <a href="/tags/Cookie/" rel="tag"><i class="fa fa-tag"></i> Cookie</a>
+          
+            <a href="/tags/Session/" rel="tag"><i class="fa fa-tag"></i> Session</a>
           
         </div>
       
@@ -614,15 +548,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/01/NodeJS-Express-Firebase/" rel="next" title="NodeJS-Express+Firebase">
+                <i class="fa fa-chevron-left"></i> NodeJS-Express+Firebase
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/30/CSS-Layout/" rel="prev" title="CSS - 排版重點整理">
-                CSS - 排版重點整理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -653,7 +587,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="https://kanboo.github.io/2017/09/30/MarkDownWrite/"
+           data-href="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -763,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文字加顏色"><span class="nav-number">1.</span> <span class="nav-text">文字加顏色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字增加背景色塊"><span class="nav-number">2.</span> <span class="nav-text">文字增加背景色塊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定義樣式"><span class="nav-number">3.</span> <span class="nav-text">自定義樣式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本置中引用"><span class="nav-number">3.1.</span> <span class="nav-text">文本置中引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字塊"><span class="nav-number">3.2.</span> <span class="nav-text">数字塊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#label標籤"><span class="nav-number">3.3.</span> <span class="nav-text">label標籤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note-標籤"><span class="nav-number">3.4.</span> <span class="nav-text">note 標籤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">3.5.</span> <span class="nav-text">引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程式碼"><span class="nav-number">4.</span> <span class="nav-text">程式碼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行內"><span class="nav-number">4.1.</span> <span class="nav-text">行內</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#區段"><span class="nav-number">4.2.</span> <span class="nav-text">區段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入圖片"><span class="nav-number">5.</span> <span class="nav-text">插入圖片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#內部圖片"><span class="nav-number">5.1.</span> <span class="nav-text">內部圖片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部圖片"><span class="nav-number">5.2.</span> <span class="nav-text">外部圖片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字超連結"><span class="nav-number">6.</span> <span class="nav-text">文字超連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#項目標籤"><span class="nav-number">7.</span> <span class="nav-text">項目標籤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#符號"><span class="nav-number">7.1.</span> <span class="nav-text">符號</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check"><span class="nav-number">7.2.</span> <span class="nav-text">Check</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#數字"><span class="nav-number">7.3.</span> <span class="nav-text">數字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重點標示"><span class="nav-number">8.</span> <span class="nav-text">重點標示</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#COOKIE-與-SESSION-的比較與區別"><span class="nav-number">1.</span> <span class="nav-text">COOKIE 與 SESSION 的比較與區別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端-Cookie"><span class="nav-number">2.</span> <span class="nav-text">前端 Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie"><span class="nav-number">2.1.</span> <span class="nav-text">寫入 Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie，並加入過期時間，"><span class="nav-number">2.2.</span> <span class="nav-text">寫入 Cookie，並加入過期時間，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GMT-時間"><span class="nav-number">2.3.</span> <span class="nav-text">GMT 時間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie，設定-10-秒後失效"><span class="nav-number">2.4.</span> <span class="nav-text">寫入 Cookie，設定 10 秒後失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後端-解析Cookie"><span class="nav-number">3.</span> <span class="nav-text">後端 解析Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後端-session"><span class="nav-number">4.</span> <span class="nav-text">後端 session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
             
 
           </div>
