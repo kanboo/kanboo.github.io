@@ -89,6 +89,7 @@ el.innerHTML = str;
 +   <a href="www.facebook.com">前往Facebook</a>
 </h1>
 ```
+
 ***
 ## addEventListener - 事件氣泡、事件捕捉
 
@@ -145,7 +146,7 @@ el.addEventListener('click',function(e){
 
 有時子元素可能要<font color="red">上千個</font>，每個都要綁上監聽的話，效能不是很優，這時可從父節點下手，使用 <font color="red">e.target.nodeName</font> 判斷是否為 想監聽的子元素，若是為想監聽的子元素，可再用 e.target.value 或是 e.target.textContent 取得 值。
 
-- e.target.nodeName 取得點擊元素的<font color="red">標籤名稱</font>，如：UL、LI、INPUT…
+- e.target.nodeName 取得點擊元素的<font color="red">標籤名稱</font>，如：UL、LI、INPUT…
 - e.target.value 取得選取元素的值
 
 <span id="inline-purple">範例</span>
