@@ -83,7 +83,7 @@ router.get('/', function (req, res, next) {
   console.log(req.cookies);
 
   //讀取前端的cookies(單個)
-  console.log(req.cookies.userName);
+  console.log(req.cookies.userName);
 
 
   //後端寫入前端Cookies
@@ -148,7 +148,7 @@ app.use(session({
   <!-- 顯示user資料 -->
   <h1><%= userName %> <%= email %></h1>
 
-  <!-- 表單填寫區 -->
+  <!-- 表單填寫區 -->
   <form method="post" action="/">
     <input type="text" name="username" value="">    
     <input type="text" name="email" value="">    
