@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="NodeJS,Nodemailer,mail," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="NodeJS如何實現寄信">
+<meta name="keywords" content="NodeJS,Nodemailer,mail">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJS-Nodemailer">
+<meta property="og:url" content="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="NodeJS如何實現寄信">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/nodemailer_01.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/nodemailer_02.png">
+<meta property="og:updated_time" content="2018-01-03T17:15:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeJS-Nodemailer">
+<meta name="twitter:description" content="NodeJS如何實現寄信">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/nodemailer_01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/"/>
+
+
+
+
+
+  <title>NodeJS-Nodemailer | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NodeJS-Nodemailer</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-03T19:32:01+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NodeJS/" itemprop="url" rel="index">
+                    <span itemprop="name">NodeJS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/03/NodeJS-Nodemailer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/01/03/NodeJS-Nodemailer/nodemailer_01.png" alt="nodemailer_01.png" title=""></p>
+<font style="font-size:20px;">NodeJS如何實現寄信</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Mail寄送功能使用 <font color="red">Gmail</font> 當作郵件伺服器，所以需先開通權限，開通後，就可以慢慢完成寄信的功能，以及額外優化的功能。</p>
+<p><a href="https://myaccount.google.com/lesssecureapps" target="_blank" rel="external">Gmail-低安全性應用程式</a></p>
+<hr>
+<h2 id="nodemailer-發信功能的介接"><a href="#nodemailer-發信功能的介接" class="headerlink" title="nodemailer - 發信功能的介接"></a>nodemailer - 發信功能的介接</h2><p>實現基本寄信的功能，步驟如下</p>
+<ol>
+<li>載入 Mail模組</li>
+<li>設定 SMTP 相關資料</li>
+<li>撰寫Mail相關內容</li>
+<li>發送郵件</li>
+</ol>
+<p>不過在實際寄信的過程，有出現錯誤訊息為 <font color="red">self signed certificate in certificate chain</font>，此錯誤訊息，將在後面小節額外說明。</p>
+<p><span id="inline-blue">安裝</span></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install nodemailer --save</div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例</span></p>
+<figure class="highlight js"><figcaption><span>起手式</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"><span class="keyword">var</span> nodemailer = <span class="built_in">require</span>(<span class="string">'nodemailer'</span>); <span class="comment">// Mail模組</span></div><div class="line"></div><div class="line"><span class="comment">//設定 SMTP 相關資料</span></div><div class="line"><span class="keyword">var</span> transporter = nodemailer.createTransport(&#123;</div><div class="line">    service: <span class="string">'Gmail'</span>,</div><div class="line">    secureConnection: <span class="literal">true</span>, <span class="comment">// 使用SSL方式（安全方式，防止被竊取信息）</span></div><div class="line">    auth: &#123;</div><div class="line">        user: <span class="string">'Gmail帳號'</span>, <span class="comment">// generated ethereal user</span></div><div class="line">        pass: <span class="string">'Gmail密碼'</span> <span class="comment">// generated ethereal password</span></div><div class="line">    &#125;,</div><div class="line">    tls: &#123;</div><div class="line">        <span class="comment">// 不得檢查服務器所發送的憑證</span></div><div class="line">        rejectUnauthorized: <span class="literal">false</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//撰寫Mail相關內容</span></div><div class="line"><span class="keyword">var</span> mailOptions = &#123;</div><div class="line">    <span class="keyword">from</span>: <span class="string">'"王康寶" &lt;wang.kanboo@gmail.com&gt;'</span>, <span class="comment">// sender address</span></div><div class="line">    to: <span class="string">'wang.kanboo@gmail.com'</span>, <span class="comment">// list of receivers</span></div><div class="line">    subject: <span class="string">'Node測試寄信'</span>, <span class="comment">// Subject line</span></div><div class="line">    text: <span class="string">'測試寄信內容'</span>, <span class="comment">// plain text body</span></div><div class="line">    html: <span class="string">'&lt;p&gt;HTML version of the message&lt;/p&gt;'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//發送郵件</span></div><div class="line">transporter.sendMail(mailOptions, <span class="function"><span class="keyword">function</span> (<span class="params">error, info</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (error) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.log(error);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//轉址</span></div><div class="line">    res.redirect(<span class="string">'/contact/review'</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://nodemailer.com/about/" target="_blank" rel="external">Nodemailer</a></div>
+
+<h2 id="TLS-傳輸層安全性協定"><a href="#TLS-傳輸層安全性協定" class="headerlink" title="TLS - 傳輸層安全性協定"></a>TLS - 傳輸層安全性協定</h2><p>在實際寄信的過程，有出現錯誤訊息為 <font color="red">self signed certificate in certificate chain</font>，<br>原因為Gmail為HTTPS協定，會發送的 <font color="red">CA 簽名的證書</font>，<br>而Node.js 客戶機驗證CA 簽名的證書，方法是根據CA 的<font color="blue">公用</font>證書檢查CA <font color="blue">簽名</font>的證書，<br>不過因為我們沒有 CA 的<font color="blue">公用</font>證書，所以我們需增加一個參數 <font color="red">rejectUnauthorized</font> ，去忽略此驗證的動作。</p>
+<figure class="highlight diff"><figcaption><span>新增 tls 的 rejectUnauthorized</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//設定 SMTP 相關資料</div><div class="line">var transporter = nodemailer.createTransport(&#123;</div><div class="line">    service: 'Gmail',</div><div class="line">    secureConnection: true, // 使用SSL方式（安全方式，防止被竊取信息）</div><div class="line">    auth: &#123;</div><div class="line">        user: 'Gmail帳號', // generated ethereal user</div><div class="line">        pass: 'Gmail密碼' // generated ethereal password</div><div class="line">    &#125;,</div><div class="line"><span class="addition">+   tls: &#123;</span></div><div class="line"><span class="addition">+       // 不得檢查服務器所發送的憑證</span></div><div class="line"><span class="addition">+       rejectUnauthorized: false</span></div><div class="line"><span class="addition">+   &#125;</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://stackoverflow.com/questions/47266393/self-signed-certificate-in-certificate-chain-node-js" target="_blank" rel="external">self signed certificate in certificate chain node js?
+</a><br><a href="https://nodemailer.com/smtp/#3-allow-self-signed-certificates" target="_blank" rel="external">Allow self-signed certificates</a></div>
+
+
+<h2 id="nodemailer-新增附件"><a href="#nodemailer-新增附件" class="headerlink" title="nodemailer 新增附件"></a>nodemailer 新增附件</h2><p>擷取 <font color="red">撰寫Mail相關內容</font> 這一部份，新增 <font color="red">attachments</font> 參數，並且該如何正確取得伺服器電腦上的附件。</p>
+<p>注意的點：</p>
+<ol>
+<li>附件路徑需設定 <font color="red">完整路徑</font></li>
+<li>可透過 <code>process.cwd()</code> 取得目前專案的目錄，在延伸至放附件的路徑，如：<code>path: process.cwd() + &#39;/public/attach/image.png&#39;</code></li>
+<li>另外可新增 <font color="red">cid</font> 的值，可供 <font color="red">郵件html</font> 渲染出附件檔案。</li>
+</ol>
+<figure class="highlight diff"><figcaption><span>新增附件</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//撰寫Mail相關內容</div><div class="line">var mailOptions = &#123;</div><div class="line">    from: '"王康寶" &lt;wang.kanboo@gmail.com&gt;', // sender address</div><div class="line">    to: 'wang.kanboo@gmail.com', // list of receivers</div><div class="line">    subject: 'Node測試寄信', // Subject line</div><div class="line">    html: req.body.description +</div><div class="line">            '&lt;br/&gt;&lt;br/&gt;' +</div><div class="line"><span class="addition">+            '&lt;img src="cid:image_001"/&gt;' + // 引用attachments的cid</span></div><div class="line">            '&lt;br/&gt;' +</div><div class="line">            '來自電子郵件：' + req.body.email, // plain text body</div><div class="line"><span class="addition">+   attachments: [&#123;</span></div><div class="line"><span class="addition">+       filename: 'text.txt',</span></div><div class="line"><span class="addition">+       content: '軍整風綠業新！'</span></div><div class="line"><span class="addition">+    &#125;, &#123;</span></div><div class="line"><span class="addition">+       filename: 'image.png',</span></div><div class="line"><span class="addition">+       path: process.cwd() + '/public/attach/image.png', // 附件路徑</span></div><div class="line"><span class="addition">+       cid: 'image_001' //cid可被郵件使用</span></div><div class="line"><span class="addition">+   &#125;]</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>結果<br><img src="/2018/01/03/NodeJS-Nodemailer/nodemailer_02.png" alt="nodemailer_02.png" title=""></p>
+<div class="note info"><a href="https://stackoverflow.com/questions/29912055/what-is-the-right-way-to-set-attachments-path-in-nodemailer" target="_blank" rel="external">What is the right way to set attachments path in nodeMailer?
+</a><br><a href="https://nodemailer.com/message/attachments/" target="_blank" rel="external">Nodemailer-Attachments</a></div>
+
+<hr>
+<h2 id="CSURF-阻擋跨站攻擊"><a href="#CSURF-阻擋跨站攻擊" class="headerlink" title="CSURF - 阻擋跨站攻擊"></a>CSURF - 阻擋跨站攻擊</h2><p>為了預防 <a href="https://zh.wikipedia.org/zh-tw/%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0" target="_blank" rel="external">跨站請求偽造</a> 的攻擊，所以我們使用 <font color="red">CSURF模組</font> 來協助我們驗證是否為本伺服器所發出的請求，簡單來說，就是利用 <code>後端session</code> 和 <code>前端cookie</code> 的配合，達成此驗證功能。</p>
+<p><span id="inline-blue">安裝</span></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install csurf --save</div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例</span></p>
+<ol>
+<li>載入模組後，建立CSURF驗證</li>
+<li>在 <font color="red">get、post</font> 之前，都需新增 <font color="red">middlewares</font> 的卡控判斷。</li>
+<li>在前端表單，新增一段 在 <font color="red">csrfToken的HTML</font>，供驗證使用。</li>
+</ol>
+<figure class="highlight js"><figcaption><span>後端.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"><span class="keyword">var</span> nodemailer = <span class="built_in">require</span>(<span class="string">'nodemailer'</span>); <span class="comment">// Mail模組</span></div><div class="line"><span class="keyword">var</span> csrf = <span class="built_in">require</span>(<span class="string">'csurf'</span>); <span class="comment">// 阻擋跨站攻擊(CSURF)</span></div><div class="line"></div><div class="line"><span class="comment">// 建立一個cookie供CSURF驗證 - setup route middlewares</span></div><div class="line"><span class="keyword">var</span> csrfProtection = csrf(&#123;</div><div class="line">    cookie: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//傳入CSURF的驗證</span></div><div class="line">router.get(<span class="string">'/'</span>, csrfProtection, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.render(<span class="string">'contact'</span>, &#123;</div><div class="line">        csrfToken: req.csrfToken() <span class="comment">//傳入csrfToken驗證資料</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//接收資料時，驗證csrfToken是否正確</span></div><div class="line">router.post(<span class="string">'/post'</span>, csrfProtection, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/* </span></div><div class="line"><span class="comment">    your code</span></div><div class="line"><span class="comment">    */</span></div><div class="line"></div><div class="line">    res.redirect(<span class="string">'/contact/review'</span>);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight diff"><figcaption><span>前端表單：紀錄由後端提供的csrfToken</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;form action="/contact/post" method="post"&gt;</div><div class="line"><span class="addition">+       &lt;input type="hidden" name="_csrf" value="&lt;%= csrfToken %&gt;"&gt;</span></div><div class="line"></div><div class="line">        &lt;h1&gt;聯絡我們&lt;/h1&gt;</div><div class="line">        &lt;div&gt;</div><div class="line">            &lt;label for="email"&gt;電子郵件：&lt;/label&gt;</div><div class="line">            &lt;input type="text" name="email" id="email"/&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div&gt;</div><div class="line">            &lt;input type="submit" value="送出" /&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/form&gt;</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://github.com/expressjs/csurf" target="_blank" rel="external">CSURF</a></div>
+
+<hr>
+<h2 id="dotenv-環境變數設定"><a href="#dotenv-環境變數設定" class="headerlink" title="dotenv - 環境變數設定"></a>dotenv - 環境變數設定</h2><p>可以將一些比較機密性的資料(帳號、密碼…等)，設置在環境變數裡，這樣的話，就算我們將專案上傳至github等公共環境，也不會將重要的資訊曝露在外。</p>
+<p><span id="inline-blue">安裝</span></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install dotenv --save</div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例</span></p>
+<ol>
+<li>在專案根目錄新增檔案 <font color="red">.env</font>，並在將機密資料設定於此。</li>
+<li>修改後端app.js，機密資料 改取自 dotenv環境變數。</li>
+</ol>
+<figure class="highlight js"><figcaption><span>.env檔案</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gmailUser = Gmail帳號</div><div class="line">gmailPass = Gmail密碼</div></pre></td></tr></table></figure>
+<figure class="highlight diff"><figcaption><span>後端.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var express = require('express');</div><div class="line">var router = express.Router();</div><div class="line">var nodemailer = require('nodemailer'); // Mail模組</div><div class="line">var csrf = require('csurf'); // 阻擋跨站攻擊(CSURF)</div><div class="line"><span class="addition">+require('dotenv').config(); // 環境變數設定</span></div><div class="line"></div><div class="line">//設定 SMTP 相關資料</div><div class="line">var transporter = nodemailer.createTransport(&#123;</div><div class="line">    service: 'Gmail',</div><div class="line">    secureConnection: true, // 使用SSL方式（安全方式，防止被竊取信息）</div><div class="line">    auth: &#123;</div><div class="line"><span class="addition">+       // 帳密取自 dotenv環境變數</span></div><div class="line"><span class="addition">+       user: process.env.gmailUser, // generated ethereal user</span></div><div class="line"><span class="addition">+       pass: process.env.gmailPass // generated ethereal password</span></div><div class="line">    &#125;,</div><div class="line">    tls: &#123;</div><div class="line">        // do not fail on invalid certs</div><div class="line">        rejectUnauthorized: false</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://www.npmjs.com/package/dotenv" target="_blank" rel="external">dotenv</a></div>
+
+<hr>
+<h2 id="connect-flash-message的暫存器"><a href="#connect-flash-message的暫存器" class="headerlink" title="connect-flash - message的暫存器"></a>connect-flash - message的暫存器</h2><p>簡單來說，flash是一個暫存器，而且暫存器裡面的值<font color="red">使用過一次即被清空</font>，這樣的特性很方面用來做網站的提示信息。</p>
+<p><span id="inline-blue">安裝</span></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install connect-flash --save</div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例</span></p>
+<p>注意：flash要配合session使用</p>
+<figure class="highlight js"><figcaption><span>後端app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> flash = <span class="built_in">require</span>(<span class="string">'connect-flash'</span>); <span class="comment">// message的暫存器</span></div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line"><span class="comment">//使用connect-flash前，需先設定session相關設定，才能使用</span></div><div class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">"express-session"</span>);</div><div class="line">app.use(session(&#123;</div><div class="line">  secret: <span class="string">'mysupersecret'</span>,</div><div class="line">  resave: <span class="literal">true</span>,</div><div class="line">  saveUninitialized: <span class="literal">true</span></div><div class="line">&#125;));</div><div class="line"></div><div class="line">app.use(flash()); <span class="comment">// 啟用 message的暫存器</span></div></pre></td></tr></table></figure>
+<p>驗證欄位是否有填寫，若有卡控訊息，則紀錄在 <font color="red">flash</font> 內，並傳入 <font color="red">render</font> ，供前端渲染畫面。</p>
+<figure class="highlight js"><figcaption><span>後端contact.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">router.get(<span class="string">'/'</span>, csrfProtection, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.render(<span class="string">'contact'</span>, &#123;</div><div class="line">        csrfToken: req.csrfToken(),</div><div class="line">        errors: req.flash(<span class="string">'errors'</span>) <span class="comment">//傳入 卡控訊息</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">router.post(<span class="string">'/post'</span>, csrfProtection, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">    <span class="comment">//欄位卡控</span></div><div class="line">    <span class="keyword">if</span> (req.body.username == <span class="string">''</span>) &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'username是空的'</span>);</div><div class="line">        req.flash(<span class="string">'errors'</span>, <span class="string">'username是空的'</span>); <span class="comment">// 紀錄 卡控訊息</span></div><div class="line">        res.redirect(<span class="string">'/contact'</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/*  your code  */</span></div><div class="line"></div><div class="line">    <span class="comment">//轉址</span></div><div class="line">    res.redirect(<span class="string">'/contact/review'</span>);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight diff"><figcaption><span>前端：顯示卡控訊息</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;form action="/contact/post" method="post"&gt;</div><div class="line">    &lt;input type="hidden" name="_csrf" value="&lt;%= csrfToken %&gt;"&gt;</div><div class="line"></div><div class="line"><span class="addition">+   &lt;%= errors %&gt;</span></div><div class="line"></div><div class="line">    &lt;h1&gt;聯絡我們&lt;/h1&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;label for="username"&gt;姓　　名：&lt;/label&gt;</div><div class="line">        &lt;input type="text" name="username" id="username"/&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;label for="email"&gt;電子郵件：&lt;/label&gt;</div><div class="line">        &lt;input type="text" name="email" id="email"/&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;input type="submit" value="送出訊息" /&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://my.oschina.net/u/1771420/blog/333009" target="_blank" rel="external">express4.0之後使用connect-flash應該注意的問題</a></div>
+
+<hr>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><div class="note info"><a href="https://www.udemy.com/teachnodejs/" target="_blank" rel="external">NodeJS 前後端開發實戰</a><br><a href="http://www.hexschool.com/" target="_blank" rel="external">六角學院</a></div>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NodeJS/" rel="tag"><i class="fa fa-tag"></i> NodeJS</a>
+          
+            <a href="/tags/Nodemailer/" rel="tag"><i class="fa fa-tag"></i> Nodemailer</a>
+          
+            <a href="/tags/mail/" rel="tag"><i class="fa fa-tag"></i> mail</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/02/NodeJS-CookieSession/" rel="next" title="NodeJS-Cookie、Session">
+                <i class="fa fa-chevron-left"></i> NodeJS-Cookie、Session
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/01/03/NodeJS-Nodemailer/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodemailer-發信功能的介接"><span class="nav-number">2.</span> <span class="nav-text">nodemailer - 發信功能的介接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TLS-傳輸層安全性協定"><span class="nav-number">3.</span> <span class="nav-text">TLS - 傳輸層安全性協定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodemailer-新增附件"><span class="nav-number">4.</span> <span class="nav-text">nodemailer 新增附件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSURF-阻擋跨站攻擊"><span class="nav-number">5.</span> <span class="nav-text">CSURF - 阻擋跨站攻擊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dotenv-環境變數設定"><span class="nav-number">6.</span> <span class="nav-text">dotenv - 環境變數設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#connect-flash-message的暫存器"><span class="nav-number">7.</span> <span class="nav-text">connect-flash - message的暫存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">8.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>
