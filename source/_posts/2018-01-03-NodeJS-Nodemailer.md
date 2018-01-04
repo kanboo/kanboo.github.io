@@ -22,12 +22,20 @@ tags:
 
 ## 前言
 
-Mail寄送功能使用 <font color="red">Gmail</font> 當作郵件伺服器，所以需先開通權限，開通後，就可以慢慢完成寄信的功能，以及額外優化的功能。
+Mail寄送功能使用 <font color="red">Gmail</font> 當作郵件伺服器，所以需先開通權限，開通後，就可以慢慢新增寄信的功能，以及額外優化的部份。
 
-[Gmail-低安全性應用程式](https://myaccount.google.com/lesssecureapps)
+> [Gmail-低安全性應用程式](https://myaccount.google.com/lesssecureapps)
 
 ***
 ## nodemailer - 發信功能的介接
+
+<span id="inline-blue">安裝</span>
+
+``` zsh
+$ npm install nodemailer --save
+```
+
+<span id="inline-purple">範例</span>
 
 實現基本寄信的功能，步驟如下
 
@@ -37,14 +45,6 @@ Mail寄送功能使用 <font color="red">Gmail</font> 當作郵件伺服器，�
 4. 發送郵件
 
 不過在實際寄信的過程，有出現錯誤訊息為 <font color="red">self signed certificate in certificate chain</font>，此錯誤訊息，將在後面小節額外說明。
-
-<span id="inline-blue">安裝</span>
-
-``` zsh
-$ npm install nodemailer --save
-```
-
-<span id="inline-purple">範例</span>
 
 ``` js 起手式
 var express = require('express');
@@ -89,6 +89,7 @@ transporter.sendMail(mailOptions, function (error, info) {
 
 <div class="note info">[Nodemailer](https://nodemailer.com/about/)</div>
 
+***
 ## TLS - 傳輸層安全性協定
 
 在實際寄信的過程，有出現錯誤訊息為 <font color="red">self signed certificate in certificate chain</font>，
@@ -117,7 +118,7 @@ var transporter = nodemailer.createTransport({
 ](https://stackoverflow.com/questions/47266393/self-signed-certificate-in-certificate-chain-node-js)
 [Allow self-signed certificates](https://nodemailer.com/smtp/#3-allow-self-signed-certificates)</div>
 
-
+***
 ## nodemailer 新增附件
 
 擷取 <font color="red">撰寫Mail相關內容</font> 這一部份，新增 <font color="red">attachments</font> 參數，並且該如何正確取得伺服器電腦上的附件。
@@ -288,18 +289,19 @@ $ npm install connect-flash --save
 
 ``` js 後端app.js
 var express = require('express');
+var session = require("express-session");
 var flash = require('connect-flash'); // message的暫存器
+
 var app = express();
 
 //使用connect-flash前，需先設定session相關設定，才能使用
-var session = require("express-session");
 app.use(session({
-  secret: 'mysupersecret',
+  secret: 'iamkanboo',
   resave: true,
   saveUninitialized: true
 }));
 
-app.use(flash()); // 啟用 message的暫存器
+app.use(flash()); // 啟用 message的暫存器(session設定完，才use)
 ```
 
 驗證欄位是否有填寫，若有卡控訊息，則紀錄在 <font color="red">flash</font> 內，並傳入 <font color="red">render</font> ，供前端渲染畫面。

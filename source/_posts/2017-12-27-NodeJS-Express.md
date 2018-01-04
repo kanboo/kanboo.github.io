@@ -32,7 +32,7 @@ req 是 Request 物件，存放這此請求的所有資訊
 res 是 Response 物件，用來回應該請求
 */
 
-// 首頁
+// 路由 route
 app.get('/',function(req,res){
     // res.send('1234');
     res.send('<html><head></head><body><h1>hi!</h1></body></html>')
@@ -706,6 +706,67 @@ $ npm install express-generator -g
     ```
 4. 專案網址：http://127.0.0.1:3000/
 
+<span id="inline-yellow">專案初始化</span>
+
+下列為 <font color="red">專案初始化</font> 之程式碼，後面可在依據需求新增其他功能模組，如：`express-session`、`nodemailer(寄信)`、`csurf(阻擋跨站攻擊)`、`connect-flash(message暫存器)`、`dotenv(環境變數設定)`、`firebase-admin(資料庫)`…等
+
+``` js 後端app.js
+var express = require('express');
+var path = require('path');                   // 抓取目錄路徑
+var favicon = require('serve-favicon');       // 設定icon
+var logger = require('morgan');               // 日誌
+var cookieParser = require('cookie-parser');  // 解析前端cookie
+var bodyParser = require('body-parser');      // 取得前端表單資料
+
+
+// 自行撰寫頁面部份
+var index = require('./routes/index'); // 載入 index模組(首頁)
+var users = require('./routes/users'); // 載入 user模組(個人資料)
+
+
+var app = express();
+
+// view engine setup - 樣版語言設定
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); // 設定icon的路徑
+app.use(logger('dev'));
+app.use(bodyParser.json());                               // 解析表單資料-json
+app.use(bodyParser.urlencoded({ extended: false }));      // 解析表單資料-URL-encoded格式
+app.use(cookieParser());                                  // 解析前端cookie
+app.use(express.static(path.join(__dirname, 'public')));  // 設定 靜態檔案的目錄起點位置
+
+
+// 路由區塊----Start
+app.use('/', index);      //網址若為 http://127.0.0.1:3000/...     ，就會進去 index模組 執行。
+app.use('/users', users); //網址若為 http://127.0.0.1:3000/user/...，就會進去 user模組  執行。
+// 路由區塊----End
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
+
+```
 <div class="note info">[官方：Express應用程式產生器](http://expressjs.com/zh-tw/starter/generator.html)</div>
 
 ***
