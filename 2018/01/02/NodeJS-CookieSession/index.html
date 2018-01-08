@@ -121,7 +121,7 @@
 <meta property="og:description" content="紀錄Cookie、Session的差異，以及如何搭配使用。">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2018/01/02/NodeJS-CookieSession/cookie_01.png">
-<meta property="og:updated_time" content="2018-01-03T11:28:38.000Z">
+<meta property="og:updated_time" content="2018-01-04T13:09:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJS-Cookie、Session">
 <meta name="twitter:description" content="紀錄Cookie、Session的差異，以及如何搭配使用。">
@@ -470,33 +470,80 @@
 <h3 id="GMT-時間"><a href="#GMT-時間" class="headerlink" title="GMT 時間"></a>GMT 時間</h3><p><code>new Date().toGMTString()</code></p>
 <h3 id="寫入-Cookie，設定-10-秒後失效"><a href="#寫入-Cookie，設定-10-秒後失效" class="headerlink" title="寫入 Cookie，設定 10 秒後失效"></a>寫入 Cookie，設定 10 秒後失效</h3><p><code>document.cookie=&quot;username=bob; max-age=10; path=/&quot;;</code></p>
 <hr>
-<h2 id="後端-解析Cookie"><a href="#後端-解析Cookie" class="headerlink" title="後端 解析Cookie"></a>後端 解析Cookie</h2><p><span id="inline-blue">安裝語法</span></p>
+<h2 id="後端-讀取Cookie、寫入Cookie"><a href="#後端-讀取Cookie、寫入Cookie" class="headerlink" title="後端 讀取Cookie、寫入Cookie"></a>後端 讀取Cookie、寫入Cookie</h2><p><span id="inline-blue">安裝語法</span></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install cookie-parser --save</div></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="https://github.com/expressjs/cookie-parser" target="_blank" rel="external">cookie-parser</a></p>
 </blockquote>
-<p><span id="inline-purple">範例(讀取、寫入)</span></p>
+<p><span id="inline-purple">範例</span></p>
 <figure class="highlight js"><figcaption><span>app.js引用cookie-parser模組</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>) <span class="comment">// 解析cookie模組</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line">app.use(cookieParser()) <span class="comment">//解析前端cookie</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><figcaption><span>routes/index.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"></div><div class="line"></div><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//讀取前端的cookies(全部)</span></div><div class="line">  <span class="built_in">console</span>.log(req.cookies);</div><div class="line"></div><div class="line">  <span class="comment">//讀取前端的cookies(單個)</span></div><div class="line">  <span class="built_in">console</span>.log(req.cookies.userName);</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">//後端寫入前端Cookies</span></div><div class="line">  res.cookie(<span class="string">'name'</span>, <span class="string">'lulu'</span>, &#123;</div><div class="line">    maxAge: <span class="number">10000</span>, <span class="comment">// 只存在n秒，n秒後自動消失</span></div><div class="line">    httpOnly: <span class="literal">true</span> <span class="comment">// 僅限後端存取，無法使用前端document.cookie取得</span></div><div class="line">  &#125;)</div><div class="line"></div><div class="line"></div><div class="line">  res.render(<span class="string">'index'</span>, &#123;<span class="attr">title</span>: <span class="string">'Express'</span>&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
+<ul>
+<li>「讀取」是用 req(Request)</li>
+<li>「寫入」是用 res(Response)</li>
+</ul>
+<figure class="highlight js"><figcaption><span>routes/index.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"></div><div class="line"></div><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">// 「讀取」是用 req(Request)</span></div><div class="line">  <span class="comment">// 讀取前端的cookies(全部)</span></div><div class="line">  <span class="built_in">console</span>.log(req.cookies);</div><div class="line"></div><div class="line">  <span class="comment">// 讀取前端的cookies(單個)</span></div><div class="line">  <span class="built_in">console</span>.log(req.cookies.userName);</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">// 「寫入」是用 res(Response)</span></div><div class="line">  <span class="comment">// 後端寫入前端Cookies</span></div><div class="line">  res.cookie(<span class="string">'name'</span>, <span class="string">'lulu'</span>, &#123;</div><div class="line">    maxAge: <span class="number">10000</span>, <span class="comment">// 只存在n秒，n秒後自動消失</span></div><div class="line">    httpOnly: <span class="literal">true</span> <span class="comment">// 僅限後端存取，無法使用前端document.cookie取得</span></div><div class="line">  &#125;)</div><div class="line"></div><div class="line"></div><div class="line">  res.render(<span class="string">'index'</span>, &#123;<span class="attr">title</span>: <span class="string">'Express'</span>&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
+<p><span id="inline-green">補充：Response.cookie(寫入)</span></p>
+<p><code>res.cookie(name, value [, options])</code></p>
+<p>參數：</p>
+<ul>
+<li>name: 設定cookie的名字</li>
+<li>value: 設定其值，可能是字串或是轉成JSON格式的物件。</li>
+<li>options: 選項參數是一個物件，所以，其<font color="red">屬性</font>放在{}裡，以逗號分隔。</li>
+</ul>
+<p>屬性：</p>
+<ul>
+<li>domain (字串) 適用此cookie的domain name</li>
+<li>encode (函式) 用於cookie編碼的同步函式，預設encodeURIComponent.</li>
+<li>expires (日期) cookie的到期日，超過此日期，即失效。</li>
+<li>httpOnly (布林) 標記此cookie只能從web server　訪問，以避免不正確的進入來取得竄改。</li>
+<li>maxAge (數字) 設定此cookie的生存時間(毫秒為單位)，比方60000(10分鐘後到期，必須重新訪問)</li>
+<li>path (字串) 適用此cookie的路徑，預設： “/”.</li>
+<li>secure (布林) 設定此cookie是否只在https使用。</li>
+<li>signed (布林) 此cookie是否要設簽章。(如果是true，必須使用cookie-parser設定簽章 )</li>
+</ul>
+<div class="note info"><a href="http://expressjs.com/zh-tw/4x/api.html#req.cookies" target="_blank" rel="external">官方-req.cookies(讀取)</a><br><a href="http://expressjs.com/zh-tw/4x/api.html#res.cookie" target="_blank" rel="external">官方-res.cookie(寫入)</a><br><a href="https://ithelp.ithome.com.tw/articles/10187343" target="_blank" rel="external">Cookie在express上的應用</a></div>
+
+
 <hr>
 <h2 id="後端-session"><a href="#後端-session" class="headerlink" title="後端 session"></a>後端 session</h2><ul>
 <li>儲存在伺服器的<font color="red">暫存資料</font>，此暫存可放在記憶體或資料庫上</li>
 <li>session可在cookie上儲存一筆辨識你是誰的 session id</li>
 </ul>
-<p><span id="inline-yellow">概念</span></p>
-<img src="/2018/01/02/NodeJS-CookieSession/cookie_01.png" alt="cookie_01.png" title="">
 <p><span id="inline-blue">安裝語法</span></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install express-session --save</div></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="https://github.com/expressjs/session" target="_blank" rel="external">express-session</a></p>
 </blockquote>
+<p><span id="inline-yellow">session 常用參數</span></p>
+<ul>
+<li>name：設置cookie中，保存session的字段名稱。(預設：<font color="red">connect.sid</font>)</li>
+<li>store： session 的存儲方式。(預設：存放在<font color="red">內存(記憶體)</font>中，也可以使用redis，mongodb 等)</li>
+<li><font color="blue">secret(必要選項)</font>： 通過設置的 secret 字符串，來計算<font color="red">hash</font>值並放在cookie 中，使產生的 signedCookie 防篡改。</li>
+<li>genid：產生一個新的 session_id 時，所使用的函數。(預設：使用uid2這個npm包)</li>
+<li>rolling： 每個請求都重新設置一個cookie。(預設：<font color="red">false</font>)</li>
+<li>resave： 即使 session 沒有被修改，也保存session 值。(預設：<font color="red">true</font>)</li>
+<li>saveUninitialized：強制將未初始化的session存回 session store，未初始化的意思是它是新的而且未被修改。(預設：<font color="red">true</font>)</li>
+<li><p>cookie： 設置存放 session id 的 cookie 的相關選項。</p>
+<ul>
+<li>httpOnly：為設置<font color="red">true</font>時，將<font color="red">不允許</font>的 <code>JavaScript</code> 通過 <code>document.cookie</code> 訪問取得資料。</li>
+<li>maxAge： number（毫秒），用於指定Set-Cookie的Expires屬性。設置後，Cookie將在指定時間後失效。</li>
+<li>path： 用於指定Set-Cookie的Path屬性。默認會被設置為’/‘，即當前域名的根路徑。</li>
+<li><p>secure： 設置為<font color="red">true</font>時，使用非HTTPS連接時，當客戶端將不會回傳的Cookie。</p>
+<figure class="highlight js"><figcaption><span>cookie預設值</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">default</span>: &#123; </div><div class="line">  path: <span class="string">'/'</span>,</div><div class="line">  httpOnly: <span class="literal">true</span>,</div><div class="line">  secure: <span class="literal">false</span>,</div><div class="line">  maxAge: <span class="literal">null</span> </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <p><span id="inline-purple">範例</span></p>
+<img src="/2018/01/02/NodeJS-CookieSession/cookie_01.png" alt="cookie_01.png" title="">
 <p>當User登入後，伺服器先提供一組<font color="red">session id</font>給你，並紀錄在 <font color="red">客戶的瀏覽器的cookie</font></p>
-<figure class="highlight js"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line"><span class="keyword">var</span> parseurl = <span class="built_in">require</span>(<span class="string">'parseurl'</span>)</div><div class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line"><span class="comment">//提供一組session id</span></div><div class="line">app.use(session(&#123;</div><div class="line">  secret: <span class="string">'keyboard cat'</span>,</div><div class="line">  resave: <span class="literal">true</span>,</div><div class="line">  saveUninitialized: <span class="literal">true</span>,</div><div class="line">  cookie:&#123;</div><div class="line">    maxAge: <span class="number">100</span>*<span class="number">1000</span> <span class="comment">//100秒後過期</span></div><div class="line">  &#125;</div><div class="line">&#125;))</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line"><span class="comment">//提供一組session id</span></div><div class="line">app.use(session(&#123;</div><div class="line">  secret: <span class="string">'iamkanboo'</span>, <span class="comment">//</span></div><div class="line">  resave: <span class="literal">true</span>,</div><div class="line">  saveUninitialized: <span class="literal">true</span>,</div><div class="line">  cookie:&#123;</div><div class="line">    maxAge: <span class="number">100</span>*<span class="number">1000</span> <span class="comment">//100秒後過期</span></div><div class="line">  &#125;</div><div class="line">&#125;))</div></pre></td></tr></table></figure>
 <p>表單點擊送出後，會將User資料 <font color="red">post</font> 至後端</p>
 <figure class="highlight html"><figcaption><span>html架構</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 顯示user資料 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">userName</span> %&gt;</span> <span class="tag">&lt;<span class="name">%=</span> <span class="attr">email</span> %&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 表單填寫區 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>  <span class="attr">value</span>=<span class="string">"送出"</span>&gt;</span>    </div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>前端post資料後，會先將user資料寫入 <font color="red">session暫存</font>，再將網址導回index，並且傳入資料供渲染畫面。</p>
 <figure class="highlight js"><figcaption><span>index.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"></div><div class="line"><span class="comment">/* GET home page. */</span></div><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//將user資料傳入index.ejs供渲染畫面</span></div><div class="line">  res.render(<span class="string">'index'</span>, &#123; </div><div class="line">    userName: req.session.username,</div><div class="line">    email: req.session.email</div><div class="line">   &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//接收前端傳入的資料</span></div><div class="line">router.post(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//取得前端資料，並寫入至後端session暫存</span></div><div class="line">  req.session.username = req.body.username;</div><div class="line">  req.session.email = req.body.email;</div><div class="line"></div><div class="line">  <span class="comment">//轉址至首頁</span></div><div class="line">  res.redirect(<span class="string">'/'</span>);</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://ithelp.ithome.com.tw/articles/10187464" target="_blank" rel="external">session 在 express 上的應用</a></div>
+
 <hr>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><div class="note info"><a href="https://www.udemy.com/teachnodejs/" target="_blank" rel="external">NodeJS 前後端開發實戰</a><br><a href="http://www.hexschool.com/" target="_blank" rel="external">六角學院</a></div>
       
@@ -644,7 +691,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -666,7 +713,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -701,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#COOKIE-與-SESSION-的比較與區別"><span class="nav-number">1.</span> <span class="nav-text">COOKIE 與 SESSION 的比較與區別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端-Cookie"><span class="nav-number">2.</span> <span class="nav-text">前端 Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie"><span class="nav-number">2.1.</span> <span class="nav-text">寫入 Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie，並加入過期時間，"><span class="nav-number">2.2.</span> <span class="nav-text">寫入 Cookie，並加入過期時間，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GMT-時間"><span class="nav-number">2.3.</span> <span class="nav-text">GMT 時間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie，設定-10-秒後失效"><span class="nav-number">2.4.</span> <span class="nav-text">寫入 Cookie，設定 10 秒後失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後端-解析Cookie"><span class="nav-number">3.</span> <span class="nav-text">後端 解析Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後端-session"><span class="nav-number">4.</span> <span class="nav-text">後端 session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#COOKIE-與-SESSION-的比較與區別"><span class="nav-number">1.</span> <span class="nav-text">COOKIE 與 SESSION 的比較與區別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端-Cookie"><span class="nav-number">2.</span> <span class="nav-text">前端 Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie"><span class="nav-number">2.1.</span> <span class="nav-text">寫入 Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie，並加入過期時間，"><span class="nav-number">2.2.</span> <span class="nav-text">寫入 Cookie，並加入過期時間，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GMT-時間"><span class="nav-number">2.3.</span> <span class="nav-text">GMT 時間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寫入-Cookie，設定-10-秒後失效"><span class="nav-number">2.4.</span> <span class="nav-text">寫入 Cookie，設定 10 秒後失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後端-讀取Cookie、寫入Cookie"><span class="nav-number">3.</span> <span class="nav-text">後端 讀取Cookie、寫入Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後端-session"><span class="nav-number">4.</span> <span class="nav-text">後端 session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
             
 
           </div>

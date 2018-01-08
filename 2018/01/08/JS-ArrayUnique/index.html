@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,icon,sass," />
+  <meta name="keywords" content="JS,Array,Unique," />
 
 
 
@@ -112,26 +112,20 @@
 
 
 
-<meta name="description" content="IcoMoon">
-<meta name="keywords" content="CSS,icon,sass">
+<meta name="description" content="紀錄一下 ArrayUnique 從早期indexOf的方式到現今各種優化的寫法。">
+<meta name="keywords" content="JS,Array,Unique">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS-IcoMoon">
-<meta property="og:url" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/index.html">
+<meta property="og:title" content="JS-ArrayUnique">
+<meta property="og:url" content="https://kanboo.github.io/2018/01/08/JS-ArrayUnique/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="IcoMoon">
+<meta property="og:description" content="紀錄一下 ArrayUnique 從早期indexOf的方式到現今各種優化的寫法。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_01.png">
-<meta property="og:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_02.png">
-<meta property="og:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_03.png">
-<meta property="og:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_04.png">
-<meta property="og:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_05.png">
-<meta property="og:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_06.png">
-<meta property="og:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_07.png">
-<meta property="og:updated_time" content="2017-12-23T06:37:08.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2018/01/08/JS-ArrayUnique/js_01.png">
+<meta property="og:updated_time" content="2018-01-08T16:20:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS-IcoMoon">
-<meta name="twitter:description" content="IcoMoon">
-<meta name="twitter:image" content="https://kanboo.github.io/2017/12/23/CSS-icomoon/icomoon_01.png">
+<meta name="twitter:title" content="JS-ArrayUnique">
+<meta name="twitter:description" content="紀錄一下 ArrayUnique 從早期indexOf的方式到現今各種優化的寫法。">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/01/08/JS-ArrayUnique/js_01.png">
 
 
 
@@ -160,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="https://kanboo.github.io/2017/12/23/CSS-icomoon/"/>
+  <link rel="canonical" href="https://kanboo.github.io/2018/01/08/JS-ArrayUnique/"/>
 
 
 
 
 
-  <title>CSS-IcoMoon | Kanboo Notes</title>
+  <title>JS-ArrayUnique | Kanboo Notes</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -360,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/12/23/CSS-icomoon/">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/01/08/JS-ArrayUnique/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -377,7 +371,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS-IcoMoon</h1>
+          <h1 class="post-title" itemprop="name headline">JS-ArrayUnique</h1>
         
 
         <div class="post-meta">
@@ -389,8 +383,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-23T10:25:42+08:00">
-                2017-12-23
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-08T22:59:00+08:00">
+                2018-01-08
               </time>
             
 
@@ -412,8 +406,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
                   </a>
                 </span>
 
@@ -430,8 +424,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/23/CSS-icomoon/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/12/23/CSS-icomoon/" itemprop="commentCount">0</span> comments
+                <a href="/2018/01/08/JS-ArrayUnique/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/01/08/JS-ArrayUnique/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -459,54 +453,42 @@
       
 
       
-        <blockquote class="blockquote-center"><p><img src="/2017/12/23/CSS-icomoon/icomoon_01.png" alt="icomoon_01.png" title=""></p>
-<font style="color:#f90;font-size:28px;"><a href="https://icomoon.io/" target="_blank" rel="external">IcoMoon</a></font>
+        <blockquote class="blockquote-center"><p><img src="/2018/01/08/JS-ArrayUnique/js_01.png" alt="js_01.png" title=""></p>
+<font style="font-size:20px;">紀錄一下 ArrayUnique 從早期<code>indexOf</code>的方式到現今各種優化的寫法。</font>
 </blockquote>
 <a id="more"></a>
 <hr>
-<h2 id="下載icons"><a href="#下載icons" class="headerlink" title="下載icons"></a>下載icons</h2><ol>
-<li><p>挑選好想要的icons</p>
- <img src="/2017/12/23/CSS-icomoon/icomoon_02.png" alt="icomoon_02.png" title="">
-</li>
-<li><p>修改部份設定</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>下列的各種範例，統一使用的 <strong>Array資料</strong>，如下</p>
+<figure class="highlight js"><figcaption><span>ArrayData</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="forloop-indexOf"><a href="#forloop-indexOf" class="headerlink" title="forloop + indexOf"></a>forloop + indexOf</h2><p>早期使用的 <code>for迴圈</code> + <code>indexOf</code> 判斷是否已存在的值。</p>
+<figure class="highlight js"><figcaption><span>indexOf</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"><span class="keyword">let</span> result_01 = [];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; source.length; i++) &#123;</div><div class="line">    <span class="keyword">let</span> el = source[i];</div><div class="line">    <span class="keyword">if</span> (result_01.indexOf(el) === <span class="number">-1</span>) result_01.push(el);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"result_01"</span>, result_01);</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="includes"><a href="#includes" class="headerlink" title="includes"></a>includes</h2><p>在ES6提供了一個新方法：<code>Array.prototype.includes()</code>，判斷陣列中是否已有相同的值？</p>
 <ul>
-<li><p>產生sass的css檔</p>
-</li>
-<li><p>修改引用的html語法<br>預設語法為<code>&lt;span class=&quot;icon-book&quot;&gt;&lt;/span&gt;</code>，修改為<code>&lt;i class=&quot;icon-book&quot;&gt;&lt;/i&gt;</code></p>
-</li>
+<li>有相同的值，回傳 <code>true</code></li>
+<li>無相同的值，回傳 <code>false</code></li>
 </ul>
-<img src="/2017/12/23/CSS-icomoon/icomoon_03.png" alt="icomoon_03.png" title="">
-</li>
-<li><p>下載字體</p>
-<img src="/2017/12/23/CSS-icomoon/icomoon_04.png" alt="icomoon_04.png" title="">
-</li>
-</ol>
-<h2 id="引入專案"><a href="#引入專案" class="headerlink" title="引入專案"></a>引入專案</h2><ol>
-<li><p>將下載好檔案解壓縮，複製 <code>fonts資料夾</code> 和 <code>style.scss、variables.scss</code> </p>
-<img src="/2017/12/23/CSS-icomoon/icomoon_05.png" alt="icomoon_05.png" title="">
-</li>
-<li><p>複製到專案的source資料夾底下</p>
-<img src="/2017/12/23/CSS-icomoon/icomoon_06.png" alt="icomoon_06.png" title="">
-</li>
-<li><p>修改sass的檔名和內容</p>
-<ul>
-<li>修改variables.scss內容，並更改檔名為 _icomoon_variables.scss</li>
-</ul>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   //第一行</div><div class="line"><span class="deletion">-  $icomoon-font-path: "fonts" !default;</span></div><div class="line"><span class="addition">+  $icomoon-font-path: "../fonts" !default; //fonts資料夾不是在css資料夾底下，所以需回上一層</span></div></pre></td></tr></table></figure>
-<ul>
-<li>修改style.scss內容，並更改檔名為 _icomoon.scss</li>
-</ul>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   //第一行</div><div class="line"><span class="deletion">-  @import "variables";</span></div><div class="line"><span class="addition">+  @import "_icomoon_variables";</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>主頁 all.css 引入 _icomoon.scss</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   @import "bootstrap";</div><div class="line">   @import "font-awesome";</div><div class="line"><span class="addition">+  @import "icomoon";</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>使用icons語法</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;i class="icon-music"&gt;&lt;/i&gt;</div><div class="line">&lt;i class="icon-mic"&gt;&lt;/i&gt;</div><div class="line">&lt;i class="icon-coin-dollar"&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
-<img src="/2017/12/23/CSS-icomoon/icomoon_07.png" alt="icomoon_07.png" title="">
-</li>
-</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"><span class="keyword">let</span> result_02 = [];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; source.length; i++) &#123;</div><div class="line">    <span class="keyword">let</span> el = source[i];</div><div class="line">    <span class="keyword">if</span> (!result_02.includes(el)) result_02.push(el);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"result_02"</span>, result_02);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/includes" target="_blank" rel="external">Array.prototype.includes()</a></div>
 
+<hr>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p>將原本使用的 <code>for迴圈</code> ，改使用 <code>forEach</code> 執行，省略掉定義 <code>i</code>、<code>source.length</code>…等動作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"><span class="keyword">let</span> result_03 = [];</div><div class="line"></div><div class="line">source.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (!result_03.includes(el)) result_03.push(el);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"result_03"</span>, result_03);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external">arr.forEach</a></div>
+
+<hr>
+<h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h2><p>遍歷每個元素，將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列簡化為單一值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"></div><div class="line"><span class="keyword">let</span> result_04 = source.reduce(<span class="function">(<span class="params">p, c</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (!p.includes(c)) p.push(c);</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;, []);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"result_04"</span>, result_04);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">reduce()</a></div>
+
+<hr>
+<h2 id="Array-from-Set"><a href="#Array-from-Set" class="headerlink" title="Array.from + Set"></a>Array.from + Set</h2><p><code>Array.from()</code> 會從類陣列(array-like)或是可迭代的物件<font color="red">建立一個新的陣列</font>。</p>
+<p><code>Set</code> 對象允許你存儲任何類型的<font color="red">唯一值</font>，無論是原始值或者是對象引用。</p>
+<p>根據上述二種方法的特性，快速達成產生一個 <font color="red"><strong>已去除重覆值的新陣列</strong></font></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"></div><div class="line"><span class="keyword">let</span> result_05 = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(source));</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"result_05"</span>, result_05);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>簡寫</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"></div><div class="line"><span class="keyword">let</span> result_06 = [...new <span class="built_in">Set</span>(source)];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"result_06"</span>, result_06);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="external">Array.from()</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">Set</a><br><a href="http://es6.ruanyifeng.com/#docs/set-map#Set" target="_blank" rel="external">阮一峰-Set</a></div>
       
     </div>
     
@@ -523,11 +505,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
           
-            <a href="/tags/icon/" rel="tag"><i class="fa fa-tag"></i> icon</a>
+            <a href="/tags/Array/" rel="tag"><i class="fa fa-tag"></i> Array</a>
           
-            <a href="/tags/sass/" rel="tag"><i class="fa fa-tag"></i> sass</a>
+            <a href="/tags/Unique/" rel="tag"><i class="fa fa-tag"></i> Unique</a>
           
         </div>
       
@@ -556,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/22/CSS-Webfont/" rel="next" title="CSS-webfont 字體">
-                <i class="fa fa-chevron-left"></i> CSS-webfont 字體
+              <a href="/2018/01/03/NodeJS-Nodemailer/" rel="next" title="NodeJS-Nodemailer">
+                <i class="fa fa-chevron-left"></i> NodeJS-Nodemailer
               </a>
             
           </div>
@@ -565,10 +547,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/24/NodeJS-studynotes/" rel="prev" title="NodeJS-基礎觀念">
-                NodeJS-基礎觀念 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +577,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="https://kanboo.github.io/2017/12/23/CSS-icomoon/"
+           data-href="https://kanboo.github.io/2018/01/08/JS-ArrayUnique/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -709,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下載icons"><span class="nav-number">1.</span> <span class="nav-text">下載icons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入專案"><span class="nav-number">2.</span> <span class="nav-text">引入專案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forloop-indexOf"><span class="nav-number">2.</span> <span class="nav-text">forloop + indexOf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#includes"><span class="nav-number">3.</span> <span class="nav-text">includes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-number">4.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce"><span class="nav-number">5.</span> <span class="nav-text">reduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-from-Set"><span class="nav-number">6.</span> <span class="nav-text">Array.from + Set</span></a></li></ol></div>
             
 
           </div>
