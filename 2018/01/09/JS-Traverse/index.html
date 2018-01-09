@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,for,forin,forEach,every,some,map,filter,reduce," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="紀錄各種迴圈的用法。">
+<meta name="keywords" content="JS,for,forin,forEach,every,some,map,filter,reduce">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-各種迴圈的用法">
+<meta property="og:url" content="https://kanboo.github.io/2018/01/09/JS-Traverse/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="紀錄各種迴圈的用法。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/01/09/JS-Traverse/js_01.jpg">
+<meta property="og:updated_time" content="2018-01-09T17:01:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS-各種迴圈的用法">
+<meta name="twitter:description" content="紀錄各種迴圈的用法。">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/01/09/JS-Traverse/js_01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/01/09/JS-Traverse/"/>
+
+
+
+
+
+  <title>JS-各種迴圈的用法 | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/01/09/JS-Traverse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS-各種迴圈的用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-09T11:36:41+08:00">
+                2018-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/09/JS-Traverse/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/01/09/JS-Traverse/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/01/09/JS-Traverse/js_01.jpg" alt="js_01.jpg" title=""></p>
+<font style="font-size:20px;">紀錄各種<font color="red">迴圈</font>的用法。</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JS常常需要針對 <font color="blue">陣列(Array)</font>、<font color="blue">物件(Object)</font> 這二種資料進行分析及修改，<br>故整理下列幾種方法，</p>
+<ul>
+<li><p>單純遍歷陣列元素</p>
+<ul>
+<li>for</li>
+<li>forin</li>
+<li>forEach</li>
+</ul>
+</li>
+<li><p>判斷是否符合資格</p>
+<ul>
+<li>every：遍歷每個元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">不符</font>，就回傳 <code>false</code></li>
+<li>some： 遍歷每個元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">符合</font>，就回傳 <code>true</code></li>
+</ul>
+</li>
+<li><p>產生新的陣列</p>
+<ul>
+<li>map：遍歷每個元素，進行 <font color="red">加工、校正</font></li>
+<li>filter：遍歷每個元素，保留<font color="red">符合條件(true)</font>的值，不符合，則去除掉。</li>
+<li>reduce：遍歷每個元素，依序<font color="red">組合、加總</font>，然後丟給下個元素，最終會回傳一個結果。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><p>最常見的用法，不多加說明。</p>
+<p><span id="inline-purple">範例</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">    <span class="built_in">console</span>.log(arr[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="forin"><a href="#forin" class="headerlink" title="forin"></a>forin</h2><p>可傳入 <code>objec</code> 或 <code>array</code> 型態的資料。</p>
+<p><span id="inline-purple">範例</span></p>
+<figure class="highlight js"><figcaption><span>Array型態</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"zero"</span>,<span class="string">"one"</span>,<span class="string">"two"</span>];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> arr) &#123;</div><div class="line">    <span class="built_in">console</span>.log(arr[key]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>Object型態</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;;</div><div class="line">    </div><div class="line"><span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">in</span> obj) &#123;</div><div class="line">  <span class="built_in">console</span>.log(obj[item]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/for...in" target="_blank" rel="external">MDN-for…in</a></div>
+
+
+<hr>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p>可用來取代 <code>for</code> 的寫法，讓程式碼更簡短，省略掉定義 <code>i</code>、<code>arr.length</code>…等動作。</p>
+<p><span id="inline-blue">語法</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.forEach( callback(currentValue, index, array)&#123;</div><div class="line">    <span class="comment">/* your code */</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>callback</p>
+<ul>
+<li>currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。</li>
+<li>index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。</li>
+<li>array(選用)：呼叫 forEach() 方法的陣列。</li>
+</ul>
+<p><span id="inline-purple">範例</span></p>
+<figure class="highlight js"><figcaption><span>ES5</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line"></div><div class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(element);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>ES6</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line"></div><div class="line">arr.forEach(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(element);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external">MDN-forEach()</a></div>
+
+
+<hr>
+<h2 id="every"><a href="#every" class="headerlink" title="every"></a>every</h2><p>對每個陣列元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">不符</font>，就回傳 <code>false</code></p>
+<p><span id="inline-blue">語法</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.every( callback(currentValue, index, array)&#123;</div><div class="line">    <span class="comment">/* your code */</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>callback</p>
+<ul>
+<li>currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。</li>
+<li>index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。</li>
+<li>array(選用)：呼叫 every() 方法的陣列。</li>
+</ul>
+<p><span id="inline-purple">範例</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBigEnough</span>(<span class="params">element, index, array</span>) </span>&#123;</div><div class="line">    <span class="comment">//是否大於10</span></div><div class="line">    <span class="keyword">return</span> element &gt;= <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 其中 5 沒有大於 10</span></div><div class="line">[<span class="number">12</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">130</span>, <span class="number">44</span>].every(isBigEnough);   <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="comment">// 皆符合大於 10</span></div><div class="line">[<span class="number">12</span>, <span class="number">54</span>, <span class="number">18</span>, <span class="number">130</span>, <span class="number">44</span>].every(isBigEnough); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/every" target="_blank" rel="external">MDN-every()</a></div>
+
+
+<hr>
+<h2 id="some"><a href="#some" class="headerlink" title="some"></a>some</h2><p>對每個陣列元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">符合</font>，就回傳 <code>true</code></p>
+<p><span id="inline-blue">語法</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.some( callback(currentValue, index, array)&#123;</div><div class="line">    <span class="comment">/* your code */</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>callback</p>
+<ul>
+<li>currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。</li>
+<li>index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。</li>
+<li>array(選用)：呼叫 some() 方法的陣列。</li>
+</ul>
+<p><span id="inline-purple">範例</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBiggerThan10</span>(<span class="params">element, index, array</span>) </span>&#123;</div><div class="line">    <span class="comment">//是否大於10</span></div><div class="line">    <span class="keyword">return</span> element &gt; <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 全部都無 大於10</span></div><div class="line">[<span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">4</span>].some(isBiggerThan10);  <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="comment">// 其中 12 有大於10</span></div><div class="line">[<span class="number">12</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">4</span>].some(isBiggerThan10); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/some" target="_blank" rel="external">MDN-some()</a></div>
+
+
+<hr>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>可對每個陣列元素進行 <font color="red">加工、校正</font> 的處理，最後回傳一個 <font color="red">新的陣列</font>。</p>
+<div class="note warning">原先的陣列與後來新產生出的陣列，<font color="red">個數(Array.length)</font> 會一樣多。</div>
+
+<p><span id="inline-blue">語法</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.map( callback(currentValue, index, array)&#123;</div><div class="line">    <span class="comment">/* your code */</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>callback</p>
+<ul>
+<li>currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。</li>
+<li>index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。</li>
+<li>array(選用)：呼叫 map() 方法的陣列。</li>
+</ul>
+<p><span id="inline-purple">範例1</span></p>
+<figure class="highlight js"><figcaption><span>加工</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];</div><div class="line"></div><div class="line"><span class="keyword">var</span> newArr = myArr.map(<span class="function"><span class="keyword">function</span>(<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="comment">// 每個數都加1</span></div><div class="line">    <span class="keyword">return</span> element + <span class="number">1</span>;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [ 2, 3, 4 ]</span></div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例2</span></p>
+<figure class="highlight js"><figcaption><span>校正</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArr = [ <span class="number">1</span>, <span class="number">20</span>, <span class="number">3</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">80</span>, <span class="number">9</span>, <span class="number">10</span> ];</div><div class="line"></div><div class="line"><span class="keyword">var</span> newArr = myArr.map(<span class="function"><span class="keyword">function</span>(<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="comment">// 校正大於10的數字，統一變100</span></div><div class="line">    <span class="keyword">if</span> (element &lt; <span class="number">10</span>)&#123;</div><div class="line">        <span class="keyword">return</span> element;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">100</span>;</div><div class="line">    &#125;   </div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [1, 100, 3, 100, 100, 6, 7, 100, 9, 100]</span></div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external">MDN-map()</a></div>
+
+
+<hr>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>遍歷每個元素，保留<font color="red">符合條件(true)</font>的值，不符合，則去除掉。</p>
+<div class="note warning">原先的陣列與後來新產生出的陣列，<font color="red">個數(Array.length)</font>可能不一樣多。</div>
+
+<p><span id="inline-blue">語法</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.filter( callback(currentValue, index, array)&#123;</div><div class="line">    <span class="comment">/* your code */</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>callback</p>
+<ul>
+<li>currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。</li>
+<li>index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。</li>
+<li>array(選用)：呼叫 filter() 方法的陣列。</li>
+</ul>
+<p><span id="inline-purple">範例</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArr = [ <span class="number">1</span>, <span class="number">20</span>, <span class="number">3</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">80</span>, <span class="number">9</span>, <span class="number">10</span> ];</div><div class="line"></div><div class="line"><span class="keyword">var</span> newArr = myArr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="comment">// 取得大於50的數</span></div><div class="line">    <span class="keyword">return</span> element &gt;= <span class="number">50</span>;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [50, 80]</span></div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="external">MDN-filter()</a></div>
+
+<hr>
+<h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h2><p>遍歷每個元素，依序組合、加總，然後丟給下個元素，最終會回傳一個結果。</p>
+<p><span id="inline-blue">語法</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.reduce( callback(accumlator, currentValue, index, array)&#123;</div><div class="line">    <span class="comment">/* your code */</span></div><div class="line">&#125;, initialValue)</div></pre></td></tr></table></figure>
+<p>callback</p>
+<ul>
+<li>accumulator(<font color="red">常用</font>)：用來累積回呼函式回傳值的累加器。</li>
+<li>currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。</li>
+<li>index(選用)：原陣列目前所迭代處理中的元素之<font color="blue">索引</font>。</li>
+<li>array(選用)：呼叫 reduce() 方法的陣列。</li>
+</ul>
+<p>initialValue(<font color="red">常用</font>)：於第一次呼叫 callback 時要傳入的累加器初始值。</p>
+<p><span id="inline-purple">範例1</span></p>
+<p>注意reduce第二個參數 <code>0</code> , 代表的意思是開始執行遍歷前的<font color="red">初始值</font>。</p>
+<figure class="highlight js"><figcaption><span>有設定初始值</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];</div><div class="line"></div><div class="line"><span class="comment">// 處理每個元素後等待回傳結果，第一次處理時代入初始值 0</span></div><div class="line"><span class="keyword">var</span> result = myArr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, element</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(prev,element);</div><div class="line">    </div><div class="line">    <span class="comment">// 與之前的數值加總，回傳後代入下一輪的處理</span></div><div class="line">    <span class="keyword">return</span> prev + element;</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">/* </span></div><div class="line"><span class="comment">prev,element 的執行log，共執行三次</span></div><div class="line"><span class="comment">第一次：0 1</span></div><div class="line"><span class="comment">第二次：1 2</span></div><div class="line"><span class="comment">第三次：3 3</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 最終結果</span></div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例2</span></p>
+<p>注意此次<font color="red">沒有設定</font>reduce第二個參數, 此時就會自動抓取陣列<font color="red">第一個元素</font>當作初始值。</p>
+<figure class="highlight js"><figcaption><span>無初始值</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];</div><div class="line"></div><div class="line"><span class="comment">// 處理每個元素後等待回傳結果，第一次處理時代入初始值 0</span></div><div class="line"><span class="keyword">var</span> result = myArr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, element</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(prev,element);</div><div class="line">    </div><div class="line">    <span class="comment">// 與之前的數值加總，回傳後代入下一輪的處理</span></div><div class="line">    <span class="keyword">return</span> prev + element;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/* </span></div><div class="line"><span class="comment">prev,element 的執行log，共執行二次</span></div><div class="line"><span class="comment">第一次：1 2</span></div><div class="line"><span class="comment">第二次：3 3</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 最終結果</span></div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例3</span></p>
+<p>除了一般數字的加總，也可配合判斷式，最終產出一個新的陣列。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> source = [<span class="string">"Kanboo"</span>, <span class="string">"Jack"</span>, <span class="string">"Rabbit"</span>, <span class="string">"Lucas"</span>, <span class="string">"Jack"</span>, <span class="string">"Lucas"</span>, <span class="string">"Rabbit"</span>];</div><div class="line"><span class="keyword">let</span> result_04 = source.reduce(<span class="function">(<span class="params">p, c</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">//includes 判斷是否已存在</span></div><div class="line">    <span class="keyword">if</span> (!p.includes(c)) p.push(c);</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"p"</span>, p);</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;, []);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">迴圈的執行log，共執行七次</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">p ["Kanboo"]</span></div><div class="line"><span class="comment">p ["Kanboo", "Jack"]</span></div><div class="line"><span class="comment">p ["Kanboo", "Jack", "Rabbit"]</span></div><div class="line"><span class="comment">p ["Kanboo", "Jack", "Rabbit", "Lucas"]</span></div><div class="line"><span class="comment">p ["Kanboo", "Jack", "Rabbit", "Lucas"]</span></div><div class="line"><span class="comment">p ["Kanboo", "Jack", "Rabbit", "Lucas"]</span></div><div class="line"><span class="comment">p ["Kanboo", "Jack", "Rabbit", "Lucas"]</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line"><span class="comment">//最終結果</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"result_04"</span>, result_04); <span class="comment">// ["Kanboo", "Jack", "Rabbit", "Lucas"]</span></div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">MDN-Reduce()</a></div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+            <a href="/tags/for/" rel="tag"><i class="fa fa-tag"></i> for</a>
+          
+            <a href="/tags/forin/" rel="tag"><i class="fa fa-tag"></i> forin</a>
+          
+            <a href="/tags/forEach/" rel="tag"><i class="fa fa-tag"></i> forEach</a>
+          
+            <a href="/tags/every/" rel="tag"><i class="fa fa-tag"></i> every</a>
+          
+            <a href="/tags/some/" rel="tag"><i class="fa fa-tag"></i> some</a>
+          
+            <a href="/tags/map/" rel="tag"><i class="fa fa-tag"></i> map</a>
+          
+            <a href="/tags/filter/" rel="tag"><i class="fa fa-tag"></i> filter</a>
+          
+            <a href="/tags/reduce/" rel="tag"><i class="fa fa-tag"></i> reduce</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/08/JS-ArrayUnique/" rel="next" title="JS-ArrayUnique">
+                <i class="fa fa-chevron-left"></i> JS-ArrayUnique
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/01/09/JS-Traverse/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">79</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for"><span class="nav-number">2.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forin"><span class="nav-number">3.</span> <span class="nav-text">forin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-number">4.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#every"><span class="nav-number">5.</span> <span class="nav-text">every</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#some"><span class="nav-number">6.</span> <span class="nav-text">some</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">7.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter"><span class="nav-number">8.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reduce"><span class="nav-number">9.</span> <span class="nav-text">reduce</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>
