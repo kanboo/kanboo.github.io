@@ -16,7 +16,7 @@ tags:
 
 {% asset_img js_01.png %}
 
-<font style="font-size:20px;">紀錄一下 ArrayUnique 從早期`indexOf`的方式到現今各種優化的寫法。</font>
+<font style="font-size:20px;">紀錄 ArrayUnique 從早期`indexOf`的方式到現今各種優化的寫法。</font>
 
 {% endcq %}
 
@@ -45,7 +45,7 @@ for (let i = 0; i < source.length; i++) {
     if (result_01.indexOf(el) === -1) result_01.push(el);
 }
 
-console.log("result_01", result_01);
+console.log("result_01", result_01); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
 ```
 
 ***
@@ -64,7 +64,7 @@ for (let i = 0; i < source.length; i++) {
     if (!result_02.includes(el)) result_02.push(el);
 }
 
-console.log("result_02", result_02);
+console.log("result_02", result_02); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
 ```
 
 <div class="note info">[MDN-Array.prototype.includes()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)</div>
@@ -82,7 +82,7 @@ source.forEach((el) => {
     if (!result_03.includes(el)) result_03.push(el);
 });
 
-console.log("result_03", result_03);
+console.log("result_03", result_03); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
 ```
 
 <div class="note info">[MDN-arr.forEach](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)</div>
@@ -102,25 +102,27 @@ let result_04 = source.reduce((p, c) => {
     return p;
 }, []);
 
-console.log("result_04", result_04);
+console.log("result_04", result_04); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
 ```
 <div class="note info">[MDN-reduce()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)</div>
 
 ***
 ## Set() + Array.from()
 
-`Array.from()` 會從類陣列(array-like)或是可迭代的物件<font color="red">建立一個新的陣列</font>。
-
 `Set` 對象允許你存儲任何類型的<font color="red">唯一值</font>，無論是原始值或者是對象引用。
+
+`Array.from()` 會從類陣列(array-like)或是可迭代的物件<font color="red">建立一個新的陣列</font>。
 
 根據上述二種方法的特性，快速達成產生一個 <font color="red">**已去除重覆值的新陣列**</font>
 
 ``` js
 let source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
 
+//1. 將 source資料 丟進 new set，使其產生一個新的 set集合 ，並且已去除重覆的值
+//2. 然後再將 set集合 丟進 Array.from，將 set集合的資料 轉化成 Array型態。(註：產生新陣列，不影響舊資料)
 let result_05 = Array.from(new Set(source));
 
-console.log("result_05", result_05);
+console.log("result_05", result_05); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
 ```
 <div class="note info">[MDN-Array.from()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
 [MDN-Set()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)
@@ -129,12 +131,29 @@ console.log("result_05", result_05);
 ***
 ## Set() + Spread
 
-`...` 為 ES6的展開運算子（spread operator）
+`...` 為 ES6的展開運算子（spread operator），把一個陣列展開(expand)成個別數值
 
 ``` js 簡寫
 let source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
 
+//1. 將 source資料 丟進 new set，使其產生一個新的 set集合 ，並且已去除重覆的值
+//2. 用 ...(展開運算子)，將 Set 轉換為 Array(註：...set外圈有個 中框號[]，用來轉換陣列型態)
 let result_06 = [...new Set(source)];
 
-console.log("result_06", result_06);
+console.log("result_06", result_06); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
 ```
+
+<span id="inline-green">補充說明</span>
+
+`...` 只是將 `陣列`、`set` 的值拆解一個一個的值，並<font color="red">無額外產生新陣列</font>。
+
+``` js 
+let number = [1,2,3,4,5];
+let mySet = new Set([1,2,3,4]);
+
+console.log(...number);  // 1,2,3,4,5
+console.log(...mySet);  // 1,2,3,4
+```
+
+<div class="note info">[PJ-...](https://pjchender.blogspot.tw/2017/01/es6-spread-operatorrest-operator.html)
+[eddy-...](http://eddychang.me/blog/16-javascript/45-spread-operator-rest-parameters.html)</div>

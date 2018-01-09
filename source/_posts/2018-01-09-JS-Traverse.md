@@ -17,9 +17,9 @@ tags:
 
 {% cq %}
 
-{% asset_img js_01.png %}
+{% asset_img js_01.jpg %}
 
-<font style="font-size:20px;">紀錄一下 各種<font color="red">迴圈</font>的用法。</font>
+<font style="font-size:20px;">紀錄各種<font color="red">迴圈</font>的用法。</font>
 
 {% endcq %}
 
@@ -31,20 +31,21 @@ tags:
 JS常常需要針對 <font color="blue">陣列(Array)</font>、<font color="blue">物件(Object)</font> 這二種資料進行分析及修改，
 故整理下列幾種方法，
 
-單純遍歷陣列元素
+- 單純遍歷陣列元素
+    - for
+    - forin
+    - forEach
 
-- for：
-- forin：
-- forEach：
+- 判斷是否符合資格
+    - every：遍歷每個元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">不符</font>，就回傳 `false`
+    - some： 遍歷每個元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">符合</font>，就回傳 `true`
 
-產生新的陣列
+- 產生新的陣列
+    - map：遍歷每個元素，進行 <font color="red">加工、校正</font>
+    - filter：遍歷每個元素，保留<font color="red">符合條件(true)</font>的值，不符合，則去除掉。
+    - reduce：遍歷每個元素，依序<font color="red">組合、加總</font>，然後丟給下個元素，最終會回傳一個結果。
 
-- map：遍歷每個元素，進行 <font color="red">加工、校正</font>
-- every：遍歷每個元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">不符</font>，就回傳 `false`
-- some： 遍歷每個元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">符合</font>，就回傳 `true`
-- filter：遍歷每個元素，當符合條件(true)時，目前的值會保留在陣列內，不符合，則去除掉不保留。
-- reduce：
-
+***
 ## for
 
 最常見的用法，不多加說明。
@@ -59,6 +60,7 @@ for (let i = 0; i < arr.length; i++) {
 }
 ```
 
+***
 ## forin
 
 可傳入 `objec` 或 `array` 型態的資料。
@@ -90,6 +92,20 @@ for (const item in obj) {
 
 可用來取代 `for` 的寫法，讓程式碼更簡短，省略掉定義 `i`、`arr.length`…等動作。
 
+<span id="inline-blue">語法</span>
+
+``` js
+arr.forEach( callback(currentValue, index, array){
+    /* your code */
+});
+```
+
+callback
+- currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。
+- index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。
+- array(選用)：呼叫 forEach() 方法的陣列。
+
+
 <span id="inline-purple">範例</span>
 
 ``` js ES5
@@ -116,6 +132,19 @@ arr.forEach((element) => {
 
 對每個陣列元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">不符</font>，就回傳 `false`
 
+<span id="inline-blue">語法</span>
+
+``` js
+arr.every( callback(currentValue, index, array){
+    /* your code */
+});
+```
+
+callback
+- currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。
+- index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。
+- array(選用)：呼叫 every() 方法的陣列。
+
 <span id="inline-purple">範例</span>
 
 ``` js
@@ -139,6 +168,21 @@ function isBigEnough(element, index, array) {
 
 對每個陣列元素<font color="blue">判斷</font>是否皆符合條件，若其一<font color="red">符合</font>，就回傳 `true`
 
+<span id="inline-blue">語法</span>
+
+``` js
+arr.some( callback(currentValue, index, array){
+    /* your code */
+});
+```
+
+callback
+- currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。
+- index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。
+- array(選用)：呼叫 some() 方法的陣列。
+
+<span id="inline-purple">範例</span>
+
 ``` js
 function isBiggerThan10(element, index, array) {
     //是否大於10
@@ -160,22 +204,33 @@ function isBiggerThan10(element, index, array) {
 
 可對每個陣列元素進行 <font color="red">加工、校正</font> 的處理，最後回傳一個 <font color="red">新的陣列</font>。
 
-<div class="note warning">原始陣列的<font color="red">個數(Array.length)</font>，產生出 新的陣列個數 也會是一樣的。</div>
+<div class="note warning">原先的陣列與後來新產生出的陣列，<font color="red">個數(Array.length)</font> 會一樣多。</div>
 
+<span id="inline-blue">語法</span>
+
+``` js
+arr.map( callback(currentValue, index, array){
+    /* your code */
+});
+```
+
+callback
+- currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。
+- index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。
+- array(選用)：呼叫 map() 方法的陣列。
 
 <span id="inline-purple">範例1</span>
 
-幫每個元素 +1(加工)。
 
 ``` js 加工
 var myArr = [ 1, 2, 3 ];
 
 var newArr = myArr.map(function(element) {
+    // 每個數都加1
     return element + 1;
 });
 
-// [ 2, 3, 4 ]
-console.log(newArr);
+console.log(newArr); // [ 2, 3, 4 ]
 ```
 
 <span id="inline-purple">範例2</span>
@@ -192,16 +247,150 @@ var newArr = myArr.map(function(element) {
     }   
 });
 
-console.log(newArr);
+console.log(newArr); // [1, 100, 3, 100, 100, 6, 7, 100, 9, 100]
 ```
+
+<div class="note info">[MDN-map()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map)</div>
+
 
 ***
 ## filter
 
-歷每個元素，當符合條件(true)時，目前的值會保留在陣列內，不符合，則去除掉不保留。
+遍歷每個元素，保留<font color="red">符合條件(true)</font>的值，不符合，則去除掉。
 
+<div class="note warning">原先的陣列與後來新產生出的陣列，<font color="red">個數(Array.length)</font>可能不一樣多。</div>
+
+<span id="inline-blue">語法</span>
+
+``` js
+arr.filter( callback(currentValue, index, array){
+    /* your code */
+});
+```
+
+callback
+- currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。
+- index(選用)：原陣列目前處理中的元素之<font color="blue">索引</font>。
+- array(選用)：呼叫 filter() 方法的陣列。
+
+<span id="inline-purple">範例</span>
+
+``` js
+var myArr = [ 1, 20, 3, 40, 50, 6, 7, 80, 9, 10 ];
+
+var newArr = myArr.filter(function(element) {
+    // 取得大於50的數
+    return element >= 50;
+});
+
+console.log(newArr); // [50, 80]
+```
+
+<div class="note info">[MDN-filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)</div>
 
 ***
 ## reduce
 
 遍歷每個元素，依序組合、加總，然後丟給下個元素，最終會回傳一個結果。
+
+<span id="inline-blue">語法</span>
+
+``` js
+arr.reduce( callback(accumlator, currentValue, index, array){
+    /* your code */
+}, initialValue)
+```
+
+callback
+- accumulator(<font color="red">常用</font>)：用來累積回呼函式回傳值的累加器。
+- currentValue(<font color="red">常用</font>)：原陣列目前所迭代處理中的元素。
+- index(選用)：原陣列目前所迭代處理中的元素之<font color="blue">索引</font>。
+- array(選用)：呼叫 reduce() 方法的陣列。
+
+initialValue(<font color="red">常用</font>)：於第一次呼叫 callback 時要傳入的累加器初始值。
+
+
+<span id="inline-purple">範例1</span>
+
+注意reduce第二個參數 `0` , 代表的意思是開始執行遍歷前的<font color="red">初始值</font>。
+
+``` js 有設定初始值
+var myArr = [ 1, 2, 3 ];
+
+// 處理每個元素後等待回傳結果，第一次處理時代入初始值 0
+var result = myArr.reduce(function(prev, element) {
+    console.log(prev,element);
+    
+    // 與之前的數值加總，回傳後代入下一輪的處理
+    return prev + element;
+}, 0);
+
+/* 
+prev,element 的執行log，共執行三次
+第一次：0 1
+第二次：1 2
+第三次：3 3
+*/
+
+
+// 最終結果
+console.log(result); // 6
+```
+
+<span id="inline-purple">範例2</span>
+
+注意此次<font color="red">沒有設定</font>reduce第二個參數, 此時就會自動抓取陣列<font color="red">第一個元素</font>當作初始值。
+
+``` js 無初始值
+var myArr = [ 1, 2, 3 ];
+
+// 處理每個元素後等待回傳結果，第一次處理時代入初始值 0
+var result = myArr.reduce(function(prev, element) {
+    console.log(prev,element);
+    
+    // 與之前的數值加總，回傳後代入下一輪的處理
+    return prev + element;
+});
+
+/* 
+prev,element 的執行log，共執行二次
+第一次：1 2
+第二次：3 3
+*/
+
+
+// 最終結果
+console.log(result); // 6
+```
+
+<span id="inline-purple">範例3</span>
+
+除了一般數字的加總，也可配合判斷式，最終產出一個新的陣列。
+
+``` js 
+let source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
+let result_04 = source.reduce((p, c) => {
+    //includes 判斷是否已存在
+    if (!p.includes(c)) p.push(c);
+	console.log("p", p);
+    return p;
+}, []);
+
+
+/*
+迴圈的執行log，共執行七次
+
+p ["Kanboo"]
+p ["Kanboo", "Jack"]
+p ["Kanboo", "Jack", "Rabbit"]
+p ["Kanboo", "Jack", "Rabbit", "Lucas"]
+p ["Kanboo", "Jack", "Rabbit", "Lucas"]
+p ["Kanboo", "Jack", "Rabbit", "Lucas"]
+p ["Kanboo", "Jack", "Rabbit", "Lucas"]
+ */
+
+//最終結果
+console.log("result_04", result_04); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
+```
+
+<div class="note info">[MDN-Reduce()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)</div>
