@@ -7,6 +7,9 @@ tags:
 - JS
 - Array
 - Unique
+- Reduce
+- Set
+- Spread
 ---
 
 {% cq %}
@@ -25,7 +28,7 @@ tags:
 下列的各種範例，統一使用的 **Array資料**，如下
 
 ``` js ArrayData
-var source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
+let source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
 ```
 
 ***
@@ -64,7 +67,7 @@ for (let i = 0; i < source.length; i++) {
 console.log("result_02", result_02);
 ```
 
-<div class="note info">[Array.prototype.includes()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)</div>
+<div class="note info">[MDN-Array.prototype.includes()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)</div>
 
 ***
 ## forEach
@@ -82,27 +85,29 @@ source.forEach((el) => {
 console.log("result_03", result_03);
 ```
 
-<div class="note info">[arr.forEach](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)</div>
+<div class="note info">[MDN-arr.forEach](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)</div>
 
 ***
-## reduce
+## reduce()
 
-遍歷每個元素，將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列簡化為單一值。
+遍歷每個元素，依序<font color="red">組合、加總</font>，然後丟給下個元素，最終會回傳<font color="red">一個結果</font>
 
 ``` js
 let source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
 
+
 let result_04 = source.reduce((p, c) => {
+    //includes 判斷是否已存在
     if (!p.includes(c)) p.push(c);
     return p;
 }, []);
 
 console.log("result_04", result_04);
 ```
-<div class="note info">[reduce()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)</div>
+<div class="note info">[MDN-reduce()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)</div>
 
 ***
-## Array.from + Set
+## Set() + Array.from()
 
 `Array.from()` 會從類陣列(array-like)或是可迭代的物件<font color="red">建立一個新的陣列</font>。
 
@@ -117,6 +122,14 @@ let result_05 = Array.from(new Set(source));
 
 console.log("result_05", result_05);
 ```
+<div class="note info">[MDN-Array.from()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+[MDN-Set()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)
+[阮一峰-Set()](http://es6.ruanyifeng.com/#docs/set-map#Set)</div>
+
+***
+## Set() + Spread
+
+`...` 為 ES6的展開運算子（spread operator）
 
 ``` js 簡寫
 let source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
@@ -125,7 +138,3 @@ let result_06 = [...new Set(source)];
 
 console.log("result_06", result_06);
 ```
-
-<div class="note info">[Array.from()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
-[Set](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set)
-[阮一峰-Set](http://es6.ruanyifeng.com/#docs/set-map#Set)</div>
