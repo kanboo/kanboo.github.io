@@ -90,6 +90,13 @@ el.innerHTML = str;
 </h1>
 ```
 
+<div class="note primary">使用 appendChild 要注意的小細節：
+要留意的是 如果 `appendChild` 使用時，append 上去的是一個<font color="red">已存在</font>的 node 時，它會做的是<font color="red">搬移</font>，而<font color="red">非複製</font>，
+所以 appendChild 使用時要複製而非搬移，記得先使用 `Node.cloneNode()` 這個方法複製 Node Element。
+
+參考：[PJ - Node Element 在 appendChild 後消失（disappear）!?](https://pjchender.blogspot.tw/2017/06/js-node-element-appenchild-disappear.html)
+</div>
+
 ***
 ## addEventListener - 事件氣泡、事件捕捉
 
