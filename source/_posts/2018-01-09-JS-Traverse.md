@@ -372,7 +372,7 @@ let source = ["Kanboo", "Jack", "Rabbit", "Lucas", "Jack", "Lucas", "Rabbit"];
 let result_04 = source.reduce((p, c) => {
     //includes 判斷是否已存在
     if (!p.includes(c)) p.push(c);
-	console.log("p", p);
+    console.log("p", p);
     return p;
 }, []);
 
@@ -393,4 +393,6 @@ p ["Kanboo", "Jack", "Rabbit", "Lucas"]
 console.log("result_04", result_04); // ["Kanboo", "Jack", "Rabbit", "Lucas"]
 ```
 
-<div class="note info">[MDN-Reduce()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)</div>
+<div class="note info">[MDN-Reduce()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+[fred-Map、Reduce](http://fred-zone.blogspot.tw/2017/01/javascript-mapreduce.html)</div>
+
