@@ -21,7 +21,7 @@ tags:
 
 
 ref()：尋找資料庫路徑(預設：<font color="red">根目錄</font>)
-set()：新增資料
+set()：新增資料(寫入方式：<font color="red">覆蓋</font>)
 
 ``` js 新增資料：範例1
 firebase.database().ref().set('hi');
@@ -50,6 +50,20 @@ firebase.database().ref().set(school);
 ```
 結果
 {% asset_img firebase_03.png %}
+
+<span id="inline-yellow">補充</span>
+
+延續範例2，若要再新增 student3 的話，因為 `set` 寫入的方式是 <font color="red">覆蓋</font>，所以要注意 `ref` 是否有指定到正確的新增位置，不然有可能會覆蓋到原來的資料。
+
+``` js 新增student3
+var student3= {
+    name: 'kanboo',
+    num: '3'
+}
+
+// ref 要先指定到 新增的路徑
+firebase.database().ref('student3').set(student3);
+```
 
 
 ``` js 新增資料：範例3(階層式)
@@ -105,6 +119,11 @@ todos.push({content:'要去看跑步'});
 結果
 {% asset_img firebase_05.png %}
 
+
+<div class="note warning"><font color="red">push</font> 會<font color="blue">自動</font>給一個亂數編號，如果不想產生隨機編號的話，就使用set方式。
+<font color="red">set</font> 可以給固定的編號，但要注意新增的位置是否指定正確，要小心覆蓋掉已有的資料。</div>
+
+***
 ## child 子路徑、remove 移除
 
 以 Todolist 為例，當<font color="blue">完成</font>某項事件時，就要將它從待辦清單 <font color="red">移除</font>。
