@@ -119,7 +119,7 @@
 <meta property="og:site_name" content="Kanboo Notes">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2017/12/30/JS-studynotes/js_01.png">
-<meta property="og:updated_time" content="2018-01-03T11:28:38.000Z">
+<meta property="og:updated_time" content="2018-01-10T15:36:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-基礎用法">
 <meta name="twitter:image" content="https://kanboo.github.io/2017/12/30/JS-studynotes/js_01.png">
@@ -479,6 +479,8 @@
 <h2 id="createElement-插入dom元素"><a href="#createElement-插入dom元素" class="headerlink" title="createElement - 插入dom元素"></a>createElement - 插入dom元素</h2><p>建立一個新的DOM元素，然後再使用 <code>appendChild</code> 新增子節點，並不會覆蓋原有的DOM元素。</p>
 <figure class="highlight html"><figcaption><span>新增dom元素</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">em</span>&gt;</span>titile<span class="tag">&lt;/<span class="name">em</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> &gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">    <span class="comment">// 建立元素</span></span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> sonElement = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</span></div><div class="line"><span class="javascript">    sonElement.setAttribute(<span class="string">'href'</span>,<span class="string">'www.facebook.com'</span>);</span></div><div class="line"><span class="javascript">    sonElement.textContent = <span class="string">'前往Facebook'</span>;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">    <span class="comment">// 增加子節點</span></span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> fatherElement = <span class="built_in">document</span>.querySelector(<span class="string">'.title'</span>);</span></div><div class="line"><span class="undefined">    fatherElement.appendChild(sonElement);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight diff"><figcaption><span>更新後結果</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;h1 class="title"&gt;</div><div class="line">    &lt;em&gt;titile&lt;/em&gt;</div><div class="line"><span class="addition">+   &lt;a href="www.facebook.com"&gt;前往Facebook&lt;/a&gt;</span></div><div class="line">&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<div class="note primary">使用 appendChild 要注意的小細節：<br>要留意的是 如果 <code>appendChild</code> 使用時，append 上去的是一個<font color="red">已存在</font>的 node 時，它會做的是<font color="red">搬移</font>，而<font color="red">非複製</font>，<br>所以 appendChild 使用時要複製而非搬移，記得先使用 <code>Node.cloneNode()</code> 這個方法複製 Node Element。<br><br>參考：<a href="https://pjchender.blogspot.tw/2017/06/js-node-element-appenchild-disappear.html" target="_blank" rel="external">PJ - Node Element 在 appendChild 後消失（disappear）!?</a><br></div>
+
 <hr>
 <h2 id="addEventListener-事件氣泡、事件捕捉"><a href="#addEventListener-事件氣泡、事件捕捉" class="headerlink" title="addEventListener - 事件氣泡、事件捕捉"></a>addEventListener - 事件氣泡、事件捕捉</h2><p><span id="inline-blue">基本語法</span></p>
 <p>element.addEventListener(event, function, useCapture)</p>
@@ -679,7 +681,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -690,7 +692,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -701,7 +703,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">79</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
