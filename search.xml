@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ES6-箭頭函式 (Arrow functions)]]></title>
+    <url>%2F2018%2F01%2F23%2FES6-Arrowfunctions%2F</url>
+    <content type="text"><![CDATA[箭頭函式 () =&gt; {} 簡短的語法一般使用箭頭函式與 function 的用法大致一致，可以傳入參數、也有大括號包起來，除此之外箭頭函式也有更簡短的寫法如下： 1234567891011121314151617// 正常寫法var callSomeone = (someone) =&gt; &#123; return someone + '上工了'&#125;console.log(callSomeone('伙計'))// 縮寫，單一行陳述不需要 &#123;&#125;var callSomeone = (someone) =&gt; someone + '上工了'console.log(callSomeone('伙計'))// 只有一個參數可以不加括號var callSomeone = someone =&gt; someone + '上工了'console.log(callSomeone('伙計'))// 沒有參數時，一定要有括號var callSomeone = () =&gt; '伙計' + '上工了'console.log(callSomeone('伙計')) 注意不過這個上述有個小地方也要注意一下，在大括號內的 {} 是需要自行加入 return，如果沒有傳入值則會出現 undefined。 12var callSomeone = (someone) =&gt; &#123; someone + '上工了' &#125;console.log(callSomeone('伙計')) // undefined 綁定的 this 不同口訣：箭頭函式裡面的this 等於 外面的this 白話文：箭頭函式裡的this 主要是依據 外層函式(function)裡的this 是什麼就跟著是什麼。 123456function x()&#123; this &lt;= 外層函式的this，規則參考「一般函式的this」 const a = () =&gt; &#123; this &lt;= 依據外層函式的this &#125;&#125; 範例 callName 是使用 一般函式callName2 是使用 箭頭函式 1234567891011121314151617181920212223var name = '全域阿婆'var auntie = &#123; name: '漂亮阿姨', callName: function () &#123; // 注意，這裡是 function，以此為基準產生一個作用域 console.log('1', this.name); // 1 漂亮阿姨(外層函式) setTimeout(() =&gt; &#123; console.log('2', this.name); // 2 漂亮阿姨(依據外層函式的this) console.log('3', this); // 3 auntie 這個物件(依據外層函式的this) &#125;, 10); &#125;, callName2: () =&gt; &#123; // 注意，如果使用箭頭函式，this 依然指向 window console.log('4', this.name); // 4 全域阿婆(依據外層函式的this) setTimeout(() =&gt; &#123; console.log('5', this.name); // 5 全域阿婆(依據外層函式的this) console.log('6', this); // 6 window 物件(依據外層函式的this) &#125;, 10); &#125;&#125;auntie.callName();auntie.callName2(); 補充：因為 callName2 的 4 使用箭頭函式，所以 依據外層函式的this 的規則，就指向最外層window。 沒有 arguments 參數注意:箭頭函數裡沒有argument物件，可使用 其餘參數(Rest Operator) 替代 12const other = (...others) =&gt; others;console.log(other(10, 20, 30, 40, 50)) // [10, 20, 30, 40, 50] 不可使用的情況apply, call, bind this 在 Arrow function 中是被綁定的，所以套用 call 的方法時是無法修改 this。 不能用在建構式由於 this 的是在物件下建立，所以箭頭函式不能像 function 一樣作為建構式的函式，如果嘗試使用此方法則會出現錯誤 (… is not a constructor)。 參考來源邁向 JavaScript 勇者之路]]></content>
+      <categories>
+        <category>JS</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+        <tag>ES6</tag>
+        <tag>箭頭函式</tag>
+        <tag>Arrow functions</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS-立即被呼叫的函式 (IIFE)]]></title>
     <url>%2F2018%2F01%2F16%2FJS-IIFE%2F</url>
     <content type="text"><![CDATA[立即被呼叫的函式 (Immediately Invoked Function Expression, IIFE) 前言在 2018 iT 邦幫忙鐵人賽，看到Kuro大的重新認識 JavaScript 系列文，仔細的閱讀後，紀錄自己觀念不足的部份，也非常推薦給大家觀看此系列文。 Kuro-重新認識 JavaScript 系列 立即被呼叫的函式 (IIFE)IIFE 的好處，就是可以減少「全域變數」的產生，同時也避免了變數名稱衝突的機會。 如果你有去看過 jQuery 的原始碼，就會發現 jQuery 也用了相同的手法將 window 與 undefined 保留起來： 12345(function( window, undefined ) &#123; // 略...&#125;)( window ); 當迴圈遇到 function題目：假設想透過迴圈 + setTimeout 來做到，在五秒之內，每秒鐘依序透過console.log印出：0 1 2 3 4 12345678// 假設想透過迴圈 + setTimeout 來做到// 每秒鐘將 i 的值 console 出來for( var i = 0; i &lt; 5; i++ ) &#123; window.setTimeout(function() &#123; console.log(i); &#125;, 1000);&#125; 真的是這樣嗎？ 我們來看看執行的結果。 執行的結果是， console.log() 會在「一秒鐘之後」同時印出「五次 5」。 1234555555 「切分變數有效範圍的最小單位是 “function” 」「切分變數有效範圍的最小單位是 “function” 」「切分變數有效範圍的最小單位是 “function” 」 很重要，所以要再講三次。 所以我們利用 IIFE 稍微修改一下： IIFE12345678910for( var i = 0; i &lt; 5; i++ ) &#123; (function(x)&#123; // 將原本的 1000 改成 1000 * x window.setTimeout(function() &#123; console.log(x); &#125;, 1000 * x); &#125;)(i);&#125; 像這樣，就可以依序印出我們要的結果囉！ ES6-let、constES6 以後新增了 let 與 const，且改以 { } 作為它的 Scope。 換句話說，將範例中的 for 改為 let 就可以做到保留 i 在執行迴圈當下的「值」的效果： 12345for( let i = 0; i &lt; 5; i++ ) &#123; window.setTimeout(function() &#123; console.log(i); &#125;, 1000);&#125;]]></content>
