@@ -60,12 +60,15 @@ console.log(callSomeone('伙計')) // undefined
 ***
 ## 綁定的 this 不同
 
-口訣： 
+{% label info@口訣： %}
 箭頭函式裡面的this 等於 外面的this
 
-白話文： 
+
+{% label info@白話文： %}
 箭頭函式裡的this 主要是依據 <font color="red">外層函式(function)裡的this</font> 是什麼就跟著是什麼。
 
+
+<span id="inline-yellow">規則</span>
 
 ``` js
 function x(){
@@ -122,11 +125,9 @@ console.log(other(10, 20, 30, 40, 50)) // [10, 20, 30, 40, 50]
 ```
 
 ***
-## 不可使用的情況
+## apply, call, bind 無效
 
-**apply, call, bind**
-
-<font color="red">this</font> 在 Arrow function 中是被綁定的，所以套用 <font color="red">call</font> 的方法時是無法修改 <font color="red">this</font>。
+<font color="red">this</font> 在 Arrow function 中是被綁定的，所以套用 <font color="red">apply, call, bind</font> 的方法時是無法修改 <font color="red">this</font>。
 
 ***
 ## 不能用在建構式
