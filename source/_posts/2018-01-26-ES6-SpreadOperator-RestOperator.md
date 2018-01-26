@@ -81,8 +81,9 @@ let groupA = ['老大','老二','老么'];
 let groupB = groupA;
 groupB.push('小花');
 
-//輸出 groupA
-console.log(groupA); // ['老大','老二','老么', '小花'];
+//輸出
+console.log(groupA); // ['老大','老二','老么','小花'];
+console.log(groupB); // ['老大','老二','老么','小花'];
 ```
 
 由於 <font color="red">展開運算子</font> 它是<font color="red">一個一個將值寫入</font>，所以他也有<font color="red">淺層的複製</font>(shallow copy) 。
@@ -93,8 +94,32 @@ let groupA = ['老大','老二','老么'];
 let groupB = [...groupA];
 groupB.push('小花');
 
-//輸出 groupA
+//輸出
 console.log(groupA); // ['老大','老二','老么'];
+console.log(groupB); // ['老大','老二','老么','小花'];
+```
+
+{% label danger@注意 %}
+因為是<font color="red">淺層的複製</font>，所以當陣列的值是放 <font color="red">物件</font> 的話，依舊會因為<font color="red">傳參考</font>的特性，而修改其中一個另一個也會跟著變動。
+
+``` js 
+let groupA = [{name:'老大'},{name:'老二'},{name:'老三'}];
+let groupB = [...groupA];
+
+groupB.push({name:'小花'});
+
+//輸出
+console.log(groupA); // [{name:'老大'},{name:'老二'},{name:'老三'}]
+console.log(groupB); // [{name:'老大'},{name:'老二'},{name:'老三'},{name:'小花'}]
+
+debugger;
+
+//更改 groupB 第一個Name
+groupB[0].name = "爸爸";
+
+//注意 groupA 的第一個Name，也會跟著被變動
+console.log(groupA); // [{name:'爸爸'},{name:'老二'},{name:'老三'}]
+console.log(groupB); // [{name:'爸爸'},{name:'老二'},{name:'老三'},{name:'小花'}]
 ```
 
 ## 類陣列轉成純陣列
