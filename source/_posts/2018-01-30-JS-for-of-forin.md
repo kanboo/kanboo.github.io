@@ -95,7 +95,7 @@ for (let i of iterable) {
 
 
 ***
-## for..of 迭代 物件(object)
+## for..of 迭代 物件(object)
 
 如果想用 `for...of` 來遍歷物件的屬性的話，可以通過和 `Object.keys()` 搭配使用，先取得物件的所有key的數組，然後再遍歷。
 
