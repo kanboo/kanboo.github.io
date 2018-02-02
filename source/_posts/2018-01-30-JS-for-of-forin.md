@@ -5,6 +5,7 @@ categories:
 - JS
 tags:
 - JS
+- ES6
 - for of
 - for in
 ---
