@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JS,for of,for in," />
+  <meta name="keywords" content="JS,ES6,for of,for in," />
 
 
 
@@ -113,7 +113,7 @@
 
 
 <meta name="description" content="for…of與for…in的差別">
-<meta name="keywords" content="JS,for of,for in">
+<meta name="keywords" content="JS,ES6,for of,for in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS-for...in與for...of的差別">
 <meta property="og:url" content="https://kanboo.github.io/2018/01/30/JS-for-of-forin/index.html">
@@ -121,7 +121,7 @@
 <meta property="og:description" content="for…of與for…in的差別">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2018/01/30/JS-for-of-forin/js_01.png">
-<meta property="og:updated_time" content="2018-01-30T16:01:34.000Z">
+<meta property="og:updated_time" content="2018-02-03T00:42:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-for...in與for...of的差別">
 <meta name="twitter:description" content="for…of與for…in的差別">
@@ -476,7 +476,7 @@
 <figure class="highlight js"><figcaption><span>在 原型鍊上 新增function</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在 原型鍊上 新增function</span></div><div class="line"><span class="built_in">Object</span>.prototype.objCustom = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">//物件 原型鋉</span></div><div class="line"><span class="built_in">Array</span>.prototype.arrCustom = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;  <span class="comment">//陣列 原型鋉</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> iterable = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</div><div class="line">iterable.foo = <span class="string">'hello'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 回傳「key」，且同時會讀取到 物件、陣列 原型鍊上的function</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); <span class="comment">// "0", "1", "2", "foo", "arrCustom", "objCustom"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 回傳「值」</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); <span class="comment">// 3, 5, 7</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>由上面三個案例來看，如果只是想單純的迭代取出陣列<font color="red">值</font>的話，建議使用 <code>for...of</code> 會比較好，不過注意此語法為 ES6 新語法。</p>
 <hr>
-<h2 id="for-of-迭代-物件-object"><a href="#for-of-迭代-物件-object" class="headerlink" title="for..of 迭代 物件(object)"></a>for..of 迭代 物件(object)</h2><p>如果想用 <code>for...of</code> 來遍歷物件的屬性的話，可以通過和 <code>Object.keys()</code> 搭配使用，先取得物件的所有key的數組，然後再遍歷。</p>
+<h2 id="for-of-迭代-物件-object"><a href="#for-of-迭代-物件-object" class="headerlink" title="for..of 迭代 物件(object)"></a>for..of 迭代 物件(object)</h2><p>如果想用 <code>for...of</code> 來遍歷物件的屬性的話，可以通過和 <code>Object.keys()</code> 搭配使用，先取得物件的所有key的數組，然後再遍歷。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> student=&#123;</div><div class="line">    name:<span class="string">'kanboo'</span>,</div><div class="line">    age:<span class="number">16</span>,</div><div class="line">    locate:&#123;</div><div class="line">        country:<span class="string">'tw'</span>,</div><div class="line">        city:<span class="string">'taipei'</span>,</div><div class="line">        school:<span class="string">'CCC'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(student))&#123;</div><div class="line">    <span class="comment">//使用Object.keys()方法取得物件的Key的陣列</span></div><div class="line">    <span class="built_in">console</span>.log(key+<span class="string">": "</span>+student[key]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// "name: kanboo"</span></div><div class="line"><span class="comment">// "age: 16"</span></div><div class="line"><span class="comment">// "locate: [object Object]"</span></div></pre></td></tr></table></figure>
 <hr>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><div class="note info"><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of" target="_blank" rel="external">MDN-for…of</a><br><a href="https://segmentfault.com/q/1010000006658882" target="_blank" rel="external">javascript-for of和for in的區別？</a></div>
@@ -497,6 +497,8 @@
         <div class="post-tags">
           
             <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
           
             <a href="/tags/for-of/" rel="tag"><i class="fa fa-tag"></i> for of</a>
           
@@ -538,6 +540,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/02/JS-Array/" rel="prev" title="JS-陣列(Array)">
+                JS-陣列(Array) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -621,7 +627,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -632,7 +638,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -643,7 +649,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">102</span>
+                <span class="site-state-item-count">107</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -678,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-number">1.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#範例說明"><span class="nav-number">2.</span> <span class="nav-text">範例說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of-迭代-物件-object"><span class="nav-number">3.</span> <span class="nav-text">for..of 迭代 物件(object)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">4.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-number">1.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#範例說明"><span class="nav-number">2.</span> <span class="nav-text">範例說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-of-迭代-物件-object"><span class="nav-number">3.</span> <span class="nav-text">for..of 迭代 物件(object)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">4.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
             
 
           </div>

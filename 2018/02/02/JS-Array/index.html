@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,Array,ES6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="Array複習 與 ES6新語法">
+<meta name="keywords" content="JS,Array,ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-陣列(Array)">
+<meta property="og:url" content="https://kanboo.github.io/2018/02/02/JS-Array/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="Array複習 與 ES6新語法">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/02/02/JS-Array/js_01.png">
+<meta property="og:updated_time" content="2018-02-03T00:42:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS-陣列(Array)">
+<meta name="twitter:description" content="Array複習 與 ES6新語法">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/02/02/JS-Array/js_01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/02/02/JS-Array/"/>
+
+
+
+
+
+  <title>JS-陣列(Array) | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/02/02/JS-Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS-陣列(Array)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-02-02T10:59:37+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/02/JS-Array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/02/02/JS-Array/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/02/02/JS-Array/js_01.png" alt="js_01.png" title=""></p>
+<font style="font-size:20px;">Array複習 與 ES6新語法</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="push、pop、shift、unshift-差異"><a href="#push、pop、shift、unshift-差異" class="headerlink" title="push、pop、shift、unshift 差異"></a>push、pop、shift、unshift 差異</h2><ul>
+<li>push：加到陣列末端</li>
+<li>pop：移除最末端</li>
+<li>shift：移除最前端</li>
+<li>unshift：加到陣列前端</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> home = [<span class="string">'爸爸'</span>, <span class="string">'媽媽'</span>];</div><div class="line"></div><div class="line"><span class="comment">// push：加到陣列末端</span></div><div class="line"><span class="keyword">var</span> newLength = home.push(<span class="string">'老大'</span>);</div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["爸爸", "媽媽", "老大"]</span></div><div class="line"></div><div class="line"><span class="comment">// pop：移除最末端</span></div><div class="line"><span class="keyword">var</span> last = home.pop();</div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["爸爸", "媽媽"]</span></div><div class="line"></div><div class="line"><span class="comment">// shift：移除最前端</span></div><div class="line"><span class="keyword">var</span> first = home.shift();</div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["媽媽"]</span></div><div class="line"></div><div class="line"><span class="comment">// unshift：加到陣列前端</span></div><div class="line"><span class="keyword">var</span> newLength = home.unshift(<span class="string">'小花'</span>);</div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["小花", "媽媽"]</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="排序與反轉-sort與reverse"><a href="#排序與反轉-sort與reverse" class="headerlink" title="排序與反轉 sort與reverse"></a>排序與反轉 sort與reverse</h2><h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><blockquote class="question">arr.sort([compareFunction])</blockquote>
+
+<p>如果 <code>compareFunction</code> 沒有被應用, 元素將被轉換為字串並以<code>Unicode</code>碼位來比較並排序。<br>特別一提，在數值排序中，9 會在 80 前面，但因為<font color="red">數字被轉換成字串</font>，在<code>Unicode</code>順序中 “80” 會在 “9” 前面。</p>
+<figure class="highlight js"><figcaption><span>字串比較</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//大寫英文 Unicode 排在 小寫英文 前面</span></div><div class="line"><span class="keyword">var</span> stringArray = [<span class="string">'blue'</span>, <span class="string">'Humpback'</span>, <span class="string">'Beluga'</span>, <span class="string">'alice'</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(stringArray.sort()); <span class="comment">//["Beluga", "Humpback", "alice", "blue"]</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>數字比較</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 數字被轉換成字串</span></div><div class="line"><span class="keyword">var</span> numbers_01 = [<span class="number">1</span>, <span class="number">30</span>, <span class="number">4</span>, <span class="number">21</span>];</div><div class="line">numbers_01.sort();</div><div class="line"><span class="built_in">console</span>.log(numbers_01); <span class="comment">// [1, 21, 30, 4]</span></div><div class="line"></div><div class="line"><span class="comment">// 用 compareFunction比較，就不會被轉成「字串」</span></div><div class="line"><span class="keyword">var</span> numbers_02 = [<span class="number">1</span>, <span class="number">30</span>, <span class="number">4</span>, <span class="number">21</span>];</div><div class="line">numbers_02.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a - b;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(numbers_02); <span class="comment">// [1, 4, 21, 30]</span></div></pre></td></tr></table></figure>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h3><p>將整個陣列中的成員<font color="red">順序反轉</font>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> home = [<span class="string">"0.爸爸"</span>, <span class="string">"1.媽媽"</span>, <span class="string">"2.老大"</span>, <span class="string">"3.老二"</span>, <span class="string">"4.老么"</span>];</div><div class="line">home.reverse();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["4.老么", "3.老二", "2.老大", "1.媽媽", "0.爸爸"]</span></div></pre></td></tr></table></figure>
+<p>另一個情況是<font color="red">字串</font>中的字元，如果要進行反轉的話，並沒有字串中的reverse方法，要用這個陣列的reverse方法加上字串與陣列的互相轉換的<code>split</code>與<code>join</code>方法，可以使用以下的函式:</p>
+<figure class="highlight js"><figcaption><span>字串反轉</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseString</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(reverseString(<span class="string">"ABCDEFG"</span>)); <span class="comment">// "GFEDCBA"</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h2><blockquote class="question">arr.slice([begin[, end]])</blockquote>
+
+<p>回傳一個<font color="red">新陣列</font>，為原陣列選擇之 <code>begin</code> 至 <code>end</code>（<font color="red">不含 end</font>）部分的<font color="red">淺拷貝</font>（shallow copy）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> home = [<span class="string">"0.爸爸"</span>, <span class="string">"1.媽媽"</span>, <span class="string">"2.老大"</span>, <span class="string">"3.老二"</span>, <span class="string">"4.老么"</span>];</div><div class="line"></div><div class="line"><span class="comment">// begin為空或0，就是全部複製</span></div><div class="line"><span class="built_in">console</span>.log(home.slice()); <span class="comment">//["0.爸爸", "1.媽媽", "2.老大", "3.老二", "4.老么"]</span></div><div class="line"><span class="built_in">console</span>.log(home.slice(<span class="number">0</span>)); <span class="comment">//["0.爸爸", "1.媽媽", "2.老大", "3.老二", "4.老么"]</span></div><div class="line"></div><div class="line"><span class="comment">// 僅 begin 參數</span></div><div class="line"><span class="built_in">console</span>.log(home.slice(<span class="number">2</span>)); <span class="comment">//["2.老大", "3.老二", "4.老么"]</span></div><div class="line"></div><div class="line"><span class="comment">// 加 end 參數，擷取到 end 的 index「前」</span></div><div class="line"><span class="built_in">console</span>.log(home.slice(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">//["2.老大"]</span></div><div class="line"></div><div class="line"><span class="comment">// 加 end 參數，end index值 超過原陣列個數，沒有關係</span></div><div class="line"><span class="built_in">console</span>.log(home.slice(<span class="number">2</span>, <span class="number">9999</span>)); <span class="comment">//["2.老大", "3.老二", "4.老么"]</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h2><blockquote class="question">array.splice(start[, deleteCount[, item1[, item2[, …]]]])</blockquote>
+
+<p>可刪除既有元素並／或加入新元素來改變一個陣列的內容(<font color="red">會改變原陣列值</font>)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> home = [<span class="string">"0.爸爸"</span>, <span class="string">"1.媽媽"</span>, <span class="string">"2.老大"</span>, <span class="string">"3.老二"</span>, <span class="string">"4.老么"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 會改變原陣例值</span></div><div class="line">home.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">'小花'</span>); <span class="comment">//在索引 2 開始，插入新增字串 '小花'</span></div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["0.爸爸", "1.媽媽", "小花", "2.老大", "3.老二", "4.老么"]</span></div><div class="line"></div><div class="line">home.splice(<span class="number">2</span>, <span class="number">1</span>); <span class="comment">//在索引 2 開始，刪除 1個 元素</span></div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["0.爸爸", "1.媽媽", "2.老大", "3.老二", "4.老么"]</span></div><div class="line"></div><div class="line">home.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">'巧虎'</span>, <span class="string">'琪琪'</span>, <span class="string">'桃樂比'</span>); <span class="comment">//在索引 2 開始，刪除 3個 元素後，再新增 3個 新元素</span></div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["0.爸爸", "1.媽媽", "巧虎", "琪琪", "桃樂比"]</span></div><div class="line"></div><div class="line"><span class="comment">// ES6 展開運算子( Spread Operator )</span></div><div class="line"><span class="keyword">const</span> addArr = [<span class="string">'巧虎'</span>, <span class="string">'琪琪'</span>, <span class="string">'桃樂比'</span>];</div><div class="line">home.splice(<span class="number">2</span>, <span class="number">3</span>, ...addArr); <span class="comment">//在索引 2 開始，刪除 3個 元素後，再新增 3個 新元素</span></div><div class="line"><span class="built_in">console</span>.log(home); <span class="comment">// ["0.爸爸", "1.媽媽", "巧虎", "琪琪", "桃樂比"]</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="淺拷貝作法"><a href="#淺拷貝作法" class="headerlink" title="淺拷貝作法"></a>淺拷貝作法</h2><p><span id="inline-toc">1.</span> ES6 展開運算子( Spread Operator )</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> aArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">const</span> copyArray = [...aArray];</div></pre></td></tr></table></figure>
+<p>它也可以用來組合陣列</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> aArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">const</span> bArray = [<span class="number">5</span>, <span class="number">6</span>, ...aArray, <span class="number">8</span>, <span class="number">9</span>]; <span class="comment">// [5, 6, 1, 2, 3, 8, 9]</span></div></pre></td></tr></table></figure>
+<p><span id="inline-toc">2.</span> slice</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const oldArray = [1, 2, 3];</div><div class="line"></div><div class="line">const newArray = oldArray.slice(0); // [1, 2, 3]</div><div class="line">const newArray = oldArray.slice();  // [1, 2, 3]</div></pre></td></tr></table></figure>
+<p><span id="inline-toc">3.</span> concat</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> oldArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">const</span> newArray = [].concat(oldArray); <span class="comment">// [1, 2, 3]</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="ES6-find-與-findIndex"><a href="#ES6-find-與-findIndex" class="headerlink" title="ES6- find 與 findIndex"></a>ES6- find 與 findIndex</h2><ul>
+<li>find  =&gt; 回傳 value</li>
+<li>findIndex =&gt; 回傳 index</li>
+</ul>
+<h3 id="基本寫法"><a href="#基本寫法" class="headerlink" title="基本寫法"></a>基本寫法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> aArray = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">22</span>];</div><div class="line"></div><div class="line"><span class="comment">// find</span></div><div class="line"><span class="keyword">const</span> bValue = aArray.find(<span class="function"><span class="keyword">function</span> (<span class="params">value, index, array</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> value &gt; <span class="number">6</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(bValue); <span class="comment">//回傳第一個滿足條件的「value」：7</span></div><div class="line"></div><div class="line"><span class="comment">// findIndex</span></div><div class="line"><span class="keyword">const</span> cIndex = aArray.findIndex(<span class="function"><span class="keyword">function</span> (<span class="params">value, index, array</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> value &gt; <span class="number">6</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(cIndex); <span class="comment">//回傳第一個滿足條件的「index」：3</span></div></pre></td></tr></table></figure>
+<h3 id="進階應用"><a href="#進階應用" class="headerlink" title="進階應用"></a>進階應用</h3><p>不過當會用到 <code>find</code> 或 <code>findIndex</code> 時，表示要尋找的條件通常比較複雜一點，才能顯現他們比 <code>indexOf</code> 強大之處。</p>
+<p><span id="inline-purple">範例1</span></p>
+<p>從陣列中找出符合條件的 物件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> inventory = [</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">'apples'</span>, <span class="attr">quantity</span>: <span class="number">2</span>&#125;,</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">'bananas'</span>, <span class="attr">quantity</span>: <span class="number">0</span>&#125;,</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">'cherries'</span>, <span class="attr">quantity</span>: <span class="number">5</span>&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isCherries</span>(<span class="params">fruit</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> fruit.name === <span class="string">'cherries'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// find 回傳第一個滿足條件的「value」</span></div><div class="line"><span class="built_in">console</span>.log(inventory.find(isCherries)); <span class="comment">// &#123; name: 'cherries', quantity: 5 &#125;</span></div><div class="line"></div><div class="line"><span class="comment">// findIndex 回傳第一個滿足條件的「index」</span></div><div class="line"><span class="built_in">console</span>.log(inventory.findIndex(isCherries)); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p><span id="inline-purple">範例2</span></p>
+<p>找出質數</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrime</span>(<span class="params">element, index, array</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> start = <span class="number">2</span>;</div><div class="line">  <span class="keyword">while</span> (start &lt;= <span class="built_in">Math</span>.sqrt(element)) &#123;</div><div class="line">    <span class="keyword">if</span> (element % start++ <span class="xml"><span class="tag">&lt; <span class="attr">1</span>) &#123;</span></span></div><div class="line"><span class="xml">      return false;</span></div><div class="line"><span class="xml">    &#125;</span></div><div class="line"><span class="xml">  &#125;</span></div><div class="line"><span class="xml">  return element &gt; 1;</span></div><div class="line"><span class="xml">&#125;</span></div><div class="line"><span class="xml"></span></div><div class="line"><span class="xml">// find 回傳第一個滿足條件的「value」</span></div><div class="line"><span class="xml">console.log([4, 6, 8, 12].find(isPrime)); // undefined, not found</span></div><div class="line"><span class="xml">console.log([4, 5, 8, 12].find(isPrime)); // 5</span></div><div class="line"><span class="xml"></span></div><div class="line"><span class="xml">// findIndex 回傳第一個滿足條件的「index」</span></div><div class="line"><span class="xml">console.log([4, 6, 8, 12].findIndex(isPrime)); // -1, not found</span></div><div class="line"><span class="xml">console.log([4, 6, 7, 12].findIndex(isPrime)); // 2</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="ES6-includes"><a href="#ES6-includes" class="headerlink" title="ES6-includes"></a>ES6-includes</h2><p>在陣列中尋找是否<font color="red">包含</font>這個值，如果有就會回傳 true，沒有則會回傳false。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 數字</span></div><div class="line"><span class="keyword">const</span> numArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(numArr.includes(<span class="number">2</span>)); <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="comment">// 字串</span></div><div class="line"><span class="keyword">const</span> strArr = [<span class="string">'老大'</span>, <span class="string">'老二'</span>, <span class="string">'老么'</span>];</div><div class="line"><span class="built_in">console</span>.log(strArr.includes(<span class="string">'老二'</span>)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(strArr.includes(<span class="string">'小花'</span>)); <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN-Array</a><br><a href="https://ithelp.ithome.com.tw/articles/10193776" target="_blank" rel="external">ES6 陣列語法糖</a><br><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part3/array.html" target="_blank" rel="external">ES6學習-陣列</a><br><a href="http://es6.ruanyifeng.com/#docs/array" target="_blank" rel="external">数组的扩展</a><br></div>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+            <a href="/tags/Array/" rel="tag"><i class="fa fa-tag"></i> Array</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/30/JS-for-of-forin/" rel="next" title="JS-for...in與for...of的差別">
+                <i class="fa fa-chevron-left"></i> JS-for...in與for...of的差別
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/13/JS30-01-JavaScript-Drum-Kit/" rel="prev" title="JS30-01-JavaScript-Drum-Kit">
+                JS30-01-JavaScript-Drum-Kit <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/02/02/JS-Array/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#push、pop、shift、unshift-差異"><span class="nav-number">1.</span> <span class="nav-text">push、pop、shift、unshift 差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序與反轉-sort與reverse"><span class="nav-number">2.</span> <span class="nav-text">排序與反轉 sort與reverse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">2.1.</span> <span class="nav-text">sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">2.2.</span> <span class="nav-text">reverse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slice"><span class="nav-number">3.</span> <span class="nav-text">slice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#splice"><span class="nav-number">4.</span> <span class="nav-text">splice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#淺拷貝作法"><span class="nav-number">5.</span> <span class="nav-text">淺拷貝作法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-find-與-findIndex"><span class="nav-number">6.</span> <span class="nav-text">ES6- find 與 findIndex</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本寫法"><span class="nav-number">6.1.</span> <span class="nav-text">基本寫法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#進階應用"><span class="nav-number">6.2.</span> <span class="nav-text">進階應用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-includes"><span class="nav-number">7.</span> <span class="nav-text">ES6-includes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">8.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>
