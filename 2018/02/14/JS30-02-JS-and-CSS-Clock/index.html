@@ -121,7 +121,9 @@
 <meta property="og:description" content="利用 JS 與 CSS 搭配作出時鐘效果">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2018/02/14/JS30-02-JS-and-CSS-Clock/JS_CSS_Clock.png">
-<meta property="og:updated_time" content="2018-02-14T17:10:48.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2018/02/14/JS30-02-JS-and-CSS-Clock/JS_CSS_Clock_01.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/02/14/JS30-02-JS-and-CSS-Clock/JS_CSS_Clock_02.png">
+<meta property="og:updated_time" content="2018-02-15T16:52:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS30-02-JS-and-CSS-Clock">
 <meta name="twitter:description" content="利用 JS 與 CSS 搭配作出時鐘效果">
@@ -474,6 +476,14 @@
 <li>利用 JS 與 CSS 搭配作出時鐘效果</li>
 </ul>
 <h2 id="實踐步驟"><a href="#實踐步驟" class="headerlink" title="實踐步驟"></a>實踐步驟</h2><ol>
+<li><p>先調整時鐘的 CSS樣式</p>
+<p> 修改前：</p>
+ <img src="/2018/02/14/JS30-02-JS-and-CSS-Clock/JS_CSS_Clock_01.png" alt="JS_CSS_Clock_01.png" title="">
+<p> 新增CSS修改語法：</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(90<span class="selector-tag">deg</span>); <span class="comment">/* 將 時、分、秒針 從 45分 旋轉至 12點 方向 */</span></div><div class="line"><span class="selector-tag">transform-origin</span>: 100% 50%; <span class="comment">/* 將旋轉的原點移位 */</span></div><div class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 0<span class="selector-class">.05s</span> <span class="selector-tag">cubic-bezier</span>(0, 2<span class="selector-class">.95</span>, 1, 1); <span class="comment">/* 讓秒針有跳動的效果 */</span></div><div class="line"><span class="selector-tag">border-radius</span>: 50%; <span class="comment">/* 原先是 長方形 ，修改成 圓角 ，比較像 時針 */</span></div></pre></td></tr></table></figure>
+<p> 修改後：</p>
+ <img src="/2018/02/14/JS30-02-JS-and-CSS-Clock/JS_CSS_Clock_02.png" alt="JS_CSS_Clock_02.png" title="">
+</li>
 <li><p>取得目前時間，並每秒更新一次</p>
 <ul>
 <li>利用 <code>setInterval(setDate, 1000)</code> 每秒更新</li>
@@ -570,6 +580,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/02/15/JS30-03-CSS-Variables/" rel="prev" title="JS30-03-CSS-Variables">
+                JS30-03-CSS-Variables <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -652,7 +666,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>

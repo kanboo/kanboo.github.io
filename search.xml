@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS30-03-CSS-Variables]]></title>
+    <url>%2F2018%2F02%2F15%2FJS30-03-CSS-Variables%2F</url>
+    <content type="text"><![CDATA[利用 CSS變數 與 JS 即時更新圖片的 內距、邊框色、模糊 效果 目標 使用 CSS變數 功能 透過 JS 更改 CSS變數值，達到即時更新 內距、邊框色、模糊 的效果 實踐步驟 在 CSS 的 :root 宣告 CSS變數 宣告方法：使用兩個-符號，代表「變數」，如：--spacing 使用方法：使用var()代表「使用變數」，如：var(--spacing) 分別監聽(change、mousemove)三個 input 的值 利用 dataset 取得自定義的資料，如：this.dataset.sizing 透過 document.documentElement.style.setProperty(&#39;--base&#39;, &#39;#fff&#39;); 更改CSS的變數 成品 [DEMO] | [GitHub] CSS學習紀錄使用 CSS的變數 功能，不過在 IE 上，好像還不支援。 CSS變數說明1234567891011121314151617/* 在CSS 的 :root(全局)設定 變數 */:root &#123; --base: #ffc600; --spacing: 50px; --blur: 10px;&#125;/* 使用CSS變數方法：var(變數名稱) */img &#123; padding: var(--spacing); background: var(--base); filter: blur(var(--blur)); /* CSS濾鏡效果：模糊 */&#125;.hl &#123; color: var(--base);&#125; :root 偽元素(全局):root 這個偽元素是文檔的根元素，等同於 &lt;html&gt; 標籤，所以常用於聲明全局的CSS變量： 設定變數(全局)123：root &#123; --color：#fff ;&#125; 在CSS style要使用時，用 var(變數名稱)，如下： 在CSS使用變數123img &#123; background： var(--color);&#125; 若是要在 JS 使用的話，語法如下： 用JS更改CSS變數12// ：root = 文檔的根元素 = &lt;html&gt; = document.documentElementdocument.documentElement.style.setProperty('--color', '#000'); CSS Variables filter 濾鏡CSS3的濾鏡功能，其中 blur 是高斯模糊，參數越高越模糊 MDN-filter JS學習紀錄dataset利用 dataset 可取得自定義的資料，另外也可使用 getAttribute 取得資料。 HTML1&lt;input id="blur" type="range" name="blur" value="10" data-sizing="px"&gt; JS取得dataset123456//方法1document.querySelector('#blur').dataset.sizing // 輸出：pxdocument.querySelector('#blur').dataset[sizing] // 輸出：px//方法2document.querySelector('#blur').getAttribute('data-sizing'); // 輸出：px MDN-dataset style.setProperty下列三種方法，皆可達到更改CSS的效果，不過實務上用方法2，會比較容易帶 參數 及 可讀性 較佳。 12345678910const DOM = document.querySelector('img');//方法1DOM.setAttribute("style", `padding: 10px`)//方法2DOM.style.setProperty('padding', '10px');//方法3DOM.style.padding = '10px'; MDN-setProperty]]></content>
+      <categories>
+        <category>JS</category>
+        <category>JS30</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+        <tag>JS30</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS30-02-JS-and-CSS-Clock]]></title>
     <url>%2F2018%2F02%2F14%2FJS30-02-JS-and-CSS-Clock%2F</url>
-    <content type="text"><![CDATA[利用 JS 與 CSS 搭配作出時鐘效果 目標 顯示目前時間 利用 JS 與 CSS 搭配作出時鐘效果 實踐步驟 取得目前時間，並每秒更新一次 利用 setInterval(setDate, 1000) 每秒更新 使用 new Date() 取得目前 時、分、秒 一個圓共 360deg，分別依照 時、分、秒 計算出各自的角度 秒針：(360 / 60) * seconds + 90 分針：(360 / 60) * seconds + 90 時針：(360 / 12) * seconds + 90 補充說明：最後有加 90 是因原先都指向45分的位置，為了指向12點方向，所以有先用CSS旋轉90度 rotate(90deg)。 最後用 JS 透過 element.style 修改 時、分、秒 的角度 element.style.tranform = &quot;roate( 角度 )&quot; 成品 [DEMO] | [GitHub] JS學習紀錄setInterval()如果需要一直持續循環作動，使用 setInterval，例如網頁上每一秒鐘就更新一次時間。 語法：setInterval(callback, time) 12//每秒刷新時間setInterval(setDate,1000); Date()取得時間的函數 12345const nowDate = new Date();nowDate.getSeconds(); //取得當前秒nowDate.getMinutes(); //取得當前分鐘nowDate.getHours(); //取得當前小時 element.style一開始想說要改 CSS 屬性，就很直覺的使用 第一種 方法，學習過程中，得知 第二種 方法也行。 修改CSS：第一種1secondHand.setAttribute("style", `transform: rotate($&#123;secondDegrees&#125;deg)`) 修改CSS：第二種1secondHand.style.transform = `rotate($&#123;secondDegrees&#125;deg)` 延伸：transform:rotate的彈跳問題當秒針旋轉一圈之後，要開始旋轉第二圈時，角度的計算變化會是 444°→90°→96°，重點就在 444° 變成 90° 時，本來rotate 都是順時針旋轉，但 444°→90° 那一瞬間會是 逆時針 轉回去，而造成秒針跳動有點怪異，所以解決方式如下 在角度計算 444°→90° 重新循環時，將 transition 屬性關掉，由於距離短，時間短，將逆時針迴旋的過程瞬間完成。 修正秒針跳動的效果1234567891011121314const nowDate = new Date();//秒針const seconds = nowDate.getSeconds();const secondDegrees = (360 / 60) * seconds + 90;// 修正秒針跳動的效果if(secondDegrees === 90)&#123; secondHand.style.transition = 'all 0s';&#125;else&#123; secondHand.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)';&#125;secondHand.style.transform = `rotate($&#123;secondDegrees&#125;deg)` 延伸問題參考：soyaine、GuaHsu]]></content>
+    <content type="text"><![CDATA[利用 JS 與 CSS 搭配作出時鐘效果 目標 顯示目前時間 利用 JS 與 CSS 搭配作出時鐘效果 實踐步驟 先調整時鐘的 CSS樣式 修改前： 新增CSS修改語法： 1234transform: rotate(90deg); /* 將 時、分、秒針 從 45分 旋轉至 12點 方向 */transform-origin: 100% 50%; /* 將旋轉的原點移位 */transition: all 0.05s cubic-bezier(0, 2.95, 1, 1); /* 讓秒針有跳動的效果 */border-radius: 50%; /* 原先是 長方形 ，修改成 圓角 ，比較像 時針 */ 修改後： 取得目前時間，並每秒更新一次 利用 setInterval(setDate, 1000) 每秒更新 使用 new Date() 取得目前 時、分、秒 一個圓共 360deg，分別依照 時、分、秒 計算出各自的角度 秒針：(360 / 60) * seconds + 90 分針：(360 / 60) * seconds + 90 時針：(360 / 12) * seconds + 90 補充說明：最後有加 90 是因原先都指向45分的位置，為了指向12點方向，所以有先用CSS旋轉90度 rotate(90deg)。 最後用 JS 透過 element.style 修改 時、分、秒 的角度 element.style.tranform = &quot;roate( 角度 )&quot; 成品 [DEMO] | [GitHub] JS學習紀錄setInterval()如果需要一直持續循環作動，使用 setInterval，例如網頁上每一秒鐘就更新一次時間。 語法：setInterval(callback, time) 12//每秒刷新時間setInterval(setDate,1000); Date()取得時間的函數 12345const nowDate = new Date();nowDate.getSeconds(); //取得當前秒nowDate.getMinutes(); //取得當前分鐘nowDate.getHours(); //取得當前小時 element.style一開始想說要改 CSS 屬性，就很直覺的使用 第一種 方法，學習過程中，得知 第二種 方法也行。 修改CSS：第一種1secondHand.setAttribute("style", `transform: rotate($&#123;secondDegrees&#125;deg)`) 修改CSS：第二種1secondHand.style.transform = `rotate($&#123;secondDegrees&#125;deg)` 延伸：transform:rotate的彈跳問題當秒針旋轉一圈之後，要開始旋轉第二圈時，角度的計算變化會是 444°→90°→96°，重點就在 444° 變成 90° 時，本來rotate 都是順時針旋轉，但 444°→90° 那一瞬間會是 逆時針 轉回去，而造成秒針跳動有點怪異，所以解決方式如下 在角度計算 444°→90° 重新循環時，將 transition 屬性關掉，由於距離短，時間短，將逆時針迴旋的過程瞬間完成。 修正秒針跳動的效果1234567891011121314const nowDate = new Date();//秒針const seconds = nowDate.getSeconds();const secondDegrees = (360 / 60) * seconds + 90;// 修正秒針跳動的效果if(secondDegrees === 90)&#123; secondHand.style.transition = 'all 0s';&#125;else&#123; secondHand.style.transition = 'all 0.05s cubic-bezier(0, 2.95, 1, 1)';&#125;secondHand.style.transform = `rotate($&#123;secondDegrees&#125;deg)` 延伸問題參考：soyaine、GuaHsu]]></content>
       <categories>
         <category>JS</category>
         <category>JS30</category>
@@ -295,8 +308,8 @@
       </categories>
       <tags>
         <tag>NodeJS</tag>
-        <tag>Express</tag>
         <tag>Firebase</tag>
+        <tag>Express</tag>
         <tag>RESTful</tag>
       </tags>
   </entry>
