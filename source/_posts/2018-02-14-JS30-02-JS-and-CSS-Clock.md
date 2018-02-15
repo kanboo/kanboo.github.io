@@ -27,17 +27,34 @@ tags:
 
 ## 實踐步驟
 
-1. 取得目前時間，並每秒更新一次
+1. 先調整時鐘的 CSS樣式
+
+    修改前：
+    {% asset_img JS_CSS_Clock_01.png %}
+
+    新增CSS修改語法：
+    ``` css
+    transform: rotate(90deg); /* 將 時、分、秒針 從 45分 旋轉至 12點 方向 */
+    transform-origin: 100% 50%; /* 將旋轉的原點移位 */
+    transition: all 0.05s cubic-bezier(0, 2.95, 1, 1); /* 讓秒針有跳動的效果 */
+    border-radius: 50%; /* 原先是 長方形 ，修改成 圓角 ，比較像 時針 */
+    ```
+
+    修改後：
+
+    {% asset_img JS_CSS_Clock_02.png %}
+
+2. 取得目前時間，並每秒更新一次
     - 利用 `setInterval(setDate, 1000)` 每秒更新
     - 使用 `new Date()` 取得目前 時、分、秒
 
-2. 一個圓共 `360deg`，分別依照 時、分、秒 計算出各自的角度
+3. 一個圓共 `360deg`，分別依照 時、分、秒 計算出各自的角度
     - 秒針：(360 / 60) * seconds + 90
     - 分針：(360 / 60) * seconds + 90
     - 時針：(360 / 12) * seconds + 90
     - 補充說明：最後有加 90 是因原先都指向45分的位置，為了指向12點方向，所以有先用CSS旋轉90度 `rotate(90deg)`。
 
-3. 最後用 JS 透過 `element.style` 修改 時、分、秒 的角度
+4. 最後用 JS 透過 `element.style` 修改 時、分、秒 的角度
     - `element.style.tranform = "roate( 角度 )"`
 
 ## 成品
