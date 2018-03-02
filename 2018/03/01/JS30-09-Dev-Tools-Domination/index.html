@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,JS30," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="學習Chrome Debug 的工具">
+<meta name="keywords" content="JS,JS30">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS30-09-Dev-Tools-Domination">
+<meta property="og:url" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="學習Chrome Debug 的工具">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/group.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/DOM_Break_on.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/log.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/warn.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/error.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/info.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/assert.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/dir.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/group.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/count.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/time.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/table.png">
+<meta property="og:updated_time" content="2018-03-02T15:16:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS30-09-Dev-Tools-Domination">
+<meta name="twitter:description" content="學習Chrome Debug 的工具">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/group.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/"/>
+
+
+
+
+
+  <title>JS30-09-Dev-Tools-Domination | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS30-09-Dev-Tools-Domination</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-03-01T16:55:55+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/JS30/" itemprop="url" rel="index">
+                    <span itemprop="name">JS30</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/01/JS30-09-Dev-Tools-Domination/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/03/01/JS30-09-Dev-Tools-Domination/group.png" alt="group.png" title=""></p>
+<font style="font-size:20px;">學習Chrome <font color="red">Debug</font> 的工具</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ul>
+<li>如何觀察 DOM 的變化與查看狀態</li>
+<li>console 的各種用法</li>
+</ul>
+<h2 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h2><blockquote>
+<p><a href="https://kanboo.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/">[DEMO]</a> | <a href="https://github.com/kanboo/JavaScript30/blob/master/09%20-%20Dev%20Tools%20Domination/index.html" target="_blank" rel="external">[GitHub]</a></p>
+</blockquote>
+<div class="note info"><a href="https://www.udemy.com/chrome-devtools" target="_blank" rel="external">六角學院-Chrome 網頁除錯功能大解密</a><br><a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference?hl=zh-tw#top_of_page" target="_blank" rel="external">官方-Console API 參考</a></div>
+
+<hr>
+<h2 id="DOM-BREAK-ON"><a href="#DOM-BREAK-ON" class="headerlink" title="DOM BREAK ON"></a>DOM BREAK ON</h2><p>介紹 <code>DOM</code> 的中斷點模式，分別有三種觸發模式可選（可複選）</p>
+<ol>
+<li>subtree modifications: 當子元素點發生變化時</li>
+<li>arrtibute modifications: 當元素發生變化時</li>
+<li>node removal: 當元素被移除時</li>
+</ol>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/DOM_Break_on.png" alt="DOM_Break_on.png" title="">
+<hr>
+<h2 id="CONSOLE"><a href="#CONSOLE" class="headerlink" title="CONSOLE"></a>CONSOLE</h2><h3 id="console-log"><a href="#console-log" class="headerlink" title="console.log()"></a>console.log()</h3><p>除了一般我們最常用的 <code>log</code> 之外，還可另外新增 變數 ，增加訊息的變化</p>
+<ul>
+<li>%s：可帶入 指定的參數</li>
+<li>%c：可新增 css樣式</li>
+</ul>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/log.png" alt="log.png" title="">
+<h3 id="console-warn"><a href="#console-warn" class="headerlink" title="console.warn()"></a>console.warn()</h3><p>log 多顯示為 <font color="orange">警告icon</font></p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/warn.png" alt="warn.png" title="">
+<h3 id="console-error"><a href="#console-error" class="headerlink" title="console.error()"></a>console.error()</h3><p>log 多顯示為 <font color="red">錯誤icon</font></p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/error.png" alt="error.png" title="">
+<h3 id="console-info"><a href="#console-info" class="headerlink" title="console.info()"></a>console.info()</h3><p><font color="red">失效</font>，沒有顯示「帶白色“i”的藍色圓圈」</p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/info.png" alt="info.png" title="">
+<h3 id="console-assert"><a href="#console-assert" class="headerlink" title="console.assert()"></a>console.assert()</h3><p>可額外用來判斷，若條件為 <code>false</code> 時，才會顯示 <font color="red">錯誤訊息</font>。</p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/assert.png" alt="assert.png" title="">
+<h3 id="console-clear"><a href="#console-clear" class="headerlink" title="console.clear()"></a>console.clear()</h3><p>清除全部log。</p>
+
+<h3 id="console-dir"><a href="#console-dir" class="headerlink" title="console.dir()"></a>console.dir()</h3><p>可顯示出物件的<font color="red">細節資料</font>，如：DOM元素、Function…</p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/dir.png" alt="dir.png" title="">
+<h3 id="console-groupCollapsed-amp-console-groupEnd"><a href="#console-groupCollapsed-amp-console-groupEnd" class="headerlink" title="console.groupCollapsed() &amp; console.groupEnd()"></a>console.groupCollapsed() &amp; console.groupEnd()</h3><p>可將一群相關訊息打成一包，這樣較易 檢查確認。</p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/group.png" alt="group.png" title="">
+<h3 id="console-count"><a href="#console-count" class="headerlink" title="console.count()"></a>console.count()</h3><p>可顯示 累加出現的次數。</p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/count.png" alt="count.png" title="">
+<h3 id="console-time-amp-console-timeEnd"><a href="#console-time-amp-console-timeEnd" class="headerlink" title="console.time() &amp; console.timeEnd()"></a>console.time() &amp; console.timeEnd()</h3><p>可用於計算一段程式碼執行時，所花費的時間。</p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/time.png" alt="time.png" title="">
+<h3 id="console-table"><a href="#console-table" class="headerlink" title="console.table()"></a>console.table()</h3><p>可將陣列的資料，用 table 方式顯示，易於觀看。</p>
+<img src="/2018/03/01/JS30-09-Dev-Tools-Domination/table.png" alt="table.png" title="">
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+            <a href="/tags/JS30/" rel="tag"><i class="fa fa-tag"></i> JS30</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/JS30-08-Fun-with-HTML5-Canvas/" rel="next" title="JS30-08-Fun-with-HTML5-Canvas">
+                <i class="fa fa-chevron-left"></i> JS30-08-Fun-with-HTML5-Canvas
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/03/01/JS30-09-Dev-Tools-Domination/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目標"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成品"><span class="nav-number">2.</span> <span class="nav-text">成品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-BREAK-ON"><span class="nav-number">3.</span> <span class="nav-text">DOM BREAK ON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CONSOLE"><span class="nav-number">4.</span> <span class="nav-text">CONSOLE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#console-log"><span class="nav-number">4.1.</span> <span class="nav-text">console.log()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-warn"><span class="nav-number">4.2.</span> <span class="nav-text">console.warn()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-error"><span class="nav-number">4.3.</span> <span class="nav-text">console.error()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-info"><span class="nav-number">4.4.</span> <span class="nav-text">console.info()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-assert"><span class="nav-number">4.5.</span> <span class="nav-text">console.assert()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-clear"><span class="nav-number">4.6.</span> <span class="nav-text">console.clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-dir"><span class="nav-number">4.7.</span> <span class="nav-text">console.dir()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-groupCollapsed-amp-console-groupEnd"><span class="nav-number">4.8.</span> <span class="nav-text">console.groupCollapsed() & console.groupEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-count"><span class="nav-number">4.9.</span> <span class="nav-text">console.count()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-time-amp-console-timeEnd"><span class="nav-number">4.10.</span> <span class="nav-text">console.time() & console.timeEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-table"><span class="nav-number">4.11.</span> <span class="nav-text">console.table()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>

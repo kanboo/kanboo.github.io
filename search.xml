@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS30-09-Dev-Tools-Domination]]></title>
+    <url>%2F2018%2F03%2F01%2FJS30-09-Dev-Tools-Domination%2F</url>
+    <content type="text"><![CDATA[學習Chrome Debug 的工具 目標 如何觀察 DOM 的變化與查看狀態 console 的各種用法 成品 [DEMO] | [GitHub] 六角學院-Chrome 網頁除錯功能大解密官方-Console API 參考 DOM BREAK ON介紹 DOM 的中斷點模式，分別有三種觸發模式可選（可複選） subtree modifications: 當子元素點發生變化時 arrtibute modifications: 當元素發生變化時 node removal: 當元素被移除時 CONSOLEconsole.log()除了一般我們最常用的 log 之外，還可另外新增 變數 ，增加訊息的變化 %s：可帶入 指定的參數 %c：可新增 css樣式 console.warn()log 多顯示為 警告icon console.error()log 多顯示為 錯誤icon console.info()失效，沒有顯示「帶白色“i”的藍色圓圈」 console.assert()可額外用來判斷，若條件為 false 時，才會顯示 錯誤訊息。 console.clear()清除全部log。 console.dir()可顯示出物件的細節資料，如：DOM元素、Function… console.groupCollapsed() &amp; console.groupEnd()可將一群相關訊息打成一包，這樣較易 檢查確認。 console.count()可顯示 累加出現的次數。 console.time() &amp; console.timeEnd()可用於計算一段程式碼執行時，所花費的時間。 console.table()可將陣列的資料，用 table 方式顯示，易於觀看。]]></content>
+      <categories>
+        <category>JS</category>
+        <category>JS30</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+        <tag>JS30</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS30-08-Fun-with-HTML5-Canvas]]></title>
+    <url>%2F2018%2F03%2F01%2FJS30-08-Fun-with-HTML5-Canvas%2F</url>
+    <content type="text"><![CDATA[用滑鼠在 Canvas 上作畫 目標 使用HTML5的 Canvas 來製作一個畫布 透過 滑鼠 可達到作畫的效果 實踐步驟 建立 canvas 的區塊，設定為 2D 環境，並設定相關屬性 strokeStyle、lineJoin、lineCap、lineWidth 透過 JS 設定 canvas 會應用到的相關變數 canvas的顏色、線條粗細、座標…等 function draw(e) 監聽 滑鼠 的事件 開始作畫：mousedown 作畫中..：mousemove 結束作畫：mouseup、mouseout 成品 [DEMO] | [GitHub] canvas學習紀錄設定線條樣式下列為這次 canvas 作畫用到的屬性 strokeStyle 線條顏色 lineJoin 線條轉彎的樣式 lineCap 線條收尾的樣式 lineWidth 線條寬度 HTML1&lt;canvas id="draw" width="800" height="800"&gt;&lt;/canvas&gt; JS-canvas設定1234567891011const canvas = document.querySelector('#draw');const ctx = canvas.getContext('2d'); // 宣告為 2D 渲染環境(e.g. 2D、webgl、webg2、bitmaprenderer)canvas.width = window.innerWidth;canvas.height = window.innerHeight;ctx.strokeStyle = 'blue'; // 線條顏色ctx.lineJoin = 'round'; // 線條轉彎的樣式(e.g. round(圓角)、bevel(去斜角)、、miter(尖形))ctx.lineCap = 'round'; // 線條收尾的樣式(e.g. butt(短方形)、round(圓形)、square(長方形))ctx.lineWidth = 25;ctx.globalCompositeOperation = 'source-in'; // 當有重疊的部份，如何呈現(e.g. source-over、screen、multiply、etc.) 作畫步驟利用JS完成作畫的步驟，如下 beginPath() 宣告開始作畫 moveTo() 作畫的起點 lineTo() 作畫的終點 stroke() 完成作畫 作畫部份程式碼1234ctx.beginPath();ctx.moveTo(lastX, lastY); // start fromctx.lineTo(e.offsetX, e.offsetY); // go toctx.stroke(); MDN-CanvasRenderingContext2DCanvasRenderingContext2D.globalCompositeOperation JS學習紀錄DOM監聽事件之this此次範例，作者在 DOM監聽事件 使用了 箭頭函式，雖然看似沒什麼情況，不過有一點要注意，若是有要對本身的DOM做修改的話，this 這個變數就會有所差異，如下例所示。 箭頭函式123canvas.addEventListener('mousedown', (e) =&gt; &#123; console.log(this); // window&#125;); 一般函式123canvas.addEventListener('mousedown', function(e) &#123; console.log(this); // DOM元素&#125;); JS-一次搞懂 JavaScript 的 this]]></content>
+      <categories>
+        <category>JS</category>
+        <category>JS30</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+        <tag>JS30</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS30-07-Array-Cardio-Day-2]]></title>
     <url>%2F2018%2F02%2F26%2FJS30-07-Array-Cardio-Day-2%2F</url>
     <content type="text"><![CDATA[練習運用 Array 的各種函式 目標 共提供二組資料 people： [{ name: ‘Wes’, year: 1988 },…] comments ：[{ text: ‘Love this!’, id: 523423 },…] 根據不同需求條件篩選出正確的資料 練習題目people 的資料： 在people資料中，是否有19歲以上的人 在people資料中，是否每個人都19歲以上 comments 的資料： 在comments資料中，找到id是 823423 的資料 在comments資料中，找到id是 823423 的資料索引值, 並透過索引值刪除這筆資料 成品 [DEMO] | [GitHub] people 題目people資料123456const people = [ &#123; name: 'Wes', year: 1988 &#125;, &#123; name: 'Kait', year: 1986 &#125;, &#123; name: 'Irv', year: 1970 &#125;, &#123; name: 'Lux', year: 2015 &#125;]; Q：在people資料中，是否有19歲以上的人 A：透過 some() 逐筆判斷，只要其中一筆有符合，就回傳 true some()123456789101112131415// Some and Every Checks// Array.prototype.some() // is at least one person 19 or older?/* 解法 */const isAdult = people.some(function(people)&#123; const currYear = (new Date()).getFullYear(); if ( (currYear - people.year) &gt;= 19)&#123; return true &#125;&#125;)/* 簡化語法 */const isAdult = people.some( people =&gt; (new Date()).getFullYear() - people.year &gt;= 19)console.log(isAdult); Q：在在people資料中，是否每個人都19歲以上 A：透過 every() 逐筆判斷，只要其中一筆不符合，就回傳 false every()1234// Array.prototype.every() // is everyone 19 or older?const allAdults = people.every( people =&gt; (new Date()).getFullYear() - people.year &gt;= 19)console.log(allAdults); comments 題目comments資料1234567const comments = [ &#123; text: 'Love this!', id: 523423 &#125;, &#123; text: 'Super good', id: 823423 &#125;, &#123; text: 'You are the best', id: 2039842 &#125;, &#123; text: 'Ramen is my fav food ever', id: 123523 &#125;, &#123; text: 'Nice Nice Nice!', id: 542328 &#125;]; Q：在comments資料中，找到id是 823423 的資料 A：透過 find() 逐筆判斷，回傳 第一個符合條件的值，若都無符合，則回傳 undefined find()12345678910111213141516// Array.prototype.find()// Find is like filter, but instead returns just the one you are looking for// find the comment with the ID of 823423/* 解法 */const comment = comments.find(function(comment)&#123; if (comment.id === 823423)&#123; return true &#125;&#125;)/* 簡化語法 */const comment = comments.find( comment =&gt; comment.id === 823423)console.log(comment); Q：在comments資料中，找到id是 823423 的資料索引值, 並透過索引值刪除這筆資料 A： 透過 findIndex() 逐筆判斷，回傳 第一個符合條件的索引值，若都無符合，則回傳 -1 將取得的索引值，透過 slice() 和 Spread syntax(展開語法) 的搭配使用，產出一新陣列 findIndex()、slice()、Spread syntax123456789101112131415// Array.prototype.findIndex()// Find the comment with this ID// delete the comment with the ID of 823423const index = comments.findIndex( comment =&gt; comment.id === 823423)// console.log(index);// 去除不要的comment，產生一個新的陣列// slice 為 淺拷貝（shallow copy），不影響原陣列資料。const newComments = [ ...comments.slice(0, index), ...comments.slice(index+1)]console.log(newComments);]]></content>
