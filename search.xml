@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS30-10-Hold-Shift-and-Check-Checkboxes]]></title>
+    <url>%2F2018%2F03%2F03%2FJS30-10-Hold-Shift-and-Check-Checkboxes%2F</url>
+    <content type="text"><![CDATA[搭配 Shift + 滑鼠 勾選多個Checkbox 目標 利用 Shift + 滑鼠點擊 完成勾選範圍的項目 實踐步驟 取得所有的 checkbox元素，並且監聽 click 事件 利用變數紀錄 前次 與 這次 的點擊項目，計算出二者之間的範圍，完成勾選範圍的項目 lastChooise 記錄最後選擇項目 e.shiftKey 判斷有無按Shift鍵 成品 [DEMO] | [GitHub] JS學習紀錄思考：如何篩選出範圍想法1(我的想法)： 紀錄 最後一次的點擊項目 判斷 目前點擊項目 是在 最後一次點擊項目 的上面或下面 先爬上一次 再爬下一次 知道方向後，再由 目前點擊項目 loop至 最後一次點擊項目，完成勾選範圍的項目 想法2(作者作法)： 紀錄 最後一次的點擊項目 重新到尾loop 一次 將第一個遇到的「currentChooise 或 lastChooise」當起頭 最後結束的時機點，就利用剩下還沒遇到的 「currentChooise 或 lastChooise」當結尾， 由此劃分出 currentChooise 與 lastChooise 之間的範圍 由上述的 想法1 和 想法2 來比較的話，想法1 在過程中就多跑了好幾次loop來判斷一些事項，才能達到結果，所以在此次練習中，又學到了新的思維。 JS程式碼 因為程式碼不多，就直接貼上來，方便看。 整段程式碼1234567891011121314151617181920212223242526272829303132const checkboxs = document.querySelectorAll('[type="checkbox"]');let lastChooise = null;function handleCheck(e)&#123;// console.log(e);let isInChooiseScope = false;if (e.shiftKey === true &amp;&amp; this.checked === true &amp;&amp; lastChooise !== this &amp;&amp; lastChooise !== null)&#123; checkboxs.forEach( checkbox =&gt; &#123; // 重點： // 利用loop從頭到尾迭代的特性，將第一個遇到的「currentChooise 或 lastChooise」當起頭 // 最後結束的時機點，就利用剩下還沒遇到的 「currentChooise 或 lastChooise」當結尾， // 由此劃分出 currentChooise 與 lastChooise 之間的範圍 if ( checkbox === this || checkbox === lastChooise)&#123; isInChooiseScope = !isInChooiseScope; &#125; if (isInChooiseScope)&#123; // checkbox.setAttribute('checked', true); // 上下二者結果皆相同 checkbox.checked = true; &#125; &#125;)&#125;lastChooise = this;&#125;checkboxs.forEach( checkbox =&gt; checkbox.addEventListener('click', handleCheck))]]></content>
+      <categories>
+        <category>JS</category>
+        <category>JS30</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+        <tag>JS30</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS30-09-Dev-Tools-Domination]]></title>
     <url>%2F2018%2F03%2F01%2FJS30-09-Dev-Tools-Domination%2F</url>
     <content type="text"><![CDATA[學習Chrome Debug 的工具 目標 如何觀察 DOM 的變化與查看狀態 console 的各種用法 成品 [DEMO] | [GitHub] 六角學院-Chrome 網頁除錯功能大解密官方-Console API 參考 DOM BREAK ON介紹 DOM 的中斷點模式，分別有三種觸發模式可選（可複選） subtree modifications: 當子元素點發生變化時 arrtibute modifications: 當元素發生變化時 node removal: 當元素被移除時 CONSOLEconsole.log()除了一般我們最常用的 log 之外，還可另外新增 變數 ，增加訊息的變化 %s：可帶入 指定的參數 %c：可新增 css樣式 console.warn()log 多顯示為 警告icon console.error()log 多顯示為 錯誤icon console.info()失效，沒有顯示「帶白色“i”的藍色圓圈」 console.assert()可額外用來判斷，若條件為 false 時，才會顯示 錯誤訊息。 console.clear()清除全部log。 console.dir()可顯示出物件的細節資料，如：DOM元素、Function… console.groupCollapsed() &amp; console.groupEnd()可將一群相關訊息打成一包，這樣較易 檢查確認。 console.count()可顯示 累加出現的次數。 console.time() &amp; console.timeEnd()可用於計算一段程式碼執行時，所花費的時間。 console.table()可將陣列的資料，用 table 方式顯示，易於觀看。]]></content>
