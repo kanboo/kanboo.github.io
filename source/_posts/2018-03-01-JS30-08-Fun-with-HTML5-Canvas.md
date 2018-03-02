@@ -22,9 +22,19 @@ tags:
 
 ## 目標
 
-- 建立 `canvas` 的區塊，設定為 `2D` 環境，並設定相關屬性
+- 使用HTML5的 `Canvas` 來製作一個畫布
+- 透過 <font color="red">滑鼠</font> 可達到作畫的效果
+
+## 實踐步驟
+
+1. 建立 `canvas` 的區塊，設定為 `2D` 環境，並設定相關屬性
     - strokeStyle、lineJoin、lineCap、lineWidth
-- 監聽 滑鼠 的事件
+
+2. 透過 JS 設定 canvas 會應用到的相關變數
+    - canvas的顏色、線條粗細、座標...等
+    - function draw(e)
+
+2. 監聽 滑鼠 的事件
     - 開始作畫：mousedown
     - 作畫中..：mousemove
     - 結束作畫：mouseup、mouseout
