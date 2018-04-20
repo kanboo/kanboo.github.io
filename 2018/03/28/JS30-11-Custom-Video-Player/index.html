@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,JS30," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="利用Video屬性及Method來變更播放器的功能，播放/暫停、快進/快退、音量控制、倍數控制。">
+<meta name="keywords" content="JS,JS30">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS30-11-Custom-Video-Player">
+<meta property="og:url" content="https://kanboo.github.io/2018/03/28/JS30-11-Custom-Video-Player/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="利用Video屬性及Method來變更播放器的功能，播放/暫停、快進/快退、音量控制、倍數控制。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/03/28/JS30-11-Custom-Video-Player/video.png">
+<meta property="og:updated_time" content="2018-04-13T18:01:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS30-11-Custom-Video-Player">
+<meta name="twitter:description" content="利用Video屬性及Method來變更播放器的功能，播放/暫停、快進/快退、音量控制、倍數控制。">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/03/28/JS30-11-Custom-Video-Player/video.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/03/28/JS30-11-Custom-Video-Player/"/>
+
+
+
+
+
+  <title>JS30-11-Custom-Video-Player | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/03/28/JS30-11-Custom-Video-Player/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS30-11-Custom-Video-Player</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-03-28T16:08:11+08:00">
+                2018-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/JS30/" itemprop="url" rel="index">
+                    <span itemprop="name">JS30</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/28/JS30-11-Custom-Video-Player/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/03/28/JS30-11-Custom-Video-Player/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/03/28/JS30-11-Custom-Video-Player/video.png" alt="video.png" title=""></p>
+<font style="font-size:20px;">利用Video屬性及Method來變更播放器的功能，<br>播放/暫停、快進/快退、音量控制、倍數控制。</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ul>
+<li>實現播放器功能<ul>
+<li>播放/暫停</li>
+<li>快進/快退</li>
+<li>音量控制</li>
+<li>倍數控制</li>
+</ul>
+</li>
+</ul>
+<h2 id="實踐步驟"><a href="#實踐步驟" class="headerlink" title="實踐步驟"></a>實踐步驟</h2><ol>
+<li><p>取得所有<font color="red">video DOM元素</font></p>
+</li>
+<li><p>撰寫Function 並 監聽DOM元素</p>
+<ul>
+<li>監聽 video 播放或暫停 →延伸→ 切換播放的icon</li>
+<li>進度條更新目前播放時間</li>
+<li>進度條監聽是否有切換video播放時間</li>
+<li>調整 聲音、播放倍數</li>
+<li>進、快退(+25 or -10)</li>
+</ul>
+</li>
+</ol>
+<h2 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h2><blockquote>
+<p><a href="https://kanboo.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/">[DEMO]</a> | <a href="https://github.com/kanboo/JavaScript30/blob/master/11%20-%20Custom%20Video%20Player/index.html" target="_blank" rel="external">[GitHub]</a></p>
+</blockquote>
+<hr>
+<h2 id="JS學習紀錄"><a href="#JS學習紀錄" class="headerlink" title="JS學習紀錄"></a>JS學習紀錄</h2><h3 id="video-播放或暫停"><a href="#video-播放或暫停" class="headerlink" title="video 播放或暫停"></a>video 播放或暫停</h3><figure class="highlight js"><figcaption><span>JS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">togglePlay</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">const</span> method = video.paused ? <span class="string">'play'</span> : <span class="string">'pause'</span>;</div><div class="line">    video[method](); <span class="comment">// 觸發影片API，當有更新時，連動會觸發本身的Event </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 切換icon</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateButton</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> icon = <span class="keyword">this</span>.paused ? <span class="string">'►'</span> : <span class="string">'❚ ❚'</span>;</div><div class="line">    toggleBtn.textContent = icon;</div><div class="line">&#125;</div><div class="line"></div><div class="line">video.addEventListener(<span class="string">'click'</span>,togglePlay);         <span class="comment">//點擊 影片的任何位置</span></div><div class="line">toggleBtn.addEventListener(<span class="string">'click'</span>,togglePlay);     <span class="comment">//點擊 icon</span></div><div class="line"></div><div class="line"><span class="comment">// 監聽影片本身的Event，達到切換播放的icon</span></div><div class="line">video.addEventListener(<span class="string">'play'</span>, updateButton);</div><div class="line">video.addEventListener(<span class="string">'pause'</span>, updateButton);</div></pre></td></tr></table></figure>
+<p>上例比較特別的地方是在 <code>togglePlay()</code> 裡的 <code>video[method]()</code> 這個寫法，</p>
+<p>原本會寫成 <code>video.play()</code> 和 <code>video.pause()</code> 來呼叫影片method，</p>
+<p>所以也可使用 <code>video[method]()</code> 呼叫method。</p>
+<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play" target="_blank" rel="external">HTMLMediaElement.play()</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/paused" target="_blank" rel="external">HTMLMediaElement.paused()</a></div>
+
+<h3 id="進度條更新目前播放時間"><a href="#進度條更新目前播放時間" class="headerlink" title="進度條更新目前播放時間"></a>進度條更新目前播放時間</h3><p>因為影片會一直持續播放，所以我們也要持續更新 進度條UI 畫面。</p>
+<figure class="highlight js"><figcaption><span>JS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleProgress</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="comment">// video.currentTime 目前播放時間</span></div><div class="line">    <span class="comment">// video.duration 屬性返回當前音頻/視頻的長度，以秒計。</span></div><div class="line">    <span class="keyword">const</span> percent = (video.currentTime / video.duration) * <span class="number">100</span>;</div><div class="line">    <span class="comment">// console.log(video.currentTime, video.duration, percent);</span></div><div class="line">    progressBar.style.flexBasis = <span class="string">`<span class="subst">$&#123;percent&#125;</span>%`</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">video.addEventListener(<span class="string">'progress'</span>, handleProgress);</div></pre></td></tr></table></figure>
+<p>作者有提到關於 video 有兩個監聽參數 <code>timeupdate</code>、<code>progress</code>，<br>都可以做為<font color="red">影片時間變動</font>時的觸發條件，<br>二者差異如下：</p>
+<ul>
+<li>progress：會在<font color="red">載入</font>時，就開始觸發</li>
+<li>timeupdate：會在啟動播放後，才開始觸發</li>
+</ul>
+<p>所以建議使用 <code>progress</code> 提早觸發。</p>
+<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/Events/progress" target="_blank" rel="external">progress</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/Events/timeupdate" target="_blank" rel="external">timeupdate</a></div>
+
+<h3 id="進度條監聽是否有切換video播放時間"><a href="#進度條監聽是否有切換video播放時間" class="headerlink" title="進度條監聽是否有切換video播放時間"></a>進度條監聽是否有切換video播放時間</h3><p>判斷User是否有在 <font color="red">進度條</font> 做 <font color="red">變更video時間</font> 的動作，當符合操作條件時，就變更目前影片的播放時間。</p>
+<figure class="highlight js"><figcaption><span>JS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> progress = <span class="built_in">document</span>.querySelector(<span class="string">'.progress'</span>); <span class="comment">// 進度條DOM元素</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scrub</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="comment">// e.offsetX 取得滑鼠點擊的位置</span></div><div class="line">    <span class="comment">// progress.offsetWidth 進度條的總寬度</span></div><div class="line">    <span class="comment">// video.duration 屬性返回當前音頻/視頻的長度，以秒計。</span></div><div class="line">    <span class="comment">// console.log(e.offsetX, progress.offsetWidth, video.duration);</span></div><div class="line">    </div><div class="line">    <span class="keyword">const</span> scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;</div><div class="line"></div><div class="line">    video.currentTime = scrubTime; <span class="comment">// 更改影片的播放時間</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">let</span> mousedown = <span class="literal">false</span>; <span class="comment">//判斷滑鼠是否有點擊</span></div><div class="line">progress.addEventListener(<span class="string">'click'</span>, scrub); <span class="comment">//監聽 進度條DOM元素</span></div><div class="line"></div><div class="line"><span class="comment">/* 此段程式碼，可簡寫為下面程式碼</span></div><div class="line"><span class="comment">progress.addEventListener('mousemove', (e) =&gt; &#123;</span></div><div class="line"><span class="comment">    if (mousedown) &#123;</span></div><div class="line"><span class="comment">        scrub(e);</span></div><div class="line"><span class="comment">    &#125;</span></div><div class="line"><span class="comment">&#125;);</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="comment">// 監聽 滑鼠滑動 時，若 滑鼠為down 的狀態時，就呼叫 scrub 的method。</span></div><div class="line">progress.addEventListener(<span class="string">'mousemove'</span>, (e) =&gt; mousedown &amp;&amp; scrub(e)); </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 監聽滑鼠是否是 down 或 up 的狀態</span></div><div class="line">progress.addEventListener(<span class="string">'mousedown'</span>, () =&gt; mousedown = <span class="literal">true</span>);</div><div class="line">progress.addEventListener(<span class="string">'mouseup'</span>, () =&gt; mousedown = <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime" target="_blank" rel="external">HTMLMediaElement.currentTime</a></div>
+
+<h3 id="變更-聲音、播放倍數"><a href="#變更-聲音、播放倍數" class="headerlink" title="變更 聲音、播放倍數"></a>變更 聲音、播放倍數</h3><p>利用 <code>JS</code> 取得DOM元素的name、value的值，進而更新video的屬性。</p>
+<figure class="highlight html"><figcaption><span>HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 聲音 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">name</span>=<span class="string">"volume"</span> <span class="attr">class</span>=<span class="string">"player__slider"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"1"</span> <span class="attr">step</span>=<span class="string">"0.05"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 播放倍數 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">name</span>=<span class="string">"playbackRate"</span> <span class="attr">class</span>=<span class="string">"player__slider"</span> <span class="attr">min</span>=<span class="string">"0.5"</span> <span class="attr">max</span>=<span class="string">"2"</span> <span class="attr">step</span>=<span class="string">"0.1"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>JS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleRangeUpdate</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    video[<span class="keyword">this</span>.name] = <span class="keyword">this</span>.value;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ranges.forEach(<span class="function"><span class="params">range</span> =&gt;</span> range.addEventListener(<span class="string">'change'</span>, handleRangeUpdate));</div><div class="line">ranges.forEach(<span class="function"><span class="params">range</span> =&gt;</span> range.addEventListener(<span class="string">'mousemove'</span>, handleRangeUpdate));</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volume" target="_blank" rel="external">HTMLMediaElement.volume</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate" target="_blank" rel="external">HTMLMediaElement.playbackRate</a></div>
+
+<h3 id="快進、快退-25-or-10"><a href="#快進、快退-25-or-10" class="headerlink" title="快進、快退(+25 or -10)"></a>快進、快退(+25 or -10)</h3><p>利用 <code>JS</code> 取得DOM元素<font color="red">dataset</font>的值，進而更新video的屬性。</p>
+<figure class="highlight html"><figcaption><span>HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 快退 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-skip</span>=<span class="string">"-10"</span> <span class="attr">class</span>=<span class="string">"player__button"</span>&gt;</span>« 10s<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 快進 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-skip</span>=<span class="string">"25"</span> <span class="attr">class</span>=<span class="string">"player__button"</span>&gt;</span>25s »<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>JS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">skip</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// dataset值是字串，利用parseFloat需轉換成數字型態</span></div><div class="line">    video.currentTime += <span class="built_in">parseFloat</span>(<span class="keyword">this</span>.dataset.skip); </div><div class="line">&#125;</div><div class="line"></div><div class="line">skipButtons.forEach(<span class="function"><span class="params">button</span> =&gt;</span> button.addEventListener(<span class="string">'click'</span>, skip));</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+          
+            <a href="/tags/JS30/" rel="tag"><i class="fa fa-tag"></i> JS30</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/03/JS30-10-Hold-Shift-and-Check-Checkboxes/" rel="next" title="JS30-10-Hold-Shift-and-Check-Checkboxes">
+                <i class="fa fa-chevron-left"></i> JS30-10-Hold-Shift-and-Check-Checkboxes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/31/JS30-12-Key-Sequence-Detection/" rel="prev" title="JS30-12-Key-Sequence-Detection">
+                JS30-12-Key-Sequence-Detection <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/03/28/JS30-11-Custom-Video-Player/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目標"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實踐步驟"><span class="nav-number">2.</span> <span class="nav-text">實踐步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成品"><span class="nav-number">3.</span> <span class="nav-text">成品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS學習紀錄"><span class="nav-number">4.</span> <span class="nav-text">JS學習紀錄</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#video-播放或暫停"><span class="nav-number">4.1.</span> <span class="nav-text">video 播放或暫停</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#進度條更新目前播放時間"><span class="nav-number">4.2.</span> <span class="nav-text">進度條更新目前播放時間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#進度條監聽是否有切換video播放時間"><span class="nav-number">4.3.</span> <span class="nav-text">進度條監聽是否有切換video播放時間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#變更-聲音、播放倍數"><span class="nav-number">4.4.</span> <span class="nav-text">變更 聲音、播放倍數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快進、快退-25-or-10"><span class="nav-number">4.5.</span> <span class="nav-text">快進、快退(+25 or -10)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>
