@@ -11,7 +11,7 @@ tags:
 
 {% cq %}
 
-{% asset_img js16.jpg %}
+{% asset_img js16.png %}
 
 <font style="font-size:20px;">滑鼠移動時，讓<font color="red">文字的陰影</font>跟著移動。</font>
 
