@@ -112,21 +112,20 @@
 
 
 
-<meta name="description" content="練習 fetch()、filter()、RegExp()正規表達式 的運用">
+<meta name="description" content="navbar次導覽列的動態效果">
 <meta name="keywords" content="JS,JS30">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS30-06-Type-Ahead">
-<meta property="og:url" content="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/index.html">
+<meta property="og:title" content="JS30-26-Stripe-Follow-Along-Nav">
+<meta property="og:url" content="https://kanboo.github.io/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="練習 fetch()、filter()、RegExp()正規表達式 的運用">
+<meta property="og:description" content="navbar次導覽列的動態效果">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/typeahead.png">
-<meta property="og:image" content="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/css_01.png">
-<meta property="og:updated_time" content="2018-02-26T14:28:48.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/js26.jpg">
+<meta property="og:updated_time" content="2018-04-23T16:15:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS30-06-Type-Ahead">
-<meta name="twitter:description" content="練習 fetch()、filter()、RegExp()正規表達式 的運用">
-<meta name="twitter:image" content="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/typeahead.png">
+<meta name="twitter:title" content="JS30-26-Stripe-Follow-Along-Nav">
+<meta name="twitter:description" content="navbar次導覽列的動態效果">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/js26.jpg">
 
 
 
@@ -155,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/"/>
+  <link rel="canonical" href="https://kanboo.github.io/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/"/>
 
 
 
 
 
-  <title>JS30-06-Type-Ahead | Kanboo Notes</title>
+  <title>JS30-26-Stripe-Follow-Along-Nav | Kanboo Notes</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -355,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -372,7 +371,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS30-06-Type-Ahead</h1>
+          <h1 class="post-title" itemprop="name headline">JS30-26-Stripe-Follow-Along-Nav</h1>
         
 
         <div class="post-meta">
@@ -384,8 +383,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-02-26T11:20:01+08:00">
-                2018-02-26
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-04-23T22:23:08+08:00">
+                2018-04-23
               </time>
             
 
@@ -436,8 +435,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/26/JS30-06-Type-Ahead/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/" itemprop="commentCount">0</span> comments
+                <a href="/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -465,84 +464,29 @@
       
 
       
-        <blockquote class="blockquote-center"><p><img src="/2018/02/26/JS30-06-Type-Ahead/typeahead.png" alt="typeahead.png" title=""></p>
-<font style="font-size:20px;">練習 <font color="red">fetch()、filter()、RegExp()正規表達式</font> 的運用</font>
+        <blockquote class="blockquote-center"><p><img src="/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/js26.jpg" alt="js26.jpg" title=""></p>
+<font style="font-size:20px;">navbar次導覽列的動態效果</font>
 </blockquote>
 <a id="more"></a>
 <hr>
 <h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ul>
-<li>當 searchInput 更新時，即時篩選出結果，並顯示於下方List。</li>
-<li>顯示篩選結果時，需新增CSS效果，強調顯示 搜尋的字眼。</li>
-<li>將數字顯示成有 千分位 的格式。</li>
+<li>navbar次導覽列的動態效果。</li>
 </ul>
-<h2 id="實踐步驟"><a href="#實踐步驟" class="headerlink" title="實踐步驟"></a>實踐步驟</h2><ol>
-<li><p>透過 fetch() 取得 cities的資料</p>
-</li>
-<li><p>將 cities的資料 過濾出符合條件的資料</p>
-<ul>
-<li>filter()</li>
-<li>RegExp()</li>
-<li>match()</li>
-</ul>
-</li>
-<li><p>優化UI</p>
-<ul>
-<li>搜尋字串加顏色</li>
-<li>數字新增千分位</li>
-</ul>
-</li>
-</ol>
 <h2 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h2><blockquote>
-<p><a href="https://kanboo.github.io/JavaScript30/06%20-%20Type%20Ahead/">[DEMO]</a> | <a href="https://github.com/kanboo/JavaScript30/blob/master/06%20-%20Type%20Ahead/index.html" target="_blank" rel="external">[GitHub]</a></p>
+<p><a href="https://kanboo.github.io/JavaScript30/26%20-%20Stripe%20Follow%20Along%20Nav/">[DEMO]</a> | <a href="https://github.com/kanboo/JavaScript30/blob/master/26%20-%20Stripe%20Follow%20Along%20Nav/index.html" target="_blank" rel="external">[GitHub]</a></p>
 </blockquote>
 <hr>
-<h2 id="JS學習紀錄"><a href="#JS學習紀錄" class="headerlink" title="JS學習紀錄"></a>JS學習紀錄</h2><h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch()"></a>fetch()</h3><p>先看下面簡單範例的程式碼，再進而解說</p>
-<figure class="highlight js"><figcaption><span>簡單範例</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">'https://randomuser.me/api/'</span>, &#123;&#125;)</div><div class="line">.then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 這裡會得到一個 ReadableStream 的物件</span></div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">    <span class="comment">// 可以透過 blob(), json(), text() 轉成可用的資訊</span></div><div class="line">    <span class="keyword">return</span> response.json(); </div><div class="line">&#125;).then(<span class="function">(<span class="params">jsonData</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(jsonData);</div><div class="line">&#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'錯誤:'</span>, err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><span id="inline-blue">說明</span></p>
-<p>fetch 會使用 ES6 的 Promise 作回應</p>
-<ul>
-<li>then 作為 下一步</li>
-<li>catch 作為 錯誤回應 (404, 500…)</li>
-</ul>
-<p>簡單來說，呼叫完 fetch 後，</p>
-<ul>
-<li>若是成功的話，就會走 <code>then</code>，然後 <code>then</code> 可以一直接一直接。</li>
-<li>若是失敗的話，就會走 <code>catch</code> ，<code>catch</code> 只有一次。</li>
-</ul>
-<p><span id="inline-purple">回傳格式(ReadableStream)</span></p>
-<p>Fetch API 的 Response 物件中的 body 屬性提供了一個 ReadableStream 物件，<font color="red">此階段我們無法直接讀取回傳的資料內容</font>，所以需要再轉一手，才能使用取得的資料。</p>
-<p>ReadableStream</p>
-<ul>
-<li>arrayBuffer()</li>
-<li>blob()</li>
-<li>formData()</li>
-<li>json() <font color="red">(常用)</font></li>
-<li>text() <font color="red">(常用)</font></li>
-</ul>
-<p>最常使用的格式 <code>json()</code> 和 <code>text()</code>，至於 <code>blob()</code> 的話，可用於接收圖片檔案。</p>
-<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Body" target="_blank" rel="external">MDN-fetch.body</a><br><a href="http://idoc.hexschool.com/tobejsfighter/2017-12-28-javascript-fetch.html" target="_blank" rel="external">六角學院-ES6 原生 Fetch 遠端資料方法</a></div>
-
-<h3 id="RegExp-、match"><a href="#RegExp-、match" class="headerlink" title="RegExp()、match()"></a>RegExp()、match()</h3><p>在範例中，有要篩選出符合條件的 city 或  state，一開始在字串比對時，我使用了 <code>String.prototype.includes()</code>，不過此method是有<font color="red">區分大小寫(Case-sensitivity)</font>，所以為了搜尋字眼不區分大小寫的話，就需改用 <code>Regular Expressions</code> 方式。</p>
-<p><span id="inline-yellow">補充說明</span></p>
-<p><code>str.match(regexp)</code> 的回傳值</p>
-<ul>
-<li>有符合：return 一個Array(包含符合條件的結果)，<a href="http://jsbin.com/savasilexo/edit?js,console" target="_blank" rel="external">範例</a></li>
-<li>無符合：return <font color="red">null</font></li>
-</ul>
-<figure class="highlight js"><figcaption><span>篩選範例</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMatchData</span>(<span class="params">searchString, searchData</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> searchData.filter( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 方法1：includes</span></div><div class="line">    <span class="comment">// 使用此方法有一缺點就是「大小寫需一致」才能符合條件。</span></div><div class="line">    <span class="comment">// 舉例：資料為 "New York" 時，打 "York"，可搜尋的到，但是打 "york"，就會搜不到。</span></div><div class="line">    <span class="comment">// return item.city.includes(searchString) || item.state.includes(searchString)</span></div><div class="line">    </div><div class="line">    <span class="comment">// 方法2：正規表達式</span></div><div class="line">    <span class="keyword">const</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(searchString, <span class="string">'gi'</span>); <span class="comment">// 參數說明 → g：Global search 、 i：Case-insensitive search</span></div><div class="line">    <span class="keyword">return</span> item.city.match(regex) || item.state.match(regex)</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<div class="note info"><a href="https://atedev.wordpress.com/2007/11/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F-regular-expression/" target="_blank" rel="external">正規表示式 Regular Expression</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match" target="_blank" rel="external">MDN-String.prototype.match()</a></div>
-
-<h3 id="組字串小技巧-array-join-‘’"><a href="#組字串小技巧-array-join-‘’" class="headerlink" title="組字串小技巧 array.join(‘’)"></a>組字串小技巧 array.join(‘’)</h3><p>範例中，在組HTML字串時，利用 <code>.map()</code> 組合出想要的HTML字串，不過 <code>.map()</code> 回傳是一個 <font color="red">Array</font>，這時作者在 <code>.map()</code> 後，緊接著加了 <code>.join(&#39;&#39;)</code>，這樣的話，立馬就將原本是 「<font color="red">Array的資料 轉化成 一個字串</font>」，取代了以往使用 「<font color="red">字串相加</font>」 的用法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第二版：搜尋字串加顏色 、 數字新增千分位</span></div><div class="line"><span class="keyword">const</span> html = matchData.map( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="keyword">this</span>.value, <span class="string">'gi'</span>);</div><div class="line">    <span class="keyword">const</span> cityName = item.city.replace(regex, <span class="string">`&lt;span class="hl"&gt;<span class="subst">$&#123;<span class="keyword">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</div><div class="line">    <span class="keyword">const</span> stateName = item.state.replace(regex, <span class="string">`&lt;span class="hl"&gt;<span class="subst">$&#123;<span class="keyword">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="string">`</span></div><div class="line"><span class="string">    &lt;li&gt;</span></div><div class="line"><span class="string">        &lt;span class="name"&gt;<span class="subst">$&#123;cityName&#125;</span>, <span class="subst">$&#123;stateName&#125;</span>&lt;/span&gt;</span></div><div class="line"><span class="string">        &lt;span class="population"&gt;<span class="subst">$&#123;numberWithCommas(item.population)&#125;</span>&lt;/span&gt;</span></div><div class="line"><span class="string">    &lt;/li&gt;`</span></div><div class="line">&#125;).join(<span class="string">''</span>)</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="CSS學習紀錄"><a href="#CSS學習紀錄" class="headerlink" title="CSS學習紀錄"></a>CSS學習紀錄</h2><h2 id="List清單之摺疊效果"><a href="#List清單之摺疊效果" class="headerlink" title="List清單之摺疊效果"></a>List清單之摺疊效果</h2><p>在範例中，搜尋出來的結果，顯示時會有<code>交叉摺疊</code>效果，作者運用下列元素達成此效果。</p>
-<ul>
-<li><code>:nth-child(even)</code>、<code>:nth-child(odd)</code></li>
-<li><code>transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);</code></li>
-</ul>
-<img src="/2018/02/26/JS30-06-Type-Ahead/css_01.png" alt="css_01.png" title="">
-<figure class="highlight css"><figcaption><span>CSS-交叉摺疊效果</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.suggestions</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(even)</span> &#123;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">perspective</span>(100px) <span class="built_in">rotateX</span>(3deg) <span class="built_in">translateY</span>(2px) <span class="built_in">scale</span>(1.001);</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to bottom,  #ffffff 0%,#EFEFEF 100%);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.suggestions</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(odd)</span> &#123;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">perspective</span>(100px) <span class="built_in">rotateX</span>(-3deg) <span class="built_in">translateY</span>(3px);</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to top,  #ffffff 0%,#EFEFEF 100%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child" target="_blank" rel="external">MDN-:nth-child</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective" target="_blank" rel="external">MDN-perspective(透視)</a></div>
+<h2 id="開發建議作法"><a href="#開發建議作法" class="headerlink" title="開發建議作法"></a>開發建議作法</h2><ol>
+<li>先建置 HTML架構</li>
+<li>新增CSS及特殊效果，可利用Chrome開發工具，測試CSS效果大致上沒問題後。</li>
+<li>再開始用JS處理 新增、移除、微調 CSS的部份。</li>
+</ol>
+<h2 id="學習紀錄"><a href="#學習紀錄" class="headerlink" title="學習紀錄"></a>學習紀錄</h2><h3 id="一、準備好HTML架構及CSS效果"><a href="#一、準備好HTML架構及CSS效果" class="headerlink" title="一、準備好HTML架構及CSS效果"></a>一、準備好HTML架構及CSS效果</h3><figure class="highlight html"><figcaption><span>HTML架構</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Navbar --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 下拉選單背景，到時用JS控制 大小、定位顯示 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdownBackground"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"arrow"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 選單 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"cool"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>About Me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown dropdown1"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 下拉選單內容 --&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Courses<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"dropdown courses"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 下拉選單內容 --&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Other Links<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"dropdown dropdown3"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 下拉選單內容 --&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><figcaption><span>準備好CSS顯示的部份</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 將 下拉選單內容 顯示 */</span></div><div class="line"><span class="selector-class">.trigger-enter</span> <span class="selector-class">.dropdown</span> &#123;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 將 下拉選單內容 透明度改1 */</span></div><div class="line"><span class="selector-class">.trigger-enter-active</span> <span class="selector-class">.dropdown</span> &#123;</div><div class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 將 下拉選單背景 透明度改1 */</span></div><div class="line"><span class="selector-class">.dropdownBackground</span><span class="selector-class">.open</span> &#123;</div><div class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="二、選單綁上監聽事件"><a href="#二、選單綁上監聽事件" class="headerlink" title="二、選單綁上監聽事件"></a>二、選單綁上監聽事件</h3><p>主要的效果切換，就是在滑鼠的移入、移出這二個動作。</p>
+<figure class="highlight js"><figcaption><span>綁上監聽事件</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> triggers = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.cool &gt; li'</span>); <span class="comment">// 選單</span></div><div class="line"><span class="keyword">const</span> background  = <span class="built_in">document</span>.querySelector(<span class="string">'.dropdownBackground'</span>); <span class="comment">// 選單背景</span></div><div class="line"><span class="keyword">const</span> nav  = <span class="built_in">document</span>.querySelector(<span class="string">'.top'</span>); <span class="comment">// navbar</span></div><div class="line"></div><div class="line"><span class="comment">// 滑鼠移入事件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleEnter</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'ENTER~~'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 滑鼠移出事件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleLeave</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Leave!!'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 為每個選單綁上 滑鼠移入、移出 監聽事件</span></div><div class="line">triggers.forEach(<span class="function"><span class="params">trigger</span> =&gt;</span> trigger.addEventListener(<span class="string">'mouseenter'</span>, handleEnter));</div><div class="line">triggers.forEach(<span class="function"><span class="params">trigger</span> =&gt;</span> trigger.addEventListener(<span class="string">'mouseleave'</span>, handleLeave));</div></pre></td></tr></table></figure>
+<h3 id="三、新增動態效果"><a href="#三、新增動態效果" class="headerlink" title="三、新增動態效果"></a>三、新增動態效果</h3><figure class="highlight js"><figcaption><span>滑鼠移入事件</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 滑鼠移入事件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleEnter</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// console.log('ENTER~~');</span></div><div class="line"></div><div class="line">  <span class="comment">// 將 下拉選單內容 顯示</span></div><div class="line">  <span class="keyword">this</span>.classList.add(<span class="string">'trigger-enter'</span>);</div><div class="line"></div><div class="line">  <span class="comment">// 為了避免快速滑動導覽列產生錯亂，因此在 setTimeout 上增加判斷，</span></div><div class="line">  <span class="comment">// 當滑鼠移入時，先檢查是否有 trigger-enter 的className，</span></div><div class="line">  <span class="comment">// 若 有 的話，才新增 trigger-enter-active 的className，</span></div><div class="line">  <span class="comment">// 若 無 的話，則只會一直顯示 白色選單背景 的部分，內容不會被顯示出來。</span></div><div class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.classList.contains(<span class="string">'trigger-enter'</span>) &amp;&amp; <span class="keyword">this</span>.classList.add(<span class="string">'trigger-enter-active'</span>), <span class="number">150</span>);</div><div class="line"></div><div class="line">  <span class="comment">// 新增 open class，配合 下拉選單背景 使用</span></div><div class="line">  background.classList.add(<span class="string">'open'</span>);</div><div class="line"></div><div class="line">  <span class="comment">// 取得目前滑入元素底下的 dropdown</span></div><div class="line">  <span class="keyword">const</span> dropdown = <span class="keyword">this</span>.querySelector(<span class="string">'.dropdown'</span>);</div><div class="line">  <span class="comment">// 取得 dropdown 的 大小、定位 資訊</span></div><div class="line">  <span class="keyword">const</span> dropdownCoords = dropdown.getBoundingClientRect();</div><div class="line">  <span class="comment">// 取得 navbar 的 大小、定位 資訊</span></div><div class="line">  <span class="keyword">const</span> navCoords = nav.getBoundingClientRect();</div><div class="line"></div><div class="line">  <span class="comment">// 設定 下拉選單背景 的 大小、定位</span></div><div class="line">  <span class="keyword">const</span> coords = &#123;</div><div class="line">    height: dropdownCoords.height,</div><div class="line">    width: dropdownCoords.width,</div><div class="line">    <span class="comment">// 因為 getBoundingClientRect 是取得 目標元素相對於「瀏覽器視窗」的位置資訊，</span></div><div class="line">    <span class="comment">// 而 transform的translate 是根據 「父元素」 來定位，</span></div><div class="line">    <span class="comment">// 為了統一以「父元素」為基準點，</span></div><div class="line">    <span class="comment">// 所以要扣掉 navbar 的定位，避免上方區塊增加時造成的錯位，</span></div><div class="line">    top: dropdownCoords.top - navCoords.top,</div><div class="line">    left: dropdownCoords.left - navCoords.left</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="comment">// 設定 下拉選單背景 的 大小、定位</span></div><div class="line">  background.style.setProperty(<span class="string">'width'</span>, <span class="string">`<span class="subst">$&#123;coords.width&#125;</span>px`</span>);</div><div class="line">  background.style.setProperty(<span class="string">'height'</span>, <span class="string">`<span class="subst">$&#123;coords.height&#125;</span>px`</span>);</div><div class="line">  background.style.setProperty(<span class="string">'transform'</span>, <span class="string">`translate(<span class="subst">$&#123;coords.left&#125;</span>px, <span class="subst">$&#123;coords.top&#125;</span>px)`</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>滑鼠移出事件</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 滑鼠移出事件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleLeave</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// console.log('Leave!!');</span></div><div class="line">  <span class="keyword">this</span>.classList.remove(<span class="string">'trigger-enter'</span>, <span class="string">'trigger-enter-active'</span>);</div><div class="line">  background.classList.remove(<span class="string">'open'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -591,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/26/JS30-05-Flex-Panel-Gallery/" rel="next" title="JS30-05-Flex-Panel-Gallery">
-                <i class="fa fa-chevron-left"></i> JS30-05-Flex-Panel-Gallery
+              <a href="/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/" rel="next" title="JS30-25-Event-Capture-Propagation-Bubbling-and-Once">
+                <i class="fa fa-chevron-left"></i> JS30-25-Event-Capture-Propagation-Bubbling-and-Once
               </a>
             
           </div>
@@ -600,10 +544,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/26/JS30-07-Array-Cardio-Day-2/" rel="prev" title="JS30-07-Array-Cardio-Day-2">
-                JS30-07-Array-Cardio-Day-2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,7 +574,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="https://kanboo.github.io/2018/02/26/JS30-06-Type-Ahead/"
+           data-href="https://kanboo.github.io/2018/04/23/JS30-26-Stripe-Follow-Along-Nav/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -744,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目標"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實踐步驟"><span class="nav-number">2.</span> <span class="nav-text">實踐步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成品"><span class="nav-number">3.</span> <span class="nav-text">成品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS學習紀錄"><span class="nav-number">4.</span> <span class="nav-text">JS學習紀錄</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fetch"><span class="nav-number">4.1.</span> <span class="nav-text">fetch()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-、match"><span class="nav-number">4.2.</span> <span class="nav-text">RegExp()、match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#組字串小技巧-array-join-‘’"><span class="nav-number">4.3.</span> <span class="nav-text">組字串小技巧 array.join(‘’)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS學習紀錄"><span class="nav-number">5.</span> <span class="nav-text">CSS學習紀錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List清單之摺疊效果"><span class="nav-number">6.</span> <span class="nav-text">List清單之摺疊效果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目標"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成品"><span class="nav-number">2.</span> <span class="nav-text">成品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#開發建議作法"><span class="nav-number">3.</span> <span class="nav-text">開發建議作法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#學習紀錄"><span class="nav-number">4.</span> <span class="nav-text">學習紀錄</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、準備好HTML架構及CSS效果"><span class="nav-number">4.1.</span> <span class="nav-text">一、準備好HTML架構及CSS效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、選單綁上監聽事件"><span class="nav-number">4.2.</span> <span class="nav-text">二、選單綁上監聽事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、新增動態效果"><span class="nav-number">4.3.</span> <span class="nav-text">三、新增動態效果</span></a></li></ol></li></ol></div>
             
 
           </div>
