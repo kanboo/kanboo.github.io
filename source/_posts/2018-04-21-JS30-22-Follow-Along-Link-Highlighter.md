@@ -13,7 +13,7 @@ tags:
 
 {% asset_img js22.jpg %}
 
-<font style="font-size:20px;">滑鼠移動到特定位置產生highlight效果。</font>
+<font style="font-size:20px;">滑鼠移動到特定位置產生highlight效果</font>
 
 {% endcq %}
 

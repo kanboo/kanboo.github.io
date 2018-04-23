@@ -13,7 +13,7 @@ tags:
 
 {% asset_img js23.jpg %}
 
-<font style="font-size:20px;"> 將文字轉語音(可變更速率及音調)。</font>
+<font style="font-size:20px;"> 將文字轉語音(可變更速率及音調)</font>
 
 {% endcq %}
 

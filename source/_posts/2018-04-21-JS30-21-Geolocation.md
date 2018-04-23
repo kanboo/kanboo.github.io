@@ -13,7 +13,7 @@ tags:
 
 {% asset_img js21.jpg %}
 
-<font style="font-size:20px;"> 取得裝置的地理位置和速度。</font>
+<font style="font-size:20px;"> 取得裝置的地理位置和速度</font>
 
 {% endcq %}
 
