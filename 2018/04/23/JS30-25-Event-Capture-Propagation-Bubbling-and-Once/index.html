@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,Top,置頂," />
+  <meta name="keywords" content="JS,JS30," />
 
 
 
@@ -112,18 +112,21 @@
 
 
 
-<meta name="description" content="前言解決Hexo置頂問題，需要完成的事情有：  將目前 node_modules/hexo-generator-index/lib/generator.js 程式碼替換 在需要置頂的文章的前事中添加頂值，值越大越置頂。">
-<meta name="keywords" content="Hexo,Top,置頂">
+<meta name="description" content="了解 addEventListener 的運作">
+<meta name="keywords" content="JS,JS30">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo-文章置頂">
-<meta property="og:url" content="https://kanboo.github.io/2017/12/13/Hexo-Topfeatures/index.html">
+<meta property="og:title" content="JS30-25-Event-Capture-Propagation-Bubbling-and-Once">
+<meta property="og:url" content="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="前言解決Hexo置頂問題，需要完成的事情有：  將目前 node_modules/hexo-generator-index/lib/generator.js 程式碼替換 在需要置頂的文章的前事中添加頂值，值越大越置頂。">
+<meta property="og:description" content="了解 addEventListener 的運作">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-12-14T12:50:44.000Z">
+<meta property="og:image" content="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/js25.jpg">
+<meta property="og:image" content="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/js_04.png">
+<meta property="og:updated_time" content="2018-04-23T14:16:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo-文章置頂">
-<meta name="twitter:description" content="前言解決Hexo置頂問題，需要完成的事情有：  將目前 node_modules/hexo-generator-index/lib/generator.js 程式碼替換 在需要置頂的文章的前事中添加頂值，值越大越置頂。">
+<meta name="twitter:title" content="JS30-25-Event-Capture-Propagation-Bubbling-and-Once">
+<meta name="twitter:description" content="了解 addEventListener 的運作">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/js25.jpg">
 
 
 
@@ -152,13 +155,13 @@
 
 
 
-  <link rel="canonical" href="https://kanboo.github.io/2017/12/13/Hexo-Topfeatures/"/>
+  <link rel="canonical" href="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/"/>
 
 
 
 
 
-  <title>Hexo-文章置頂 | Kanboo Notes</title>
+  <title>JS30-25-Event-Capture-Propagation-Bubbling-and-Once | Kanboo Notes</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -352,7 +355,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2017/12/13/Hexo-Topfeatures/">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kanboo">
@@ -369,7 +372,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo-文章置頂</h1>
+          <h1 class="post-title" itemprop="name headline">JS30-25-Event-Capture-Propagation-Bubbling-and-Once</h1>
         
 
         <div class="post-meta">
@@ -381,8 +384,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-13T09:29:37+08:00">
-                2017-12-13
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-04-23T16:16:50+08:00">
+                2018-04-23
               </time>
             
 
@@ -404,8 +407,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/JS30/" itemprop="url" rel="index">
+                    <span itemprop="name">JS30</span>
                   </a>
                 </span>
 
@@ -422,8 +436,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/13/Hexo-Topfeatures/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2017/12/13/Hexo-Topfeatures/" itemprop="commentCount">0</span> comments
+                <a href="/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -451,28 +465,48 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解決Hexo置頂問題，需要完成的事情有：</p>
-<ol>
-<li>將目前 node_modules/hexo-generator-index/lib/generator.js 程式碼替換</li>
-<li>在需要置頂的文章的前事中添加頂值，值越大越置頂。</li>
-</ol>
+        <blockquote class="blockquote-center"><p><img src="/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/js25.jpg" alt="js25.jpg" title=""></p>
+<font style="font-size:20px;">了解 <font color="red">addEventListener</font> 的運作</font>
+</blockquote>
 <a id="more"></a>
 <hr>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
-<li><p>替換 generator.js 程式碼</p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">var</span> pagination = <span class="built_in">require</span>(<span class="string">'hexo-pagination'</span>);</div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">locals</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> config = <span class="keyword">this</span>.config;</div><div class="line">    <span class="keyword">var</span> posts = locals.posts;</div><div class="line">    posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (a.top &amp;&amp; b.top) &#123; <span class="comment">// 兩篇文章top都有定義</span></div><div class="line">            <span class="keyword">if</span> (a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样則按照文章日期降序排</span></div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否則按照top值降序排</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定義，那麼将有top的排在前面</span></div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!a.top &amp;&amp; b.top) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都沒定義按照文章日期降序排</span></div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">var</span> paginationDir = config.pagination_dir || <span class="string">'page'</span>;</div><div class="line">    <span class="keyword">return</span> pagination(<span class="string">''</span>, posts, &#123;</div><div class="line">        perPage: config.index_generator.per_page,</div><div class="line">        layout: [<span class="string">'index'</span>, <span class="string">'archive'</span>],</div><div class="line">        format: paginationDir + <span class="string">'/%d/'</span>,</div><div class="line">        data: &#123;</div><div class="line">            __index: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>若找不到 <strong>node_modules/hexo-generator-index/lib/generator.js</strong> 的話，<br>請先安裝 <code>hexo-generator-index</code>。</p>
-<p>指令： <code>npm i --save hexo-generator-index</code></p>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ul>
+<li>了解 <font color="red">addEventListener</font> 的運作<ul>
+<li>事件冒泡 (Event Bubbling)<ul>
+<li>停止冒泡行為 e.stopPropagation()</li>
+</ul>
+</li>
+<li>事件捕獲 (Event Capturing)</li>
+<li>單次觸發</li>
+</ul>
+</li>
+</ul>
+<h2 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h2><blockquote>
+<p><a href="https://kanboo.github.io/JavaScript30/25%20-%20Event%20Capture,%20Propagation,%20Bubbling%20and%20Once/">[DEMO]</a> | <a href="https://github.com/kanboo/JavaScript30/blob/master/25%20-%20Event%20Capture,%20Propagation,%20Bubbling%20and%20Once/index.html" target="_blank" rel="external">[GitHub]</a></p>
 </blockquote>
-</li>
-<li><p>在需要置顶的文章的中添加 top 值，值越大越置顶。</p>
- <figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">title: Hexo-文章置頂</div><div class="line">date: 2017-12-13 09:29:37</div><div class="line">top: 100</div></pre></td></tr></table></figure>
-</li>
-</ol>
 <hr>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="http://spxiaomin.github.io/2017/02/12/hexo%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD/" target="_blank" rel="external">hexo置顶功能</a><br><a href="http://hongyitong.github.io/2017/01/06/Hexo%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6/" target="_blank" rel="external">Hexo文章置顶</a></p>
+<h2 id="學習紀錄"><a href="#學習紀錄" class="headerlink" title="學習紀錄"></a>學習紀錄</h2><h3 id="事件傳遞順序"><a href="#事件傳遞順序" class="headerlink" title="事件傳遞順序"></a>事件傳遞順序</h3><p>使用 <code>addEventListener</code> 時，不管是設定 <code>Event Bubbling</code> 或 <code>Event Capturing</code>，<br>當Event被觸發時，都是會先從 <font color="red">最外層DOM 走到 target的DOM 然後再走回 最外層DOM</font>，<br>所以當你設定</p>
+<ul>
+<li>Event Bubbling(<font color="green">綠色路徑</font>)：只回傳 <strong>target的DOM →→ 最外層DOM</strong> 的路徑</li>
+<li>Event Capturing(<font color="red">紅色路徑</font>)：只回傳 <strong>最外層DOM →→ target的DOM</strong> 的路徑</li>
+</ul>
+<img src="/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/js_04.png" alt="js_04.png" title="">
+<p>所以根據上面的規則，套用在下面的案例的話</p>
+<figure class="highlight html"><figcaption><span>HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one purple"</span>&gt;</span></div><div class="line">  紫色</div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two pink"</span>&gt;</span></div><div class="line">    粉色</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three orange"</span>&gt;</span></div><div class="line">      橘色</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>事件冒泡 (Event Bubbling)</strong>：只回傳 <strong>target的DOM →→ 最外層DOM</strong> 的路徑</p>
+<figure class="highlight js"><figcaption><span>事件冒泡 (Event Bubbling)</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logText</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">// 印出當前div的class name</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.classList.value);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 第三個參數 useCapture：預設為 false → 事件冒泡 (Event Bubbling)</span></div><div class="line">divs.forEach(<span class="function"><span class="params">div</span> =&gt;</span> div.addEventListener(<span class="string">'click'</span>, logText));</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">console列出順序為(target的DOM →→ 最外層DOM)</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">three orange</span></div><div class="line"><span class="comment">two pink</span></div><div class="line"><span class="comment">one purple</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<p><strong>事件捕獲 (Event Capturing)</strong>：只回傳 <strong>最外層DOM →→ target的DOM</strong> 的路徑</p>
+<figure class="highlight js"><figcaption><span>事件捕獲 (Event Capturing)</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logText</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">// 印出當前div的class name</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.classList.value);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 第三個參數 useCapture 修改為 true → 事件捕獲 (Event Capturing)</span></div><div class="line">divs.forEach(<span class="function"><span class="params">div</span> =&gt;</span> div.addEventListener(<span class="string">'click'</span>, logText, <span class="literal">true</span>));</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">console列出順序為(最外層DOM →→ target的DOM)</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">one purple</span></div><div class="line"><span class="comment">two pink</span></div><div class="line"><span class="comment">three orange</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://kanboo.github.io/2018/01/15/JS-Bubbling-Capturing/">JS-事件機制的原理</a></div>
 
+<h3 id="停止冒泡行為-e-stopPropagation"><a href="#停止冒泡行為-e-stopPropagation" class="headerlink" title="停止冒泡行為 e.stopPropagation()"></a>停止冒泡行為 e.stopPropagation()</h3><p>有時只是想單純針對單一元素監聽，不想因為事件冒泡的行為，<br>而去觸發到其他元素，這時就可利用 <code>e.stopPropagation()</code> 來達成此需求。</p>
+<figure class="highlight js"><figcaption><span>e.stopPropagation()</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logText</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.classList.value);</div><div class="line"></div><div class="line">  <span class="comment">// 停止冒泡行為！</span></div><div class="line">  e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<div class="note warning">注意：<br>使用 <code>e.stopPropagation()</code> 僅針對 事件<font color="red">冒泡</font> (Event Bubbling) 設定，<br>若是設定為 事件<font color="red">捕獲</font> (Event Capturing) 的話，則不適用 <code>e.stopPropagation()</code>。</div>
+
+<h3 id="單次觸發"><a href="#單次觸發" class="headerlink" title="單次觸發"></a>單次觸發</h3><p>once 屬性：當第一次被觸發後，就會移除本身的監聽事件，後續就沒有監聽事件。</p>
+<p>目前想到的可運用在表單submit後，解除監聽事件，避免重覆送單。</p>
+<figure class="highlight js"><figcaption><span>單次觸發</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在 button 的 addEventListener 第三個參數裡，設定 once 的屬性</span></div><div class="line"><span class="comment">// 當第一次被觸發後，就會移除本身的監聽事件，後續就沒有監聽事件。</span></div><div class="line">button.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Click!!!'</span>);</div><div class="line">&#125;, &#123;</div><div class="line">  once: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="external">EventTarget.addEventListener()</a></div>
       
     </div>
     
@@ -489,11 +523,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
           
-            <a href="/tags/Top/" rel="tag"><i class="fa fa-tag"></i> Top</a>
-          
-            <a href="/tags/置頂/" rel="tag"><i class="fa fa-tag"></i> 置頂</a>
+            <a href="/tags/JS30/" rel="tag"><i class="fa fa-tag"></i> JS30</a>
           
         </div>
       
@@ -522,8 +554,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/12/CSS-Transition/" rel="next" title="CSS-transition 轉場效果">
-                <i class="fa fa-chevron-left"></i> CSS-transition 轉場效果
+              <a href="/2018/04/21/JS30-24-Sticky-Nav/" rel="next" title="JS30-24-Sticky-Nav">
+                <i class="fa fa-chevron-left"></i> JS30-24-Sticky-Nav
               </a>
             
           </div>
@@ -531,10 +563,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/13/Hexo-Comment/" rel="prev" title="Hexo-留言版">
-                Hexo-留言版 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +593,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="https://kanboo.github.io/2017/12/13/Hexo-Topfeatures/"
+           data-href="https://kanboo.github.io/2018/04/23/JS30-25-Event-Capture-Propagation-Bubbling-and-Once/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -675,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作步骤"><span class="nav-number">2.</span> <span class="nav-text">操作步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考資料"><span class="nav-number">3.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目標"><span class="nav-number">1.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成品"><span class="nav-number">2.</span> <span class="nav-text">成品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#學習紀錄"><span class="nav-number">3.</span> <span class="nav-text">學習紀錄</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件傳遞順序"><span class="nav-number">3.1.</span> <span class="nav-text">事件傳遞順序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止冒泡行為-e-stopPropagation"><span class="nav-number">3.2.</span> <span class="nav-text">停止冒泡行為 e.stopPropagation()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#單次觸發"><span class="nav-number">3.3.</span> <span class="nav-text">單次觸發</span></a></li></ol></li></ol></div>
             
 
           </div>

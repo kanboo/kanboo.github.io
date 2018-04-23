@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS30-25-Event-Capture-Propagation-Bubbling-and-Once]]></title>
+    <url>%2F2018%2F04%2F23%2FJS30-25-Event-Capture-Propagation-Bubbling-and-Once%2F</url>
+    <content type="text"><![CDATA[了解 addEventListener 的運作 目標 了解 addEventListener 的運作 事件冒泡 (Event Bubbling) 停止冒泡行為 e.stopPropagation() 事件捕獲 (Event Capturing) 單次觸發 成品 [DEMO] | [GitHub] 學習紀錄事件傳遞順序使用 addEventListener 時，不管是設定 Event Bubbling 或 Event Capturing，當Event被觸發時，都是會先從 最外層DOM 走到 target的DOM 然後再走回 最外層DOM，所以當你設定 Event Bubbling(綠色路徑)：只回傳 target的DOM →→ 最外層DOM 的路徑 Event Capturing(紅色路徑)：只回傳 最外層DOM →→ target的DOM 的路徑 所以根據上面的規則，套用在下面的案例的話 HTML123456789&lt;div class="one purple"&gt; 紫色 &lt;div class="two pink"&gt; 粉色 &lt;div class="three orange"&gt; 橘色 &lt;/div&gt; &lt;/div&gt;&lt;/div&gt; 事件冒泡 (Event Bubbling)：只回傳 target的DOM →→ 最外層DOM 的路徑 事件冒泡 (Event Bubbling)123456789101112131415function logText(e) &#123; // 印出當前div的class name console.log(this.classList.value);&#125;// 第三個參數 useCapture：預設為 false → 事件冒泡 (Event Bubbling)divs.forEach(div =&gt; div.addEventListener('click', logText));/*console列出順序為(target的DOM →→ 最外層DOM)three orangetwo pinkone purple*/ 事件捕獲 (Event Capturing)：只回傳 最外層DOM →→ target的DOM 的路徑 事件捕獲 (Event Capturing)123456789101112131415function logText(e) &#123; // 印出當前div的class name console.log(this.classList.value);&#125;// 第三個參數 useCapture 修改為 true → 事件捕獲 (Event Capturing)divs.forEach(div =&gt; div.addEventListener('click', logText, true));/*console列出順序為(最外層DOM →→ target的DOM)one purpletwo pinkthree orange*/ JS-事件機制的原理 停止冒泡行為 e.stopPropagation()有時只是想單純針對單一元素監聽，不想因為事件冒泡的行為，而去觸發到其他元素，這時就可利用 e.stopPropagation() 來達成此需求。 e.stopPropagation()123456function logText(e) &#123; console.log(this.classList.value); // 停止冒泡行為！ e.stopPropagation();&#125; 注意：使用 e.stopPropagation() 僅針對 事件冒泡 (Event Bubbling) 設定，若是設定為 事件捕獲 (Event Capturing) 的話，則不適用 e.stopPropagation()。 單次觸發once 屬性：當第一次被觸發後，就會移除本身的監聽事件，後續就沒有監聽事件。 目前想到的可運用在表單submit後，解除監聽事件，避免重覆送單。 單次觸發1234567// 在 button 的 addEventListener 第三個參數裡，設定 once 的屬性// 當第一次被觸發後，就會移除本身的監聽事件，後續就沒有監聽事件。button.addEventListener('click', () =&gt; &#123; console.log('Click!!!');&#125;, &#123; once: true&#125;); EventTarget.addEventListener()]]></content>
+      <categories>
+        <category>JS</category>
+        <category>JS30</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+        <tag>JS30</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS30-24-Sticky-Nav]]></title>
     <url>%2F2018%2F04%2F21%2FJS30-24-Sticky-Nav%2F</url>
     <content type="text"><![CDATA[利用一些小技巧，處理navbar的動畫效果。 目標 利用一些小技巧，處理navbar的動畫效果。 實踐步驟 監聽 window的scroll 事件 新增 nav的CSS樣式 判斷頁面高度是否已到達特定高度，切換CSS 成品 [DEMO] | [GitHub] 學習紀錄此次主要在於動畫的切換時，可以注意的一些小技巧 當DOM元素position變fixed時，要補足原本佔有的空間 籍由scale縮放的效果，提升視覺感受 針對fixed，新增的CSS123456789101112131415/* 當有 fixed-nav 時，把 site-wrap 縮放回1，讓整體有放大效果*/.fixed-nav .site-wrap &#123; transform: scale(1);&#125;/* 當有 fixed-nav 時，把 nav 固定，並加上陰影*/.fixed-nav nav &#123; position: fixed; box-shadow:0 5px 0 rgba(0,0,0,0.1);&#125;/* 當有 fixed-nav 時，把logo寬度增加*/.fixed-nav li.logo &#123; max-width: 500px;&#125; JS部份1234567891011121314151617181920212223// 取得 nav元素const nav = document.querySelector('#main');// 取得 nav頂部 到 &lt;body&gt;頂部 的距離 (目前DOM元素位於父元素的Y座標)let topOfNav = nav.offsetTop;function fixNav() &#123; if (window.scrollY &gt;= topOfNav) &#123; /* 注意： 當DOM元素的 position 被設定為 fixed 時，將不會再佔據原有的高度， 所以要動態的增加「原本DOM元素的offsetHeight」，用來補足原本DOM元素的高度， 避免切換position屬性時，造成怪異的彈跳情況。 */ document.body.style.paddingTop = nav.offsetHeight + 'px'; document.body.classList.add('fixed-nav'); &#125; else &#123; document.body.classList.remove('fixed-nav'); document.body.style.paddingTop = 0; &#125;&#125;// 監聽 滾動 事件window.addEventListener('scroll', fixNav);]]></content>
@@ -944,8 +957,8 @@
       </categories>
       <tags>
         <tag>CSS</tag>
-        <tag>排版</tag>
         <tag>Flexbox</tag>
+        <tag>排版</tag>
       </tags>
   </entry>
   <entry>
