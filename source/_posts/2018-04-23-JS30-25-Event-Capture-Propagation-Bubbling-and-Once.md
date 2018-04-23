@@ -26,7 +26,7 @@ tags:
  - 事件冒泡 (Event Bubbling)
    - 停止冒泡行為 e.stopPropagation()
  - 事件捕獲 (Event Capturing)
- - 單次點擊設定
+ - 單次觸發
 
 ## 成品
 
@@ -40,8 +40,8 @@ tags:
 使用 `addEventListener` 時，不管是設定 `Event Bubbling` 或 `Event Capturing`，
 當Event被觸發時，都是會先從 <font color="red">最外層DOM 走到 target的DOM 然後再走回 最外層DOM</font>，
 所以當你設定
- - Event Bubbling(<font color="green">綠色路徑</font>)：只回傳 target的DOM →→ 最外層DOM 的路徑
- - Event Capturing(<font color="red">紅色路徑</font>)：只回傳 最外層DOM →→ target的DOM 的路徑
+ - Event Bubbling(<font color="green">綠色路徑</font>)：只回傳 **target的DOM →→ 最外層DOM** 的路徑
+ - Event Capturing(<font color="red">紅色路徑</font>)：只回傳 **最外層DOM →→ target的DOM** 的路徑
 
 {% asset_img js_04.png %}
 
@@ -59,7 +59,7 @@ tags:
 </div>
 ```
 
-**事件冒泡 (Event Bubbling)**：只回傳 target的DOM →→ 最外層DOM 的路徑
+**事件冒泡 (Event Bubbling)**：只回傳 **target的DOM →→ 最外層DOM** 的路徑
 
 ``` js 事件冒泡 (Event Bubbling)
 function logText(e) {
@@ -79,7 +79,7 @@ one purple
 */
 ```
 
-**事件捕獲 (Event Capturing)**：只回傳 最外層DOM →→ target的DOM 的路徑
+**事件捕獲 (Event Capturing)**：只回傳 **最外層DOM →→ target的DOM** 的路徑
 
 ``` js 事件捕獲 (Event Capturing)
 function logText(e) {
@@ -119,5 +119,20 @@ function logText(e) {
 使用 `e.stopPropagation()` 僅針對 事件<font color="red">冒泡</font> (Event Bubbling) 設定，
 若是設定為 事件<font color="red">捕獲</font> (Event Capturing) 的話，則不適用 `e.stopPropagation()`。</div>
 
-### 單次點擊設定
+### 單次觸發
 
+once 屬性：當第一次被觸發後，就會移除本身的監聽事件，後續就沒有監聽事件。
+
+目前想到的可運用在表單submit後，解除監聽事件，避免重覆送單。
+
+``` js 單次觸發
+// 在 button 的 addEventListener 第三個參數裡，設定 once 的屬性
+// 當第一次被觸發後，就會移除本身的監聽事件，後續就沒有監聽事件。
+button.addEventListener('click', () => {
+  console.log('Click!!!');
+}, {
+  once: true
+});
+```
+
+<div class="note info">[EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)</div>
