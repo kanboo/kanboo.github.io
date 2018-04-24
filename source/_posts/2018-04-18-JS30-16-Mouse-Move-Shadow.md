@@ -43,7 +43,7 @@ tags:
 ***
 ## JS學習紀錄
 
-此次的練習主要在於
+此次重點在於
 
 1. 座標點的取得以及計算
 2. 解構賦值的運用
@@ -65,19 +65,19 @@ function shadow(e){
   // 取得 hero 的 寬、高
   // const width = hero.offsetWidth;
   // const height = hero.offsetHeight;
-  // 可簡寫如下
+  /* 可簡寫如下 */
   const {offsetWidth: width, offsetHeight: height} = hero;
 
-  /* 取得滑鼠的座標
-  offsetX與offsetY回傳的座標，是以「目前DOM box model區塊範圍」為主，
-  回傳滑鼠座標位於「目前的DOM區塊範圍」的哪裡，
-  而不是以整個「window」為主，另外DOM與DOM重疊的話，依舊是分開計算。
-  註：起點為左上角： x:0 , y:0 ，向右增加 x ，向下增加 y */
+  // 取得滑鼠的座標
+  // offsetX與offsetY回傳的座標，是以「目前DOM box model區塊範圍」為主，
+  // 回傳滑鼠座標位於「目前的DOM區塊範圍」的哪裡，
+  // 而不是以整個「window」為主，另外DOM與DOM重疊的話，依舊是分開計算。
+  // 註：起點為左上角： x:0 , y:0 ，向右增加 x ，向下增加 y
   let {offsetX: x, offsetY: y} = e;
   // console.log(x, y);
 
-  /* 若滑鼠從父元素移到子元素的話，offsetX與offsetY會 歸0 重新計算，
-  所以需要將父元素與子元素之間座標的落差補足。 */
+  // 若滑鼠從父元素移到子元素的話，offsetX與offsetY會 歸0 重新計算，
+  // 所以需要將父元素與子元素之間座標的落差補足。
   if (this !== e.target){
     // console.dir(e.target);
     x = x + e.target.offsetLeft; // 目前DOM之滑鼠的X座標 + 目前DOM位於父元素的X座標
@@ -85,8 +85,8 @@ function shadow(e){
   }
   // console.log(x, y);
 
-  /* (座標在hero的比例 * 最大偏移量的值) - (一半的最大偏移量的值)
-  取得 正值或負值 的座標，如： 最大偏移量的值=100，取得範圍落於 -50~50 之間 */
+  // (座標在hero的比例 * 最大偏移量的值) - (一半的最大偏移量的值)
+  // 取得 正值或負值 的座標，如： 最大偏移量的值=100，取得範圍落於 -50~50 之間
   const xWalk = Math.round((x / width * walk) - (walk / 2));
   const yWalk = Math.round((y / height * walk) - (walk / 2));
 

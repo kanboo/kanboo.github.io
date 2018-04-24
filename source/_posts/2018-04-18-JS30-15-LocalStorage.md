@@ -44,7 +44,7 @@ tags:
 ***
 ## JS學習紀錄
 
-此次練習學到的東西都在一些小技巧上面，故一步步將撰寫的步驟寫上，並註記哪裡在特別注意。
+此次學到的東西都在一些小技巧上面，故一步步將撰寫的步驟寫上，並註記哪裡在特別注意。
 
 ### 一、取得輸入項目，並新增至LocalStorage
 
@@ -80,9 +80,10 @@ function addItem(e){
   // 刷新html的List清單
   populateList(items, itemsList);
 
-  // 額外將資料存在localStorage
-  localStorage.setItem('items', JSON.stringify(items)); // localStorage 只接受字串
+  // 額外將資料存在localStorage(只接受字串)
+  localStorage.setItem('items', JSON.stringify(items));
 
+  // 清空input欄位
   // item.value = '';
   this.reset(); // reset也可清空表單
 }

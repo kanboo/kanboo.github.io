@@ -1,7 +1,7 @@
 ---
 title: JS30-03-CSS-Variables
 date: 2018-02-15 16:39:51
-categories: 
+categories:
 - JS
 - JS30
 tags:
@@ -43,7 +43,7 @@ tags:
 
 ## CSS學習紀錄
 
-使用 CSS的變數 功能，不過在 [IE](https://caniuse.com/#feat=css-variables) 上，好像還不支援。 
+使用 CSS的變數 功能，不過在 [IE](https://caniuse.com/#feat=css-variables) 上，好像還不支援。
 
 ``` css CSS變數說明
 /* 在CSS 的 :root(全局)設定 變數 */
@@ -62,7 +62,7 @@ img {
 
 .hl {
     color: var(--base);
-} 
+}
 ```
 
 ### :root 偽元素(全局)
@@ -123,9 +123,9 @@ document.querySelector('#blur').getAttribute('data-sizing'); // 輸出：px
 ***
 ### style.setProperty
 
-下列三種方法，皆可達到更改CSS的效果，不過實務上用`方法2`，會比較容易帶 `參數` 及 `可讀性` 較佳。
+下列三種方法，皆可達到修改CSS的效果，不過實務上用`方法2`，會比較容易帶 `參數` 及 `可讀性` 較佳。
 
-``` js 
+``` js 修改CSS
 const DOM = document.querySelector('img');
 
 //方法1

@@ -1,7 +1,7 @@
 ---
 title: JS30-10-Hold-Shift-and-Check-Checkboxes
 date: 2018-03-03 00:33:52
-categories: 
+categories:
 - JS
 - JS30
 tags:
@@ -59,7 +59,8 @@ tags:
     2. 最後結束的時機點，就利用剩下還沒遇到的 「currentChooise 或 lastChooise」當結尾，
     3. 由此劃分出 currentChooise 與 lastChooise 之間的範圍
 
-由上述的 <font color="blue">想法1</font> 和 <font color="blue">想法2</font> 來比較的話，<font color="blue">想法1</font> 在過程中就多跑了好幾次loop來判斷一些事項，才能達到結果，所以在此次練習中，又學到了新的思維。
+由上述的 <font color="blue">想法1</font> 和 <font color="blue">想法2</font> 來比較的話，<font color="blue">想法1</font> 在過程中就多跑了好幾次loop來判斷一些事項，
+才能達到結果，所以在此次練習中，又學到了新的思維。
 
 <span id="inline-purple">JS程式碼</span>
 
@@ -67,34 +68,33 @@ tags:
 
 ``` js 整段程式碼
 const checkboxs = document.querySelectorAll('[type="checkbox"]');
-let lastChooise = null;
-
+let lastChooise = null; // 紀錄最後選擇的Check元素
 
 function handleCheck(e){
-// console.log(e);
 
-let isInChooiseScope = false;
+  let isInChooiseScope = false;
 
-if (e.shiftKey === true && this.checked === true && lastChooise !== this && lastChooise !== null){
+  // 有按shift鍵 & 有勾選Check & 不是最後選擇的Ckeck元素 & 不是第一次選擇Check
+  if (e.shiftKey === true && this.checked === true && lastChooise !== this && lastChooise !== null){
+
     checkboxs.forEach( checkbox => {
-    // 重點：
-    // 利用loop從頭到尾迭代的特性，將第一個遇到的「currentChooise 或 lastChooise」當起頭
-    // 最後結束的時機點，就利用剩下還沒遇到的 「currentChooise 或 lastChooise」當結尾，
-    // 由此劃分出 currentChooise 與 lastChooise 之間的範圍
-    if ( checkbox === this || checkbox === lastChooise){
-        isInChooiseScope = !isInChooiseScope;
-    }
+        // 重點：
+        // 利用loop從頭到尾迭代的特性，將第一個遇到的「currentChooise 或 lastChooise」當起頭
+        // 最後結束的時機點，就利用剩下還沒遇到的 「currentChooise 或 lastChooise」當結尾，
+        // 由此劃分出 currentChooise 與 lastChooise 之間的範圍
+        if ( checkbox === this || checkbox === lastChooise){
+          isInChooiseScope = !isInChooiseScope;
+        }
 
-    if (isInChooiseScope){
-        // checkbox.setAttribute('checked', true);
-        // 上下二者結果皆相同
-        checkbox.checked = true;
-    } 
+        if (isInChooiseScope){
+          // checkbox.setAttribute('checked', true);
+          // 上下二者結果皆相同
+          checkbox.checked = true;
+        }
     })
-}
+  }
 
-lastChooise = this;
-
+  lastChooise = this;
 }
 
 checkboxs.forEach( checkbox => checkbox.addEventListener('click', handleCheck))

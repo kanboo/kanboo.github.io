@@ -1,7 +1,7 @@
 ---
 title: JS30-07-Array-Cardio-Day-2
 date: 2018-02-26 11:20:09
-categories: 
+categories:
 - JS
 - JS30
 tags:

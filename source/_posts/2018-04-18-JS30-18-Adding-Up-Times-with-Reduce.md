@@ -45,20 +45,24 @@ tags:
 ***
 ## JS學習紀錄
 
-此次的練習主要在於
+此次重點在於
 
 1. 運用「map」
 2. 如何精進Sort的寫法
 
-``` js 1.取得所有要計算時間的元素
+### 一、取得所有要計算時間的元素
+
+``` js 取得所有要計算時間的元素
 /* 1. 取得所有 data-time 的DOM元素，並轉換成 Array，以便可使用map..等method */
 
 const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
-// 可簡化如下
+/* 可簡化如下 */
 const timeNodes = [...document.querySelectorAll('[data-time]')];
 ```
 
-``` js 2.計算出總秒數
+### 二、計算出總秒數
+
+``` js 計算出總秒數
 /* 2. 計算出總秒數 */
 const seconds = timeNodes
   // 取出每個元素中的data-time資料
@@ -66,7 +70,7 @@ const seconds = timeNodes
   // 將 分、秒 拆解並轉成 秒數
   .map( time => {
     // const [mins, secs] = time.split(':').map( str => parseFloat(str));
-    // 可簡化如下
+    /* 可簡化如下 */
     const [mins, secs] = time.split(':').map(parseFloat);
 
     return (mins * 60) + secs
@@ -75,8 +79,9 @@ const seconds = timeNodes
   .reduce( (total , second) =>  total + second)
 ```
 
+### 三、.將 總秒數 計算成 時、分、秒 顯示
 
-``` js 3.將 總秒數 計算成 時、分、秒 顯示
+``` js 將 總秒數 計算成 時、分、秒 顯示
 /* 3. 將 總秒數 計算成 時、分、秒 顯示 */
 // 使用Math.floor取整數，再利用%來操作餘數
 

@@ -52,7 +52,6 @@ const recognition = new SpeechRecognition();
 // 允許語音辨識回傳識別後的資料
 recognition.interimResults = true;
 
-
 // 開始識別
 recognition.start();
 ```

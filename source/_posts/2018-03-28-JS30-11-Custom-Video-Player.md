@@ -1,7 +1,7 @@
 ---
 title: JS30-11-Custom-Video-Player
 date: 2018-03-28 16:08:11
-categories: 
+categories:
 - JS
 - JS30
 tags:
@@ -53,7 +53,7 @@ tags:
 ``` js JS
 function togglePlay(e){
     const method = video.paused ? 'play' : 'pause';
-    video[method](); // 觸發影片API，當有更新時，連動會觸發本身的Event 
+    video[method](); // 觸發影片API，當有更新時，連動會觸發本身的Event
 }
 
 // 切換icon
@@ -62,8 +62,8 @@ function updateButton() {
     toggleBtn.textContent = icon;
 }
 
-video.addEventListener('click',togglePlay);         //點擊 影片的任何位置
-toggleBtn.addEventListener('click',togglePlay);     //點擊 icon
+video.addEventListener('click',togglePlay); //點擊 影片的任何位置
+toggleBtn.addEventListener('click',togglePlay); //點擊 icon
 
 // 監聽影片本身的Event，達到切換播放的icon
 video.addEventListener('play', updateButton);
@@ -81,7 +81,7 @@ video.addEventListener('pause', updateButton);
 
 ### 進度條更新目前播放時間
 
-因為影片會一直持續播放，所以我們也要持續更新 進度條UI 畫面。
+因為影片會一直持續播放，所以我們也要持續更新進度條UI畫面。
 
 ``` js JS
 function handleProgress(e){
@@ -108,41 +108,50 @@ video.addEventListener('progress', handleProgress);
 
 ### 進度條監聽是否有切換video播放時間
 
-判斷User是否有在 <font color="red">進度條</font> 做 <font color="red">變更video時間</font> 的動作，當符合操作條件時，就變更目前影片的播放時間。
+判斷User是否有在 <font color="red">進度條</font> 做 <font color="red">變更video時間</font> 的動作，
+當符合操作條件(滑鼠按住不放且拖移進度條)時，就變更目前影片的播放時間。
 
 ``` js JS
 const progress = document.querySelector('.progress'); // 進度條DOM元素
 
 function scrub(e) {
-    // e.offsetX 取得滑鼠點擊的位置
-    // progress.offsetWidth 進度條的總寬度
-    // video.duration 屬性返回當前音頻/視頻的長度，以秒計。
-    // console.log(e.offsetX, progress.offsetWidth, video.duration);
-    
-    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+  // e.offsetX 取得滑鼠點擊的位置
+  // progress.offsetWidth 進度條的總寬度
+  // video.duration 屬性返回當前音頻/視頻的長度，以秒計。
+  // console.log(e.offsetX, progress.offsetWidth, video.duration);
 
-    video.currentTime = scrubTime; // 更改影片的播放時間
+  // 根據 滑鼠點擊位置 位於進度條的多少比例，進而計算轉換成 影片的時間
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+  // 更改影片的播放時間
+  video.currentTime = scrubTime;
 }
 
-
-let mousedown = false; //判斷滑鼠是否有點擊
-progress.addEventListener('click', scrub); //監聽 進度條DOM元素
-
-/* 此段程式碼，可簡寫為下面程式碼
-progress.addEventListener('mousemove', (e) => {
-    if (mousedown) {
-        scrub(e);
-    }
-});
-*/
-
+//判斷 滑鼠是否有點擊
+let mousedown = false;
+//監聽 進度條DOM元素
+progress.addEventListener('click', scrub);
 // 監聽 滑鼠滑動 時，若 滑鼠為down 的狀態時，就呼叫 scrub 的method。
-progress.addEventListener('mousemove', (e) => mousedown && scrub(e)); 
-
-
-// 監聽滑鼠是否是 down 或 up 的狀態
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
+// 監聽 滑鼠是否是 down 或 up 的狀態
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
+```
+
+<span id="inline-yellow">補充說明</span>
+
+上列程式碼其中一段，關於監聽 `mousemove` 的寫法，原始寫法如下
+
+``` js 簡化寫法
+progress.addEventListener('mousemove', (e) => {
+  if (mousedown) {
+    scrub(e);
+  }
+});
+
+/* 上面程式 可簡化成 下面程式碼 */
+
+// 監聽 滑鼠滑動 時，若 滑鼠為down 的狀態時，就呼叫 scrub 的method。
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 ```
 
 <div class="note info">[HTMLMediaElement.currentTime](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime)</div>
@@ -184,7 +193,7 @@ ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 ``` js JS
 function skip() {
     // dataset值是字串，利用parseFloat需轉換成數字型態
-    video.currentTime += parseFloat(this.dataset.skip); 
+    video.currentTime += parseFloat(this.dataset.skip);
 }
 
 skipButtons.forEach(button => button.addEventListener('click', skip));

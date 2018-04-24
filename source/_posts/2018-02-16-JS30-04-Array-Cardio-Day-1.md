@@ -1,7 +1,7 @@
 ---
 title: JS30-04-Array-Cardio-Day-1
 date: 2018-02-16 22:11:47
-categories: 
+categories:
 - JS
 - JS30
 tags:
@@ -154,7 +154,7 @@ console.table(sortInventors)
 /* 解法 */
 const totalYears = inventors.reduce(function(total, inventor){
   return total + (inventor.passed - inventor.year)
-}, 0) 
+}, 0)
 
 /* 簡化語法 */
 const totalYears = inventors.reduce( (total, inventor) => total + (inventor.passed - inventor.year) , 0)
@@ -187,6 +187,7 @@ const sortYearsLived = inventors.sort( (a, b) => {
     const aYearCount = a.passed - a.year;
     const bYearCount = b.passed - b.year;
 
+    // 三元運算子
     return aYearCount > bYearCount ? -1 : 1
 })
 
@@ -247,10 +248,11 @@ const sortPeople = people.sort(function(a, b){
 
 /* 簡化語法 */
 const sortPeople = people.sort( (a, b) => {
-    const [aLast, aFirst] = a.split(', '); //解構賦值(Destructuring Assignment)
-    const [bLast, bFirst] = b.split(', '); //解構賦值(Destructuring Assignment)
+  const [aLast, aFirst] = a.split(', ');
+  const [bLast, bFirst] = b.split(', ');
 
-    return aLast > bLast ? 1 : -1
+  // 三元運算子
+  return aLast > bLast ? 1 : -1
 })
 
 console.log(sortPeople);
@@ -263,20 +265,20 @@ console.log(sortPeople);
 
 <span id="inline-toc">A：</span>練習 reduce() 運用
 
-``` js 
+``` js
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
 /* 解法 */
 const dataCount = data.reduce( (counts, item) => {
-    if(!counts[item]){
-        counts[item] = 0;
-    }
+  if(!counts[item]){
+      counts[item] = 0;
+  }
 
-    counts[item] += 1;
+  counts[item] += 1;
 
-    return counts;
+  return counts;
 }, {})
 
 console.log(dataCount)

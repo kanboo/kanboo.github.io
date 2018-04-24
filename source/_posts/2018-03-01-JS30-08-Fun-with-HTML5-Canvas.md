@@ -1,7 +1,7 @@
 ---
 title: JS30-08-Fun-with-HTML5-Canvas
 date: 2018-03-01 16:55:46
-categories: 
+categories:
 - JS
 - JS30
 tags:
@@ -36,7 +36,7 @@ tags:
 
 2. 監聽 滑鼠 的事件
     - 開始作畫：mousedown
-    - 作畫中..：mousemove
+    - 作畫中：mousemove
     - 結束作畫：mouseup、mouseout
 
 ## 成品
@@ -98,7 +98,9 @@ ctx.stroke();
 
 ### DOM監聽事件之this
 
-此次範例，作者在 <font color="red">DOM監聽事件</font> 使用了 <font color="red">箭頭函式</font>，雖然看似沒什麼情況，不過有一點要注意，若是有要對本身的DOM做修改的話，`this` 這個變數就會有所差異，如下例所示。
+此次範例，作者在 <font color="red">DOM監聽事件</font> 使用了 <font color="red">箭頭函式</font>，雖然看似沒什麼情況，
+不過有一點要注意，若是有要對本身的DOM做修改的話，`this` 這個變數就會有所差異，
+如下例所示。
 
 ``` js 箭頭函式
 canvas.addEventListener('mousedown', (e) => {

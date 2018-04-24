@@ -38,10 +38,10 @@ tags:
 ### 事件傳遞順序
 
 使用 `addEventListener` 時，不管是設定 `Event Bubbling` 或 `Event Capturing`，
-當Event被觸發時，都是會先從 <font color="red">最外層DOM 走到 target的DOM 然後再走回 最外層DOM</font>，
+當Event被觸發時，都是會先從 <font color="red">最外層DOM</font> 走到 <font color="blue">target的DOM</font> 然後再走回 <font color="red">最外層DOM</font>，
 所以當你設定
- - Event Bubbling(<font color="green">綠色路徑</font>)：只回傳 **target的DOM →→ 最外層DOM** 的路徑
- - Event Capturing(<font color="red">紅色路徑</font>)：只回傳 **最外層DOM →→ target的DOM** 的路徑
+ - Event Bubbling(<font color="green">綠色路徑</font>)：只回傳 <font color="blue">target的DOM</font> →→ <font color="red">最外層DOM</font> 的路徑
+ - Event Capturing(<font color="red">紅色路徑</font>)：只回傳 <font color="red">最外層DOM</font> →→ <font color="blue">target的DOM</font> 的路徑
 
 {% asset_img js_04.png %}
 

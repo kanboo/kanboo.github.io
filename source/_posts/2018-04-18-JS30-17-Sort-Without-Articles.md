@@ -39,7 +39,7 @@ tags:
 ***
 ## JS學習紀錄
 
-此次的練習主要在於
+此次重點在於
 
 1. 運用「正規表達式」
 2. 如何精進Sort的寫法
@@ -58,6 +58,21 @@ function strip(bandName){
   return bandName.replace(/^(a |the |an )/i, '').trim();
 }
 
+// sort寫法3：利用 箭頭函數 與 三元運算式的簡寫
+const sortBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+// 寫入HTML
+document.querySelector('#bands').innerHTML =
+  sortBands
+    .map( band => `<li>${band}</li>`)
+    .join('');
+```
+
+<span id="inline-yellow">sort寫法簡化</span>
+
+從上面程式碼，將「sort程式碼」簡化過程，呈現在下方，做個紀錄。
+
+``` js 簡化過程
 // sort寫法1：
 const sortBands = bands.sort((a, b) =>{
   if (strip(a) > strip(b)){
@@ -74,11 +89,4 @@ const sortBands = bands.sort((a, b) =>{
 
 // sort寫法3：利用 箭頭函數 與 三元運算式的簡寫
 const sortBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
-
-
-// 寫入HTML
-document.querySelector('#bands').innerHTML =
-  sortBands
-    .map( band => `<li>${band}</li>`)
-    .join('');
 ```
