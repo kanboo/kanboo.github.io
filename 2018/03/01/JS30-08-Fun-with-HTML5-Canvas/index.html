@@ -121,7 +121,7 @@
 <meta property="og:description" content="用滑鼠在 Canvas 上作畫">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2018/03/01/JS30-08-Fun-with-HTML5-Canvas/canvas.png">
-<meta property="og:updated_time" content="2018-03-02T15:16:56.000Z">
+<meta property="og:updated_time" content="2018-04-24T12:24:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS30-08-Fun-with-HTML5-Canvas">
 <meta name="twitter:description" content="用滑鼠在 Canvas 上作畫">
@@ -488,7 +488,7 @@
 <li><p>監聽 滑鼠 的事件</p>
 <ul>
 <li>開始作畫：mousedown</li>
-<li>作畫中..：mousemove</li>
+<li>作畫中：mousemove</li>
 <li>結束作畫：mouseup、mouseout</li>
 </ul>
 </li>
@@ -517,7 +517,7 @@
 <div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" target="_blank" rel="external">MDN-CanvasRenderingContext2D</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="external">CanvasRenderingContext2D.globalCompositeOperation</a></div>
 
 <hr>
-<h2 id="JS學習紀錄"><a href="#JS學習紀錄" class="headerlink" title="JS學習紀錄"></a>JS學習紀錄</h2><h3 id="DOM監聽事件之this"><a href="#DOM監聽事件之this" class="headerlink" title="DOM監聽事件之this"></a>DOM監聽事件之this</h3><p>此次範例，作者在 <font color="red">DOM監聽事件</font> 使用了 <font color="red">箭頭函式</font>，雖然看似沒什麼情況，不過有一點要注意，若是有要對本身的DOM做修改的話，<code>this</code> 這個變數就會有所差異，如下例所示。</p>
+<h2 id="JS學習紀錄"><a href="#JS學習紀錄" class="headerlink" title="JS學習紀錄"></a>JS學習紀錄</h2><h3 id="DOM監聽事件之this"><a href="#DOM監聽事件之this" class="headerlink" title="DOM監聽事件之this"></a>DOM監聽事件之this</h3><p>此次範例，作者在 <font color="red">DOM監聽事件</font> 使用了 <font color="red">箭頭函式</font>，雖然看似沒什麼情況，<br>不過有一點要注意，若是有要對本身的DOM做修改的話，<code>this</code> 這個變數就會有所差異，<br>如下例所示。</p>
 <figure class="highlight js"><figcaption><span>箭頭函式</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">canvas.addEventListener(<span class="string">'mousedown'</span>, (e) =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// window</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <figure class="highlight js"><figcaption><span>一般函式</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">canvas.addEventListener(<span class="string">'mousedown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// DOM元素</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <div class="note info"><a href="https://kanboo.github.io/2018/01/24/JS-this/">JS-一次搞懂 JavaScript 的 this</a></div>
@@ -664,7 +664,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>

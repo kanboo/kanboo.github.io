@@ -121,7 +121,7 @@
 <meta property="og:description" content="利用 CSS變數 與 JS 即時更新圖片的 內距、邊框色、模糊 效果">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2018/02/15/JS30-03-CSS-Variables/Scoped_CSS_Variables_and_JS.png">
-<meta property="og:updated_time" content="2018-02-15T16:58:32.000Z">
+<meta property="og:updated_time" content="2018-04-24T12:24:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS30-03-CSS-Variables">
 <meta name="twitter:description" content="利用 CSS變數 與 JS 即時更新圖片的 內距、邊框色、模糊 效果">
@@ -491,7 +491,7 @@
 <p><a href="https://kanboo.github.io/JavaScript30/03%20-%20CSS%20Variables/">[DEMO]</a> | <a href="https://github.com/kanboo/JavaScript30/blob/master/03%20-%20CSS%20Variables/index.html" target="_blank" rel="external">[GitHub]</a></p>
 </blockquote>
 <hr>
-<h2 id="CSS學習紀錄"><a href="#CSS學習紀錄" class="headerlink" title="CSS學習紀錄"></a>CSS學習紀錄</h2><p>使用 CSS的變數 功能，不過在 <a href="https://caniuse.com/#feat=css-variables" target="_blank" rel="external">IE</a> 上，好像還不支援。 </p>
+<h2 id="CSS學習紀錄"><a href="#CSS學習紀錄" class="headerlink" title="CSS學習紀錄"></a>CSS學習紀錄</h2><p>使用 CSS的變數 功能，不過在 <a href="https://caniuse.com/#feat=css-variables" target="_blank" rel="external">IE</a> 上，好像還不支援。</p>
 <figure class="highlight css"><figcaption><span>CSS變數說明</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 在CSS 的 :root(全局)設定 變數 */</span></div><div class="line"><span class="selector-pseudo">:root</span> &#123;</div><div class="line">    <span class="attribute">--base</span>: <span class="number">#ffc600</span>;</div><div class="line">    <span class="attribute">--spacing</span>: <span class="number">50px</span>;</div><div class="line">    <span class="attribute">--blur</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 使用CSS變數方法：var(變數名稱) */</span></div><div class="line"><span class="selector-tag">img</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="built_in">var</span>(--spacing);</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">var</span>(--base);</div><div class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(var(--blur));  <span class="comment">/* CSS濾鏡效果：模糊 */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.hl</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--base);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="root-偽元素-全局"><a href="#root-偽元素-全局" class="headerlink" title=":root 偽元素(全局)"></a>:root 偽元素(全局)</h3><p><code>:root</code> 這個偽元素是文檔的根元素，等同於 <code>&lt;html&gt;</code> 標籤，所以常用於聲明<font color="red">全局</font>的CSS變量：</p>
 <figure class="highlight css"><figcaption><span>設定變數(全局)</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">：<span class="selector-tag">root</span> &#123;</div><div class="line">   --color：#fff ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -512,8 +512,8 @@
 <div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="external">MDN-dataset</a></div>
 
 <hr>
-<h3 id="style-setProperty"><a href="#style-setProperty" class="headerlink" title="style.setProperty"></a>style.setProperty</h3><p>下列三種方法，皆可達到更改CSS的效果，不過實務上用<code>方法2</code>，會比較容易帶 <code>參數</code> 及 <code>可讀性</code> 較佳。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> DOM = <span class="built_in">document</span>.querySelector(<span class="string">'img'</span>);</div><div class="line"></div><div class="line"><span class="comment">//方法1</span></div><div class="line">DOM.setAttribute(<span class="string">"style"</span>, <span class="string">`padding: 10px`</span>)</div><div class="line"></div><div class="line"><span class="comment">//方法2</span></div><div class="line">DOM.style.setProperty(<span class="string">'padding'</span>, <span class="string">'10px'</span>);</div><div class="line"></div><div class="line"><span class="comment">//方法3</span></div><div class="line">DOM.style.padding = <span class="string">'10px'</span>;</div></pre></td></tr></table></figure>
+<h3 id="style-setProperty"><a href="#style-setProperty" class="headerlink" title="style.setProperty"></a>style.setProperty</h3><p>下列三種方法，皆可達到修改CSS的效果，不過實務上用<code>方法2</code>，會比較容易帶 <code>參數</code> 及 <code>可讀性</code> 較佳。</p>
+<figure class="highlight js"><figcaption><span>修改CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> DOM = <span class="built_in">document</span>.querySelector(<span class="string">'img'</span>);</div><div class="line"></div><div class="line"><span class="comment">//方法1</span></div><div class="line">DOM.setAttribute(<span class="string">"style"</span>, <span class="string">`padding: 10px`</span>)</div><div class="line"></div><div class="line"><span class="comment">//方法2</span></div><div class="line">DOM.style.setProperty(<span class="string">'padding'</span>, <span class="string">'10px'</span>);</div><div class="line"></div><div class="line"><span class="comment">//方法3</span></div><div class="line">DOM.style.padding = <span class="string">'10px'</span>;</div></pre></td></tr></table></figure>
 <div class="note info"><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty" target="_blank" rel="external">MDN-setProperty</a></div>
       
     </div>
@@ -658,7 +658,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
