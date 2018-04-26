@@ -1,12 +1,39 @@
 ---
 title: JS30-29-Countdown-Timer
 date: 2018-04-26 00:58:52
+categories:
+- JS
+- JS30
 tags:
+- JS
+- JS30
 ---
 
+{% cq %}
 
-將此專案拆分為多個部份，然後再依序慢慢完成一部份的小功能，最終就會形成一個成型的專案，
-下列為拆分出來的小功能
+{% asset_img js29.jpg %}
+
+<font style="font-size:20px;">完成可自定義時間的倒數計時器</font>
+
+{% endcq %}
+
+<!-- more -->
+***
+
+## 目標
+
+- 完成可自定義時間的倒數計時器。
+
+## 成品
+
+>[[DEMO]](https://kanboo.github.io/JavaScript30/28%20-%20Video%20Speed%20Controller/) | [[GitHub]](https://github.com/kanboo/JavaScript30/blob/master/28%20-%20Video%20Speed%20Controller/index.html)
+
+***
+## 學習紀錄
+
+
+將此專案拆分為多個部份，然後再依序慢慢完成一部份的小功能，
+最終就會完成一個成型的專案，下列為拆分出來的小功能
 
 - 完成計時函式
 - UI顯示倒數時間
@@ -15,8 +42,8 @@ tags:
 - 客制自訂時間倒數
 
 至於上述的功能，沒有一定的先後順序，都是可以獨立完成的，
-只是可以多考量一下，哪些功能先完成的話，會較利於下一個小功能開發時，
-可以更方便測試、節省開發時間...等因素
+只是寫Code前，可以多想一下，哪些功能先完成的話，
+會較利於下一個小功能開發時，可以更方便測試或節省開發時間...等因素
 
 ### 一、完成計時函式
 
@@ -54,6 +81,8 @@ function timer(seconds) {
 ### 二、UI顯示倒數時間
 
 ``` js UI顯示倒數時間
+const timerDisplay = document.querySelector('.display__time-left');
+
 // 顯示倒數時間
 function displayTimeLeft(seconds) {
   // 取得 分
@@ -70,10 +99,10 @@ function displayTimeLeft(seconds) {
 }
 ```
 
-因為完成了 UI顯示倒數時間`displayTimeLeft` 函式，所以就可以更新至剛剛完成的 計時函式`timer`，
+因為完成了 **UI顯示倒數時間** 功能，所以就可以更新剛剛完成的 **計時函式**，
 更新如下
 
-``` diff 計時函式
+``` diff 更新 計時函式
 function timer(seconds) {
   // ...略
 
@@ -94,6 +123,8 @@ function timer(seconds) {
 ### 三、UI顯示結束時間
 
 ``` js UI顯示結束時間
+const endTime = document.querySelector('.display__end-time');
+
 // 顯示結束時間
 function displayEndTime(timestamp) {
   // 將 總秒數 轉換為 時間格式
@@ -111,10 +142,10 @@ function displayEndTime(timestamp) {
 }
 ```
 
-跟上面步驟一樣，完成此函式後，就可以更新部份程式碼至 計時函式`timer`，
+跟上面步驟一樣，完成此函式後，就可以再次更新 **計時函式**，
 更新如下
 
-``` diff 計時函式
+``` diff 更新 計時函式
 function timer(seconds) {
   // ...略
 
@@ -123,15 +154,15 @@ function timer(seconds) {
 + // 顯示結束時間
 + displayEndTime(then);
 
-  countdown = setInterval(() => {
-    // ...略
-  }, 1000);
+  // ...略
 }
 ```
 
 ### 四、監聽倒數時間的按鈕
 
 ``` js 監聽倒數時間的按鈕
+const buttons = document.querySelectorAll('[data-time]');
+
 // 啟動 倒數時間
 function startTimer() {
   // 取得 data-time 的數值
@@ -144,15 +175,15 @@ function startTimer() {
 buttons.forEach(button => button.addEventListener('click', startTimer));
 ```
 
-到這裡看似沒什麼問題，不過當連續點擊 倒數按鈕 的話，會連續呼叫計時函式，
+到這裡看似沒什麼問題，不過當<font color="red">連續點擊</font>倒數按鈕的話，會連續呼叫計時函式，
 本來連續呼叫函式，應該是沒什麼問題的，但就是因為有使用到 `setInterval`，
-所以如果我連續點了 5下 按鈕，這時就會產生 5組的setInterval 在循環執行，
+所以如果我連續點了 <font color="red">5下</font> 按鈕，這時就會產生**5組的setInterval**<font color="red">同時</font>在循環執行，
 導致畫面就會出現怪怪的問題，而修正的方法就是
 
-每當 啟動倒數時間 時，要先清除上一次的`setInterval`。
+每當 <font color="red">啟動倒數時間</font> 時，要先清除上一次的`setInterval`。
 
 
-``` diff 修正問題
+``` diff 修正bug 計時函式
 function timer(seconds) {
 + // 因要重新倒數，清除之前設定
 + clearInterval(countdown);

@@ -1,7 +1,7 @@
 ---
 title: JS-淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)
 date: 2018-01-27 08:37:20
-categories: 
+categories:
 - JS
 tags:
 - JS
@@ -33,7 +33,7 @@ JavaScript 內建的型別主要可以分成<font color="blue">基本型別 (Pri
 這二種型別之間的差異，就是在他們的<font color="red">傳值方式</font>
 
 - 基本型別 => 傳**值**(value)
-- 物件型別 => 傳**址**(reference) 
+- 物件型別 => 傳**址**(reference)
 
 下面範例來解說他們的差異
 
@@ -166,3 +166,27 @@ console.log(copy); //{name: "盧卡斯", age:{child: 99}}
 ## 參考來源
 <div class="note info">[關於 JS 中的淺拷貝和深拷貝](http://larry850806.github.io/2016/09/20/shallow-vs-deep-copy/)
 [js中的深拷贝和浅拷贝](https://www.jianshu.com/p/70dc5b968767)</div>
+
+***
+## FB討論串
+
+2018/04/26 社團剛好有人詢問此問題，也有大大回覆一些見解，留個紀錄可以回頭查。
+
+簡單重點整理：
+
+- 可用 `JSON.parse(JSON.stringify({}))` 偽深拷貝
+ - 純資料，可行。
+ - 若遇 Function、Set、Map..等型態，失效。
+- 為何要複製function? 目的？
+ - 站在節省記憶體的角度，function能重複利用就重複利用
+ - 若是要寫物件導向風格
+   - ES5：寫 Function + prototype
+   - ES6：寫 Class
+
+<span id="inline-yellow">JSON複製範例</span>
+
+``` js JSON複製範例
+let a = {o:{v:1}}
+let b = JSON.parse(JSON.stringify(a));
+```
+<div class="note primary">[淺拷貝與深拷貝??](https://www.facebook.com/groups/f2e.tw/permalink/1635876266449732)</div>
