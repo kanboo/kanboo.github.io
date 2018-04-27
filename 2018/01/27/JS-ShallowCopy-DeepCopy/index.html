@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/js_01.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/js_02.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/js_03.png">
-<meta property="og:updated_time" content="2018-01-27T02:32:14.000Z">
+<meta property="og:updated_time" content="2018-04-27T13:35:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)">
 <meta name="twitter:description" content="淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)">
@@ -466,7 +466,7 @@
 <p>這二種型別之間的差異，就是在他們的<font color="red">傳值方式</font></p>
 <ul>
 <li>基本型別 =&gt; 傳<strong>值</strong>(value)</li>
-<li>物件型別 =&gt; 傳<strong>址</strong>(reference) </li>
+<li>物件型別 =&gt; 傳<strong>址</strong>(reference)</li>
 </ul>
 <p>下面範例來解說他們的差異</p>
 <p><span id="inline-purple">基本型別</span></p>
@@ -499,6 +499,30 @@
 <figure class="highlight js"><figcaption><span>lodash.cloneDeep</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">name</span>: <span class="string">'王康寶'</span>, <span class="attr">age</span>:&#123;<span class="attr">child</span>: <span class="number">18</span>&#125;&#125;</div><div class="line"><span class="keyword">let</span> copy = _.cloneDeep(obj);  <span class="comment">//使用 lodash.cloneDeep</span></div><div class="line"></div><div class="line">copy.name = <span class="string">'盧卡斯'</span>;</div><div class="line">copy.age.child = <span class="number">99</span>; <span class="comment">//更改 copy.age.child 的值</span></div><div class="line"></div><div class="line"><span class="comment">//輸出</span></div><div class="line"><span class="built_in">console</span>.log(obj);  <span class="comment">//&#123;name: "王康寶", age:&#123;child: 18&#125;&#125;</span></div><div class="line"><span class="built_in">console</span>.log(copy); <span class="comment">//&#123;name: "盧卡斯", age:&#123;child: 99&#125;&#125;</span></div></pre></td></tr></table></figure>
 <hr>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><div class="note info"><a href="http://larry850806.github.io/2016/09/20/shallow-vs-deep-copy/" target="_blank" rel="external">關於 JS 中的淺拷貝和深拷貝</a><br><a href="https://www.jianshu.com/p/70dc5b968767" target="_blank" rel="external">js中的深拷贝和浅拷贝</a></div>
+
+<hr>
+<h2 id="FB討論串"><a href="#FB討論串" class="headerlink" title="FB討論串"></a>FB討論串</h2><p>2018/04/26 社團剛好有人詢問此問題，也有大大回覆一些見解，留個紀錄可以回頭查。</p>
+<p>簡單重點整理：</p>
+<ul>
+<li>可用 <code>JSON.parse(JSON.stringify({}))</code> 偽深拷貝<ul>
+<li>純資料，可行。</li>
+<li>若遇 Function、Set、Map..等型態，失效。</li>
+</ul>
+</li>
+<li>為何要複製function? 目的？<ul>
+<li>站在節省記憶體的角度，function能重複利用就重複利用</li>
+<li>若是要寫物件導向風格<ul>
+<li>ES5：寫 Function + prototype</li>
+<li>ES6：寫 Class</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span id="inline-yellow">JSON複製範例</span></p>
+<figure class="highlight js"><figcaption><span>JSON複製範例</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = &#123;<span class="attr">o</span>:&#123;<span class="attr">v</span>:<span class="number">1</span>&#125;&#125;</div><div class="line"><span class="keyword">let</span> b = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(a));</div></pre></td></tr></table></figure>
+<div class="note primary"><a href="https://www.facebook.com/groups/f2e.tw/permalink/1635876266449732" target="_blank" rel="external">淺拷貝與深拷貝??</a></div>
+
       
     </div>
     
@@ -644,7 +668,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-count">79</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -701,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本與物件型別傳值的差異"><span class="nav-number">1.</span> <span class="nav-text">基本與物件型別傳值的差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#淺拷貝-Shallow-Copy-VS-深拷貝-Deep-Copy"><span class="nav-number">2.</span> <span class="nav-text">淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-assign"><span class="nav-number">3.</span> <span class="nav-text">Object.assign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷貝的作法"><span class="nav-number">4.</span> <span class="nav-text">深拷貝的作法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery"><span class="nav-number">4.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lodash"><span class="nav-number">4.2.</span> <span class="nav-text">lodash</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本與物件型別傳值的差異"><span class="nav-number">1.</span> <span class="nav-text">基本與物件型別傳值的差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#淺拷貝-Shallow-Copy-VS-深拷貝-Deep-Copy"><span class="nav-number">2.</span> <span class="nav-text">淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-assign"><span class="nav-number">3.</span> <span class="nav-text">Object.assign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷貝的作法"><span class="nav-number">4.</span> <span class="nav-text">深拷貝的作法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery"><span class="nav-number">4.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lodash"><span class="nav-number">4.2.</span> <span class="nav-text">lodash</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FB討論串"><span class="nav-number">6.</span> <span class="nav-text">FB討論串</span></a></li></ol></div>
             
 
           </div>
