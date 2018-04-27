@@ -26,7 +26,7 @@ tags:
 
 ## 成品
 
->[[DEMO]](https://kanboo.github.io/JavaScript30/28%20-%20Video%20Speed%20Controller/) | [[GitHub]](https://github.com/kanboo/JavaScript30/blob/master/28%20-%20Video%20Speed%20Controller/index.html)
+>[[DEMO]](https://kanboo.github.io/JavaScript30/29%20-%20Countdown%20Timer/) | [[GitHub]](https://github.com/kanboo/JavaScript30/blob/master/29%20-%20Countdown%20Timer/index.html)
 
 ***
 ## 學習紀錄
