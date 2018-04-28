@@ -73,7 +73,8 @@ console.log(objB); //"盧卡斯"
 {% asset_img js_03.png %}
 
 - <font color="red">淺</font>拷貝：
-只複製指向某個物件的<font color="red">指標</font>，而不複製物件本身，新舊物件還是<font color="red">共用同一塊記憶體</font>。
+只能達到淺層的複製(<font color="blue">第一層</font>)，若有<font color="red">第二層</font>以上的資料的話，
+就無法達到實際的複製，而是會與舊物件一起<font color="red">共用</font>同一塊記憶體。
 
 - <font color="red">深</font>拷貝：
 會另外創造一個一模一樣的物件，新物件跟原物件<font color="red">不</font>共用記憶體，修改新物件不會改到原物件。

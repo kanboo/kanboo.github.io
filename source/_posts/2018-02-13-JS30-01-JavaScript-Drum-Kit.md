@@ -1,7 +1,7 @@
 ---
 title: JS30-01-JavaScript-Drum-Kit
 date: 2018-02-13 10:59:37
-categories: 
+categories:
 - JS
 - JS30
 tags:
@@ -39,7 +39,7 @@ tags:
 
 ## 成品
 
->[[DEMO]](https://kanboo.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/) | [[GitHub]](https://github.com/kanboo/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index.html) 
+>[[DEMO]](https://kanboo.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/) | [[GitHub]](https://github.com/kanboo/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index.html)
 
 ***
 ## JS學習紀錄
@@ -110,7 +110,7 @@ querySelectorAll 取得 DOM元素後，使用 NodeList.prototype.forEach() 的 m
 
 ``` js JS
 // 取得 DOM 元素 => NodeList 型態
-const keys = document.querySelectorAll('.key'); 
+const keys = document.querySelectorAll('.key');
 
 // NodeList.prototype.forEach() => IE不支援
 keys.forEach(key => key.addEventListener('transitionend',removeTransition))
@@ -122,10 +122,10 @@ keys.forEach(key => key.addEventListener('transitionend',removeTransition))
 
 ``` js NodeList 轉換 Array型態
 // 第一種方法：Array.from()
-const keys = Array.from(document.querySelectorAll('.key')); 
+const keys = Array.from(document.querySelectorAll('.key'));
 
 // 第二種方法：... 展開運算子( Spread Operator )
-const keys = [...document.querySelectorAll('.key'))]; 
+const keys = [...document.querySelectorAll('.key'))];
 
 
 // 轉換成 Array型態 後，就可以使用 forEach()、map(), concat() …等method
@@ -152,7 +152,7 @@ function removeTransition(e){
     /* your code */
 }
 
-const keys = Array.from(document.querySelectorAll('.key')); 
+const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach(key => key.addEventListener('transitionend',removeTransition)) // transitionend 事件會在 CSS transition 结束后觸發
 ```
 
@@ -183,8 +183,10 @@ function removeTransition(e){
     this.classList.remove('playing'); //移除CSS屬性
 }
 
-const keys = Array.from(document.querySelectorAll('.key')); 
-keys.forEach(key => key.addEventListener('transitionend',removeTransition)) 
+const keys = Array.from(document.querySelectorAll('.key'));
+keys.forEach(key => key.addEventListener('transitionend',removeTransition))
 ```
 
 <div class="note info">[JS-一次搞懂 JavaScript 的 this](https://kanboo.github.io/2018/01/24/JS-this/)</div>
+
+<div class="note primary">[查詢鍵盤的代碼](http://keycode.info/)</div>
