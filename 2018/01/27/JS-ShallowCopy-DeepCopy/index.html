@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/js_01.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/js_02.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/js_03.png">
-<meta property="og:updated_time" content="2018-04-27T13:35:55.000Z">
+<meta property="og:updated_time" content="2018-04-28T16:16:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)">
 <meta name="twitter:description" content="淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)">
@@ -479,7 +479,7 @@
 <hr>
 <h2 id="淺拷貝-Shallow-Copy-VS-深拷貝-Deep-Copy"><a href="#淺拷貝-Shallow-Copy-VS-深拷貝-Deep-Copy" class="headerlink" title="淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)"></a>淺拷貝(Shallow Copy) VS 深拷貝(Deep Copy)</h2><img src="/2018/01/27/JS-ShallowCopy-DeepCopy/js_03.png" alt="js_03.png" title="">
 <ul>
-<li><p><font color="red">淺</font>拷貝：<br>只複製指向某個物件的<font color="red">指標</font>，而不複製物件本身，新舊物件還是<font color="red">共用同一塊記憶體</font>。</p>
+<li><p><font color="red">淺</font>拷貝：<br>只能達到淺層的複製(<font color="blue">第一層</font>)，若有<font color="red">第二層</font>以上的資料的話，<br>就無法達到實際的複製，而是會與舊物件一起<font color="red">共用</font>同一塊記憶體。</p>
 </li>
 <li><p><font color="red">深</font>拷貝：<br>會另外創造一個一模一樣的物件，新物件跟原物件<font color="red">不</font>共用記憶體，修改新物件不會改到原物件。</p>
 </li>
