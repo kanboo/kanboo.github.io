@@ -68,7 +68,7 @@ flex: flex-grow flex-shrink flex-basis
 
 再承上述，
 若 子元素總長度 <font color="red">超過</font> 父元素長度時，有可能會造成跑版，
-這時就可以用第二個參數 `flex-shrink`，來<font color="red">壓縮</font>子元素的長度。
+這時就可以用第二個參數 `flex-shrink`，來<font color="red">收縮</font>子元素的長度。
 
 <div class="note info">[CSS Flex 屬性一點也不難](https://wcc723.github.io/css/2017/07/21/css-flex/)
 [flex-grow 不易理解，难道不是吗?](https://jinlong.github.io/2016/02/04/flex-grow-is-weird/)
