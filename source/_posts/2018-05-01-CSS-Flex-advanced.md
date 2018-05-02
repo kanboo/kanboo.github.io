@@ -42,21 +42,20 @@ tags:
 舉例來說，我們拿 `flex-basis` 這個屬性出來說明，
 當主軸的方向有所不同時，會影響什麼呢？
 
-當`flex-direction: row`時，`flex-basis`是影響<font color="red">寬度</font>
-當`flex-direction: column`時，`flex-basis`是影響<font color="red">高度</font>
+當`flex-direction: row`時，`flex-basis`影響的是<font color="red">寬度</font>
+當`flex-direction: column`時，`flex-basis`影響的是<font color="red">高度</font>
 
 
-<div class="note warning">整理幾個時間點，方便以後回頭再複習。
+<div class="note info">[舊文參考：CSS - Flex](https://kanboo.github.io/2017/09/30/CSS-Flex/)</div><div class="note warning">整理幾個時間點，方便以後回頭再複習。
 [align-items(1h13m12s)](https://youtu.be/_nCBQ6AIzDU?t=1h13m12s)
 [align-self(1h25m19s)](https://youtu.be/_nCBQ6AIzDU?t=1h25m19s)
 [flex-order(1h29m13s)](https://youtu.be/_nCBQ6AIzDU?t=1h29m13s)
 [flex-grow(1h39m25s)](https://youtu.be/_nCBQ6AIzDU?t=1h39m25s)
 [flex-basis(1h43m15s)](https://youtu.be/_nCBQ6AIzDU?t=1h43m15s)
-[flex-shrink(1h46m55s)](https://youtu.be/_nCBQ6AIzDU?t=1h46m55s)</div><div class="note info">[舊文參考：CSS - Flex](https://kanboo.github.io/2017/09/30/CSS-Flex/)</div>
+[flex-shrink(1h46m55s)](https://youtu.be/_nCBQ6AIzDU?t=1h46m55s)</div>
 
 ***
 ## flex-order
-
 
 <span id="inline-blue">重點整理</span>
 - 預設值為 0 ，所以要往前就要小於 0，往後就要大於 0。
@@ -85,7 +84,7 @@ tags:
 
 <span id="inline-green">案例說明</span>
 
-當 <font color="red">子</font>元素全部加總的長度(<font color="blue">600px</font>) <font color="red"><</font> 父元素的總長度(<font color="blue">1000px</font>) 時，
+當 <font color="red">子</font>項目全部加總的長度(<font color="blue">600px</font>) <font color="red"><</font> 父項目的總長度(<font color="blue">1000px</font>) 時，
 此時就有「<font color="red">剩餘的空間(1000 - 600 = 400)</font>」，可以讓`flex-grow`依照比例去分配剩下的空間。
 
 
@@ -105,10 +104,19 @@ Amos大提到用在單列使用時，做分配還OK，
 <span id="inline-blue">重點整理</span>
 
 - 預設值為 auto
-- 控制 主軸的長度
+- 控制 <font color="red">主軸</font> 的長度
   - flex-direction：決定 flex 主軸線 方向
   - 當主軸是 <font color="red">row</font> 的話，就是控制 <font color="red">寬度</font>
   - 當主軸是 <font color="blue">column</font> 的話，就是控制 <font color="blue">高度</font>
+
+<span id="inline-green">運用情境</span>
+
+利用 `flex-basis` 與 `flex-grow` 配合，當成「<font color="red">grid網格</font>」來使用。
+
+<p data-height="445" data-theme-id="0" data-slug-hash="mLmWVR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-basis 與 flex-grow 網格實作" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmWVR/">flex-basis 與 flex-grow 網格實作</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
 
 > 時間點：[flex-basis](https://youtu.be/_nCBQ6AIzDU?t=1h43m15s)
 
@@ -148,17 +156,43 @@ Amos大提到用在單列使用時，做分配還OK，
 
 先將下列三個值算出
 
-<font color="blue">**收縮比**</font>：flex-shrink
+<font color="blue">**收縮值**</font>：flex-shrink
 
-<font color="blue">**總比值**</font>：各子項目寬*收縮值，並全部加總的值
+<font color="blue">**總比值**</font>：各子項目寬 \* 收縮值，並全部加總的值
 
-<font color="blue">**超出值**</font>：全部子項目寬度的加總 超過 父層的寬度 的值
+<font color="blue">**超出值**</font>：全部子項目寬度的加總 減掉 父層的寬度
 
 最後我們再利用上列的值，針對 每一個的子項目 算出 自己的扣除值
 
 <font color="blue">**扣除值**</font>： (子項目的寬 \* 收縮比 / 總比值) \* 超出值
 
 這樣的話，每個子項目的寬度去減掉自己的扣除值，就完成收縮的作用了。
+
+_**下列直接用實例說明**_
+
+<p data-height="337" data-theme-id="0" data-slug-hash="mLmRwd" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-shrink公式計算" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmRwd/">flex-shrink公式計算</a> by Kanboo (<a href="https://codepen.io/Kanboo">@Kanboo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+<font color="blue">**總比值**</font>：100 \* 1+100 \* 1+100 \* 1+100 \* 5+100 \* 5 = 1300
+
+<font color="blue">**超出值**</font>：(100 \* 5) - 300 = 200
+
+<font color="blue">**扣除值**</font>：
+
+- A：(100 \* 1 / 1300) \* 200 約 15.38
+- B：(100 \* 1 / 1300) \* 200 約 15.38
+- C：(100 \* 1 / 1300) \* 200 約 15.38
+- D：(100 \* 5 / 1300) \* 200 約 76.92
+- E：(100 \* 5 / 1300) \* 200 約 76.92
+
+<font color="red">**最後實際的值**</font>：
+
+- A：100 - 15.38 = 84.61
+- B：100 - 15.38 = 84.61
+- C：100 - 15.38 = 84.61
+- D：100 - 76.92 = 23.08
+- E：100 - 76.92 = 23.08
 
 
 > 時間點：[flex-shrink](https://youtu.be/_nCBQ6AIzDU?t=1h46m55s)
