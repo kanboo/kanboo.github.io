@@ -22,7 +22,7 @@ tags:
 ***
 ## 前言
 
-在Youtube直播看到 Amos大大 在解說Flex各種屬性及運用，
+在Youtube直播看到 **Amos大大** 在解說Flex各種屬性及運用，
 在此紀錄自己較不熟悉的部份，方便以後複習。
 
 <div class="note info">Youtube：[玩轉 CSS FLEX](https://youtu.be/_nCBQ6AIzDU)</div>
