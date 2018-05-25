@@ -1,7 +1,7 @@
 ---
 title: JS-Pass by sharing
 date: 2018-01-15 23:18:39
-categories: 
+categories:
 - JS
 - 重新認識 JavaScript
 tags:
@@ -89,5 +89,34 @@ function changeValue(obj) {
 changeValue(coin1);
 console.log(coin1);   // 此時 coin1 則會變成 { value: 123 }
 ```
+
+***
+## Pass by sharing 說明2
+
+用下例說明，
+因為 `b變數` 原本是指向 `a變數` 的記憶體位置，共用同一個記憶體，
+不過當重新給予 `null` 值時，`b變數` 就改指向 `null` 了，
+此時 `b變數` 就不再指向 `a變數` 的記憶體位置。
+
+``` js 完全重新賦值
+var a = {name: "Kanboo"};
+var b = a; // b變數 指向 a變數的記憶體位置
+
+b = null; // 完全重新賦值
+
+console.log(a);  // {name: "Kanboo"}
+```
+
+若不是 <font color="red">完全重新賦值</font> 的話，就跟傳址的狀況一樣。
+
+``` js 用 b變數 去更新值
+var a = {name: "Kanboo"};
+var b = a; // b變數 指向 a變數的記憶體位置
+
+b.name = "Lucas";
+
+console.log(a);  // {name: "Lucas"}
+```
+
 
 <div class="note primary">[JS中是 pass by value 还是 pass by reference](https://objcer.com/2017/02/26/js-pass-by-value-or-by-reference/)</div>
