@@ -121,7 +121,7 @@
 <meta property="og:description" content="JavaScript 是「傳值」或「傳址」？">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2018/01/15/JS-Passbysharing/js_01.png">
-<meta property="og:updated_time" content="2018-01-15T15:32:03.000Z">
+<meta property="og:updated_time" content="2018-05-25T15:04:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-Pass by sharing">
 <meta name="twitter:description" content="JavaScript 是「傳值」或「傳址」？">
@@ -487,6 +487,11 @@
 <figure class="highlight js"><figcaption><span>function裡，重新賦值</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> coin1 = &#123; <span class="attr">value</span>: <span class="number">10</span> &#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeValue</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  obj = &#123; <span class="attr">value</span>: <span class="number">123</span> &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">changeValue(coin1);</div><div class="line"><span class="built_in">console</span>.log(coin1);   <span class="comment">// 此時 coin1 仍是 &#123; value: 10 &#125;</span></div></pre></td></tr></table></figure>
 <p>如果不是重新賦值的情況，則又會回到大家所熟悉的狀況：</p>
 <figure class="highlight js"><figcaption><span>function裡，無 重新賦值</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> coin1 = &#123; <span class="attr">value</span>: <span class="number">10</span> &#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeValue</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="comment">// 僅更新 obj.value，並未重新賦值</span></div><div class="line">  obj.value = <span class="number">123</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">changeValue(coin1);</div><div class="line"><span class="built_in">console</span>.log(coin1);   <span class="comment">// 此時 coin1 則會變成 &#123; value: 123 &#125;</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Pass-by-sharing-說明2"><a href="#Pass-by-sharing-說明2" class="headerlink" title="Pass by sharing 說明2"></a>Pass by sharing 說明2</h2><p>用下例說明，<br>因為 <code>b變數</code> 原本是指向 <code>a變數</code> 的記憶體位置，共用同一個記憶體，<br>不過當重新給予 <code>null</code> 值時，<code>b變數</code> 就改指向 <code>null</code> 了，<br>此時 <code>b變數</code> 就不再指向 <code>a變數</code> 的記憶體位置。</p>
+<figure class="highlight js"><figcaption><span>完全重新賦值</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>: <span class="string">"Kanboo"</span>&#125;;</div><div class="line"><span class="keyword">var</span> b = a; <span class="comment">// b變數 指向 a變數的記憶體位置</span></div><div class="line"></div><div class="line">b = <span class="literal">null</span>; <span class="comment">// 完全重新賦值</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// &#123;name: "Kanboo"&#125;</span></div></pre></td></tr></table></figure>
+<p>若不是 <font color="red">完全重新賦值</font> 的話，就跟傳址的狀況一樣。</p>
+<figure class="highlight js"><figcaption><span>用 b變數 去更新值</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>: <span class="string">"Kanboo"</span>&#125;;</div><div class="line"><span class="keyword">var</span> b = a; <span class="comment">// b變數 指向 a變數的記憶體位置</span></div><div class="line"></div><div class="line">b.name = <span class="string">"Lucas"</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// &#123;name: "Lucas"&#125;</span></div></pre></td></tr></table></figure>
 <div class="note primary"><a href="https://objcer.com/2017/02/26/js-pass-by-value-or-by-reference/" target="_blank" rel="external">JS中是 pass by value 还是 pass by reference</a></div>
       
     </div>
@@ -633,7 +638,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -655,7 +660,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-count">115</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -690,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「傳值」或「傳址」？"><span class="nav-number">2.</span> <span class="nav-text">「傳值」或「傳址」？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-by-sharing"><span class="nav-number">3.</span> <span class="nav-text">Pass by sharing</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「傳值」或「傳址」？"><span class="nav-number">2.</span> <span class="nav-text">「傳值」或「傳址」？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-by-sharing"><span class="nav-number">3.</span> <span class="nav-text">Pass by sharing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-by-sharing-說明2"><span class="nav-number">4.</span> <span class="nav-text">Pass by sharing 說明2</span></a></li></ol></div>
             
 
           </div>

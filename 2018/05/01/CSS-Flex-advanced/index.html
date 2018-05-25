@@ -122,7 +122,7 @@
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://kanboo.github.io/2018/05/01/CSS-Flex-advanced/flex-property.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/05/01/CSS-Flex-advanced/flex-direction.png">
-<meta property="og:updated_time" content="2018-05-01T17:26:04.000Z">
+<meta property="og:updated_time" content="2018-05-24T14:28:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS-Flex-進階">
 <meta name="twitter:description" content="這次主要介紹 較不常用 的屬性">
@@ -459,7 +459,7 @@
 </blockquote>
 <a id="more"></a>
 <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Youtube直播看到 Amos大大 在解說Flex各種屬性及運用，<br>在此紀錄自己較不熟悉的部份，方便以後複習。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Youtube直播看到 <strong>Amos大大</strong> 在解說Flex各種屬性及運用，<br>在此紀錄自己較不熟悉的部份，方便以後複習。</p>
 <div class="note info">Youtube：<a href="https://youtu.be/_nCBQ6AIzDU" target="_blank" rel="external">玩轉 CSS FLEX</a></div>
 
 <hr>
@@ -467,8 +467,8 @@
 <h3 id="flex-direction：決定-flex-主軸線-方向"><a href="#flex-direction：決定-flex-主軸線-方向" class="headerlink" title="flex-direction：決定 flex 主軸線 方向"></a>flex-direction：決定 flex 主軸線 方向</h3><p>[ row | row-reverse | column | column-reverse ]</p>
 <p>在開始說明前，需再次強調一次 <font color="red">主軸與次軸(交錯軸)</font> 的重要性，<br>因為當主軸設定為 <code>row</code> 或 <code>column</code> 的話，<br>都會連帶影響其他屬性的設定，而產生不一樣的排版出來。</p>
 <p>舉例來說，我們拿 <code>flex-basis</code> 這個屬性出來說明，<br>當主軸的方向有所不同時，會影響什麼呢？</p>
-<p>當<code>flex-direction: row</code>時，<code>flex-basis</code>是影響<font color="red">寬度</font><br>當<code>flex-direction: column</code>時，<code>flex-basis</code>是影響<font color="red">高度</font></p>
-<div class="note warning">整理幾個時間點，方便以後回頭再複習。<br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h13m12s" target="_blank" rel="external">align-items(1h13m12s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h25m19s" target="_blank" rel="external">align-self(1h25m19s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h29m13s" target="_blank" rel="external">flex-order(1h29m13s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h39m25s" target="_blank" rel="external">flex-grow(1h39m25s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h43m15s" target="_blank" rel="external">flex-basis(1h43m15s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h46m55s" target="_blank" rel="external">flex-shrink(1h46m55s)</a></div><div class="note info"><a href="https://kanboo.github.io/2017/09/30/CSS-Flex/">舊文參考：CSS - Flex</a></div>
+<p>當<code>flex-direction: row</code>時，<code>flex-basis</code>影響的是<font color="red">寬度</font><br>當<code>flex-direction: column</code>時，<code>flex-basis</code>影響的是<font color="red">高度</font></p>
+<div class="note info"><a href="https://kanboo.github.io/2017/09/30/CSS-Flex/">舊文參考：CSS - Flex</a></div><div class="note warning">整理幾個時間點，方便以後回頭再複習。<br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h13m12s" target="_blank" rel="external">align-items(1h13m12s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h25m19s" target="_blank" rel="external">align-self(1h25m19s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h29m13s" target="_blank" rel="external">flex-order(1h29m13s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h39m25s" target="_blank" rel="external">flex-grow(1h39m25s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h43m15s" target="_blank" rel="external">flex-basis(1h43m15s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h46m55s" target="_blank" rel="external">flex-shrink(1h46m55s)</a></div>
 
 <hr>
 <h2 id="flex-order"><a href="#flex-order" class="headerlink" title="flex-order"></a>flex-order</h2><p><span id="inline-blue">重點整理</span></p>
@@ -488,7 +488,7 @@
 <hr>
 <h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>將剩餘的空間，切成 n 份後，再分配出去。</p>
 <p><span id="inline-green">案例說明</span></p>
-<p>當 <font color="red">子</font>元素全部加總的長度(<font color="blue">600px</font>) <font color="red">&lt;</font> 父元素的總長度(<font color="blue">1000px</font>) 時，<br>此時就有「<font color="red">剩餘的空間(1000 - 600 = 400)</font>」，可以讓<code>flex-grow</code>依照比例去分配剩下的空間。</p>
+<p>當 <font color="red">子</font>項目全部加總的長度(<font color="blue">600px</font>) <font color="red">&lt;</font> 父項目的總長度(<font color="blue">1000px</font>) 時，<br>此時就有「<font color="red">剩餘的空間(1000 - 600 = 400)</font>」，可以讓<code>flex-grow</code>依照比例去分配剩下的空間。</p>
 <blockquote>
 <p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h39m25s" target="_blank" rel="external">flex-grow(1h39m25s)</a></p>
 </blockquote>
@@ -501,13 +501,20 @@
 <h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p><span id="inline-blue">重點整理</span></p>
 <ul>
 <li>預設值為 auto</li>
-<li>控制 主軸的長度<ul>
+<li>控制 <font color="red">主軸</font> 的長度<ul>
 <li>flex-direction：決定 flex 主軸線 方向</li>
 <li>當主軸是 <font color="red">row</font> 的話，就是控制 <font color="red">寬度</font></li>
 <li>當主軸是 <font color="blue">column</font> 的話，就是控制 <font color="blue">高度</font></li>
 </ul>
 </li>
 </ul>
+<p><span id="inline-green">運用情境</span></p>
+<p>利用 <code>flex-basis</code> 與 <code>flex-grow</code> 配合，當成「<font color="red">grid網格</font>」來使用。</p>
+<p></p><p data-height="445" data-theme-id="0" data-slug-hash="mLmWVR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-basis 與 flex-grow 網格實作" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmWVR/" target="_blank" rel="external">flex-basis 與 flex-grow 網格實作</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+
 <blockquote>
 <p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h43m15s" target="_blank" rel="external">flex-basis</a></p>
 </blockquote>
@@ -531,12 +538,35 @@
 <p>承上例，<br>因 flex-shrink 是控制收縮，所以再新增 flex-grow 控制伸展，<br>這樣不管畫面拉寬拉窄的話，右邊內容區都可以自動伸展收縮。</p>
 <p><span id="inline-purple">公式</span></p>
 <p>先將下列三個值算出</p>
-<p><font color="blue"><strong>收縮比</strong></font>：flex-shrink</p>
-<p><font color="blue"><strong>總比值</strong></font>：各子項目寬*收縮值，並全部加總的值</p>
-<p><font color="blue"><strong>超出值</strong></font>：全部子項目寬度的加總 超過 父層的寬度 的值</p>
+<p><font color="blue"><strong>收縮值</strong></font>：flex-shrink</p>
+<p><font color="blue"><strong>總比值</strong></font>：各子項目寬 * 收縮值，並全部加總的值</p>
+<p><font color="blue"><strong>超出值</strong></font>：全部子項目寬度的加總 減掉 父層的寬度</p>
 <p>最後我們再利用上列的值，針對 每一個的子項目 算出 自己的扣除值</p>
 <p><font color="blue"><strong>扣除值</strong></font>： (子項目的寬 * 收縮比 / 總比值) * 超出值</p>
 <p>這樣的話，每個子項目的寬度去減掉自己的扣除值，就完成收縮的作用了。</p>
+<p><em><strong>下列直接用實例說明</strong></em></p>
+<p></p><p data-height="337" data-theme-id="0" data-slug-hash="mLmRwd" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-shrink公式計算" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmRwd/" target="_blank" rel="external">flex-shrink公式計算</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+<p><font color="blue"><strong>總比值</strong></font>：100 * 1+100 * 1+100 * 1+100 * 5+100 * 5 = 1300</p>
+<p><font color="blue"><strong>超出值</strong></font>：(100 * 5) - 300 = 200</p>
+<p><font color="blue"><strong>扣除值</strong></font>：</p>
+<ul>
+<li>A：(100 * 1 / 1300) * 200 約 15.38</li>
+<li>B：(100 * 1 / 1300) * 200 約 15.38</li>
+<li>C：(100 * 1 / 1300) * 200 約 15.38</li>
+<li>D：(100 * 5 / 1300) * 200 約 76.92</li>
+<li>E：(100 * 5 / 1300) * 200 約 76.92</li>
+</ul>
+<p><font color="red"><strong>最後實際的值</strong></font>：</p>
+<ul>
+<li>A：100 - 15.38 = 84.61</li>
+<li>B：100 - 15.38 = 84.61</li>
+<li>C：100 - 15.38 = 84.61</li>
+<li>D：100 - 76.92 = 23.08</li>
+<li>E：100 - 76.92 = 23.08</li>
+</ul>
 <blockquote>
 <p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h46m55s" target="_blank" rel="external">flex-shrink</a></p>
 </blockquote>
@@ -611,6 +641,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/03/JS-debounce-throttle/" rel="prev" title="JS-事件效能處理">
+                JS-事件效能處理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -694,7 +728,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -716,7 +750,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-count">115</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
