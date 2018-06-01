@@ -32,7 +32,7 @@ Facebook：[Alex 宅幹嘛-粉絲團](https://www.facebook.com/AlexOtakuWhat/)</
 
 ## Node.nodeType
 
-在 jQuery 的原始裡，很常使用 `Node.nodeType` 來判斷取得物件的種類，
+在 jQuery 的原始碼裡，很常使用 `Node.nodeType` 來判斷取得物件的種類，
 
 所以我們要先了解 `Node.nodeType` 是什麼。
 
@@ -40,11 +40,17 @@ Facebook：[Alex 宅幹嘛-粉絲團](https://www.facebook.com/AlexOtakuWhat/)</
 
 常出現的號碼，請記
 
-<font color="blue">1</font>：表示元素的 <font color="red">Element</font> 節點，如 `<body>`、`<a>`、`<p>`、`<script>`、`<style>`、`<html>`、`<h1>` 或 `<div>`。
+* <font color="blue">1</font>
 
-<font color="blue">3</font>：表示 HTML 元素屬性的 <font color="red">Attr</font> 節點 或 實際文字字元的 <font color="red">Text</font> 節點，它包括了「<font color="red">換行與空格</font>」。
+  * 表示元素的 <font color="red">Element</font> 節點，如 `<body>`、`<a>`、`<p>`、`<script>`、`<style>`、`<html>`、`<h1>` 或 `<div>`。
 
-<font color="blue">9</font>：表示文件的 <font color="red">Document</font> 節點。
+* <font color="blue">3</font>
+
+  * 表示 HTML 元素屬性的 <font color="red">Attr</font> 節點 或 實際文字字元的 <font color="red">Text</font> 節點，它包括了「<font color="red">換行與空格</font>」。
+
+* <font color="blue">9</font>
+
+  * 表示文件的 <font color="red">Document</font> 節點。
 
 <div class="note info">[MDN - Node.nodeType](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType)</div>
 
@@ -96,11 +102,11 @@ while (el) {
 
 <span id="inline-blue">解法 1</span>
 
-使用 `nodeType` 判斷，當我們取得下一個的話，判斷 `el.nextSibling !== 1` 時，就代表不是元素的 `Element` 節點，所以需要再往下抓下一個，直到 `el.nextSibling === 1` 時，才是我們要的 `div` 元素。
+使用 `nodeType` 判斷，當我們取得下一個的話，判斷 `el.nextSibling !== 1` 時，就代表<font color="red">不是</font>元素的 `Element` 節點，所以需要再往下抓下一個，直到 `el.nextSibling === 1` 時，才是我們要的 `div` 元素。
 
 <span id="inline-blue">解法 2</span>
 
-使用 `element..nextElementSibling` 取得下一個元素，它幫會我們避開 `el.nextSibling !== 1` 的東西，若你看他的原始碼的話，他也是使用 `解法 1` 的寫法去執行，只是此函式事先幫我們判斷好而已。
+使用 `element.nextElementSibling` 取得下一個元素，它幫會我們避開 `el.nextSibling !== 1` 的東西，若你看他的原始碼的話，他也是使用 `解法 1` 的寫法去執行，只是此函式事先幫我們判斷好而已。
 
 <div class="note info">[MDN - NonDocumentTypeChildNode.nextElementSibling](https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/nextElementSibling)</div>
 
@@ -220,7 +226,7 @@ siblings: function( elem ) {
 
 如果當`elem`是沒東西時，這時就會給 `{}` 值，而當 JS 執行此段語法 `{}.firstchild` 時，
 
-會回傳 `undefined` 值，至少 js 還看得懂 `undefined`，所以就不會出現 `error訊息`，造成網站掛了，但若是直接用 <font color="red">undefined</font>`.firstchild`，就會死給你看。
+會回傳 `undefined` 值，至少 js 還看得懂 `undefined`，所以就不會出現 `error訊息`，造成網站掛了，但若是直接用 <font color="red">undefined.firstchild</font>，就會死給你看。
 
 <span id="inline-blue">範例說明</span>
 
