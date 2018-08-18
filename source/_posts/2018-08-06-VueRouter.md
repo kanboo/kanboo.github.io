@@ -2,10 +2,10 @@
 title: VueRouter
 date: 2018-08-06 15:50:00
 categories:
-- VueJS
+  - VueJS
 tags:
-- VueJS
-- Router
+  - VueJS
+  - Router
 ---
 
 {% cq %}
@@ -89,32 +89,62 @@ export default new Router({
 
 籍由**巢狀路由**的設定，可以分不同區塊集中管理。
 
-### 範例
+注意：如果巢狀有<font color="red">二層</font>的話，就要有<font color="red">二個</font> `<router-view/>`
+
+{% asset_img children.png %}
+
+> 圖源：[Kuro 大-Vue.js 前端框架的演進淺談
+> ](https://speakerdeck.com/kurotanshi/vue-dot-js-qian-duan-kuang-jia-de-yan-jin-qian-tan?slide=57)
+
+### 設定
 
 **設定頁面路徑**
 
-```javascript
+```html app.js 第一層
+<div id="app">
+  <!-- 切換路由界面(第一層) -->
+  <router-view/>
+</div>
+```
+
+```html admin.js 第二層
+<div class="admin">
+  <!-- 切換路由界面(第二層) -->
+  <router-view/>
+</div>
+```
+
+```javascript router.js
 export default new Router({
   routes: [
     {
-      path: '/product', // 父層
-      name: 'Product',
-      component: Product,
+      path: '/admin', // 第一層
+      component: () => import('@/pages/Admin'),
+      // 第二層
       children: [
         {
-          path: '', // 第一個子項(default)
-          name: '全部',
-          component: categoryAll
+          path: '', // 首頁(default)
+          name: 'AdminDashboard',
+          component: () => import('@/components/AdminProducts'),
+          meta: { requiresAuth: true }
         },
         {
-          path: '/category1', // 第二個子項
-          name: '分類1',
-          component: category1
+          path: 'products', // 產品列表
+          name: 'AdminProducts',
+          component: () => import('@/components/AdminProducts'),
+          meta: { requiresAuth: true }
         },
         {
-          path: '/category2', // 第三個子項
-          name: '分類2',
-          component: category2
+          path: 'orders', // 訂單
+          name: 'AdminOrders',
+          component: () => import('@/components/AdminOrders'),
+          meta: { requiresAuth: true }
+        },
+        {
+          path: 'coupons', // 優惠券
+          name: 'AdminCoupons',
+          component: () => import('@/components/AdminCoupons'),
+          meta: { requiresAuth: true }
         }
       ]
     }
@@ -124,8 +154,8 @@ export default new Router({
 
 根據上列程式，切換路由有下列幾種情況
 
-1.  網址：`/product` → 會取得`children` 底下的第一個子項。
-2.  網址：`/product/category1` → 會取得`children` 底下的第二個子項。
+1.  網址：`/admin` → 會取得`children` 底下的第一個子項 首頁(default)。
+2.  網址：`/admin/products` → 會取得`children` 底下的第二個子項 產品列表。
 
 **切換頁面**
 
@@ -134,9 +164,9 @@ export default new Router({
   <div id="app">
 
     <!-- 路由連結 -->
-    <router-link to="/product">全部</router-link>
-    <router-link to="/product/category1">分類1</router-link>
-    <router-link to="/product/category2">分類2</router-link>
+    <router-link to="/admin">首頁</router-link>
+    <router-link to="/admin/products">產品列表</router-link>
+    <router-link to="/admin/orders">訂單</router-link>
 
     <!-- 切換路由界面 -->
     <router-view/>
@@ -145,38 +175,34 @@ export default new Router({
 </template>
 ```
 
-> 範例程式碼：[JSFiddle](https://jsfiddle.net/yyx990803/L7hscd8h/)
+### 範例
+
+> 官方範例程式碼：[JSFiddle](https://jsfiddle.net/yyx990803/L7hscd8h/)
 
 ---
 
 ## 動態路由
 
 當有一種情況是很多頁面，不過版型都一樣，只有資料面不一樣的話，
-我們就可以利用**動態 id**的方式，透過 AJAX 取得資料，置換掉版型的內容，
+我們就可以利用<font color="red">**動態 id**</font>的方式，透過 AJAX 取得資料，置換掉版型的內容，
 這樣就只需產出一個`Component`元件就好。
 
 ```javascript
-// 載入頁面
-import Index from '@/components/Index';
-import categoryAll from '@/components/categoryAll';
-import category from '@/components/category';
-
 export default new Router({
   routes: [
     {
-      path: '/product',
-      // name: 'Product',         // 若子項目有設定default的話，改用default
-      // component: Product,      // 若子項目有設定default的話，改用default
+      path: '/',
+      component: () => import('@/pages/Admin'),
       children: [
         {
-          path: '', // default設定
-          name: '全部',
-          component: categoryAll
+          path: 'customer_order',
+          name: 'AdminShopping',
+          component: () => import('@/components/AdminShopping')
         },
         {
-          path: '/category/:id', // 動態路由設定，以冒號開頭
-          name: '分類',
-          component: category
+          path: 'customer_checkout/:orderId', // 籍由動態id配合AJAX取得結帳資料
+          name: 'AdminCheckout',
+          component: () => import('@/components/AdminCheckout')
         }
       ]
     }
@@ -184,17 +210,23 @@ export default new Router({
 });
 ```
 
-而在 Vue 檔裡，可使用`$route.params.id`來取的 id，
+而在 Vue 檔裡，可使用 <font color="red">this.$route.params</font>`來取得值，
 到時就可利用此 id 透過 ajax 取得資料，並且更新版型的內谷。
 
-**範例**
+```javascript
+created() {
+  this.orderId = this.$route.params.orderId // 取得動態id值
+}
+```
+
+### 範例
 
 | pattern                       | matched path        | $route.params                      |
 | ----------------------------- | ------------------- | ---------------------------------- |
 | /user/:username               | /user/evan          | { username: 'evan' }               |
 | /user/:username/post/:post_id | /user/evan/post/123 | { username: 'evan', post_id: 123 } |
 
-> 範例程式碼：[JSFiddle](https://jsfiddle.net/yyx990803/4xfa2f19/)
+> 官方範例程式碼：[JSFiddle](https://jsfiddle.net/yyx990803/4xfa2f19/)
 
 ---
 
