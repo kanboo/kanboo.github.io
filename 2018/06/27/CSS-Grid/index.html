@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS,排版,Grid," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="整理 Grid 的排版與範例">
+<meta name="keywords" content="CSS,排版,Grid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-Grid">
+<meta property="og:url" content="https://kanboo.github.io/2018/06/27/CSS-Grid/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="整理 Grid 的排版與範例">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/cssgrid.jpg">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_01.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_02.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_03.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_04.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_05.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_06.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_07.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_08.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_09.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_10.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_11.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_12.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_13.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_14.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_15.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_16.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/grid_17.png">
+<meta property="og:updated_time" content="2018-07-01T16:54:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS-Grid">
+<meta name="twitter:description" content="整理 Grid 的排版與範例">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/06/27/CSS-Grid/cssgrid.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/06/27/CSS-Grid/"/>
+
+
+
+
+
+  <title>CSS-Grid | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/06/27/CSS-Grid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS-Grid</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-06-27T17:00:30+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/27/CSS-Grid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/06/27/CSS-Grid/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/06/27/CSS-Grid/cssgrid.jpg" alt="cssgrid.jpg" title=""></p>
+<font style="font-size:20px;">整理 <font color="red">Grid</font> 的排版與範例</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Youtube 看 <strong>Amos 大大</strong> 解說 <font color="red">Grid</font> 的各種屬性及運用，所以將一些使用方式及技巧做個紀錄。</p>
+<div class="note info">Youtube：<a href="https://youtu.be/fYcz3FUqv7M" target="_blank" rel="external">CSS GRID / CSS格線好好玩</a></div>
+
+<hr>
+<h2 id="CSS-Grid"><a href="#CSS-Grid" class="headerlink" title="CSS Grid"></a>CSS Grid</h2><p>繼 Flexbox 之後，另一新品種的排版方式，</p>
+<p>而主要排版可選「<font color="red"><strong>格子</strong></font>」或「<font color="red"><strong>線條</strong></font>」二種方式去分配區塊。</p>
+<hr>
+<h2 id="「格」的概念"><a href="#「格」的概念" class="headerlink" title="「格」的概念"></a>「格」的概念</h2><p>定義好共有「幾列幾欄」後，再依照有幾個區塊，分別要放置哪個地方。</p>
+<!-- ![](https://i.imgur.com/cj5JL6M.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_01.png" alt="grid_01.png" title="">
+<p>分配放置的結果，如下所示</p>
+<!-- ![](https://i.imgur.com/4hDDFUZ.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_02.png" alt="grid_02.png" title="">
+<!-- ![](https://i.imgur.com/5HbKyNW.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_03.png" alt="grid_03.png" title="">
+<hr>
+<h3 id="父層"><a href="#父層" class="headerlink" title="父層"></a>父層</h3><p><code>grid-template-rows</code>：設定幾 <font color="red">列</font><br><code>grid-template-columns</code>：設定幾 <font color="red">欄</font><br><code>grid-template-areas</code>：分配各區塊佔據的位置</p>
+<h3 id="子層"><a href="#子層" class="headerlink" title="子層"></a>子層</h3><p><code>grid-area</code>：佔據的名稱</p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><figure class="highlight html"><figcaption><span>HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">  <span class="attribute">outline</span>: <span class="number">2px</span> solid red;</div><div class="line">  <span class="attribute">display</span>: grid;</div><div class="line">  <span class="attribute">grid-template-rows</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</div><div class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</div><div class="line">  <span class="attribute">grid-template-areas</span>:</div><div class="line">    <span class="string">'B3 B3 B1 B1'</span></div><div class="line">    <span class="string">'B3 B3 B1 B1'</span></div><div class="line">    <span class="string">'B3 B3 B1 B1'</span></div><div class="line">    <span class="string">'B2 B2 B2 B2'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box1</span> &#123;</div><div class="line">  <span class="attribute">grid-area</span>: B1;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#faa</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box2</span> &#123;</div><div class="line">  <span class="attribute">grid-area</span>: B2;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#afa</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box3</span> &#123;</div><div class="line">  <span class="attribute">grid-area</span>: B3;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#aaf</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<!-- ![](https://i.imgur.com/Oges32w.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_04.png" alt="grid_04.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/xofozufoca/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h2 id="grid-template-areas-須為連續區塊"><a href="#grid-template-areas-須為連續區塊" class="headerlink" title="grid-template-areas 須為連續區塊"></a>grid-template-areas 須為連續區塊</h2><p>在分配區塊的位置時，須為<font color="red"><strong>連續</strong></font>矩形區塊，不可有「<font color="red"><strong>交叉、L 形</strong></font>」之類的分配。</p>
+<h3 id="正確"><a href="#正確" class="headerlink" title="正確"></a>正確</h3><!-- ![](https://i.imgur.com/bgjGbDi.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_05.png" alt="grid_05.png" title="">
+<h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><strong>B3</strong>區塊這樣設定的話，就會造成 Grid <font color="red">壞掉</font>。</p>
+<!-- ![](https://i.imgur.com/iRQsETN.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_06.png" alt="grid_06.png" title="">
+<hr>
+<h2 id="新單位-fr-fractional"><a href="#新單位-fr-fractional" class="headerlink" title="新單位 fr(fractional)"></a>新單位 fr(fractional)</h2><p>原本我們分配<code>rows</code>或<code>columns</code>時，單位都是使用<code>px</code>、<code>%</code>…等，<br>而 Grid 有提供一個新單位<code>fr</code>, 他的概念就像「<font color="red"><strong>幾分之幾</strong></font>」一樣，<br>下列用範例說明解釋</p>
+<h3 id="範例說明"><a href="#範例說明" class="headerlink" title="範例說明"></a>範例說明</h3><figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">grid-template-rows</span>: 1<span class="selector-tag">fr</span> 1<span class="selector-tag">fr</span> 2<span class="selector-tag">fr</span> 1<span class="selector-tag">fr</span>;</div></pre></td></tr></table></figure>
+<p>先將全部的 fr 加總，所以共有 5fr，然後上例共分成四個區塊，</p>
+<p>所以分別佔據的面積就為 <code>1/5</code>、<code>1/5</code>、<code>2/5</code>、<code>1/5</code></p>
+<hr>
+<h2 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h2><p>如果分配的區塊都<strong>相同</strong>或者有<strong>一定的規則</strong>時，這樣我們就可以用 <strong>repeat</strong> 來重覆定義。</p>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">grid-template-rows</span>: <span class="selector-tag">repeat</span>(4, 1<span class="selector-tag">fr</span>);</div><div class="line"><span class="comment">/* 等同下例 */</span></div><div class="line"><span class="selector-tag">grid-template-rows</span>: 1<span class="selector-tag">fr</span> 1<span class="selector-tag">fr</span> 1<span class="selector-tag">fr</span> 1<span class="selector-tag">fr</span>;</div></pre></td></tr></table></figure>
+<p>也可以多個。</p>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">grid-template-rows</span>: <span class="selector-tag">repeat</span>(2, 1<span class="selector-tag">fr</span> 2<span class="selector-tag">fr</span>);</div><div class="line"><span class="comment">/* 等同下例 */</span></div><div class="line"><span class="selector-tag">grid-template-rows</span>: 1<span class="selector-tag">fr</span> 2<span class="selector-tag">fr</span> 1<span class="selector-tag">fr</span> 2<span class="selector-tag">fr</span>;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="grid-gap-格線"><a href="#grid-gap-格線" class="headerlink" title="grid-gap 格線"></a>grid-gap 格線</h2><p>簡單來說，就是設定每個區塊上下左右之間，是否有<font color="red">空隙</font>，</p>
+<p>另外如果有設定<code>grid-gap</code>時，整個區塊的空間會先分配給<code>grid-gap</code>後，</p>
+<p>剩餘的空間，再給<code>fr</code>去做切割使用。</p>
+<!-- ![](https://i.imgur.com/IwjKeHN.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_07.png" alt="grid_07.png" title="">
+<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><p><code>grid-gap: 列row / 欄column;</code></p>
+<p>也可分別設定的，</p>
+<p><code>grid-row-gap: 列row;</code></p>
+<p><code>grid-column-gap: 欄column;</code></p>
+<h3 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h3><figure class="highlight html"><figcaption><span>HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item4"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item5"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item6"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item7"</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item8"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item9"</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item10"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item11"</span>&gt;</span>11<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item12"</span>&gt;</span>12<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.grid-container</span> &#123;</div><div class="line">  <span class="attribute">display</span>: grid;</div><div class="line">  <span class="attribute">grid-template-columns</span>: auto auto auto auto;</div><div class="line"></div><div class="line">  <span class="attribute">grid-gap</span>: <span class="number">30px</span> <span class="number">5px</span>; <span class="comment">/* 列   欄 */</span></div><div class="line"></div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#2196f3</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.grid-container</span> &gt; <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(255, 255, 255, 0.8);</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<!-- ![](https://i.imgur.com/tXGWZrG.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_08.png" alt="grid_08.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/rosivinuru/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h2 id="「線」的概念"><a href="#「線」的概念" class="headerlink" title="「線」的概念"></a>「線」的概念</h2><p>我們一樣切割為「四欄四列」，而「面的概念」是用佔據第幾個區塊來分配，</p>
+<p>不過「線」的話，就是用「<font color="blue"><strong>起始線/終點線</strong></font>」來規劃佔據的範圍到哪裡，</p>
+<p>再說三次，線的概念為</p>
+<font color="red"><strong>起始線/終點線</strong></font><br><font color="green"><strong>起始線/終點線</strong></font><br><font color="blue"><strong>起始線/終點線</strong></font>
+
+<!-- ![](https://i.imgur.com/OdWZqtL.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_09.png" alt="grid_09.png" title="">
+<h3 id="範例-2"><a href="#範例-2" class="headerlink" title="範例"></a>範例</h3><p>用上面「面的範例」來修改，註解掉的地方為「面的寫法」，</p>
+<p>改用「線的寫法」，來呈現一樣結果。</p>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">  <span class="attribute">outline</span>: <span class="number">2px</span> solid red;</div><div class="line">  <span class="attribute">display</span>: grid;</div><div class="line"></div><div class="line">  <span class="attribute">grid-template-rows</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</div><div class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</div><div class="line"></div><div class="line">  <span class="comment">/*</span></div><div class="line"><span class="comment">  grid-template-areas:</span></div><div class="line"><span class="comment">    'B3 B3 B1 B1'</span></div><div class="line"><span class="comment">    'B3 B3 B1 B1'</span></div><div class="line"><span class="comment">    'B3 B3 B1 B1'</span></div><div class="line"><span class="comment">    'B2 B2 B2 B2'; */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box1</span> &#123;</div><div class="line">  <span class="comment">/* grid-area: B1; */</span></div><div class="line"></div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">3</span>/<span class="number">5</span>;</div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span>/<span class="number">4</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#faa</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box2</span> &#123;</div><div class="line">  <span class="comment">/* grid-area: B2; */</span></div><div class="line"></div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span>/<span class="number">5</span>;</div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">4</span>/<span class="number">5</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#afa</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box3</span> &#123;</div><div class="line">  <span class="comment">/* grid-area: B3; */</span></div><div class="line"></div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span>/<span class="number">3</span>;</div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span>/<span class="number">4</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#aaf</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<!-- ![](https://i.imgur.com/sHUT7I8.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_10.png" alt="grid_10.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/xoxikezogi/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h3 id="線的分配可為「負值」"><a href="#線的分配可為「負值」" class="headerlink" title="線的分配可為「負值」"></a>線的分配可為「負值」</h3><p>線的分配設定值為：<strong>起始線/終點線</strong>，不過裡面的值可為「<font color="red">負數</font>」，</p>
+<p>代表從尾段往前計算線條位置。</p>
+<h4 id="範例-3"><a href="#範例-3" class="headerlink" title="範例"></a>範例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.box1 &#123;</div><div class="line">  /* A 區塊 */</div><div class="line">  grid-row: 1/5;</div><div class="line">  grid-column: 4/5;</div><div class="line">&#125;</div><div class="line">.box2 &#123;</div><div class="line">  /* B 區塊 */</div><div class="line">  grid-row: 5/-5;</div><div class="line">  grid-column: 1/-4;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<!-- ![](https://i.imgur.com/SeujFVp.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_11.png" alt="grid_11.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/wazinefobe/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h3 id="span-的用法"><a href="#span-的用法" class="headerlink" title="span 的用法"></a>span 的用法</h3><p>前面我們說「線」的分配設定值為：<strong>起始線/終點線</strong>，其實也可以配合「<font color="red">span</font>」來使用。<br>不過使用<code>span</code>時，要特別注意二點</p>
+<ol>
+<li><code>span</code>的值，只能 <strong>正數</strong></li>
+<li><code>span</code>的方向，都是 <strong>由左至右、由上而下</strong></li>
+</ol>
+<p>不過第二點比較容易<font color="red"><strong>踩雷</strong></font>，所以再說三次</p>
+<font color="red"><strong>由左至右、由上而下</strong></font><br><font color="green"><strong>由左至右、由上而下</strong></font><br><font color="blue"><strong>由左至右、由上而下</strong></font>
+
+<h4 id="範例-4"><a href="#範例-4" class="headerlink" title="範例"></a>範例</h4><!-- ![](https://i.imgur.com/SeujFVp.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_12.png" alt="grid_12.png" title="">
+<p>以此圖來說，我想要 A、B 二區塊，從上而下全部佔滿，</p>
+<p>這時除了使用 <strong>起始線/終點線</strong> 的寫法外，</p>
+<p>我可以使用 <code>span</code> 來表示要佔據幾格。</p>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box1</span> &#123;</div><div class="line">  <span class="comment">/* A 區塊 */</span></div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span>/ <span class="number">5</span>;</div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">4</span>/<span class="number">5</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box2</span> &#123;</div><div class="line">  <span class="comment">/* B 區塊 */</span></div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span> / span <span class="number">4</span>; <span class="comment">/* 使用span用法 */</span></div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span>/-<span class="number">4</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>從上例來看 <code>.box2</code> 的 <code>grid-row: 1/ span 4;</code>，<br>就是從 <strong>起始線 1 的位置</strong> 開始佔據 <strong>4 格</strong> 的空間。</p>
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/koqegutexo/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h2 id="特殊分配法"><a href="#特殊分配法" class="headerlink" title="特殊分配法"></a>特殊分配法</h2><p>介紹完「面與線」的概念後，再來我們先來個簡單又特別的範例，</p>
+<h3 id="範例-5"><a href="#範例-5" class="headerlink" title="範例"></a>範例</h3><p>下例切割為「八列八欄」，共有 ABCD 區塊要分配，我們要排成一個<font color="red"><strong>斜線</strong></font>的形狀。</p>
+<figure class="highlight html"><figcaption><span>HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box4"</span>&gt;</span>D<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">  <span class="attribute">outline</span>: <span class="number">2px</span> solid red;</div><div class="line">  <span class="attribute">display</span>: grid;</div><div class="line"></div><div class="line">  <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(8, 1fr);</div><div class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(8, 1fr);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box1</span> &#123;</div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span>/<span class="number">3</span>;</div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span>/<span class="number">3</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#faa</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box2</span> &#123;</div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">3</span>/<span class="number">5</span>;</div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">3</span>/<span class="number">5</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#afa</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box3</span> &#123;</div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">5</span>/<span class="number">7</span>;</div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">5</span>/<span class="number">7</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#aaf</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.box4</span> &#123;</div><div class="line">  <span class="attribute">grid-row</span>: <span class="number">7</span>/<span class="number">9</span>;</div><div class="line">  <span class="attribute">grid-column</span>: <span class="number">7</span>/<span class="number">9</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#8f8</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<!-- ![](https://i.imgur.com/iEZuxdU.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_13.png" alt="grid_13.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/hetedufani/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h2 id="可「重疊」分配"><a href="#可「重疊」分配" class="headerlink" title="可「重疊」分配"></a>可「重疊」分配</h2><p>再用上例來修改，如果想要 <strong>C</strong> 的部份區塊要蓋在 <strong>B</strong> 區塊上面，只要將二者分配的值，有交錯即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// ...略</div><div class="line"></div><div class="line">.box2 &#123;</div><div class="line">  grid-row: 3/5;</div><div class="line">  grid-column: 3/5;</div><div class="line">  background-color: #afa;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box3 &#123;</div><div class="line">  grid-row: 4/7;</div><div class="line">  grid-column: 4/7;</div><div class="line">  background-color: #aaf;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// ...略</div></pre></td></tr></table></figure>
+<!-- ![](https://i.imgur.com/JUZCAkK.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_14.png" alt="grid_14.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/suwogunisi/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<div class="note primary">補充說明：<br>如果想要換成 B 蓋在 C 上面的話，就可以使用 <code>position</code> 和 <code>z-index</code> 配合使用，<br>不過在 Grid 裡，可以直接使用 <code>z-index</code> 即可。</div>
+
+<hr>
+<h2 id="grid-auto-自動切割欄列"><a href="#grid-auto-自動切割欄列" class="headerlink" title="grid-auto-* 自動切割欄列"></a>grid-auto-* 自動切割欄列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 固定分配</div><div class="line">grid-template-rows: repeat(8, 1fr);</div><div class="line">grid-template-columns: repeat(8, 1fr);</div><div class="line"></div><div class="line">// 自動分配</div><div class="line">grid-auto-rows: 1fr;</div><div class="line">grid-auto-columns: 1fr;</div></pre></td></tr></table></figure>
+<p>再來我們來說說，<code>grid-template-*</code> 與 <code>grid-auto-*</code> 之間差異點，</p>
+<p>就是 <code>grid-auto-*</code> 會自動計算你使用的<font color="red"><strong>正整數最大值</strong></font>後，自動用最大值去切割區塊，</p>
+<p>這樣可能還不是很清楚，我們用範例來說明：</p>
+<h3 id="範例-6"><a href="#範例-6" class="headerlink" title="範例"></a>範例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">  display: grid;</div><div class="line"></div><div class="line">  grid-auto-rows: 1fr;</div><div class="line">  grid-auto-columns: 1fr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box1 &#123;</div><div class="line">  grid-row: 1/10;</div><div class="line">  grid-column: 1/2;</div><div class="line">&#125;</div><div class="line">.box2 &#123;</div><div class="line">  grid-row: 3/5;</div><div class="line">  grid-column: 1/8;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>從上例來看的話，我們先看 <code>rows</code> 的部份，</p>
+<p><code>.box1</code>：<code>grid-row: 1/10;</code><br><code>.box2</code>：<code>grid-row: 3/5;</code></p>
+<p>上述<code>row</code>裡面最大正整數值為：10，</p>
+<p>不過要注意 <strong>10</strong> 是<strong>終點線</strong>，所以要<strong>扣掉 1</strong>，共切了 <font color="red"><strong>9</strong></font> 格；</p>
+<p>而 <code>columns</code> 的部份規則也是一樣，</p>
+<p><code>.box1</code>：<code>grid-column: 1/2;</code><br><code>.box2</code>：<code>grid-column: 1/8;</code></p>
+<p>上述<code>columns</code>裡面最大正整數值為：8，</p>
+<p>所以 8 - 1 = 7 ，共切了 <font color="red"><strong>7</strong></font> 格。</p>
+<!-- ![](https://i.imgur.com/iU5eeFn.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_15.png" alt="grid_15.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/belivebino/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h2 id="minmax"><a href="#minmax" class="headerlink" title="minmax()"></a>minmax()</h2><p>指定最小格線及最大格線。</p>
+<h3 id="範例："><a href="#範例：" class="headerlink" title="範例："></a>範例：</h3><figure class="highlight html"><figcaption><span>HTML</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://fakeimg.pl/200x200/?text=Hello"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://fakeimg.pl/200x200/?text=Hello"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--  圖片*100個    --&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://fakeimg.pl/200x200/?text=Hello"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><figcaption><span>CSS</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.grid</span> &#123;</div><div class="line">  <span class="attribute">box-sizing</span>: border-box;</div><div class="line">  <span class="attribute">display</span>: grid;</div><div class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, minmax(160px, 1fr));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">  <span class="attribute">outline</span>: <span class="number">1px</span> solid red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.item</span> <span class="selector-tag">img</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="comment">/* 解決baseline問題 */</span></div><div class="line">  <span class="attribute">vertical-align</span>: top;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="說明-minmax-160px-1fr"><a href="#說明-minmax-160px-1fr" class="headerlink" title="說明 minmax(160px, 1fr)"></a>說明 minmax(160px, 1fr)</h3><p><code>grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));</code></p>
+<p>簡單說明一下，上述程式碼</p>
+<p><code>auto-fill</code> 就是自動填滿，那用 <code>minmax(160px, 1fr)</code> 填滿是什麼意思呢！</p>
+<p>單單從 <code>minmax(160px, 1fr)</code> 這程式碼來描述的話，</p>
+<p>最小值就是 <code>160px</code> ，而最大值是 <code>1fr</code> ？？</p>
+<p>那<code>1fr</code>又代表多少呢？</p>
+<p>讓我再用簡單例子來說明(給自己聽)，</p>
+<p>因為我本身設定最小值為<code>160px</code>,所以當我一列若要可以塞下第二個 div 的話，<br>我最少也要有 <code>160px*2=320px</code> 的寬度，才能塞得下第二個 div，<br>所以當一列的寬度在 <code>160px~319px</code> 時，只會有一個 div，<br>並且這一個 div 會在<code>160px~319px</code> 之間，自動幫我伸縮它的寬度，<br>但當我一列的寬度到達 <code>320px</code> 寬度時，它就會塞入第二個 div 在同一列上，<br>所以我大膽假設<code>minmax(160px, 1fr)</code>的<code>1fr</code>,<br>就是取 <strong>最小值 * 2 - 1px</strong> 吧！</p>
+<h3 id="範例：-1"><a href="#範例：-1" class="headerlink" title="範例："></a>範例：</h3><p>寬度：320px 時，一列可放 2 張圖片</p>
+<!-- ![](https://i.imgur.com/5nLJzkt.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_16.png" alt="grid_16.png" title="">
+<p>寬度：480px 時，一列可放 3 張圖片</p>
+<!-- ![](https://i.imgur.com/aOVf2HU.png) -->
+<img src="/2018/06/27/CSS-Grid/grid_17.png" alt="grid_17.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/vovaqafazu/1/edit?html,css,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<hr>
+<h2 id="對齊方式"><a href="#對齊方式" class="headerlink" title="對齊方式"></a>對齊方式</h2><ul>
+<li><strong>水平</strong>軸對齊<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content" target="_blank" rel="external">justify-content</a>：整個 grid 範圍</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items" target="_blank" rel="external">justify-items</a>：所有格子 統一設定</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self" target="_blank" rel="external">justify-self</a>：一個格式 單獨設定</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>垂直</strong>軸對齊<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content" target="_blank" rel="external">align-content</a>：整個 grid 範圍</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items" target="_blank" rel="external">align-items</a>：所有格子 統一設定</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self" target="_blank" rel="external">align-self</a>：一個格式 單獨設定</li>
+</ul>
+</li>
+</ul>
+<div class="note info">參考文件：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout" target="_blank" rel="external">MDN-Box alignment in CSS Grid Layout</a></div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
+          
+            <a href="/tags/排版/" rel="tag"><i class="fa fa-tag"></i> 排版</a>
+          
+            <a href="/tags/Grid/" rel="tag"><i class="fa fa-tag"></i> Grid</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/31/jQuery-Selector/" rel="next" title="jQuery-選取器">
+                <i class="fa fa-chevron-left"></i> jQuery-選取器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/15/VueJS/" rel="prev" title="VueJS">
+                VueJS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/06/27/CSS-Grid/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">91</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Grid"><span class="nav-number">2.</span> <span class="nav-text">CSS Grid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「格」的概念"><span class="nav-number">3.</span> <span class="nav-text">「格」的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#父層"><span class="nav-number">3.1.</span> <span class="nav-text">父層</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子層"><span class="nav-number">3.2.</span> <span class="nav-text">子層</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#範例"><span class="nav-number">3.3.</span> <span class="nav-text">範例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-template-areas-須為連續區塊"><span class="nav-number">4.</span> <span class="nav-text">grid-template-areas 須為連續區塊</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正確"><span class="nav-number">4.1.</span> <span class="nav-text">正確</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#錯誤"><span class="nav-number">4.2.</span> <span class="nav-text">錯誤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新單位-fr-fractional"><span class="nav-number">5.</span> <span class="nav-text">新單位 fr(fractional)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例說明"><span class="nav-number">5.1.</span> <span class="nav-text">範例說明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repeat"><span class="nav-number">6.</span> <span class="nav-text">repeat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-gap-格線"><span class="nav-number">7.</span> <span class="nav-text">grid-gap 格線</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法"><span class="nav-number">7.1.</span> <span class="nav-text">語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#範例-1"><span class="nav-number">7.2.</span> <span class="nav-text">範例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「線」的概念"><span class="nav-number">8.</span> <span class="nav-text">「線」的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例-2"><span class="nav-number">8.1.</span> <span class="nav-text">範例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#線的分配可為「負值」"><span class="nav-number">8.2.</span> <span class="nav-text">線的分配可為「負值」</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#範例-3"><span class="nav-number">8.2.1.</span> <span class="nav-text">範例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#span-的用法"><span class="nav-number">8.3.</span> <span class="nav-text">span 的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#範例-4"><span class="nav-number">8.3.1.</span> <span class="nav-text">範例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊分配法"><span class="nav-number">9.</span> <span class="nav-text">特殊分配法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例-5"><span class="nav-number">9.1.</span> <span class="nav-text">範例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可「重疊」分配"><span class="nav-number">10.</span> <span class="nav-text">可「重疊」分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-auto-自動切割欄列"><span class="nav-number">11.</span> <span class="nav-text">grid-auto-* 自動切割欄列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例-6"><span class="nav-number">11.1.</span> <span class="nav-text">範例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#minmax"><span class="nav-number">12.</span> <span class="nav-text">minmax()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例："><span class="nav-number">12.1.</span> <span class="nav-text">範例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#說明-minmax-160px-1fr"><span class="nav-number">12.2.</span> <span class="nav-text">說明 minmax(160px, 1fr)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#範例：-1"><span class="nav-number">12.3.</span> <span class="nav-text">範例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#對齊方式"><span class="nav-number">13.</span> <span class="nav-text">對齊方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>

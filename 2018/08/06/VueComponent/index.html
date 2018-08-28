@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="VueJS,Component," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="整理 Vue.js Component 筆記">
+<meta name="keywords" content="VueJS,Component">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VueComponent">
+<meta property="og:url" content="https://kanboo.github.io/2018/08/06/VueComponent/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="整理 Vue.js Component 筆記">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/components.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/componentName_01.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/componentName_02.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/componentName_03.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/componentName_04.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/components_01.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/components_02.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/08/06/VueComponent/components_03.png">
+<meta property="og:updated_time" content="2018-08-17T11:34:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VueComponent">
+<meta name="twitter:description" content="整理 Vue.js Component 筆記">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/08/06/VueComponent/components.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/08/06/VueComponent/"/>
+
+
+
+
+
+  <title>VueComponent | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/08/06/VueComponent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VueComponent</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-08-06T13:54:17+08:00">
+                2018-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VueJS/" itemprop="url" rel="index">
+                    <span itemprop="name">VueJS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/06/VueComponent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/08/06/VueComponent/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/08/06/VueComponent/components.png" alt="components.png" title=""></p>
+<font style="font-size:20px;">整理 Vue.js Component 筆記</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="檔案命名規則"><a href="#檔案命名規則" class="headerlink" title="檔案命名規則"></a>檔案命名規則</h2><p>紀錄一些命名方式，詳細說明可看官方說明</p>
+<h3 id="緊密耦合的-Component"><a href="#緊密耦合的-Component" class="headerlink" title="緊密耦合的 Component"></a>緊密耦合的 Component</h3><ul>
+<li>和父組件緊密耦合的子組件，應該以 <strong>父組件名稱</strong> 作為前綴。</li>
+</ul>
+<img src="/2018/08/06/VueComponent/componentName_01.png" alt="componentName_01.png" title="">
+<blockquote>
+<p>官方：<a href="https://cn.vuejs.org/v2/style-guide/index.html#%E7%B4%A7%E5%AF%86%E8%80%A6%E5%90%88%E7%9A%84%E7%BB%84%E4%BB%B6%E5%90%8D-%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90" target="_blank" rel="external">紧密耦合的组件名</a></p>
+</blockquote>
+<h3 id="組件命名的順序"><a href="#組件命名的順序" class="headerlink" title="組件命名的順序"></a>組件命名的順序</h3><ul>
+<li>以概念上較普遍的單詞作為開頭，以描述性的修飾詞結尾。</li>
+</ul>
+<img src="/2018/08/06/VueComponent/componentName_02.png" alt="componentName_02.png" title="">
+<blockquote>
+<p>官方：<a href="https://cn.vuejs.org/v2/style-guide/index.html#%E7%BB%84%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F-%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90" target="_blank" rel="external">组件名中的单词顺序</a></p>
+</blockquote>
+<h3 id="Component-命名與引用"><a href="#Component-命名與引用" class="headerlink" title="Component 命名與引用"></a>Component 命名與引用</h3><p>使用單一檔案組件 （.vue）的話，不用多想，全部 <font color="red">PascalCase</font> 就對了</p>
+<p>需要使用 <font color="red">kebab-case</font> 的情況只在你把 template 寫在 <font color="red">.html</font> 裡面，<br>如此一來它會經 browser 解析，而 browser 是<font color="red">不分大小寫</font>的，<br>所以才需要加 - 讓 Vue 知道大寫的轉換規則以找到組件。</p>
+<img src="/2018/08/06/VueComponent/componentName_03.png" alt="componentName_03.png" title="">
+<blockquote>
+<p>FB 討論文：<a href="https://www.facebook.com/groups/vuejs.tw/permalink/1774411302638594/" target="_blank" rel="external">Vue 的元件命名建議</a></p>
+</blockquote>
+<h3 id="prop-命名"><a href="#prop-命名" class="headerlink" title="prop 命名"></a>prop 命名</h3><ul>
+<li>在 HTML 中，使用 kebab-case</li>
+<li>在 JavaScript 中，使用 camelCase</li>
+</ul>
+<img src="/2018/08/06/VueComponent/componentName_04.png" alt="componentName_04.png" title="">
+<blockquote>
+<p>官方：<a href="https://cn.vuejs.org/v2/style-guide/index.html#Prop-%E5%90%8D%E5%A4%A7%E5%B0%8F%E5%86%99-%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90" target="_blank" rel="external">Prop-名大小写</a></p>
+</blockquote>
+<div class="note info">官方：<a href="https://cn.vuejs.org/v2/style-guide/index.html#%E4%BC%98%E5%85%88%E7%BA%A7-B-%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%9A%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90-%E5%A2%9E%E5%BC%BA%E5%8F%AF%E8%AF%BB%E6%80%A7" target="_blank" rel="external">优先级 B 的规则：强烈推荐 (增强可读性)</a></div>
+
+<hr>
+<h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><h3 id="資料傳遞過程"><a href="#資料傳遞過程" class="headerlink" title="資料傳遞過程"></a>資料傳遞過程</h3><p>用下圖來表示外部資料傳入<code>Vue.component</code>的整個過程。</p>
+<img src="/2018/08/06/VueComponent/components_01.png" alt="components_01.png" title="">
+<blockquote>
+<p>圖片來源：JSNWORK-<a href="http://jsnwork.kiiuo.com/archives/2611/vue-vue-component-%E7%B5%84%E4%BB%B6%E6%95%99%E5%AD%B8-%E4%BD%BF%E7%94%A8-v-bind%E3%80%81v-for%E3%80%81x-template/" target="_blank" rel="external">Vue.component 組件教學</a></p>
+</blockquote>
+<h3 id="單向數據流"><a href="#單向數據流" class="headerlink" title="單向數據流"></a>單向數據流</h3><p>盡可能保持單向數據流的概念，就是讓資料是從 <font color="red"><strong>外層 → 內層</strong></font> 單方向傳遞。</p>
+<h3 id="AJAX-與-Component-的時間差"><a href="#AJAX-與-Component-的時間差" class="headerlink" title="AJAX 與 Component 的時間差"></a>AJAX 與 Component 的時間差</h3><p>有時我們的資料可能是由 <strong>AJAX</strong> 的方式取得，如下例的 Vue 的 <strong>created</strong> ，<br>而當 <strong>component</strong> 要讀取<strong>父層的資料</strong>時，可能這時還<strong>沒有資料</strong>，<br>所以這時 <strong>component</strong> 直接讀取父層的 <strong>某個變數</strong> 資料時，但為空值而錯誤。</p>
+<h4 id="錯誤範例"><a href="#錯誤範例" class="headerlink" title="錯誤範例"></a>錯誤範例</h4><p>開啟錯誤範例，看 console 出現的錯誤訊息。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- Component --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">card</span> <span class="attr">:user-data</span>=<span class="string">"user"</span>&gt;</span><span class="tag">&lt;/<span class="name">card</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></div><div class="line"><span class="javascript">  el: <span class="string">'#app'</span>,</span></div><div class="line"><span class="undefined">  components: &#123;</span></div><div class="line"><span class="undefined">    card</span></div><div class="line"><span class="undefined">  &#125;,</span></div><div class="line"><span class="undefined">  data: &#123;</span></div><div class="line"><span class="undefined">    user: &#123;&#125;,</span></div><div class="line"><span class="undefined">  &#125;,</span></div><div class="line"><span class="javascript">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">    <span class="keyword">var</span> vm = <span class="keyword">this</span>;</span></div><div class="line"><span class="javascript">    $.ajax(&#123;</span></div><div class="line"><span class="javascript">      url: <span class="string">'https://randomuser.me/api/'</span>,</span></div><div class="line"><span class="javascript">      dataType: <span class="string">'json'</span>,</span></div><div class="line"><span class="javascript">      success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span></div><div class="line"><span class="undefined">        vm.user = data.results[0];</span></div><div class="line"><span class="undefined">      &#125;</span></div><div class="line"><span class="undefined">    &#125;);</span></div><div class="line"><span class="undefined">  &#125;</span></div><div class="line"><span class="undefined">&#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>錯誤範例：<a href="http://jsbin.com/tulejanupu/1/edit?html,js,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<h4 id="修正版本"><a href="#修正版本" class="headerlink" title="修正版本"></a>修正版本</h4><p>這時可以利用 <code>v-if</code> 來判斷，透過 <code>AJAX</code> 取得的資料是否已取得，<br>避免在父層資料還為空值時，就被讀取而錯誤。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- Component --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">card</span> <span class="attr">:user-data</span>=<span class="string">"user"</span> <span class="attr">v-if</span>=<span class="string">"user.picture"</span>&gt;</span><span class="tag">&lt;/<span class="name">card</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>正確範例：<a href="http://jsbin.com/bolinuxidi/1/edit?html,js,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<div class="note info">參考文章：<br><a href="http://jsnwork.kiiuo.com/archives/2611/vue-vue-component-%E7%B5%84%E4%BB%B6%E6%95%99%E5%AD%B8-%E4%BD%BF%E7%94%A8-v-bind%E3%80%81v-for%E3%80%81x-template/" target="_blank" rel="external">JSNWORK-Vue.component 組件教學</a><br><a href="https://dotblogs.com.tw/wasichris/2017/03/04/021726" target="_blank" rel="external">CHRIS-父子組件溝通 pass props / emit event</a><br><a href="https://jeremysu0131.github.io/Vue-js-%E7%88%B6%E5%AD%90%E7%B5%84%E4%BB%B6%E6%BA%9D%E9%80%9A-Props/" target="_blank" rel="external">jeremy-父子組件溝通 - Props</a></div>
+
+<h3 id="定義盡可能詳細"><a href="#定義盡可能詳細" class="headerlink" title="定義盡可能詳細"></a>定義盡可能詳細</h3><p>養成好習慣，避免以後踩雷。</p>
+<h4 id="一般寫法"><a href="#一般寫法" class="headerlink" title="一般寫法"></a>一般寫法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 傳入參數值 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">prompt-component</span> <span class="attr">:user-name</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">prompt-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'PromptComponent'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;button @click="sayHi(userName)"&gt;Say Hi!&lt;/button&gt;'</span>,</div><div class="line">  props: [<span class="string">'user-name'</span>], <span class="comment">//使用`props`聲明它所獲得的資料</span></div><div class="line">  methods: &#123;</div><div class="line">    sayHi: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">      alert(<span class="string">'Hi '</span> + name);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  data: &#123;</div><div class="line">    name: <span class="string">'Kanboo'</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>程式範例：<a href="http://jsbin.com/damirubalo/1/edit?html,js,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<h4 id="嚴謹寫法"><a href="#嚴謹寫法" class="headerlink" title="嚴謹寫法"></a>嚴謹寫法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 傳入參數值 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">my-component</span></span></div><div class="line"><span class="tag">    <span class="attr">:message</span>=<span class="string">"message"</span></span></div><div class="line"><span class="tag">    <span class="attr">:name</span>=<span class="string">"name"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'MyComponent'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;div class="component"&gt;&#123;&#123;message&#125;&#125; &#123;&#123;name&#125;&#125; &lt;/div&gt;'</span>,</div><div class="line">  props: &#123;</div><div class="line">    message: &#123;</div><div class="line">      type: <span class="built_in">String</span>, <span class="comment">// 型態</span></div><div class="line">      <span class="keyword">default</span>: <span class="string">'Hello'</span> <span class="comment">// 預設值</span></div><div class="line">    &#125;,</div><div class="line">    name: &#123;</div><div class="line">      type: <span class="built_in">String</span>, <span class="comment">// 型態</span></div><div class="line">      required: <span class="literal">true</span> <span class="comment">// 是否必填</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'Hi'</span>,</div><div class="line">    name: <span class="string">'Kanboo'</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>程式範例：<a href="http://jsbin.com/jogacazayo/1/edit?html,js,output" target="_blank" rel="external">JSBin</a></p>
+</blockquote>
+<div class="note info">官方：<a href="https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E7%B1%BB%E5%9E%8B" target="_blank" rel="external">Prop</a></div>
+
+<h3 id="props-變數命名"><a href="#props-變數命名" class="headerlink" title="props 變數命名"></a>props 變數命名</h3><p>當我們在 HTML 在 Component 裡，設定<code>greeting-text</code>屬性，<br>這樣在<code>props</code>要如何正確對應到正確的變數呢！</p>
+<p>範例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- HTML使用 kebab-case --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">todo-item</span> <span class="attr">greeting-text</span>=<span class="string">"hello"</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-item</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>可看到下面有二種方式，</p>
+<ol>
+<li>用雙引號包起來，這樣就跟在 HTML Component 的屬性名稱一樣</li>
+<li>使用駝峰式 camelCase，來對應屬性名稱。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;h1&gt;&#123;&#123; greetingText &#125;&#125;&lt;/h1&gt;'</span>,</div><div class="line">  props: &#123;</div><div class="line">    <span class="comment">// 第一種方式</span></div><div class="line">    <span class="string">'greeting-text'</span>: <span class="built_in">String</span>,</div><div class="line">    <span class="comment">// 第二種方式(建議)</span></div><div class="line">    greetingText: <span class="built_in">String</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<div class="note info">官方：<a href="https://cn.vuejs.org/v2/guide/components-registration.html" target="_blank" rel="external">组件注册</a></div>
+
+<hr>
+<h2 id="emit-向外層傳送事件"><a href="#emit-向外層傳送事件" class="headerlink" title="emit 向外層傳送事件"></a>emit 向外層傳送事件</h2><p>雖然我們要盡可能保持單向數據流的概念，就是讓資料是從 外層 → 內層 單方向傳遞，<br>不過有特殊情況的話，需要由 <strong>內層</strong> 去變動 <strong>外層</strong> 的值的話，<br>這時就需透過 <code>$emit</code> 傳遞事件方式，去觸發外層事件來更新變數值。</p>
+<img src="/2018/08/06/VueComponent/components_02.png" alt="components_02.png" title="">
+<blockquote>
+<p>範例程式：<a href="http://jsbin.com/joleliwefa/1/edit?html,js,output" target="_blank" rel="external">透過 emit 向外傳遞資訊</a></p>
+</blockquote>
+<hr>
+<h2 id="Slot-插槽替換"><a href="#Slot-插槽替換" class="headerlink" title="Slot 插槽替換"></a>Slot 插槽替換</h2><p>簡單來說就是將我們的 component，修改為一個可客制化的 component。</p>
+<p>以 <strong>DailogBox</strong> 為例，<br>我們每次使用都有可能因不同情況，而輸出不同的「<strong>標題、內文、按鈕</strong>」，<br>但我們的主體結構是長一樣的，這時就可以使用<code>Slot</code>來替換局部 HTML。</p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>當有<strong>多個插槽</strong>時，我們就必須給予<strong>插槽名稱</strong>，才能正確替換局部 HTML。</p>
+<p>原則上遵照下列幾點即可：</p>
+<ol>
+<li>外層是在 <code>Tag標籤</code>，新增 <code>slot</code> 屬性，如：<code>&lt;header slot=&quot;header&quot;&gt;替換的 Header&lt;/header&gt;</code></li>
+<li>內層是在 <code>slot標籤</code>，新增 <code>name</code> 屬性，如：<code>&lt;slot name=&quot;header&quot;&gt;這段是預設的文字&lt;/slot&gt;</code></li>
+<li>若無設定 <code>slot名稱</code> 的話，就會自己找洞插，不過一個洞就還好，多個的話，怕插錯洞。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>具名插槽(使用 預設值)<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">named-slot-component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">named-slot-component</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>具名插槽(替換 預設值)<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">named-slot-component</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">header</span> <span class="attr">slot</span>=<span class="string">"header"</span>&gt;</span>替換的 Header<span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot</span>=<span class="string">"footer"</span>&gt;</span>替換的 Footer<span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot</span>=<span class="string">"btnString"</span>&gt;</span>按鈕內容<span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>&gt;</span>其餘的內容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">named-slot-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"namedSlotComponent"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card my-3"</span>&gt;</span></div><div class="line"><span class="javascript">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card-header"</span>&gt;</span></div><div class="line"><span class="xml">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"header"</span>&gt;</span>這段是預設的文字<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></div><div class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="javascript">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card-body"</span>&gt;</span></div><div class="line"><span class="xml">      <span class="tag">&lt;<span class="name">slot</span>&gt;</span></span></div><div class="line"><span class="javascript">        &lt;h5 <span class="class"><span class="keyword">class</span></span>=<span class="string">"card-title"</span>&gt;預設內文表頭&lt;<span class="regexp">/h5&gt;</span></span></div><div class="line"><span class="javascript">        &lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"card-text"</span>&gt;預設內文文字&lt;<span class="regexp">/p&gt;</span></span></div><div class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></div><div class="line"><span class="javascript">      &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-primary"</span>&gt;</span></div><div class="line"><span class="xml">        <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"btnString"</span>&gt;</span>預設動作內容<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></div><div class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="javascript">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card-footer"</span>&gt;</span></div><div class="line"><span class="xml">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"footer"</span>&gt;</span>這是預設的 Footer<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></div><div class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>加上顏色標籤，方便對應程式碼</p>
+<img src="/2018/08/06/VueComponent/components_03.png" alt="components_03.png" title="">
+<hr>
+<h2 id="使用-is-動態切換-Component"><a href="#使用-is-動態切換-Component" class="headerlink" title="使用 is 動態切換 Component"></a>使用 is 動態切換 Component</h2><p>原先我們是使用 <code>is</code> 來決定要掛載哪一個 Component</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- is 沒有冒號 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">is</span>=<span class="string">"primary-component"</span> <span class="attr">:data</span>=<span class="string">"item"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>不過有時可能要因應不同條件下，顯示不同的 Component，我們可能用 <code>v-if</code> 這樣寫去切換</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- A情況 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">primary-component</span> <span class="attr">:data</span>=<span class="string">"item"</span> <span class="attr">v-if</span>=<span class="string">"current === 'primary-component'"</span>&gt;</span><span class="tag">&lt;/<span class="name">primary-component</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- B情況 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">danger-component</span> <span class="attr">:data</span>=<span class="string">"item"</span> <span class="attr">v-if</span>=<span class="string">"current === 'danger-component'"</span>&gt;</span><span class="tag">&lt;/<span class="name">danger-component</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>但可能有超過二種以上條件的話，程式碼就顯得雜亂，這時我們可以改寫用 <code>變數</code> 方式，並配合 <code>is</code> 的特性去做切換。</p>
+<h3 id="is-動態切換範例"><a href="#is-動態切換範例" class="headerlink" title="is 動態切換範例"></a>is 動態切換範例</h3><p>注意行數</p>
+<ul>
+<li>第 2 行：需使用<code>:is</code>，而不是<code>is</code>，差在有沒有<font color="red">冒號</font>。</li>
+<li>第 23 行：用<code>current</code>變數，來紀錄目前要使用哪個 Component</li>
+</ul>
+<p>遵守上述二點，這時我們就可以在不同條件下，變更<code>current</code>的值，來切換不同 component。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- is 有冒號 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mt-3"</span> <span class="attr">:is</span>=<span class="string">"current"</span> <span class="attr">:data</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">Vue.component(<span class="string">'primary-component'</span>, &#123;</span></div><div class="line"><span class="javascript">  props: [<span class="string">'data'</span>],</span></div><div class="line"><span class="javascript">  template: <span class="string">'#primaryComponent'</span>,</span></div><div class="line"><span class="undefined">&#125;);</span></div><div class="line"><span class="javascript">Vue.component(<span class="string">'danger-component'</span>, &#123;</span></div><div class="line"><span class="javascript">  props: [<span class="string">'data'</span>],</span></div><div class="line"><span class="javascript">  template: <span class="string">'#dangerComponent'</span>,</span></div><div class="line"><span class="undefined">&#125;);</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></div><div class="line"><span class="javascript">  el: <span class="string">'#app'</span>,</span></div><div class="line"><span class="undefined">  data: &#123;</span></div><div class="line"><span class="undefined">    item: &#123;</span></div><div class="line"><span class="javascript">      header: <span class="string">'這裡是 header'</span>,</span></div><div class="line"><span class="javascript">      title: <span class="string">'這裡是 title'</span>,</span></div><div class="line"><span class="javascript">      text: <span class="string">'這是 context'</span></span></div><div class="line"><span class="undefined">    &#125;,</span></div><div class="line"><span class="javascript">    current: <span class="string">'primary-component'</span></span></div><div class="line"><span class="undefined">  &#125;</span></div><div class="line"><span class="undefined">&#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Component-為何要用-return-data"><a href="#Component-為何要用-return-data" class="headerlink" title="Component 為何要用 return data"></a>Component 為何要用 return data</h2><p>主要要說明 <code>new Vue</code> 的 <code>data</code> 及 <code>Component</code> 的 <code>data</code>，<br>一個是使用 <code>{}</code>(物件)，一個卻要使用 <code>return {}</code>(物件)，<br>這二者差異點是在哪裡！</p>
+<h3 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h3><p>當有重覆性的 Component 且會運用 <strong>變數</strong> 來紀錄的話，<br>有時很有可能會導致共用到同一個 <strong>變數</strong> ，<br>而互相影響彼此的結果，就像下面的例子一樣，可以開啟<code>CodePen</code>，<br>分別 <strong>點擊</strong> 裡面的按鈕，看會出現什麼結果。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    1.你已經點擊</div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-outline-secondary btn-sm"</span> @<span class="attr">click</span>=<span class="string">"counter += 1"</span>&gt;</span>&#123;&#123; counter &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span> 下。</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    2.你已經點擊</div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-outline-secondary btn-sm"</span> @<span class="attr">click</span>=<span class="string">"counter += 1"</span>&gt;</span>&#123;&#123; counter &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span> 下。</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">  <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></div><div class="line"><span class="javascript">    el: <span class="string">'#app'</span>,</span></div><div class="line"><span class="undefined">    data: &#123;</span></div><div class="line"><span class="undefined">      counter: 0</span></div><div class="line"><span class="undefined">    &#125;,</span></div><div class="line"><span class="undefined">  &#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>非 Component：<a href="https://codepen.io/Kanboo/pen/bKVmQw" target="_blank" rel="external">CodePen</a></p>
+</blockquote>
+<h3 id="修改後"><a href="#修改後" class="headerlink" title="修改後"></a>修改後</h3><p>跟修改前，最大的差異就在於額外新增一段程式碼 <code>Vue.component</code>，<br>利用此功能達成 Component 化。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  修改後：</div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    3.你已經點擊 <span class="tag">&lt;<span class="name">counter-component</span>&gt;</span><span class="tag">&lt;/<span class="name">counter-component</span>&gt;</span> 下。</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    4.你已經點擊 <span class="tag">&lt;<span class="name">counter-component</span>&gt;</span><span class="tag">&lt;/<span class="name">counter-component</span>&gt;</span> 下。</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">  <span class="comment">// 新增Vue-component組件</span></span></div><div class="line"><span class="javascript">  Vue.component(<span class="string">'counter-component'</span>, &#123;</span></div><div class="line"><span class="javascript">    data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></div><div class="line"><span class="undefined">        counter: 0</span></div><div class="line"><span class="undefined">      &#125;</span></div><div class="line"><span class="undefined">    &#125;,</span></div><div class="line"><span class="undefined">    template: `</span></div><div class="line"><span class="javascript">      &lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-outline-secondary btn-sm"</span> @click=<span class="string">"counter += 1"</span>&gt;&#123;&#123; counter &#125;&#125;&lt;<span class="regexp">/button&gt;</span></span></div><div class="line"><span class="undefined">    `</span></div><div class="line"><span class="undefined">  &#125;)</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">  <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></div><div class="line"><span class="javascript">    el: <span class="string">'#app'</span>,</span></div><div class="line"><span class="undefined">    data: &#123;</span></div><div class="line"><span class="undefined">      counter: 0</span></div><div class="line"><span class="undefined">    &#125;,</span></div><div class="line"><span class="undefined">  &#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Component：<a href="https://codepen.io/Kanboo/pen/wXKQKJ" target="_blank" rel="external">CodePen</a></p>
+</blockquote>
+<h3 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h3><p>不過使用 <code>Vue.component</code> 要特別注意一點，就是在 <code>data</code> 的宣告部份，</p>
+<p>原本是使用 <code>{}</code>(物件) 的方式宣告，而在<code>Vue.component</code>的<code>data</code>一定要使用<code>函式</code>宣告，</p>
+<p>並且 <code>return {}</code>(物件)，否則無法正常執行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'counter-component'</span>, &#123;</div><div class="line">  <span class="comment">// 宣告為function，並且 return 物件</span></div><div class="line">  data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      counter: <span class="number">0</span></div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line">  template: <span class="string">`</span></div><div class="line"><span class="string">    &lt;button class="btn btn-outline-secondary btn-sm" @click="counter += 1"&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt;</span></div><div class="line"><span class="string">  `</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="差異說明"><a href="#差異說明" class="headerlink" title="差異說明"></a>差異說明</h3><ul>
+<li><p>Component 會採用 <strong>函式 return 值</strong> 的原因，是因為 Component 會一直被重覆建立，而每個 Component 的 data 必須有所區隔，利用此方式來建立<font color="red">不同記憶體位址</font>的 <code>{}</code>(物件)</p>
+</li>
+<li><p>new Vue 的 data 直接使用<code>{}</code>(物件)，也是因為只會只有一個，此 Vue 並不會被別人複製，所以就不會發生共用到同一個記憶體位址，而產生互改別人的資料的問題。</p>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VueJS/" rel="tag"><i class="fa fa-tag"></i> VueJS</a>
+          
+            <a href="/tags/Component/" rel="tag"><i class="fa fa-tag"></i> Component</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/15/VueJS/" rel="next" title="VueJS">
+                <i class="fa fa-chevron-left"></i> VueJS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/06/VueRouter/" rel="prev" title="VueRouter">
+                VueRouter <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/08/06/VueComponent/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">91</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#檔案命名規則"><span class="nav-number">1.</span> <span class="nav-text">檔案命名規則</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#緊密耦合的-Component"><span class="nav-number">1.1.</span> <span class="nav-text">緊密耦合的 Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#組件命名的順序"><span class="nav-number">1.2.</span> <span class="nav-text">組件命名的順序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Component-命名與引用"><span class="nav-number">1.3.</span> <span class="nav-text">Component 命名與引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prop-命名"><span class="nav-number">1.4.</span> <span class="nav-text">prop 命名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props"><span class="nav-number">2.</span> <span class="nav-text">props</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#資料傳遞過程"><span class="nav-number">2.1.</span> <span class="nav-text">資料傳遞過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#單向數據流"><span class="nav-number">2.2.</span> <span class="nav-text">單向數據流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX-與-Component-的時間差"><span class="nav-number">2.3.</span> <span class="nav-text">AJAX 與 Component 的時間差</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#錯誤範例"><span class="nav-number">2.3.1.</span> <span class="nav-text">錯誤範例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修正版本"><span class="nav-number">2.3.2.</span> <span class="nav-text">修正版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定義盡可能詳細"><span class="nav-number">2.4.</span> <span class="nav-text">定義盡可能詳細</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般寫法"><span class="nav-number">2.4.1.</span> <span class="nav-text">一般寫法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嚴謹寫法"><span class="nav-number">2.4.2.</span> <span class="nav-text">嚴謹寫法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#props-變數命名"><span class="nav-number">2.5.</span> <span class="nav-text">props 變數命名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emit-向外層傳送事件"><span class="nav-number">3.</span> <span class="nav-text">emit 向外層傳送事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slot-插槽替換"><span class="nav-number">4.</span> <span class="nav-text">Slot 插槽替換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例"><span class="nav-number">4.1.</span> <span class="nav-text">範例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-is-動態切換-Component"><span class="nav-number">5.</span> <span class="nav-text">使用 is 動態切換 Component</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#is-動態切換範例"><span class="nav-number">5.1.</span> <span class="nav-text">is 動態切換範例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component-為何要用-return-data"><span class="nav-number">6.</span> <span class="nav-text">Component 為何要用 return data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改前"><span class="nav-number">6.1.</span> <span class="nav-text">修改前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改後"><span class="nav-number">6.2.</span> <span class="nav-text">修改後</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事項"><span class="nav-number">6.3.</span> <span class="nav-text">注意事項</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差異說明"><span class="nav-number">6.4.</span> <span class="nav-text">差異說明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>
