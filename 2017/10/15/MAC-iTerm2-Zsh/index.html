@@ -112,18 +112,18 @@
 
 
 
-<meta name="description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
+<meta name="description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機   讓 MAC 終端機變好看   iterm2-solarized 原文">
 <meta name="keywords" content="Mac,iTerm2,ZSH,終端機,terminal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MAC-讓終端機變好看">
 <meta property="og:url" content="https://kanboo.github.io/2017/10/15/MAC-iTerm2-Zsh/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
-<meta property="og:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
+<meta property="og:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機   讓 MAC 終端機變好看   iterm2-solarized 原文">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:updated_time" content="2017-10-17T14:14:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC-讓終端機變好看">
-<meta name="twitter:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機 讓 MAC 終端機變好看 iterm2-solarized 原文">
+<meta name="twitter:description" content="前言在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 卡卡的歷程。  為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機   讓 MAC 終端機變好看   iterm2-solarized 原文">
 
 
 
@@ -453,9 +453,13 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在安裝 MAC終端機高亮的過程，主要是參考下列的文章，跟著步驟安裝及設定即可，<br>不過安裝過程中，還是有遇到卡卡的地方，所以特別記一下 <code>卡卡的歷程</code>。</p>
 <blockquote>
-<p><a href="https://pjchender.blogspot.tw/2017/02/mac-terminal-iterm-2-oh-my-zsh.html" target="_blank" rel="external">為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機</a></p>
-<p><a href="https://paper.dropbox.com/doc/MAC--JrxAtuSA7DKDCsPpK3jf1" target="_blank" rel="external">讓 MAC 終端機變好看</a></p>
-<p><a href="https://gist.github.com/kevin-smets/8568070" target="_blank" rel="external">iterm2-solarized 原文</a></p>
+<p><a href="https://pjchender.blogspot.tw/2017/02/mac-terminal-iterm-2-oh-my-zsh.html" target="_blank" rel="noopener">為 MAC 的 Terminal 上色 - 透過 iTerm 2 和 Oh My Zsh 高亮你的終端機</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://paper.dropbox.com/doc/MAC--JrxAtuSA7DKDCsPpK3jf1" target="_blank" rel="noopener">讓 MAC 終端機變好看</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://gist.github.com/kevin-smets/8568070" target="_blank" rel="noopener">iterm2-solarized 原文</a></p>
 </blockquote>
 <a id="more"></a>
 <hr>
@@ -464,23 +468,23 @@
 <p>zsh 和bash 的環境變量<br>bash的環境變量是.bash_profile文件。<br>zsh的環境變量是.zshrc文件。</p>
 </blockquote>
 <p>字面意思是相關命令沒有沒有找到，其實就是bash shell 以及 zsh shell是 <code>兩種讀取系統環境變量</code>，<br>簡單來說就是說 <code>node、Hexo</code>…等套件 是在使用 <code>bash</code> 時候，安裝好的，所以會設定在 <code>.bash_profile</code>裡，<br>後來改使用 <code>zsh shell</code> 的時候，你並沒有把相關的環境變量的配置設置到 <code>.zshrc</code> 中（功能上類似bash 的.bash_profile），<br>所以 .zshrc 沒有配置相關環境變量設置，就把bash 中.bash_profile 全部環境變量加入 .zshrc 就好。</p>
-<p>加入方法：<br><figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#打開 zsh 的設定檔</span></div><div class="line">open ~/.zshrc</div><div class="line"></div><div class="line"><span class="comment"># 最后一行加入下面指令</span></div><div class="line"><span class="comment"># 解決OSX使用oh-my-zsh後.bash_profile自定義失效</span></div><div class="line"><span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure></p>
+<p>加入方法：<br><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打開 zsh 的設定檔</span></span><br><span class="line">open ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最后一行加入下面指令</span></span><br><span class="line"><span class="comment"># 解決OSX使用oh-my-zsh後.bash_profile自定義失效</span></span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p><a href="http://www.chongchonggou.com/g_841616996.html" target="_blank" rel="external">zsh: command not found</a><br><a href="http://www.jianshu.com/p/d5cab693c5d4" target="_blank" rel="external">zsh: command not found</a><br><a href="http://to-u.xyz/2016/08/07/zsh-bash/" target="_blank" rel="external">解决OSX使用oh-my-zsh后.bash_profile自定义失效</a></p>
+<p><a href="http://www.chongchonggou.com/g_841616996.html" target="_blank" rel="noopener">zsh: command not found</a><br><a href="http://www.jianshu.com/p/d5cab693c5d4" target="_blank" rel="noopener">zsh: command not found</a><br><a href="http://to-u.xyz/2016/08/07/zsh-bash/" target="_blank" rel="noopener">解决OSX使用oh-my-zsh后.bash_profile自定义失效</a></p>
 </blockquote>
 <h2 id="安裝字型"><a href="#安裝字型" class="headerlink" title="安裝字型"></a>安裝字型</h2><p>原先是跟著最上面文章教學，安裝 字型(Meslo LG M Regular for Powerline)，再修改相關設定後，<br>此字型在 iTerm 上，顯示箭頭是正常的，不過在VScode上面，顯示 <code>箭頭</code> 卻還是有亂碼，<br>所以去Google一下，結果如下</p>
 <ol>
 <li><p>先安裝 字型</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安裝字型</span></div><div class="line">$ git <span class="built_in">clone</span> git://github.com/powerline/fonts ~/.powerline_fonts</div><div class="line">$ <span class="built_in">cd</span> ~/.powerline_fonts</div><div class="line">$ ./install.sh</div></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安裝字型</span></span><br><span class="line">$ git <span class="built_in">clone</span> git://github.com/powerline/fonts ~/.powerline_fonts</span><br><span class="line">$ <span class="built_in">cd</span> ~/.powerline_fonts</span><br><span class="line">$ ./install.sh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>iTerm設定 字型<br>iTerm –&gt; Preferences –&gt; Profiles –&gt; Text –&gt; Change Font<br>推薦使用 <code>Source Code Pro</code> (Adobe的）與 <code>Ubuntu Mono</code>，這兩個字型都相當適合寫程式使用。</p>
 </li>
 <li><p>VSCode設定 字型<br>在設定參數裡，新增下列二行</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"terminal.integrated.fontFamily"</span>: <span class="string">"Source Code Pro for Powerline"</span>,</div><div class="line"><span class="string">"terminal.integrated.fontSize"</span>: 14</div></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"terminal.integrated.fontFamily"</span>: <span class="string">"Source Code Pro for Powerline"</span>,</span><br><span class="line"><span class="string">"terminal.integrated.fontSize"</span>: 14</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <blockquote>
-<p><a href="http://oomusou.io/osx/iterm2-setup/#安裝Powerline專屬字型" target="_blank" rel="external">安裝Powerline專屬字型</a><br><a href="https://medium.com/appworks-school/%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E7%B5%82%E7%AB%AF%E6%A9%9F-7af0dabcf368" target="_blank" rel="external">美化你的終端機</a></p>
+<p><a href="http://oomusou.io/osx/iterm2-setup/#安裝Powerline專屬字型" target="_blank" rel="noopener">安裝Powerline專屬字型</a><br><a href="https://medium.com/appworks-school/%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E7%B5%82%E7%AB%AF%E6%A9%9F-7af0dabcf368" target="_blank" rel="noopener">美化你的終端機</a></p>
 </blockquote>
 
       

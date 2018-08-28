@@ -479,11 +479,11 @@
 <li><p>可搭配 <strong>Bower</strong> 一起建置開發環境。</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">npm install gulp-sass --save	    -&gt;給「正式環境」使用</div><div class="line">npm install gulp-sass --save-dev    -&gt;給「開發環境」使用</div><div class="line"></div><div class="line">--save-dev是你開發時候依賴的東西，--save是你發布之後還依賴的東西。</div><div class="line"></div><div class="line">比如，你寫ES6代碼，如果你想編譯成ES5發布那麼babel就是devDependencies。</div><div class="line">如果你用了jQuery，由於發布之後還是依賴jQuery，所以是dependencies。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-sass --save	    -&gt;給「正式環境」使用</span><br><span class="line">npm install gulp-sass --save-dev    -&gt;給「開發環境」使用</span><br><span class="line"></span><br><span class="line">--save-dev是你開發時候依賴的東西，--save是你發布之後還依賴的東西。</span><br><span class="line"></span><br><span class="line">比如，你寫ES6代碼，如果你想編譯成ES5發布那麼babel就是devDependencies。</span><br><span class="line">如果你用了jQuery，由於發布之後還是依賴jQuery，所以是dependencies。</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="gulp-bower-設定範本"><a href="#gulp-bower-設定範本" class="headerlink" title="gulp+bower 設定範本"></a>gulp+bower 設定範本</h2><p>已建置完成範本：<a href="https://github.com/kanboo/gulp-setting" target="_blank" rel="external">gulp-setting</a></p>
+<h2 id="gulp-bower-設定範本"><a href="#gulp-bower-設定範本" class="headerlink" title="gulp+bower 設定範本"></a>gulp+bower 設定範本</h2><p>已建置完成範本：<a href="https://github.com/kanboo/gulp-setting" target="_blank" rel="noopener">gulp-setting</a></p>
 <p>當上述都已設定好，只要將設定檔放置新專案資料夾後，依序執行下列指令即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bower install</div><div class="line">nmp install</div><div class="line">gulp</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bower install</span><br><span class="line">nmp install</span><br><span class="line">gulp</span><br></pre></td></tr></table></figure>
 <hr>
 
       

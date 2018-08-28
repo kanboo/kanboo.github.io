@@ -459,25 +459,25 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>建立Hexo環境，需要完成的事情有：</p>
 <blockquote>
 <ol>
-<li><a href="https://github.com/" target="_blank" rel="external">建置github空間</a></li>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="external">安裝 Node.js</a>（如果還沒有的話）</li>
-<li><a href="https://hexo.io/zh-tw/docs/index.html" target="_blank" rel="external">安裝 Hexo</a></li>
-<li><a href="https://hexo.io/zh-tw/docs/setup.html" target="_blank" rel="external">初始化 Hexo，並在目標資料夾建立所需檔案</a></li>
-<li><a href="https://hexo.io/zh-tw/docs/deployment.html#Git" target="_blank" rel="external">安裝 <code>hexo-deployer-git</code></a> (很重要)</li>
-<li><a href="https://hexo.io/zh-tw/docs/configuration.html" target="_blank" rel="external">在_config.yml 中設定 <strong>Git</strong> 等資訊</a></li>
+<li><a href="https://github.com/" target="_blank" rel="noopener">建置github空間</a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">安裝 Node.js</a>（如果還沒有的話）</li>
+<li><a href="https://hexo.io/zh-tw/docs/index.html" target="_blank" rel="noopener">安裝 Hexo</a></li>
+<li><a href="https://hexo.io/zh-tw/docs/setup.html" target="_blank" rel="noopener">初始化 Hexo，並在目標資料夾建立所需檔案</a></li>
+<li><a href="https://hexo.io/zh-tw/docs/deployment.html#Git" target="_blank" rel="noopener">安裝 <code>hexo-deployer-git</code></a> (很重要)</li>
+<li><a href="https://hexo.io/zh-tw/docs/configuration.html" target="_blank" rel="noopener">在_config.yml 中設定 <strong>Git</strong> 等資訊</a></li>
 </ol>
 </blockquote>
 <a id="more"></a>
 <hr>
 <h1 id="空間：GitHub"><a href="#空間：GitHub" class="headerlink" title="空間：GitHub"></a>空間：GitHub</h1><p>因為Blog需要上傳至雲端，所以這裡使用github的免費空間。</p>
 <h2 id="創建github-page"><a href="#創建github-page" class="headerlink" title="創建github page"></a>創建github page</h2><p><strong>倉庫的名字</strong> 要和 <strong>你的帳號</strong> 一樣，如：<code>用戶名</code>.github.io </p>
-<img src="/2017/10/14/Hexo-Create/githubpage1.png" alt="githubpage1.png" title="">
+<img src="/2017/10/14/Hexo-Create/githubpage1.png">
 <h2 id="進入github-page項目設置頁面"><a href="#進入github-page項目設置頁面" class="headerlink" title="進入github page項目設置頁面"></a>進入github page項目設置頁面</h2><p>選擇Settings</p>
-<img src="/2017/10/14/Hexo-Create/githubpage2.png" alt="githubpage2.png" title="">
+<img src="/2017/10/14/Hexo-Create/githubpage2.png">
 <h2 id="創建一個默認的頁面"><a href="#創建一個默認的頁面" class="headerlink" title="創建一個默認的頁面"></a>創建一個默認的頁面</h2><p>直接選擇Launch automatic -&gt; Continue to layouts page generator -&gt; Publish page,其他東西都不用修改。</p>
-<img src="/2017/10/14/Hexo-Create/githubpage3.png" alt="githubpage3.png" title="">
-<img src="/2017/10/14/Hexo-Create/githubpage5.png" alt="githubpage5.png" title="">
-<h2 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h2><p>至此，你的github page已經創建完成，你可以訪問自己的站點了。<br>如：<a href="https://用戶名.github.io/" target="_blank" rel="external">https://用戶名.github.io/</a></p>
+<img src="/2017/10/14/Hexo-Create/githubpage3.png">
+<img src="/2017/10/14/Hexo-Create/githubpage5.png">
+<h2 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h2><p>至此，你的github page已經創建完成，你可以訪問自己的站點了。<br>如：https://用戶名.github.io/</p>
 <hr>
 <h1 id="Hexo安裝"><a href="#Hexo安裝" class="headerlink" title="Hexo安裝"></a>Hexo安裝</h1><p>安裝 Hexo 相當簡單；然而，在安裝前您必須先檢查下列您的電腦是否已經安裝下列軟體：</p>
 <ul>
@@ -485,42 +485,42 @@
 <li>Git</li>
 </ul>
 <p>若您的電腦已經安裝上述的必備軟體，那麼恭喜您！只需要透過 npm 即可完成 Hexo 的安裝。</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<h2 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init yourname <span class="comment"># ( 初始化新的 Hexo )</span></div><div class="line">$ <span class="built_in">cd</span> yourname  <span class="comment"># ( 進入您剛剛建立的 Hexo 資料夾當中 )</span></div><div class="line">$ npm install <span class="comment">#（ 安裝 Hexo )</span></div></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init yourname <span class="comment"># ( 初始化新的 Hexo )</span></span><br><span class="line">$ <span class="built_in">cd</span> yourname  <span class="comment"># ( 進入您剛剛建立的 Hexo 資料夾當中 )</span></span><br><span class="line">$ npm install <span class="comment">#（ 安裝 Hexo )</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>yourname</strong> 就是指在電腦裡的檔案名稱，可以隨意取，例如「myhexoblog」</p>
 </blockquote>
 <h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>進入您 Hexo 主目錄下之後，先找到 _config.yml 這個檔案！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">title: Kanboo Notes (輸入您的標題)</div><div class="line">subtitle: 健忘筆記本 （輸入您的至理名言）</div><div class="line">description:(輸入您的網站描述)</div><div class="line">author: Kanboo （輸入您的姓名）</div><div class="line">language: zh-TW （輸入您所使用的語言）</div><div class="line">timezone: (留空可以使用系統時間！)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: Kanboo Notes (輸入您的標題)</span><br><span class="line">subtitle: 健忘筆記本 （輸入您的至理名言）</span><br><span class="line">description:(輸入您的網站描述)</span><br><span class="line">author: Kanboo （輸入您的姓名）</span><br><span class="line">language: zh-TW （輸入您所使用的語言）</span><br><span class="line">timezone: (留空可以使用系統時間！)</span><br></pre></td></tr></table></figure>
 <p>同樣 _config.yml 這個檔案底下，找到 <strong>deploy</strong> 設定github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/用戶名/用戶名.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/用戶名/用戶名.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>用戶名</strong> 就是指你自己的<strong>github帳號</strong>，記得改對，然後按存檔。</p>
 </blockquote>
 <h2 id="撰寫文件及常用指令"><a href="#撰寫文件及常用指令" class="headerlink" title="撰寫文件及常用指令"></a>撰寫文件及常用指令</h2><h3 id="撰寫文件"><a href="#撰寫文件" class="headerlink" title="撰寫文件"></a>撰寫文件</h3><p>至於內文採用的 Markdown 格式不難學，只需要記幾個常用的指令，遇到不懂的再上網查就好。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">斜體： *斜體* </div><div class="line">粗體： **粗體** </div><div class="line">粗斜體： ***粗斜體*** </div><div class="line">刪除線：~~刪除~~ </div><div class="line">引言： &gt; 引言 </div><div class="line">章節： # 章節 次級章節（以此類推）： ## 次級章節 </div><div class="line">表格（註1）：|一行|一行|疊| </div><div class="line">插入超連結： [超連結文字](網址) </div><div class="line">插入外部圖片： ![圖片描述](圖片網址)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">斜體： *斜體* </span><br><span class="line">粗體： **粗體** </span><br><span class="line">粗斜體： ***粗斜體*** </span><br><span class="line">刪除線：~~刪除~~ </span><br><span class="line">引言： &gt; 引言 </span><br><span class="line">章節： # 章節 次級章節（以此類推）： ## 次級章節 </span><br><span class="line">表格（註1）：|一行|一行|疊| </span><br><span class="line">插入超連結： [超連結文字](網址) </span><br><span class="line">插入外部圖片： ![圖片描述](圖片網址)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="http://markdown.tw/" target="_blank" rel="external">Markdown文件</a><br><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank" rel="external">Markdown Cheatsheet</a><br><a href="http://www.jianshu.com/p/sTeAbC" target="_blank" rel="external">Markdown 寫表格</a></p>
+<p><a href="http://markdown.tw/" target="_blank" rel="noopener">Markdown文件</a><br><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank" rel="noopener">Markdown Cheatsheet</a><br><a href="http://www.jianshu.com/p/sTeAbC" target="_blank" rel="noopener">Markdown 寫表格</a></p>
 </blockquote>
-<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"postName"</span>  <span class="comment">#新建文章</span></div><div class="line">$ hexo clean <span class="comment">#清除快取</span></div><div class="line">$ hexo generate <span class="comment">#生成靜態頁面至public目錄</span></div><div class="line">$ hexo server <span class="comment">#開啟預覽訪問端口（默認端口4000，'ctrl + c'關閉server）</span></div><div class="line">$ hexo deploy  <span class="comment">#將.deploy目錄部署到GitHub</span></div><div class="line">$ hexo <span class="built_in">help</span>   <span class="comment">#查看幫助</span></div><div class="line">$ hexo version   <span class="comment">#查看Hexo的版本</span></div></pre></td></tr></table></figure>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"postName"</span>  <span class="comment">#新建文章</span></span><br><span class="line">$ hexo clean <span class="comment">#清除快取</span></span><br><span class="line">$ hexo generate <span class="comment">#生成靜態頁面至public目錄</span></span><br><span class="line">$ hexo server <span class="comment">#開啟預覽訪問端口（默認端口4000，'ctrl + c'關閉server）</span></span><br><span class="line">$ hexo deploy  <span class="comment">#將.deploy目錄部署到GitHub</span></span><br><span class="line">$ hexo <span class="built_in">help</span>   <span class="comment">#查看幫助</span></span><br><span class="line">$ hexo version   <span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
 <p>指令簡寫</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="更換Blog主題-NexT"><a href="#更換Blog主題-NexT" class="headerlink" title="更換Blog主題(NexT)"></a>更換Blog主題(NexT)</h1><p>主要完成的步驟如下：</p>
 <ol>
-<li><a href="http://theme-next.iissnan.com/getting-started.html#download-next-theme" target="_blank" rel="external">安裝 Blog主題(NexT)</a></li>
-<li><a href="http://theme-next.iissnan.com/getting-started.html#activate-next-theme" target="_blank" rel="external">_config.yml 修改theme:NexT </a></li>
-<li><a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="external">NexT細項功能設定</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html#download-next-theme" target="_blank" rel="noopener">安裝 Blog主題(NexT)</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html#activate-next-theme" target="_blank" rel="noopener">_config.yml 修改theme:NexT </a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="noopener">NexT細項功能設定</a></li>
 </ol>
 <p>如果啟用 <strong>分類、標籤</strong> 的話，並不會自動幫你建立，可參考下列協助產生</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">新建分類、標籤、關於頁面：</div><div class="line">$ hexo new page ‘categories’</div><div class="line">$ hexo new page ‘tags’</div><div class="line">$ hexo new page ‘about’</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建分類、標籤、關於頁面：</span><br><span class="line">$ hexo new page ‘categories’</span><br><span class="line">$ hexo new page ‘tags’</span><br><span class="line">$ hexo new page ‘about’</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="https://github.com/hexojs/hexo-generator-category" target="_blank" rel="external">hexo-generator-category    產生分類頁</a><br><code>$ npm install hexo-generator-category --save</code></p>
-<p><a href="https://github.com/hexojs/hexo-generator-tag" target="_blank" rel="external">hexo-generator-tag    產生標籤頁</a><br><code>$ npm install hexo-generator-tag --save</code></p>
+<p><a href="https://github.com/hexojs/hexo-generator-category" target="_blank" rel="noopener">hexo-generator-category    產生分類頁</a><br><code>$ npm install hexo-generator-category --save</code></p>
+<p><a href="https://github.com/hexojs/hexo-generator-tag" target="_blank" rel="noopener">hexo-generator-tag    產生標籤頁</a><br><code>$ npm install hexo-generator-tag --save</code></p>
 </blockquote>
 <hr>
-<h1 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h1><p><a href="http://zhiho.github.io/categories/hexo/" target="_blank" rel="external">Hexo搭建GitHub博客 系列文章</a><br><a href="http://fanzhenyu.me/categories/Hexo/" target="_blank" rel="external">Github Pages + Hexo搭建博客</a><br><a href="http://blog.30cm.net/2017/01/21/%E7%95%B6%E5%80%8B%E9%83%A8%E8%90%BD%E5%AE%A2%EF%BC%81%E3%80%8C-Hexo-%E3%80%8D%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E5%AD%B8/" target="_blank" rel="external">當個部落客</a><br><a href="https://www.mcknote.com/2016/04/04/Set-up-McK-Note/" target="_blank" rel="external">McK-Note</a></p>
-<p><a href="https://hexo.io/zh-tw/" target="_blank" rel="external">Hexo 官網</a><br><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT 官網</a></p>
+<h1 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h1><p><a href="http://zhiho.github.io/categories/hexo/" target="_blank" rel="noopener">Hexo搭建GitHub博客 系列文章</a><br><a href="http://fanzhenyu.me/categories/Hexo/" target="_blank" rel="noopener">Github Pages + Hexo搭建博客</a><br><a href="http://blog.30cm.net/2017/01/21/%E7%95%B6%E5%80%8B%E9%83%A8%E8%90%BD%E5%AE%A2%EF%BC%81%E3%80%8C-Hexo-%E3%80%8D%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E5%AD%B8/" target="_blank" rel="noopener">當個部落客</a><br><a href="https://www.mcknote.com/2016/04/04/Set-up-McK-Note/" target="_blank" rel="noopener">McK-Note</a></p>
+<p><a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo 官網</a><br><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT 官網</a></p>
 
       
     </div>

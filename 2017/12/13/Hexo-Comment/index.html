@@ -459,7 +459,7 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><img src="/2017/12/13/Hexo-Comment/Disqus.png" alt="Disqus.png" title="">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><img src="/2017/12/13/Hexo-Comment/Disqus.png">
 <a id="more"></a>
 <hr>
 <p>新增 Hexo 的留言版，需要完成的事情有：</p>
@@ -468,26 +468,26 @@
 <li>新建 Disqus 的 website</li>
 <li>配置 Hexo</li>
 </ol>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="1-註冊-Disqus-的帳號"><a href="#1-註冊-Disqus-的帳號" class="headerlink" title="1.註冊 Disqus 的帳號"></a><span id="inline-toc">1.</span>註冊 Disqus 的帳號</h3><p>Disqus網址：<a href="https://disqus.com/" target="_blank" rel="external">https://disqus.com/</a></p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="1-註冊-Disqus-的帳號"><a href="#1-註冊-Disqus-的帳號" class="headerlink" title="1.註冊 Disqus 的帳號"></a><span id="inline-toc">1.</span>註冊 Disqus 的帳號</h3><p>Disqus網址：<a href="https://disqus.com/" target="_blank" rel="noopener">https://disqus.com/</a></p>
 <p>打開鏈接後， 可以直接用Facebook，Twitter以及Google 登錄，也可以用郵箱註冊後登錄。</p>
 <h3 id="2-建立-Disqus-website"><a href="#2-建立-Disqus-website" class="headerlink" title="2.建立 Disqus website"></a><span id="inline-toc">2.</span>建立 Disqus website</h3><ol>
 <li><p>點擊 <strong>GET STARTED</strong> 開始建立 website</p>
- <img src="/2017/12/13/Hexo-Comment/Disqus_01.png" alt="Disqus_01.png" title="">
+ <img src="/2017/12/13/Hexo-Comment/Disqus_01.png">
 </li>
 <li><p>點擊下面 <strong>I want to install Disqus on my site</strong></p>
- <img src="/2017/12/13/Hexo-Comment/Disqus_02.png" alt="Disqus_02.png" title="">
+ <img src="/2017/12/13/Hexo-Comment/Disqus_02.png">
 </li>
 <li><p>填寫 <strong>Website Name</strong>，這是 <strong>短名稱</strong>，用於和 Hexo連結的 <strong>Key值</strong>。</p>
- <img src="/2017/12/13/Hexo-Comment/Disqus_03.png" alt="Disqus_03.png" title="">
+ <img src="/2017/12/13/Hexo-Comment/Disqus_03.png">
 </li>
 <li><p>直接點擊 Configure Disqus</p>
- <img src="/2017/12/13/Hexo-Comment/Disqus_04.png" alt="Disqus_04.png" title="">
+ <img src="/2017/12/13/Hexo-Comment/Disqus_04.png">
 </li>
 <li><p>填寫 <strong>Website URL</strong> ，這是你 <strong>Blog的網址</strong></p>
- <img src="/2017/12/13/Hexo-Comment/Disqus_05.png" alt="Disqus_05.png" title="">
+ <img src="/2017/12/13/Hexo-Comment/Disqus_05.png">
 </li>
 <li><p>建立完成畫面</p>
- <img src="/2017/12/13/Hexo-Comment/Disqus_06.png" alt="Disqus_06.png" title="">
+ <img src="/2017/12/13/Hexo-Comment/Disqus_06.png">
 </li>
 </ol>
 <h3 id="3-配置-Hexo"><a href="#3-配置-Hexo" class="headerlink" title="3.配置 Hexo"></a><span id="inline-toc">3.</span>配置 Hexo</h3><p><strong>主題配置主題</strong> 下面的 <strong>config.yml</strong> 文件，路徑： ~blog/themes/next/_config.yml</p>
@@ -496,11 +496,11 @@
 <li>同時填寫您的 <strong>shortname(短名稱)</strong>。</li>
 <li>count 用於指定是否顯示評論數量。</li>
 </ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Disqus</span></div><div class="line">disqus:</div><div class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></div><div class="line">  shortname: kanbooBlog</div><div class="line">  count: <span class="literal">true</span></div></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Disqus</span></span><br><span class="line">disqus:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  shortname: kanbooBlog</span><br><span class="line">  count: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>上述步驟設置完成後，更新Blog</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="http://www.cylong.com/blog/2017/03/26/hexo-next-disqus/" target="_blank" rel="external">Hexo 集成Disqus 評論</a><br><a href="http://www.jianshu.com/p/d68de067ea74" target="_blank" rel="external">Hexo搭建博客系列：（六）Hexo添加Disqus評論</a><br><a href="http://theme-next.iissnan.com/third-party-services.html#comment-system" target="_blank" rel="external">Next-评论系统</a></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="http://www.cylong.com/blog/2017/03/26/hexo-next-disqus/" target="_blank" rel="noopener">Hexo 集成Disqus 評論</a><br><a href="http://www.jianshu.com/p/d68de067ea74" target="_blank" rel="noopener">Hexo搭建博客系列：（六）Hexo添加Disqus評論</a><br><a href="http://theme-next.iissnan.com/third-party-services.html#comment-system" target="_blank" rel="noopener">Next-评论系统</a></p>
 
       
     </div>

@@ -452,23 +452,23 @@
       
 
       
-        <blockquote class="blockquote-center"><p><img src="/2017/12/22/CSS-Webfont/webfont_01.png" alt="webfont_01.png" title=""></p>
+        <blockquote class="blockquote-center"><p><img src="/2017/12/22/CSS-Webfont/webfont_01.png"></p>
 </blockquote>
 <a id="more"></a>
 <hr>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入字體</span></div><div class="line">@<span class="keyword">import</span> url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);</div><div class="line"></div><div class="line"><span class="comment">//設定字體</span></div><div class="line"><span class="attribute">font-family</span>: <span class="string">'Noto Sans SC Sliced'</span>, sans-serif;</div></pre></td></tr></table></figure>
-<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p></p><p data-height="322" data-theme-id="0" data-slug-hash="dJpzZm" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="Webfont - 思源體" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/dJpzZm/" target="_blank" rel="external">Webfont - 思源體</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入字體</span></span><br><span class="line">@<span class="keyword">import</span> url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);</span><br><span class="line"></span><br><span class="line"><span class="comment">//設定字體</span></span><br><span class="line"><span class="attribute">font-family</span>: <span class="string">'Noto Sans SC Sliced'</span>, sans-serif;</span><br></pre></td></tr></table></figure>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p></p><p data-height="322" data-theme-id="0" data-slug-hash="dJpzZm" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="Webfont - 思源體" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/dJpzZm/" target="_blank" rel="noopener">Webfont - 思源體</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="noopener">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <hr>
 <h2 id="問題紀錄"><a href="#問題紀錄" class="headerlink" title="問題紀錄"></a>問題紀錄</h2><p>雖然已有在css設定 <font color="blue">font-family: ‘Noto Sans SC Sliced’, sans-serif;</font> ，<br>不過還是沒套用到新的 <strong>font-family</strong> ，因為<font color="red">CSS權重</font>的問題，還是使用預設的 <font color="blue">微體正黑體</font>，</p>
-<img src="/2017/12/22/CSS-Webfont/webfont_02.png" alt="webfont_02.png" title="">
+<img src="/2017/12/22/CSS-Webfont/webfont_02.png">
 <p>可能是因為 codepen 有額外加 font-family 設定，導致 <code>&lt;style&gt;</code>的CSS權限 大於在 CSS檔裡面的屬性設定</p>
-<img src="/2017/12/22/CSS-Webfont/webfont_03.png" alt="webfont_03.png" title="">
+<img src="/2017/12/22/CSS-Webfont/webfont_03.png">
 <p>所以若要強制轉換的話，就需要加 <font color="red">!important</font> </p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">font-family</span>: <span class="string">'Noto Sans SC Sliced'</span>, sans-serif <span class="meta">!important</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-family</span>: <span class="string">'Noto Sans SC Sliced'</span>, sans-serif <span class="meta">!important</span>;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="參考文章"><a href="#參考文章" class="headerlink" title="參考文章"></a>參考文章</h2><div class="note info"><a href="https://www.landiannews.com/archives/38885.html" target="_blank" rel="external">谷歌提出字体切片方案</a><br><a href="https://fonts.google.com/earlyaccess#Noto+Sans+SC+Sliced" target="_blank" rel="external">Noto Sans SC Sliced</a><br></div>
+<h2 id="參考文章"><a href="#參考文章" class="headerlink" title="參考文章"></a>參考文章</h2><div class="note info"><a href="https://www.landiannews.com/archives/38885.html" target="_blank" rel="noopener">谷歌提出字体切片方案</a><br><a href="https://fonts.google.com/earlyaccess#Noto+Sans+SC+Sliced" target="_blank" rel="noopener">Noto Sans SC Sliced</a><br></div>
       
     </div>
     

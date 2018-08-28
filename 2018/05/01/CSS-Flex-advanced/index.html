@@ -454,21 +454,21 @@
       
 
       
-        <blockquote class="blockquote-center"><p><img src="/2018/05/01/CSS-Flex-advanced/flex-property.png" alt="常用屬性" title="常用屬性"></p>
+        <blockquote class="blockquote-center"><p><img src="/2018/05/01/CSS-Flex-advanced/flex-property.png" title="常用屬性"></p>
 <font style="font-size:20px;">這次主要介紹 <font color="red">較不常用</font> 的屬性</font>
 </blockquote>
 <a id="more"></a>
 <hr>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Youtube直播看到 <strong>Amos大大</strong> 在解說Flex各種屬性及運用，<br>在此紀錄自己較不熟悉的部份，方便以後複習。</p>
-<div class="note info">Youtube：<a href="https://youtu.be/_nCBQ6AIzDU" target="_blank" rel="external">玩轉 CSS FLEX</a></div>
+<div class="note info">Youtube：<a href="https://youtu.be/_nCBQ6AIzDU" target="_blank" rel="noopener">玩轉 CSS FLEX</a></div>
 
 <hr>
-<h2 id="主軸-amp-次軸"><a href="#主軸-amp-次軸" class="headerlink" title="主軸&amp;次軸"></a>主軸&amp;次軸</h2><img src="/2018/05/01/CSS-Flex-advanced/flex-direction.png" alt="flex-direction.png" title="">
+<h2 id="主軸-amp-次軸"><a href="#主軸-amp-次軸" class="headerlink" title="主軸&amp;次軸"></a>主軸&amp;次軸</h2><img src="/2018/05/01/CSS-Flex-advanced/flex-direction.png">
 <h3 id="flex-direction：決定-flex-主軸線-方向"><a href="#flex-direction：決定-flex-主軸線-方向" class="headerlink" title="flex-direction：決定 flex 主軸線 方向"></a>flex-direction：決定 flex 主軸線 方向</h3><p>[ row | row-reverse | column | column-reverse ]</p>
 <p>在開始說明前，需再次強調一次 <font color="red">主軸與次軸(交錯軸)</font> 的重要性，<br>因為當主軸設定為 <code>row</code> 或 <code>column</code> 的話，<br>都會連帶影響其他屬性的設定，而產生不一樣的排版出來。</p>
 <p>舉例來說，我們拿 <code>flex-basis</code> 這個屬性出來說明，<br>當主軸的方向有所不同時，會影響什麼呢？</p>
 <p>當<code>flex-direction: row</code>時，<code>flex-basis</code>影響的是<font color="red">寬度</font><br>當<code>flex-direction: column</code>時，<code>flex-basis</code>影響的是<font color="red">高度</font></p>
-<div class="note info"><a href="https://kanboo.github.io/2017/09/30/CSS-Flex/">舊文參考：CSS - Flex</a></div><div class="note warning">整理幾個時間點，方便以後回頭再複習。<br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h13m12s" target="_blank" rel="external">align-items(1h13m12s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h25m19s" target="_blank" rel="external">align-self(1h25m19s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h29m13s" target="_blank" rel="external">flex-order(1h29m13s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h39m25s" target="_blank" rel="external">flex-grow(1h39m25s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h43m15s" target="_blank" rel="external">flex-basis(1h43m15s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h46m55s" target="_blank" rel="external">flex-shrink(1h46m55s)</a></div>
+<div class="note info"><a href="https://kanboo.github.io/2017/09/30/CSS-Flex/">舊文參考：CSS - Flex</a></div><div class="note warning">整理幾個時間點，方便以後回頭再複習。<br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h13m12s" target="_blank" rel="noopener">align-items(1h13m12s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h25m19s" target="_blank" rel="noopener">align-self(1h25m19s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h29m13s" target="_blank" rel="noopener">flex-order(1h29m13s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h39m25s" target="_blank" rel="noopener">flex-grow(1h39m25s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h43m15s" target="_blank" rel="noopener">flex-basis(1h43m15s)</a><br><a href="https://youtu.be/_nCBQ6AIzDU?t=1h46m55s" target="_blank" rel="noopener">flex-shrink(1h46m55s)</a></div>
 
 <hr>
 <h2 id="flex-order"><a href="#flex-order" class="headerlink" title="flex-order"></a>flex-order</h2><p><span id="inline-blue">重點整理</span></p>
@@ -481,7 +481,7 @@
 <p>在 電腦 排序要 A <font color="red">B</font> C (電腦是横的看)<br>在 手機 排序要 <font color="red">B</font> A C (手機是直的看)<br>在 平板 排序要 C <font color="red">B</font> A (←老板來亂指定的)</p>
 <p>這時就可以透過 <code>media query</code> 和 <code>flex-order</code> 的配合，<br>在不同裝置上，顯示不同的排序。</p>
 <blockquote>
-<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h29m13s" target="_blank" rel="external">flex-order(1h29m13s)</a></p>
+<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h29m13s" target="_blank" rel="noopener">flex-order(1h29m13s)</a></p>
 </blockquote>
 <div class="note primary">補充：<br>因為 髒髒 的關係，沒事別出大絕，而且也要一一去設定，怕以後維護不易。</div>
 
@@ -490,7 +490,7 @@
 <p><span id="inline-green">案例說明</span></p>
 <p>當 <font color="red">子</font>項目全部加總的長度(<font color="blue">600px</font>) <font color="red">&lt;</font> 父項目的總長度(<font color="blue">1000px</font>) 時，<br>此時就有「<font color="red">剩餘的空間(1000 - 600 = 400)</font>」，可以讓<code>flex-grow</code>依照比例去分配剩下的空間。</p>
 <blockquote>
-<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h39m25s" target="_blank" rel="external">flex-grow(1h39m25s)</a></p>
+<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h39m25s" target="_blank" rel="noopener">flex-grow(1h39m25s)</a></p>
 </blockquote>
 <div class="note primary">備註：<br>Amos大提到用在單列使用時，做分配還OK，<br>但用在多列使用時，分配起來會跟想像中有點不一樣，較不好掌控。<br>先記一下，以後遇到時，踩到此坑才不會太痛。</div>
 
@@ -510,19 +510,19 @@
 </ul>
 <p><span id="inline-green">運用情境</span></p>
 <p>利用 <code>flex-basis</code> 與 <code>flex-grow</code> 配合，當成「<font color="red">grid網格</font>」來使用。</p>
-<p></p><p data-height="445" data-theme-id="0" data-slug-hash="mLmWVR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-basis 與 flex-grow 網格實作" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmWVR/" target="_blank" rel="external">flex-basis 與 flex-grow 網格實作</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<p></p><p data-height="445" data-theme-id="0" data-slug-hash="mLmWVR" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-basis 與 flex-grow 網格實作" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmWVR/" target="_blank" rel="noopener">flex-basis 與 flex-grow 網格實作</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="noopener">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 
 
 <blockquote>
-<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h43m15s" target="_blank" rel="external">flex-basis</a></p>
+<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h43m15s" target="_blank" rel="noopener">flex-basis</a></p>
 </blockquote>
 <p><span id="inline-green">額外測試</span></p>
 <p><span id="inline-toc">Q</span>flex-basis &amp; max-width &amp; width 權重誰大？</p>
 <p><span id="inline-toc">A</span>max-width &gt; flex-basis &gt; width</p>
 <blockquote>
-<p>權重測試：<a href="https://codepen.io/Kanboo/pen/deNyXo" target="_blank" rel="external">codepen連結</a></p>
+<p>權重測試：<a href="https://codepen.io/Kanboo/pen/deNyXo" target="_blank" rel="noopener">codepen連結</a></p>
 </blockquote>
 <hr>
 <h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p><span id="inline-blue">重點整理</span></p>
@@ -545,7 +545,7 @@
 <p><font color="blue"><strong>扣除值</strong></font>： (子項目的寬 * 收縮比 / 總比值) * 超出值</p>
 <p>這樣的話，每個子項目的寬度去減掉自己的扣除值，就完成收縮的作用了。</p>
 <p><em><strong>下列直接用實例說明</strong></em></p>
-<p></p><p data-height="337" data-theme-id="0" data-slug-hash="mLmRwd" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-shrink公式計算" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmRwd/" target="_blank" rel="external">flex-shrink公式計算</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="external">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<p></p><p data-height="337" data-theme-id="0" data-slug-hash="mLmRwd" data-default-tab="result" data-user="Kanboo" data-embed-version="2" data-pen-title="flex-shrink公式計算" class="codepen">See the Pen <a href="https://codepen.io/Kanboo/pen/mLmRwd/" target="_blank" rel="noopener">flex-shrink公式計算</a> by Kanboo (<a href="https://codepen.io/Kanboo" target="_blank" rel="noopener">@Kanboo</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 
@@ -568,19 +568,19 @@
 <li>E：100 - 76.92 = 23.08</li>
 </ul>
 <blockquote>
-<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h46m55s" target="_blank" rel="external">flex-shrink</a></p>
+<p>時間點：<a href="https://youtu.be/_nCBQ6AIzDU?t=1h46m55s" target="_blank" rel="noopener">flex-shrink</a></p>
 </blockquote>
 <hr>
 <h2 id="排版問題"><a href="#排版問題" class="headerlink" title="排版問題"></a>排版問題</h2><p><span id="inline-toc">Q</span>如何使用space-between，但我最後一列沒滿…我不想中間空一格該怎麼做？</p>
 <p><span id="inline-toc">A</span></p>
 <p>解法1：</p>
 <ul>
-<li><a href="https://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid" target="_blank" rel="external">文章：Flex-box: Align last row to grid</a></li>
-<li><a href="https://codepen.io/DanAndreasson/pen/ZQXLXj" target="_blank" rel="external">codepen解法</a></li>
+<li><a href="https://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid" target="_blank" rel="noopener">文章：Flex-box: Align last row to grid</a></li>
+<li><a href="https://codepen.io/DanAndreasson/pen/ZQXLXj" target="_blank" rel="noopener">codepen解法</a></li>
 </ul>
 <p>解法2：</p>
 <ul>
-<li><a href="https://codepen.io/tuxsudo/pen/VYERQJ" target="_blank" rel="external">Flexbox - last row in grid</a></li>
+<li><a href="https://codepen.io/tuxsudo/pen/VYERQJ" target="_blank" rel="noopener">Flexbox - last row in grid</a></li>
 </ul>
 
       

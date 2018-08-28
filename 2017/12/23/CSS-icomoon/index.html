@@ -459,14 +459,14 @@
       
 
       
-        <blockquote class="blockquote-center"><p><img src="/2017/12/23/CSS-icomoon/icomoon_01.png" alt="icomoon_01.png" title=""></p>
-<font style="color:#f90;font-size:28px;"><a href="https://icomoon.io/" target="_blank" rel="external">IcoMoon</a></font>
+        <blockquote class="blockquote-center"><p><img src="/2017/12/23/CSS-icomoon/icomoon_01.png"></p>
+<font style="color:#f90;font-size:28px;"><a href="https://icomoon.io/" target="_blank" rel="noopener">IcoMoon</a></font>
 </blockquote>
 <a id="more"></a>
 <hr>
 <h2 id="下載icons"><a href="#下載icons" class="headerlink" title="下載icons"></a>下載icons</h2><ol>
 <li><p>挑選好想要的icons</p>
- <img src="/2017/12/23/CSS-icomoon/icomoon_02.png" alt="icomoon_02.png" title="">
+ <img src="/2017/12/23/CSS-icomoon/icomoon_02.png">
 </li>
 <li><p>修改部份設定</p>
 <ul>
@@ -475,35 +475,35 @@
 <li><p>修改引用的html語法<br>預設語法為<code>&lt;span class=&quot;icon-book&quot;&gt;&lt;/span&gt;</code>，修改為<code>&lt;i class=&quot;icon-book&quot;&gt;&lt;/i&gt;</code></p>
 </li>
 </ul>
-<img src="/2017/12/23/CSS-icomoon/icomoon_03.png" alt="icomoon_03.png" title="">
+<img src="/2017/12/23/CSS-icomoon/icomoon_03.png">
 </li>
 <li><p>下載字體</p>
-<img src="/2017/12/23/CSS-icomoon/icomoon_04.png" alt="icomoon_04.png" title="">
+<img src="/2017/12/23/CSS-icomoon/icomoon_04.png">
 </li>
 </ol>
 <h2 id="引入專案"><a href="#引入專案" class="headerlink" title="引入專案"></a>引入專案</h2><ol>
 <li><p>將下載好檔案解壓縮，複製 <code>fonts資料夾</code> 和 <code>style.scss、variables.scss</code> </p>
-<img src="/2017/12/23/CSS-icomoon/icomoon_05.png" alt="icomoon_05.png" title="">
+<img src="/2017/12/23/CSS-icomoon/icomoon_05.png">
 </li>
 <li><p>複製到專案的source資料夾底下</p>
-<img src="/2017/12/23/CSS-icomoon/icomoon_06.png" alt="icomoon_06.png" title="">
+<img src="/2017/12/23/CSS-icomoon/icomoon_06.png">
 </li>
 <li><p>修改sass的檔名和內容</p>
 <ul>
 <li>修改variables.scss內容，並更改檔名為 _icomoon_variables.scss</li>
 </ul>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   //第一行</div><div class="line"><span class="deletion">-  $icomoon-font-path: "fonts" !default;</span></div><div class="line"><span class="addition">+  $icomoon-font-path: "../fonts" !default; //fonts資料夾不是在css資料夾底下，所以需回上一層</span></div></pre></td></tr></table></figure>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   //第一行</span><br><span class="line"><span class="deletion">-  $icomoon-font-path: "fonts" !default;</span></span><br><span class="line"><span class="addition">+  $icomoon-font-path: "../fonts" !default; //fonts資料夾不是在css資料夾底下，所以需回上一層</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>修改style.scss內容，並更改檔名為 _icomoon.scss</li>
 </ul>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   //第一行</div><div class="line"><span class="deletion">-  @import "variables";</span></div><div class="line"><span class="addition">+  @import "_icomoon_variables";</span></div></pre></td></tr></table></figure>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   //第一行</span><br><span class="line"><span class="deletion">-  @import "variables";</span></span><br><span class="line"><span class="addition">+  @import "_icomoon_variables";</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>主頁 all.css 引入 _icomoon.scss</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   @import "bootstrap";</div><div class="line">   @import "font-awesome";</div><div class="line"><span class="addition">+  @import "icomoon";</span></div></pre></td></tr></table></figure>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   @import "bootstrap";</span><br><span class="line">   @import "font-awesome";</span><br><span class="line"><span class="addition">+  @import "icomoon";</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用icons語法</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;i class="icon-music"&gt;&lt;/i&gt;</div><div class="line">&lt;i class="icon-mic"&gt;&lt;/i&gt;</div><div class="line">&lt;i class="icon-coin-dollar"&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
-<img src="/2017/12/23/CSS-icomoon/icomoon_07.png" alt="icomoon_07.png" title="">
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class="icon-music"&gt;&lt;/i&gt;</span><br><span class="line">&lt;i class="icon-mic"&gt;&lt;/i&gt;</span><br><span class="line">&lt;i class="icon-coin-dollar"&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+<img src="/2017/12/23/CSS-icomoon/icomoon_07.png">
 </li>
 </ol>
 

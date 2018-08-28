@@ -460,12 +460,12 @@
 <a id="more"></a>
 <h2 id="問題："><a href="#問題：" class="headerlink" title="問題："></a>問題：</h2><p>在練習Bootstrap3將表單驗證功能加進去，卻遇到畫面「跑版」的問題，<br>目前是查到 「名稱」底下的<br><code>&lt;div class=&quot;help-block with-errors&quot;&gt;&lt;/div&gt;</code><br>所導致。</p>
 <p>可能原因為 float？ margin？</p>
-<p>問題點：<br>1.單點 「名稱」欄位，就會造成下方欄位跑版。<br><img src="/2017/10/04/CSS-float/Q1.jpg" alt="Q1.jpg" title=""><br>2.若同時有驗證 左右二邊，欄位又有對齊了。<br><img src="/2017/10/04/CSS-float/Q2.jpg" alt="Q2.jpg" title=""></p>
-<h3 id="codepen：排版偏移程式碼"><a href="#codepen：排版偏移程式碼" class="headerlink" title="codepen：排版偏移程式碼"></a>codepen：<a href="https://codepen.io/Kanboo/pen/EwwNJW" target="_blank" rel="external">排版偏移程式碼</a></h3><h2 id="解決："><a href="#解決：" class="headerlink" title="解決："></a>解決：</h2><img src="/2017/10/04/CSS-float/A1.jpg" alt="A1.jpg" title="">
+<p>問題點：<br>1.單點 「名稱」欄位，就會造成下方欄位跑版。<br><img src="/2017/10/04/CSS-float/Q1.jpg"><br>2.若同時有驗證 左右二邊，欄位又有對齊了。<br><img src="/2017/10/04/CSS-float/Q2.jpg"></p>
+<h3 id="codepen：排版偏移程式碼"><a href="#codepen：排版偏移程式碼" class="headerlink" title="codepen：排版偏移程式碼"></a>codepen：<a href="https://codepen.io/Kanboo/pen/EwwNJW" target="_blank" rel="noopener">排版偏移程式碼</a></h3><h2 id="解決："><a href="#解決：" class="headerlink" title="解決："></a>解決：</h2><img src="/2017/10/04/CSS-float/A1.jpg">
 <p><br><br>如上圖所述，第一個「名稱」腳變長，造成第三個「Email」排不進去被往後推，<br>導致第四個「聯絡電話」也被往後推擠，造成排版歪掉。</p>
-<img src="/2017/10/04/CSS-float/A2.jpg" alt="A2.jpg" title="">
+<img src="/2017/10/04/CSS-float/A2.jpg">
 <p><br><br>解法為 外層用 row 包起來，<strong>清除float的浮動(clearfix)</strong>。</p>
-<h3 id="codepen：修正後程式碼"><a href="#codepen：修正後程式碼" class="headerlink" title="codepen：修正後程式碼"></a>codepen：<a href="https://codepen.io/Kanboo/pen/PJJWRY" target="_blank" rel="external">修正後程式碼</a></h3>
+<h3 id="codepen：修正後程式碼"><a href="#codepen：修正後程式碼" class="headerlink" title="codepen：修正後程式碼"></a>codepen：<a href="https://codepen.io/Kanboo/pen/PJJWRY" target="_blank" rel="noopener">修正後程式碼</a></h3>
       
     </div>
     

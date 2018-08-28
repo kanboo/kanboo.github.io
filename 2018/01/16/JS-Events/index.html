@@ -467,13 +467,13 @@
       
 
       
-        <blockquote class="blockquote-center"><p><img src="/2018/01/16/JS-Events/js_01.png" alt="js_01.png" title=""></p>
+        <blockquote class="blockquote-center"><p><img src="/2018/01/16/JS-Events/js_01.png"></p>
 <font style="font-size:20px;">那些你知道與不知道的事件們</font>
 </blockquote>
 <a id="more"></a>
 <hr>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 2018 iT 邦幫忙鐵人賽，看到Kuro大的重新認識 JavaScript 系列文，仔細的閱讀後，紀錄自己觀念不足的部份，也非常推薦給大家觀看此系列文。</p>
-<div class="note info"><a href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259?page=1" target="_blank" rel="external">Kuro-重新認識 JavaScript 系列</a></div>
+<div class="note info"><a href="https://ithelp.ithome.com.tw/users/20065504/ironman/1259?page=1" target="_blank" rel="noopener">Kuro-重新認識 JavaScript 系列</a></div>
 
 <hr>
 <h2 id="表單相關事件"><a href="#表單相關事件" class="headerlink" title="表單相關事件"></a>表單相關事件</h2><ul>
@@ -494,8 +494,8 @@
 </ul>
 <p>可以看到，如果要確認使用者輸入完成並送出文字時，就可以透過 compositionend來做最後確認。</p>
 <p>執行的時候像這樣：</p>
-<img src="/2018/01/16/JS-Events/js_02.png" alt="js_02.png" title="">
-<div class="note primary">開啟console，在input輸入文字：<a href="https://codepen.io/Kanboo/pen/ZvRayJ?editors=1010" target="_blank" rel="external">event觸發時機</a></div>
+<img src="/2018/01/16/JS-Events/js_02.png">
+<div class="note primary">開啟console，在input輸入文字：<a href="https://codepen.io/Kanboo/pen/ZvRayJ?editors=1010" target="_blank" rel="noopener">event觸發時機</a></div>
 
 <hr>
 <h2 id="鍵盤相關事件"><a href="#鍵盤相關事件" class="headerlink" title="鍵盤相關事件"></a>鍵盤相關事件</h2><p>鍵盤相關事件有下列三種，在大多數情況下會將鍵盤事件註冊在 input 的輸入框上。</p>
@@ -508,9 +508,9 @@
 </li>
 </ul>
 <p>透過 <font color="red">e.keyCode</font> 就可以判斷使用者目前按下的是哪個按鈕</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">textBox.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  <span class="comment">// enter 的 keyCode 是 13</span></div><div class="line">  <span class="keyword">if</span>( e.keyCode === <span class="number">13</span> )&#123;</div><div class="line">    formSubmit();</div><div class="line">  &#125;</div><div class="line">&#125;, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">textBox.addEventListener(<span class="string">'keydown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// enter 的 keyCode 是 13</span></span><br><span class="line">  <span class="keyword">if</span>( e.keyCode === <span class="number">13</span> )&#123;</span><br><span class="line">    formSubmit();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>註： keyCode 的對應表可以到這裡查看：<a href="https://gist.github.com/tylerbuchea/8011573" target="_blank" rel="external">https://gist.github.com/tylerbuchea/8011573</a> </p>
+<p>註： keyCode 的對應表可以到這裡查看：<a href="https://gist.github.com/tylerbuchea/8011573" target="_blank" rel="noopener">https://gist.github.com/tylerbuchea/8011573</a> </p>
 </blockquote>
 <hr>
 <h2 id="滑鼠相關事件"><a href="#滑鼠相關事件" class="headerlink" title="滑鼠相關事件"></a>滑鼠相關事件</h2><ul>
@@ -533,7 +533,7 @@
 </ul>
 </li>
 </ul>
-<img src="/2018/01/16/JS-Events/js_03.gif" alt="js_03.gif" title="">
+<img src="/2018/01/16/JS-Events/js_03.gif">
 <p>這些滑鼠相關的事件，都可以透過 <font color="red">event.pageX</font> 與 <font color="red">event.pageY</font> 屬性去取得目前在網頁對應的座標。</p>
 <hr>
 <h2 id="介面相關事件"><a href="#介面相關事件" class="headerlink" title="介面相關事件"></a>介面相關事件</h2><ul>
@@ -549,7 +549,7 @@
 </li>
 </ul>
 <p>簡單來說， DOMContentLoaded 與 load 的時機可以用這張圖來解釋：</p>
-<img src="/2018/01/16/JS-Events/js_04.png" alt="js_04.png" title="">
+<img src="/2018/01/16/JS-Events/js_04.png">
       
     </div>
     
