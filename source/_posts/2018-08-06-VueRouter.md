@@ -69,9 +69,11 @@ export default new Router({
     <router-link to="/product">PRODUCT</router-link>
 
     <!-- 使用變數 路徑path 切換路由(to 有冒號) -->
-    <router-link :to="{name: 'product'}">PRODUCT</router-link>
+    <router-link :to="{path: 'product'}">PRODUCT</router-link>
     <!-- 使用變數 名稱name 切換路由(to 有冒號) -->
     <router-link :to="{name: 'product'}">PRODUCT</router-link>
+    <!-- 使用變數 名稱name 切換路由(to 有冒號)，並帶params參數 -->
+    <router-link :to="{name: 'product', params:{id: 18}}">PRODUCT18</router-link>
 
     <!-- ------------------------------------------------ -->
     <!-- 路由顯示界面 -->
@@ -85,6 +87,91 @@ export default new Router({
 
 ---
 
+## 轉址
+
+假設一情況為 User 亂打網址時，找不到相對應的頁面時，
+這時我們可以籍由「<font color="red">redirect 轉址</font>」的方式，將頁面導向首頁。
+
+### 範例
+
+User 輸入的網址： `serverPath/#/products`
+
+但並<font color="red">無</font> products 的頁面，所以這時會被導向 Home 首頁。
+
+```javascript
+export default new Router({
+  routes: [
+    {
+      path: '/home',
+      name: 'Home',
+      component: 'Home'
+    },
+    {
+      path: '/about',
+      component: 'About'
+    },
+    {
+      path: '*', // 若都無符合上述條件，則轉址「Home首頁」
+      redirect: '/home'
+    }
+  ]
+});
+```
+
+也可使用<font color="red">物件格式</font>設定導向
+
+```javascript
+{
+  path: '*',
+  redirect: {name: 'home'} // 物件格式
+}
+```
+
+---
+
+## 別名
+
+假設我們想要網址，不管是輸入「/about」或者「/story」時，
+統一指向同一個頁面時，但是<font color="red">不更動</font>網址列的「網址路徑」，
+因為若使用「redirect 轉址」的話，就會被更動到「網址」。
+
+### 範例
+
+可注意下面參數裡，新增「<font color="red">alias</font>」這個變數，
+用來達成不管是輸入「/about」或者「/story」時,
+都可以統一指向同一個頁面，但不更動到上方網址路徑的變化。
+
+```javascript
+export default new Router({
+  routes: [
+    {
+      path: '/about',
+      alias: '/story', // 「別名」設定
+      component: 'About'
+    }
+  ]
+});
+```
+
+### 範例(多個別名)
+
+別名只是個外號，所以同時存在多個別名，應該也合情合理，
+而設定方式就是用<font color="red">陣列</font>的型態，將多個別名放在一起。
+
+```javascript
+export default new Router({
+  routes: [
+    {
+      path: '/about',
+      alias: ['/story', 'us', 'me'], // 多個「別名」設定
+      component: 'About'
+    }
+  ]
+});
+```
+
+---
+
 ## 巢狀路由
 
 籍由**巢狀路由**的設定，可以分不同區塊集中管理。
@@ -93,8 +180,7 @@ export default new Router({
 
 {% asset_img children.png %}
 
-> 圖源：[Kuro 大-Vue.js 前端框架的演進淺談
-> ](https://speakerdeck.com/kurotanshi/vue-dot-js-qian-duan-kuang-jia-de-yan-jin-qian-tan?slide=57)
+> 圖源：[Kuro 大-Vue.js 前端框架的演進淺談](https://speakerdeck.com/kurotanshi/vue-dot-js-qian-duan-kuang-jia-de-yan-jin-qian-tan?slide=57)
 
 ### 設定
 
@@ -227,6 +313,57 @@ created() {
 | /user/:username/post/:post_id | /user/evan/post/123 | { username: 'evan', post_id: 123 } |
 
 > 官方範例程式碼：[JSFiddle](https://jsfiddle.net/yyx990803/4xfa2f19/)
+
+---
+
+## 當動態 id 可有可無時，如何設定
+
+下列範例為我們有使用「動態路由」，去取得「產品 id」的值，
+到時可籍由「產品 id」，去後端取得相對應的資料顯示於畫面。
+
+### 範例
+
+網址： `serverPath/#/products/16`
+
+依上述網址，我們可以編號 16 號的產品資訊
+
+```javascript router.js
+export default new Router({
+  routes: [
+    {
+      path: '/products/:id',
+      component: 'Products'
+    }
+  ]
+});
+```
+
+```javascript Vue檔
+// 網址： serverPath/#/products/16
+
+created() {
+  this.orderId = this.$route.params.orderId // 16
+}
+```
+
+不過若當我們的動態 id <font color="red">可有可無</font>時，網址為下列情況的話
+
+網址： `serverPath/#/products`
+
+當無帶動態 id 的值時，會導致連預設「products 頁面」也不會顯示出來，
+所以要避免這樣的情況發生的話，我們需在 router 的動態 id 後面，
+新增一個「<font color="red">？</font>」，這樣才能避免這預期顯示的畫面沒正確顯示。
+
+```javascript
+export default new Router({
+  routes: [
+    {
+      path: '/products/:id?', // 動態id後面新增「？」
+      component: 'Products'
+    }
+  ]
+});
+```
 
 ---
 
@@ -441,7 +578,7 @@ export default new Router({
 
 ---
 
-## 驗證
+## 驗證(登入狀態)
 
 檢查 User 是否已登入狀態
 
@@ -496,6 +633,58 @@ router.beforeEach((to, from, next) => {
 });
 export default router;
 ```
+
+---
+
+## router 設定 history 模式
+
+Vue router 預設模式是使用 `hash`，所以當切換網址時，上方網址都會有「#」字號，如下
+
+網址： `https://serverPath/#/Page`
+
+若想要去掉「#」字號，產生下面的網址的話
+
+網址： `https://serverPath/Page`
+
+```javascript
+const router = new VueRouter({
+  mode: 'history',    // 切換 history 模式
+  routes: [...]
+})
+```
+
+### 情境
+
+若我們將模式更新改`history`時，會產生下列的情形
+
+正常情況下，User 統一會從首頁登入，如下
+
+首頁網址： `https://serverPath/`
+
+但怕的是 User 直接用網址直接想進去某個頁面，如下
+
+產品頁面： `https://serverPath/products`
+
+不過這時後端並無相對應的「products 頁面」回傳給前端，
+因為頁面的 router 都是寫在「**前端邏輯**」上，
+所以這時後端要協助配合設定「<font color="red">**URL Rewrite**</font>」，
+不管 User 上面輸入什麼網址時，
+後端統一回傳「index.html」頁面，
+接著讓前端的 router 去導向 products 頁面。
+
+> 官方：[HTML5 History 模式](https://router.vuejs.org/zh/guide/essentials/history-mode.html)
+
+### 補充說明
+
+後端在實務上應該是在使用者直接輸入網址時，進行你在前面提到的"轉址行為"
+因為後端的 Router 通常也包含了 API 路徑，所以正確的狀態是:
+
+1. 當使用者直接輸入網址
+2. AP 主機先跑後端的 Router 發現沒有符合的 Path
+3. 轉址到前端框架 build 出來的檔案
+4. 跑前端 Router
+   - 存在前端 Router 中，渲染對應的前端頁面組件
+   - 不存在前端 Router 中，轉址到首頁或選擇顯示 404 page
 
 ---
 
