@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="網頁追蹤,GA,FB," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+  <meta property="fb:admins" content="wang.kanboo@gmail.com" />
+  <meta property="fb:app_id" content="748927688632429" />
+
+
+
+<meta name="description" content="整理 網頁追蹤與分析 筆記">
+<meta name="keywords" content="網頁追蹤,GA,FB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebTracking">
+<meta property="og:url" content="https://kanboo.github.io/2018/11/14/WebTracking/index.html">
+<meta property="og:site_name" content="Kanboo Notes">
+<meta property="og:description" content="整理 網頁追蹤與分析 筆記">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytics.jpg">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_1.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_2.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_3.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_4.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_5.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_6.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_7.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_8.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_9.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_10.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_11.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_12.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_13.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_14.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_15.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_16.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_17.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_18.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_19.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_20.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_21.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_22.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_23.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_24.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_25.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_26.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_27.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_28.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_29.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_30.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_31.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_32.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_33.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_34.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_35.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_36.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_37.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_38.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_39.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_40.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_41.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_42.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_43.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_44.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_45.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_46.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_47.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_48.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_49.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_50.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_51.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_52.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_53.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_54.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_55.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_56.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_57.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_58.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_59.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_60.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_61.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_62.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_63.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_64.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_66.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_67.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_68.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_69.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_70.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_71.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_72.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_73.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_74.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_75.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_76.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_77.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_78.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_79.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_80.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_81.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_82.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_83.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_84.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_85.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_86.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_87.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_88.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_89.png">
+<meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_90.png">
+<meta property="og:updated_time" content="2018-11-14T16:11:46.129Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebTracking">
+<meta name="twitter:description" content="整理 網頁追蹤與分析 筆記">
+<meta name="twitter:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytics.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kanboo.github.io/2018/11/14/WebTracking/"/>
+
+
+
+
+
+  <title>WebTracking | Kanboo Notes</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '748927688632429',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107001663-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kanboo Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">學過就記下來</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kanboo.github.io/2018/11/14/WebTracking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kanboo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kanboo Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WebTracking</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-11-14T22:50:27+08:00">
+                2018-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/網頁追蹤/" itemprop="url" rel="index">
+                    <span itemprop="name">網頁追蹤</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/14/WebTracking/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://kanboo.github.io/2018/11/14/WebTracking/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p><img src="/2018/11/14/WebTracking/webanalytics.jpg"></p>
+<font style="font-size:20px;">整理 網頁追蹤與分析 筆記</font>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="FB-UTM-工具"><a href="#FB-UTM-工具" class="headerlink" title="FB UTM 工具"></a>FB UTM 工具</h2><h3 id="觸及的網址"><a href="#觸及的網址" class="headerlink" title="觸及的網址"></a>觸及的網址</h3><p>網址範例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://kanboo.github.io/</span><br><span class="line">?utm_source=facebook</span><br><span class="line">&amp;utm_medium=article</span><br><span class="line">&amp;utm_campaign=shareInfo</span><br></pre></td></tr></table></figure>
+<h3 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h3><ul>
+<li>utm_source：從哪個網站過來，如：FB、Google、Blog…等</li>
+<li>utm_medium：透過什麼方式，如：banner、文章分享、關鍵字廣告…等</li>
+<li>utm_campaign：此次活動名稱</li>
+</ul>
+<blockquote>
+<p><a href="https://www.facebook.com/business/google-analytics/build-your-url" target="_blank" rel="noopener">FB UTM 產生器</a></p>
+</blockquote>
+<hr>
+<h2 id="轉換與行為"><a href="#轉換與行為" class="headerlink" title="轉換與行為"></a>轉換與行為</h2><p>轉換(從行為 → 漏斗 → 轉換)</p>
+<ol>
+<li>希望使用者在網頁上「最終完成的行為」</li>
+<li>以此訂定你的「漏斗流程」</li>
+</ol>
+<h3 id="範例說明"><a href="#範例說明" class="headerlink" title="範例說明"></a>範例說明</h3><ol>
+<li>A 電商：完成「結帳」行為。</li>
+<li>B 電商：<br>2.1 有完成「加入購物車」行為，透過分析此行為達到一個量(1 千人)時<br>2.2 再順勢推出「優惠活動」，將 User 推向結帳行為。</li>
+<li>AWS：完成一個「注冊流程」。</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_1.png">
+<blockquote>
+<p>Faceboox：<a href="https://www.facebook.com/business/help/402791146561655?helpref=faq_content" target="_blank" rel="noopener">FB 標準事件程式碼</a></p>
+</blockquote>
+<hr>
+<h2 id="Mixpanel"><a href="#Mixpanel" class="headerlink" title="Mixpanel"></a>Mixpanel</h2><img src="/2018/11/14/WebTracking/webanalytice_2.png">
+<blockquote>
+<p><a href="https://codepen.io/Kanboo/pen/pOWeOK" target="_blank" rel="noopener">測試網站</a> &gt; <a href="https://mixpanel.com" target="_blank" rel="noopener">官方網站</a></p>
+</blockquote>
+<h3 id="設計轉換漏斗"><a href="#設計轉換漏斗" class="headerlink" title="設計轉換漏斗"></a>設計轉換漏斗</h3><p>選擇「Funnels」→ 建立新 Funnel → 設定篩選條件</p>
+<img src="/2018/11/14/WebTracking/webanalytice_3.png">
+<h3 id="篩選條件"><a href="#篩選條件" class="headerlink" title="篩選條件"></a>篩選條件</h3><img src="/2018/11/14/WebTracking/webanalytice_4.png">
+<hr>
+<h2 id="FB-追蹤設定"><a href="#FB-追蹤設定" class="headerlink" title="FB 追蹤設定"></a>FB 追蹤設定</h2><p>將我們所有客戶的追蹤資料，依據不同的條件，分類出不同的類別出來，<br>籍此篩選出具有「更高潛在價值」的客戶清單，不但能更有效的發揮廣告效益，<br>也讓每筆廣告費用花在刀口上，而不是亂槍打鳥。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_5.png">
+<h3 id="建立及設定-FB-Pixel"><a href="#建立及設定-FB-Pixel" class="headerlink" title="建立及設定 FB Pixel"></a>建立及設定 FB Pixel</h3><h4 id="1-建立"><a href="#1-建立" class="headerlink" title="1. 建立"></a>1. 建立</h4><img src="/2018/11/14/WebTracking/webanalytice_6.png">
+<h4 id="2-選擇「手動安裝」"><a href="#2-選擇「手動安裝」" class="headerlink" title="2. 選擇「手動安裝」"></a>2. 選擇「手動安裝」</h4><img src="/2018/11/14/WebTracking/webanalytice_7.png">
+<h4 id="3-複製追蹤程式碼，嵌入在頁面"><a href="#3-複製追蹤程式碼，嵌入在頁面" class="headerlink" title="3. 複製追蹤程式碼，嵌入在頁面"></a>3. 複製追蹤程式碼，嵌入在頁面</h4><img src="/2018/11/14/WebTracking/webanalytice_8.png">
+<h4 id="4-可新增額外「追蹤資訊」"><a href="#4-可新增額外「追蹤資訊」" class="headerlink" title="4. 可新增額外「追蹤資訊」"></a>4. 可新增額外「追蹤資訊」</h4><img src="/2018/11/14/WebTracking/webanalytice_9.png">
+<ul>
+<li>不同的追蹤事件</li>
+</ul>
+<img src="/2018/11/14/WebTracking/webanalytice_10.png">
+<ul>
+<li>可夾帶額外資訊</li>
+</ul>
+<img src="/2018/11/14/WebTracking/webanalytice_11.png">
+<hr>
+<h3 id="驗證是否綁定成功"><a href="#驗證是否綁定成功" class="headerlink" title="驗證是否綁定成功"></a>驗證是否綁定成功</h3><p>在 <code>head</code> 處，嵌入 <code>facebook 追蹤碼</code> 後，額外新增一事件，<br>如： <code>fbq(&#39;track&#39;, &#39;ViewContent&#39;);</code> ，再去 Facebook 像素 檢查是否有紀錄顯示。</p>
+<p>註：剛觸發追蹤程式碼時，Facebook 不會即時顯示紀錄，須稍待幾分鐘後，才會有最新紀錄顯示。</p>
+<p>追蹤程式碼</p>
+<img src="/2018/11/14/WebTracking/webanalytice_12.png">
+<p>Facebook 像素 紀錄顯示畫面</p>
+<img src="/2018/11/14/WebTracking/webanalytice_13.png">
+<hr>
+<h3 id="追蹤事件與參數設定"><a href="#追蹤事件與參數設定" class="headerlink" title="追蹤事件與參數設定"></a>追蹤事件與參數設定</h3><p>Facebook 像素追蹤碼，點擊「設定」後，再點「自行手動安裝像素程式碼」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_14.png">
+<p>再來直接點「繼續」至第二步</p>
+<img src="/2018/11/14/WebTracking/webanalytice_15.png">
+<p>有一些基本的追蹤選項可選擇</p>
+<img src="/2018/11/14/WebTracking/webanalytice_16.png">
+<p>有些追蹤項目，還可填入額外的參數進去，填完以後，點擊下面複製區一下後，即可將程式碼嵌入我們的頁面或動作裡。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_17.png">
+<p>另外也可參照 FB 標準事件程式碼 的範例，如下</p>
+<img src="/2018/11/14/WebTracking/webanalytice_18.png">
+<p>直接依照 Facebook 標準的規則，自行撰寫程式碼，<br>完成後，可在結帳頁面或動作時，觸發此段程式碼</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="comment">// 購買追蹤事件</span></span><br><span class="line">  fbq(<span class="string">'track'</span>, <span class="string">'Purchase'</span>, &#123;</span><br><span class="line">    value: <span class="number">2000</span>,</span><br><span class="line">    currency: <span class="string">'TWD'</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>偵測結果，也可點擊「查看詳細資料」，查看帶入的參數值。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_19.png">
+<blockquote>
+<p>Faceboox：<a href="https://www.facebook.com/business/help/402791146561655?helpref=faq_content" target="_blank" rel="noopener">FB 標準事件程式碼</a></p>
+</blockquote>
+<hr>
+<h3 id="如何自訂事件"><a href="#如何自訂事件" class="headerlink" title="如何自訂事件"></a>如何自訂事件</h3><p>有時除了追蹤登入「頁面的事件」外，也希望能追蹤到 User 的一些「行為事件」，<br>如：下載產品 DM 的 PDF 動作，不過像此類事件，FB 標準事件程式碼裡並無提供，<br>所以我們就需要「自訂事件」來追蹤此行為，籍此來篩選出具有更高潛在客戶清單。</p>
+<p>自行輸入預追蹤的字眼即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自訂事件 - 下載PDF行為</span></span><br><span class="line">fbq(<span class="string">'track'</span>, <span class="string">'downloadPDF'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自訂事件 - 註冊行為</span></span><br><span class="line">fbq(<span class="string">'track'</span>, <span class="string">'registerStep'</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Faceboox：<a href="https://www.facebook.com/business/help/402791146561655?helpref=faq_content" target="_blank" rel="noopener">FB 標準事件程式碼</a></p>
+</blockquote>
+<hr>
+<h3 id="建立廣告受眾"><a href="#建立廣告受眾" class="headerlink" title="建立廣告受眾"></a>建立廣告受眾</h3><p>要篩選出具有「更高潛在價值」的客戶的話，我們就需下些條件來獲得更精確的資料。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_20.png">
+<p>建立「廣告受眾」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_21.png">
+<img src="/2018/11/14/WebTracking/webanalytice_22.png">
+<p>下列範例為「篩選出有進註冊頁面，但尚未完成註冊人員」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_23.png">
+<blockquote>
+<p><a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fads%2Fmanager%2Faudiences%2F" target="_blank" rel="noopener">FB 廣告受眾服務</a></p>
+</blockquote>
+<hr>
+<h3 id="建立類似廣告受眾"><a href="#建立類似廣告受眾" class="headerlink" title="建立類似廣告受眾"></a>建立類似廣告受眾</h3><h4 id="1-選擇哪個當基底"><a href="#1-選擇哪個當基底" class="headerlink" title="1. 選擇哪個當基底"></a>1. 選擇哪個當基底</h4><img src="/2018/11/14/WebTracking/webanalytice_24.png">
+<h4 id="2-建立類似廣告受眾"><a href="#2-建立類似廣告受眾" class="headerlink" title="2. 建立類似廣告受眾"></a>2. 建立類似廣告受眾</h4><img src="/2018/11/14/WebTracking/webanalytice_25.png">
+<h4 id="3-設定條件"><a href="#3-設定條件" class="headerlink" title="3. 設定條件"></a>3. 設定條件</h4><img src="/2018/11/14/WebTracking/webanalytice_26.png">
+<h4 id="4-完成畫面"><a href="#4-完成畫面" class="headerlink" title="4. 完成畫面"></a>4. 完成畫面</h4><img src="/2018/11/14/WebTracking/webanalytice_27.png">
+<blockquote>
+<p><a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fads%2Fmanager%2Faudiences%2F" target="_blank" rel="noopener">FB 廣告受眾服務</a></p>
+</blockquote>
+<hr>
+<h3 id="廣告系統介紹"><a href="#廣告系統介紹" class="headerlink" title="廣告系統介紹"></a>廣告系統介紹</h3><p>情境說明：</p>
+<p>銷售產品為「手機」，而我們可將客戶區分為「男生、女生」二類型，<br>再根據這二種類型，設計不同的廣告內容，讓廣告能更觸動人力，提高客戶的購買欲望，另外也可分析出不同的文案下，哪個廣告效益較好(埋 UTM)，用來當下次的參考資料。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_28.png">
+<p>廣告管理員</p>
+<img src="/2018/11/14/WebTracking/webanalytice_29.png">
+<p>在「行銷活動」，點擊「建立」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_30.png">
+<p>點擊「選擇引導式建立流程」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_31.png">
+<p>選擇「轉換次數」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_32.png">
+<p>輸入「行銷活動名稱」，點擊「設定廣告帳號」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_33.png">
+<p>設定相關資訊後，點擊「繼續」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_34.png">
+<p>輸入「廣告組合名稱」，選擇想要使用者最終想達成的「目標」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_35.png">
+<p>畫面往下滑動，挑選出主要的廣告受眾</p>
+<img src="/2018/11/14/WebTracking/webanalytice_36.png">
+<p>設定預花費的廣告金額</p>
+<img src="/2018/11/14/WebTracking/webanalytice_37.png">
+<blockquote>
+<p><a href="https://www.facebook.com/adsmanager/manage/campaigns?act=322712334954089#_=_" target="_blank" rel="noopener">FB 廣告平台服務</a></p>
+</blockquote>
+<hr>
+<h3 id="FB-廣告優化流程"><a href="#FB-廣告優化流程" class="headerlink" title="FB 廣告優化流程"></a>FB 廣告優化流程</h3><p>先訂出想要追蹤的過程及最終目標</p>
+<img src="/2018/11/14/WebTracking/webanalytice_38.png">
+<p>優化過程是須「循序漸近」的，用案例來說明的話</p>
+<p>一個商品或網站一開始，一定沒有各種的追蹤事件紀錄，<br>如：加入購物車、結帳、註冊…等紀錄，<br>所以我們一開始只能先從「瀏覽商品資訊」的客戶下廣告，<br>當運行一段時間後，追蹤紀錄陸續會累積「註冊、結帳…」等，<br>籍此我們可以再利用這些數據，產生另一組的「類似廣告受眾」出來，<br>再針對這些「類似廣告受眾」下廣告，進而擴大我們的銷售範圍或客戶群。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_39.png">
+<p>利用既有的受眾，產生另一組「類似廣告受眾」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_40.png">
+<blockquote>
+<p><a href="https://www.facebook.com/business/a/custom-conversions" target="_blank" rel="noopener">FB 轉換功能介紹</a></p>
+</blockquote>
+<hr>
+<h3 id="自訂轉換流程"><a href="#自訂轉換流程" class="headerlink" title="自訂轉換流程"></a>自訂轉換流程</h3><p>可額外設定不在 Facebook 標準事件範圍裡的條件，選擇「設定新的自訂轉換」。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_41.png">
+<p>選擇「自訂事件」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_42.png">
+<p>填入「名稱」、選擇「類別」，至於「類別」就挑選一個比較符合的選項挑選，最後點擊「建立」。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_43.png">
+<p>成功建立一事件</p>
+<img src="/2018/11/14/WebTracking/webanalytice_44.png">
+<p>這時再次選擇時，就會出現我們剛新增的「自訂事件」名稱</p>
+<img src="/2018/11/14/WebTracking/webanalytice_45.png">
+<p>另外也可在「事件管理工具 → 像素 → 自訂轉換」，<br>看到我們新增的「自訂事件」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_46.png">
+<p>可測試看看，是否此追蹤事項是否有生效</p>
+<img src="/2018/11/14/WebTracking/webanalytice_47.png">
+<p>若確定生效後，就可以在「廣告管理員」去針對「自訂轉換」建立廣告。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_48.png">
+<hr>
+<h3 id="FB-分析建立客製化漏斗"><a href="#FB-分析建立客製化漏斗" class="headerlink" title="FB 分析建立客製化漏斗"></a>FB 分析建立客製化漏斗</h3><p>利用現有的數據來分析，是否哪個階段可優化或改善，將每個階段的客戶停留率再提高，進而達到最終目標行為(結帳、註冊)。</p>
+<p>開啟「FB Analytics」介面</p>
+<img src="/2018/11/14/WebTracking/webanalytice_49.png">
+<p>選擇「分析項目」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_50.png">
+<p>點選「建立漏斗」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_51.png">
+<p>選擇「新增漏斗步驟」，挑選事件</p>
+<img src="/2018/11/14/WebTracking/webanalytice_52.png">
+<p>新增第二個項目，點擊後面的「+」號，就可再挑事件</p>
+<img src="/2018/11/14/WebTracking/webanalytice_53.png">
+<p>也可設定時間的範圍</p>
+<img src="/2018/11/14/WebTracking/webanalytice_54.png">
+<p>完成設定的結果</p>
+<img src="/2018/11/14/WebTracking/webanalytice_55.png">
+<p>最後可將此設定「儲存」，可日後可再查看。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_56.png">
+<img src="/2018/11/14/WebTracking/webanalytice_57.png">
+<blockquote>
+<p>FB：<a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fanalytics" target="_blank" rel="noopener">分析連結</a></p>
+</blockquote>
+<h3 id="FB-分析-營業額與顧客終生價值"><a href="#FB-分析-營業額與顧客終生價值" class="headerlink" title="FB 分析-營業額與顧客終生價值"></a>FB 分析-營業額與顧客終生價值</h3><p>也可觀看「收入」的分析報告。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_58.png">
+<blockquote>
+<p>FB：<a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fanalytics" target="_blank" rel="noopener">分析連結</a></p>
+</blockquote>
+<hr>
+<h2 id="Google-Analytics"><a href="#Google-Analytics" class="headerlink" title="Google Analytics"></a>Google Analytics</h2><p>學習如何收集資料，進而分析出有參考性的資訊</p>
+<ol>
+<li>自訂事件與轉換</li>
+<li>整合訂單數據</li>
+<li>拉出受眾，結合廣告系統</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_59.png">
+<h3 id="開啟電子商務增強版"><a href="#開啟電子商務增強版" class="headerlink" title="開啟電子商務增強版"></a>開啟電子商務增強版</h3><img src="/2018/11/14/WebTracking/webanalytice_60.png">
+<img src="/2018/11/14/WebTracking/webanalytice_61.png">
+<p>確認有「購物行為、結帳行為」二個選項，才算有開啟成功。<br><img src="/2018/11/14/WebTracking/webanalytice_62.png"></p>
+<hr>
+<h3 id="GA-事件"><a href="#GA-事件" class="headerlink" title="GA 事件"></a>GA 事件</h3><p>操作方式跟之前埋 FB 追蹤程式碼很像，此外一樣有分「內建」和「自建」的追蹤事件</p>
+<ol>
+<li>內建事件 (電子商務、增強型電子商務)</li>
+<li>自訂事件 (下載電子書、觀看影片)</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'&lt;event_name&gt;'</span>, &#123;&lt;optional_event_params&gt;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 實際寫法</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'sign_up'</span>, &#123;</span><br><span class="line">  <span class="string">'method'</span> : <span class="string">'Google'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://developers.google.com/gtagjs/reference/event?hl=zh-cn" target="_blank" rel="noopener">gtag.js 事件參考和參數參考</a>&gt; <a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn" target="_blank" rel="noopener">gtag.js 收集增強型電子商務數據</a><br><a href="https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=zh-TW" target="_blank" rel="noopener">GA Chrome 偵測工具</a></p>
+</blockquote>
+<hr>
+<h3 id="購物行為事件名稱"><a href="#購物行為事件名稱" class="headerlink" title="購物行為事件名稱"></a>購物行為事件名稱</h3><ul>
+<li>觀看產品：view_item<ul>
+<li><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_a_product_details_view" target="_blank" rel="noopener">跟踪商品詳情查看</a></li>
+<li><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#impression_data" target="_blank" rel="noopener">必填欄位</a></li>
+</ul>
+</li>
+<li>加入購物：add_to_cart<ul>
+<li><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_additions_to_and_removals_from_shopping_cart" target="_blank" rel="noopener">添加到購物車</a></li>
+</ul>
+</li>
+<li>開始結帳：begin_checkout<ul>
+<li><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_checkout" target="_blank" rel="noopener">結帳操作</a></li>
+</ul>
+</li>
+<li>購買成功：purchase<ul>
+<li><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_purchases" target="_blank" rel="noopener">購買情況</a></li>
+</ul>
+</li>
+</ul>
+<p>持續收集上述的使用者紀錄，當累積到一定的基數後，就可以分析出可靠性的參考數據，進而決策下一個走向或功能</p>
+<img src="/2018/11/14/WebTracking/webanalytice_63.png">
+<blockquote>
+<p><a href="https://developers.google.com/gtagjs/reference/event?hl=zh-cn" target="_blank" rel="noopener">gtag.js 事件參考和參數參考</a>&gt; <a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn" target="_blank" rel="noopener">gtag.js 收集增強型電子商務數據</a></p>
+</blockquote>
+<hr>
+<h3 id="viewcontent-瀏覽商品設定"><a href="#viewcontent-瀏覽商品設定" class="headerlink" title="viewcontent 瀏覽商品設定"></a>viewcontent 瀏覽商品設定</h3><p>紀錄使用者在瀏覽商品項目時，當進某商品頁面時，<br>我們可以「詳細紀錄」使用者瀏覽哪個商品。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'view_item'</span>, &#123;</span><br><span class="line">  items: [</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P12345'</span>,</span><br><span class="line">      name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'Google'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Black'</span>,</span><br><span class="line">      list_position: <span class="number">1</span>,</span><br><span class="line">      quantity: <span class="number">2</span>,</span><br><span class="line">      price: <span class="string">'2.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>補充：關於「展示數據」，「id、name」參數為必填，其餘的為選填。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_64.png">
+<blockquote>
+<p>跟踪商品詳情查看：<a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_a_product_details_view" target="_blank" rel="noopener">view_item</a><br>增強型電子商務：<a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#impression_data" target="_blank" rel="noopener">展示數據</a></p>
+</blockquote>
+<hr>
+<h3 id="add-to-cart-加入購物車設定"><a href="#add-to-cart-加入購物車設定" class="headerlink" title="add_to_cart 加入購物車設定"></a>add_to_cart 加入購物車設定</h3><p>當使用者將產品加入購物車時，觸發 GA 去紀錄使用者的產品資訊。</p>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 監聽 加入購物車 按鈕</span></span><br><span class="line"><span class="keyword">const</span> btn_addCart = <span class="built_in">document</span>.querySelector(<span class="string">'#addCart'</span>);</span><br><span class="line"></span><br><span class="line">btn_addCart.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  gtag(<span class="string">'event'</span>, <span class="string">'add_to_cart'</span>, &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="string">'P12345'</span>,</span><br><span class="line">        name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">        list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">        brand: <span class="string">'Google'</span>,</span><br><span class="line">        category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">        variant: <span class="string">'Black'</span>,</span><br><span class="line">        list_position: <span class="number">1</span>,</span><br><span class="line">        quantity: <span class="number">2</span>,</span><br><span class="line">        price: <span class="string">'2.0'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>補充：關於「商品數據」，「id、name」參數為必填，其餘的為選填。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_66.png">
+<blockquote>
+<p><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_additions_to_and_removals_from_shopping_cart" target="_blank" rel="noopener">跟踪將商品添加到購物車或從購物車中移除商品的操作</a> &gt; <a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#product_data" target="_blank" rel="noopener">商品數據</a></p>
+</blockquote>
+<hr>
+<h3 id="begin-checkout-結帳行為設定"><a href="#begin-checkout-結帳行為設定" class="headerlink" title="begin_checkout 結帳行為設定"></a>begin_checkout 結帳行為設定</h3><p>當使用者開始進行結帳時，可紀錄目前的資訊，<br>若結帳需經過「多次的操作」的話，也可紀錄使用者操作到哪個頁面，<br>而放棄最終結帳行為，進而分析優化結帳流程。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 結帳頁面</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'begin_checkout'</span>, &#123;</span><br><span class="line">  items: [</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P12345'</span>,</span><br><span class="line">      name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'Google'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Black'</span>,</span><br><span class="line">      list_position: <span class="number">1</span>,</span><br><span class="line">      quantity: <span class="number">2</span>,</span><br><span class="line">      price: <span class="string">'2.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  coupon: <span class="string">''</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_checkout" target="_blank" rel="noopener">跟踪結帳操作</a></p>
+</blockquote>
+<hr>
+<h3 id="purchase-購買事件設定"><a href="#purchase-購買事件設定" class="headerlink" title="purchase 購買事件設定"></a>purchase 購買事件設定</h3><p>紀錄最終的結帳資訊，以及購買產品清單。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'purchase'</span>, &#123;</span><br><span class="line">  transaction_id: <span class="string">'24.031608523954162'</span>,</span><br><span class="line">  affiliation: <span class="string">'Google online store'</span>,</span><br><span class="line">  value: <span class="number">23.07</span>,</span><br><span class="line">  currency: <span class="string">'USD'</span>,</span><br><span class="line">  tax: <span class="number">1.24</span>,</span><br><span class="line">  shipping: <span class="number">0</span>,</span><br><span class="line">  items: [</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P12345'</span>,</span><br><span class="line">      name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'Google'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Black'</span>,</span><br><span class="line">      list_position: <span class="number">1</span>,</span><br><span class="line">      quantity: <span class="number">2</span>,</span><br><span class="line">      price: <span class="string">'2.0'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P67890'</span>,</span><br><span class="line">      name: <span class="string">'Flame challenge TShirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'MyBrand'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Red'</span>,</span><br><span class="line">      list_position: <span class="number">2</span>,</span><br><span class="line">      quantity: <span class="number">1</span>,</span><br><span class="line">      price: <span class="string">'3.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>補充：關於「操作數據」，「transaction_id」參數為必填，其餘的為選填。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_67.png">
+<blockquote>
+<p><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_purchases" target="_blank" rel="noopener">跟踪購買情況</a><br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#action_data" target="_blank" rel="noopener">操作數據</a></p>
+</blockquote>
+<hr>
+<h3 id="客制自訂事件"><a href="#客制自訂事件" class="headerlink" title="客制自訂事件"></a>客制自訂事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line">gtag(<span class="string">'event'</span>, &lt;action&gt;, &#123;</span><br><span class="line">  <span class="string">'event_category'</span>: &lt;category&gt;,</span><br><span class="line">  'event_label': &lt;label&gt;,</span><br><span class="line">  'value': &lt;value&gt;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 實際範例：</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'下載電子書'</span>, &#123;</span><br><span class="line">  event_category: <span class="string">'點擊連結'</span>,</span><br><span class="line">  event_label: <span class="string">'下載行銷密技電子書'</span>,</span><br><span class="line">  value: <span class="number">10</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;action&gt;</code>是在 Google Analytics（分析）事件報告中顯示為事件操作的字符串。</li>
+<li><code>&lt;category&gt;</code>是顯示為事件類別的字符串。</li>
+<li><code>&lt;label&gt;</code>是顯示為事件標籤的字符串。</li>
+<li><code>&lt;value&gt;</code>是一個顯示為事件價值的非負整數。</li>
+</ul>
+<blockquote>
+<p>跟踪 Google Analytics（分析）事件：<a href="https://developers.google.com/analytics/devguides/collection/gtagjs/events?hl=zh-cn" target="_blank" rel="noopener">GA 自訂事件</a></p>
+</blockquote>
+<hr>
+<h3 id="設定目標-程序視覺呈現"><a href="#設定目標-程序視覺呈現" class="headerlink" title="設定目標 - 程序視覺呈現"></a>設定目標 - 程序視覺呈現</h3><p>若想要額外分析出不同的資料的話，如：完成註冊、下載電子書…等，<br>其他的數據分析的話，就可使用「目標」來篩選出我們要的報表。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_68.png">
+<h4 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h4><p>下列以分析「完成註冊之依頁面瀏覽順序」的案例，進行操作</p>
+<ol>
+<li>設定 → 選擇「目標」</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_69.png">
+<ol start="2">
+<li>選擇「新增目標」後</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_70.png">
+<ol start="3">
+<li>選擇「自訂」，點擊「繼續」</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_71.png">
+<ol start="3">
+<li>輸入「名稱」、選擇「類型」後，按「繼續」</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_72.png">
+<ol start="4">
+<li>目標詳情</li>
+</ol>
+<p>實際連結目標 =&gt; 輸入最終目標的頁面網站</p>
+<p>不過下列有額外打開「程序」此選項，原因為進行「註冊行為」時，<br>使用者不可直接到達最終的註冊完成頁面，<br>一定要完成前面的「填寫個人資料」這步驟後，<br>才會有可能達成「完成註冊」行為，<br>所以才需設定「程序」這層判斷，讓數據能更精確。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_73.png">
+<ol start="5">
+<li>完成目標設定</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_74.png">
+<ol start="6">
+<li>查看「程序視覺呈現」</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_75.png">
+<hr>
+<h3 id="從事件設定轉換目標"><a href="#從事件設定轉換目標" class="headerlink" title="從事件設定轉換目標"></a>從事件設定轉換目標</h3><ol>
+<li>第一步選「自訂」，輸入「名稱」，選擇「事件」</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_76.png">
+<ol start="2">
+<li>填寫「事件條件」</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_77.png">
+<p>補充說明：</p>
+<p>上述需填寫的事件條件，等同是我們埋 GA 事件的參數，下圖為「對應關係」</p>
+<img src="/2018/11/14/WebTracking/webanalytice_78.png">
+<ol start="3">
+<li>完成目標設定</li>
+</ol>
+<img src="/2018/11/14/WebTracking/webanalytice_79.png">
+<hr>
+<h3 id="多管道程序"><a href="#多管道程序" class="headerlink" title="多管道程序"></a>多管道程序</h3><p>觀看使用者是透過何種方式到達我們網站，如：社群、Gogole 搜尋、Blog…等</p>
+<img src="/2018/11/14/WebTracking/webanalytice_80.png">
+<hr>
+<h3 id="從-UTM-觀看轉換成效"><a href="#從-UTM-觀看轉換成效" class="headerlink" title="從 UTM 觀看轉換成效"></a>從 UTM 觀看轉換成效</h3><p>選擇「來源/媒介」，再搭配選擇「轉換」選項後，可以用來分析從哪個地方來的使用者，達成的轉換率(註冊、結帳)比較高，我們就可以嘗試增加廣告費用，來測試轉換率是否還會再提高。</p>
+<img src="/2018/11/14/WebTracking/webanalytice_81.png">
+<hr>
+<p>其他參考文章：</p>
+<blockquote>
+<p><a href="https://ianchuu.com/2018/04/25/gaevents/index.html" target="_blank" rel="noopener">Google analytics 事件追蹤、轉換目標設定教學</a><br><a href="https://pickydigest.com/digital-marketing/google-analytics-getting-started/" target="_blank" rel="noopener">超詳細 GA 網站分析入門大全</a><br><a href="https://ithelp.ithome.com.tw/users/20107582/ironman/1471" target="_blank" rel="noopener">Google Tag Manager Micro Challenge</a></p>
+</blockquote>
+<hr>
+<h2 id="分流短網址服務"><a href="#分流短網址服務" class="headerlink" title="分流短網址服務"></a>分流短網址服務</h2><blockquote>
+<p>官方連結：<a href="https://lihi.io/" target="_blank" rel="noopener">https://lihi.io/</a></p>
+</blockquote>
+<h3 id="活動網址"><a href="#活動網址" class="headerlink" title="活動網址"></a>活動網址</h3><p>情境說明：</p>
+<p>假設我有一個活動公告，要發送給所有的客戶，<br>而第一次發佈(簡訊)時，發現不小心填錯活動網址，<br>這時要回收這些訊息，已無法達成，<br>所以我們可以透過「Lihi 短網址」功能，<br>發送「短網址」給客戶，所以更正為正確網址，<br>此時「短網址」也會自動導向正確的網址。</p>
+<p>範例：</p>
+<p>可注意下列紅框的部份(短網址)，都是一樣的，<br>而藍框的部份(網址)，則長的不一樣。</p>
+<ul>
+<li>第一次發佈網址</li>
+</ul>
+<img src="/2018/11/14/WebTracking/webanalytice_82.png">
+<ul>
+<li>第二次更改後網址</li>
+</ul>
+<img src="/2018/11/14/WebTracking/webanalytice_83.png">
+<h3 id="lihi-之參數功能"><a href="#lihi-之參數功能" class="headerlink" title="lihi 之參數功能"></a>lihi 之參數功能</h3><p>參數說明</p>
+<img src="/2018/11/14/WebTracking/webanalytice_84.png">
+<p>設定結果</p>
+<img src="/2018/11/14/WebTracking/webanalytice_85.png">
+<h3 id="A-B-測試"><a href="#A-B-測試" class="headerlink" title="A/B 測試"></a>A/B 測試</h3><p>設定 A/B 入口網址</p>
+<img src="/2018/11/14/WebTracking/webanalytice_86.png">
+<p>後續可再追蹤，由哪個入口進來的成效較優</p>
+<img src="/2018/11/14/WebTracking/webanalytice_87.png">
+<hr>
+<h2 id="四張前端必看的-GA-報表"><a href="#四張前端必看的-GA-報表" class="headerlink" title="四張前端必看的 GA 報表"></a>四張前端必看的 GA 報表</h2><p>前端常用報表</p>
+<ol>
+<li>特定頁面在瀏覽器上的跳出率與停留時間</li>
+</ol>
+<ul>
+<li>位置：行為 &gt; 網站內容 &gt; 內容深度分析</li>
+<li>維度：瀏覽器</li>
+<li>原因：觀察瀏覽器是否有影響客戶的跳出率</li>
+<li>範例：<ul>
+<li>購物車頁面：safari 的跳出率比其他瀏覽器高 20%，原來是某個 JS 沒寫好</li>
+<li>結帳頁面：為什麼 IE 的停留時間都不到 10 秒，原來有 BUG 導致跳轉</li>
+</ul>
+</li>
+</ul>
+<img src="/2018/11/14/WebTracking/webanalytice_88.png">
+<ol start="2">
+<li>響應式網頁的使用體驗查詢</li>
+</ol>
+<ul>
+<li>位置：目標對象 &gt; 行動裝置 &gt; 總覽</li>
+<li>維度：螢幕解析度</li>
+<li>原因：以說服客戶你所開發的前端介面，在平均工作階段時間有滿足絕大部分的需要</li>
+<li>範例：<ul>
+<li>查詢到在 iPad 的平均工作時段較低，原來是響應式沒有寫好</li>
+<li>觀察流量與轉換率的比重</li>
+</ul>
+</li>
+</ul>
+<p>注意轉換率：</p>
+<ul>
+<li>100 個人來到你的網站<ul>
+<li>大於 2% 可撐起一間公司</li>
+<li>大於 3% 公司存活率</li>
+<li>5~10% 狂</li>
+</ul>
+</li>
+</ul>
+<img src="/2018/11/14/WebTracking/webanalytice_89.png">
+<ol start="3">
+<li>網頁效能查詢</li>
+</ol>
+<ul>
+<li>位置：行為 &gt; 網站速度 &gt; 總覽</li>
+<li>維度：無</li>
+<li>原因：能使用速度說服客服你的網頁效能平均值</li>
+<li>範例：<ul>
+<li>當客戶和你要網站平均載入時，可以撈此表的資料</li>
+</ul>
+</li>
+</ul>
+<img src="/2018/11/14/WebTracking/webanalytice_90.png">
+<ol start="4">
+<li>特定系統上的瀏覽器是否有問題</li>
+</ol>
+<ul>
+<li>位置：目標對象 &gt; 技術 &gt; 瀏覽器與作業系統</li>
+<li>維度：主要維度(作業系統) + 次要維度 (瀏覽器)</li>
+<li>原因：以方便你觀察特定系統是否再各數據有明顯落差</li>
+<li>範例：<ul>
+<li>發現到 android 的 firefox 版跳出率很高</li>
+<li>Linux 的 Chrome 平均工作階段時間很低</li>
+</ul>
+</li>
+</ul>
+<p>解讀數據四大面向</p>
+<ul>
+<li>目標對象：顧客面貌<ul>
+<li>分析出主要客群</li>
+</ul>
+</li>
+<li>客戶開發：來源從哪裡來的？<ul>
+<li>直接連結</li>
+<li>廣告</li>
+<li>搜尋</li>
+<li>社群</li>
+<li>推薦連結(參照連結-&gt;如：Blog 上的分享網址、葉配文、Youtube…等)</li>
+</ul>
+</li>
+<li>行為：顧客都在上面做哪些事情？</li>
+<li>轉換：是否有達成你訂定的目標？</li>
+</ul>
+<p>行銷與營運人員想瞭解的報表</p>
+<ul>
+<li>每個來源加入購物車、結帳的轉換率</li>
+<li>每個產品的業績，與客戶特性</li>
+<li>各載具的結帳、購買轉換率</li>
+</ul>
+<h3 id="重點字句"><a href="#重點字句" class="headerlink" title="重點字句"></a>重點字句</h3><ul>
+<li>100 個人來到你的網站，超過 3%的「轉換率」，可撐起一家公司</li>
+<li>從 100% 的顧客中，尋找出 10% 願意付費的使用者</li>
+</ul>
+<blockquote>
+<p><a href="https://quip.com/hpjnAK1zuyvI" target="_blank" rel="noopener">共筆文章</a></p>
+</blockquote>
+<hr>
+<h2 id="GTM"><a href="#GTM" class="headerlink" title="GTM"></a>GTM</h2><blockquote>
+<p>六角：<a href="https://quip.com/NeY7AQadzWsQ" target="_blank" rel="noopener">GTM</a><br>搞搞就懂：<a href="https://dotblogs.com.tw/wasichris/2018/09/28/012643" target="_blank" rel="noopener">透過 GTM 對網站進行 GA 追蹤</a></p>
+</blockquote>
+<h6 id="tags-GA、FB"><a href="#tags-GA、FB" class="headerlink" title="tags: GA、FB"></a>tags: <code>GA</code>、<code>FB</code></h6>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/網頁追蹤/" rel="tag"><i class="fa fa-tag"></i> 網頁追蹤</a>
+          
+            <a href="/tags/GA/" rel="tag"><i class="fa fa-tag"></i> GA</a>
+          
+            <a href="/tags/FB/" rel="tag"><i class="fa fa-tag"></i> FB</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/19/Vuex/" rel="next" title="Vuex">
+                <i class="fa fa-chevron-left"></i> Vuex
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://kanboo.github.io/2018/11/14/WebTracking/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kanboo" />
+          <p class="site-author-name" itemprop="name">Kanboo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">126</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FB-UTM-工具"><span class="nav-number">1.</span> <span class="nav-text">FB UTM 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#觸及的網址"><span class="nav-number">1.1.</span> <span class="nav-text">觸及的網址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#說明"><span class="nav-number">1.2.</span> <span class="nav-text">說明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轉換與行為"><span class="nav-number">2.</span> <span class="nav-text">轉換與行為</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例說明"><span class="nav-number">2.1.</span> <span class="nav-text">範例說明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixpanel"><span class="nav-number">3.</span> <span class="nav-text">Mixpanel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#設計轉換漏斗"><span class="nav-number">3.1.</span> <span class="nav-text">設計轉換漏斗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#篩選條件"><span class="nav-number">3.2.</span> <span class="nav-text">篩選條件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FB-追蹤設定"><span class="nav-number">4.</span> <span class="nav-text">FB 追蹤設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立及設定-FB-Pixel"><span class="nav-number">4.1.</span> <span class="nav-text">建立及設定 FB Pixel</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-建立"><span class="nav-number">4.1.1.</span> <span class="nav-text">1. 建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-選擇「手動安裝」"><span class="nav-number">4.1.2.</span> <span class="nav-text">2. 選擇「手動安裝」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-複製追蹤程式碼，嵌入在頁面"><span class="nav-number">4.1.3.</span> <span class="nav-text">3. 複製追蹤程式碼，嵌入在頁面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可新增額外「追蹤資訊」"><span class="nav-number">4.1.4.</span> <span class="nav-text">4. 可新增額外「追蹤資訊」</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#驗證是否綁定成功"><span class="nav-number">4.2.</span> <span class="nav-text">驗證是否綁定成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#追蹤事件與參數設定"><span class="nav-number">4.3.</span> <span class="nav-text">追蹤事件與參數設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何自訂事件"><span class="nav-number">4.4.</span> <span class="nav-text">如何自訂事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立廣告受眾"><span class="nav-number">4.5.</span> <span class="nav-text">建立廣告受眾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立類似廣告受眾"><span class="nav-number">4.6.</span> <span class="nav-text">建立類似廣告受眾</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-選擇哪個當基底"><span class="nav-number">4.6.1.</span> <span class="nav-text">1. 選擇哪個當基底</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-建立類似廣告受眾"><span class="nav-number">4.6.2.</span> <span class="nav-text">2. 建立類似廣告受眾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-設定條件"><span class="nav-number">4.6.3.</span> <span class="nav-text">3. 設定條件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-完成畫面"><span class="nav-number">4.6.4.</span> <span class="nav-text">4. 完成畫面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#廣告系統介紹"><span class="nav-number">4.7.</span> <span class="nav-text">廣告系統介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-廣告優化流程"><span class="nav-number">4.8.</span> <span class="nav-text">FB 廣告優化流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自訂轉換流程"><span class="nav-number">4.9.</span> <span class="nav-text">自訂轉換流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-分析建立客製化漏斗"><span class="nav-number">4.10.</span> <span class="nav-text">FB 分析建立客製化漏斗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-分析-營業額與顧客終生價值"><span class="nav-number">4.11.</span> <span class="nav-text">FB 分析-營業額與顧客終生價值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Analytics"><span class="nav-number">5.</span> <span class="nav-text">Google Analytics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#開啟電子商務增強版"><span class="nav-number">5.1.</span> <span class="nav-text">開啟電子商務增強版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GA-事件"><span class="nav-number">5.2.</span> <span class="nav-text">GA 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#購物行為事件名稱"><span class="nav-number">5.3.</span> <span class="nav-text">購物行為事件名稱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewcontent-瀏覽商品設定"><span class="nav-number">5.4.</span> <span class="nav-text">viewcontent 瀏覽商品設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#add-to-cart-加入購物車設定"><span class="nav-number">5.5.</span> <span class="nav-text">add_to_cart 加入購物車設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#begin-checkout-結帳行為設定"><span class="nav-number">5.6.</span> <span class="nav-text">begin_checkout 結帳行為設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#purchase-購買事件設定"><span class="nav-number">5.7.</span> <span class="nav-text">purchase 購買事件設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客制自訂事件"><span class="nav-number">5.8.</span> <span class="nav-text">客制自訂事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定目標-程序視覺呈現"><span class="nav-number">5.9.</span> <span class="nav-text">設定目標 - 程序視覺呈現</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作流程"><span class="nav-number">5.9.1.</span> <span class="nav-text">操作流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#從事件設定轉換目標"><span class="nav-number">5.10.</span> <span class="nav-text">從事件設定轉換目標</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多管道程序"><span class="nav-number">5.11.</span> <span class="nav-text">多管道程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#從-UTM-觀看轉換成效"><span class="nav-number">5.12.</span> <span class="nav-text">從 UTM 觀看轉換成效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分流短網址服務"><span class="nav-number">6.</span> <span class="nav-text">分流短網址服務</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#活動網址"><span class="nav-number">6.1.</span> <span class="nav-text">活動網址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lihi-之參數功能"><span class="nav-number">6.2.</span> <span class="nav-text">lihi 之參數功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-B-測試"><span class="nav-number">6.3.</span> <span class="nav-text">A/B 測試</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四張前端必看的-GA-報表"><span class="nav-number">7.</span> <span class="nav-text">四張前端必看的 GA 報表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重點字句"><span class="nav-number">7.1.</span> <span class="nav-text">重點字句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GTM"><span class="nav-number">8.</span> <span class="nav-text">GTM</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-GA、FB"><span class="nav-number">8.0.0.0.1.</span> <span class="nav-text">tags: GA、FB</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-child"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kanboo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/lib/zclip/clipboard.min.js"></script>	
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+</body>
+</html>
