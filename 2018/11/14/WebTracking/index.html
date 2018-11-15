@@ -210,7 +210,7 @@
 <meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_88.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_89.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_90.png">
-<meta property="og:updated_time" content="2018-11-14T16:11:46.129Z">
+<meta property="og:updated_time" content="2018-11-15T01:48:06.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebTracking">
 <meta name="twitter:description" content="整理 網頁追蹤與分析 筆記">
@@ -560,7 +560,7 @@
 <hr>
 <h2 id="轉換與行為"><a href="#轉換與行為" class="headerlink" title="轉換與行為"></a>轉換與行為</h2><p>轉換(從行為 → 漏斗 → 轉換)</p>
 <ol>
-<li>希望使用者在網頁上「最終完成的行為」</li>
+<li>希望使用者在網頁上「<font color="red">最終完成的行為</font>」</li>
 <li>以此訂定你的「漏斗流程」</li>
 </ol>
 <h3 id="範例說明"><a href="#範例說明" class="headerlink" title="範例說明"></a>範例說明</h3><ol>
@@ -581,7 +581,7 @@
 <img src="/2018/11/14/WebTracking/webanalytice_3.png">
 <h3 id="篩選條件"><a href="#篩選條件" class="headerlink" title="篩選條件"></a>篩選條件</h3><img src="/2018/11/14/WebTracking/webanalytice_4.png">
 <hr>
-<h2 id="FB-追蹤設定"><a href="#FB-追蹤設定" class="headerlink" title="FB 追蹤設定"></a>FB 追蹤設定</h2><p>將我們所有客戶的追蹤資料，依據不同的條件，分類出不同的類別出來，<br>籍此篩選出具有「更高潛在價值」的客戶清單，不但能更有效的發揮廣告效益，<br>也讓每筆廣告費用花在刀口上，而不是亂槍打鳥。</p>
+<h2 id="FB-追蹤設定"><a href="#FB-追蹤設定" class="headerlink" title="FB 追蹤設定"></a>FB 追蹤設定</h2><p>將我們所有客戶的追蹤資料，依據不同的條件，分類出不同的類別出來，<br>籍此篩選出具有「<font color="red">更高潛在價值</font>」的客戶清單，不但能更有效的發揮廣告效益，<br>也讓每筆廣告費用花在刀口上，而不是亂槍打鳥。</p>
 <img src="/2018/11/14/WebTracking/webanalytice_5.png">
 <h3 id="建立及設定-FB-Pixel"><a href="#建立及設定-FB-Pixel" class="headerlink" title="建立及設定 FB Pixel"></a>建立及設定 FB Pixel</h3><h4 id="1-建立"><a href="#1-建立" class="headerlink" title="1. 建立"></a>1. 建立</h4><img src="/2018/11/14/WebTracking/webanalytice_6.png">
 <h4 id="2-選擇「手動安裝」"><a href="#2-選擇「手動安裝」" class="headerlink" title="2. 選擇「手動安裝」"></a>2. 選擇「手動安裝」</h4><img src="/2018/11/14/WebTracking/webanalytice_7.png">
@@ -596,10 +596,8 @@
 </ul>
 <img src="/2018/11/14/WebTracking/webanalytice_11.png">
 <hr>
-<h3 id="驗證是否綁定成功"><a href="#驗證是否綁定成功" class="headerlink" title="驗證是否綁定成功"></a>驗證是否綁定成功</h3><p>在 <code>head</code> 處，嵌入 <code>facebook 追蹤碼</code> 後，額外新增一事件，<br>如： <code>fbq(&#39;track&#39;, &#39;ViewContent&#39;);</code> ，再去 Facebook 像素 檢查是否有紀錄顯示。</p>
-<p>註：剛觸發追蹤程式碼時，Facebook 不會即時顯示紀錄，須稍待幾分鐘後，才會有最新紀錄顯示。</p>
-<p>追蹤程式碼</p>
-<img src="/2018/11/14/WebTracking/webanalytice_12.png">
+<h3 id="驗證是否綁定成功"><a href="#驗證是否綁定成功" class="headerlink" title="驗證是否綁定成功"></a>驗證是否綁定成功</h3><p>在 <code>head</code> 處，嵌入 <code>facebook 追蹤碼</code> 後，<br>額外新增一事件，如： <code>fbq(&#39;track&#39;, &#39;ViewContent&#39;);</code> ，<br>再去 Facebook 像素 檢查是否有紀錄顯示。</p>
+<span class="label danger">註：</span> 剛觸發追蹤程式碼時，Facebook 不會即時顯示紀錄，須稍待幾分鐘後，才會有最新紀錄顯示。<br><br>追蹤程式碼<br><br><img src="/2018/11/14/WebTracking/webanalytice_12.png">
 <p>Facebook 像素 紀錄顯示畫面</p>
 <img src="/2018/11/14/WebTracking/webanalytice_13.png">
 <hr>
@@ -647,10 +645,10 @@
 <p><a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fads%2Fmanager%2Faudiences%2F" target="_blank" rel="noopener">FB 廣告受眾服務</a></p>
 </blockquote>
 <hr>
-<h3 id="廣告系統介紹"><a href="#廣告系統介紹" class="headerlink" title="廣告系統介紹"></a>廣告系統介紹</h3><p>情境說明：</p>
-<p>銷售產品為「手機」，而我們可將客戶區分為「男生、女生」二類型，<br>再根據這二種類型，設計不同的廣告內容，讓廣告能更觸動人力，提高客戶的購買欲望，另外也可分析出不同的文案下，哪個廣告效益較好(埋 UTM)，用來當下次的參考資料。</p>
+<h3 id="廣告系統介紹"><a href="#廣告系統介紹" class="headerlink" title="廣告系統介紹"></a>廣告系統介紹</h3><p><span id="inline-blue">情境說明</span></p>
+<p>銷售產品為「手機」，而我們可將客戶區分為「男生、女生」二類型，<br>再根據這二種類型，設計不同的廣告內容，讓廣告能更觸動人力，提高客戶的購買欲望，<br>另外也可分析出不同的文案下，哪個廣告效益較好(埋 UTM)，用來當下次的參考資料。</p>
 <img src="/2018/11/14/WebTracking/webanalytice_28.png">
-<p>廣告管理員</p>
+<p><span id="inline-blue">廣告管理員</span></p>
 <img src="/2018/11/14/WebTracking/webanalytice_29.png">
 <p>在「行銷活動」，點擊「建立」</p>
 <img src="/2018/11/14/WebTracking/webanalytice_30.png">
@@ -672,9 +670,9 @@
 <p><a href="https://www.facebook.com/adsmanager/manage/campaigns?act=322712334954089#_=_" target="_blank" rel="noopener">FB 廣告平台服務</a></p>
 </blockquote>
 <hr>
-<h3 id="FB-廣告優化流程"><a href="#FB-廣告優化流程" class="headerlink" title="FB 廣告優化流程"></a>FB 廣告優化流程</h3><p>先訂出想要追蹤的過程及最終目標</p>
+<h3 id="FB-廣告優化流程"><a href="#FB-廣告優化流程" class="headerlink" title="FB 廣告優化流程"></a>FB 廣告優化流程</h3><p>先訂出想要<font color="red">追蹤的過程及最終目標</font></p>
 <img src="/2018/11/14/WebTracking/webanalytice_38.png">
-<p>優化過程是須「循序漸近」的，用案例來說明的話</p>
+<p>優化過程是須「<font color="red">循序漸近</font>」的，用案例來說明的話</p>
 <p>一個商品或網站一開始，一定沒有各種的追蹤事件紀錄，<br>如：加入購物車、結帳、註冊…等紀錄，<br>所以我們一開始只能先從「瀏覽商品資訊」的客戶下廣告，<br>當運行一段時間後，追蹤紀錄陸續會累積「註冊、結帳…」等，<br>籍此我們可以再利用這些數據，產生另一組的「類似廣告受眾」出來，<br>再針對這些「類似廣告受眾」下廣告，進而擴大我們的銷售範圍或客戶群。</p>
 <img src="/2018/11/14/WebTracking/webanalytice_39.png">
 <p>利用既有的受眾，產生另一組「類似廣告受眾」</p>
@@ -744,9 +742,8 @@
 <li>自訂事件 (下載電子書、觀看影片)</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'&lt;event_name&gt;'</span>, &#123;&lt;optional_event_params&gt;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 實際寫法</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'sign_up'</span>, &#123;</span><br><span class="line">  <span class="string">'method'</span> : <span class="string">'Google'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="https://developers.google.com/gtagjs/reference/event?hl=zh-cn" target="_blank" rel="noopener">gtag.js 事件參考和參數參考</a>&gt; <a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn" target="_blank" rel="noopener">gtag.js 收集增強型電子商務數據</a><br><a href="https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=zh-TW" target="_blank" rel="noopener">GA Chrome 偵測工具</a></p>
-</blockquote>
+<div class="note info">官方文件：<br><a href="https://developers.google.com/gtagjs/reference/event?hl=zh-cn" target="_blank" rel="noopener">gtag.js 事件參考和參數參考</a><br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn" target="_blank" rel="noopener">gtag.js 收集增強型電子商務數據</a><br><a href="https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=zh-TW" target="_blank" rel="noopener">GA Chrome 偵測工具</a><br></div>
+
 <hr>
 <h3 id="購物行為事件名稱"><a href="#購物行為事件名稱" class="headerlink" title="購物行為事件名稱"></a>購物行為事件名稱</h3><ul>
 <li>觀看產品：view_item<ul>
@@ -769,26 +766,23 @@
 </ul>
 <p>持續收集上述的使用者紀錄，當累積到一定的基數後，就可以分析出可靠性的參考數據，進而決策下一個走向或功能</p>
 <img src="/2018/11/14/WebTracking/webanalytice_63.png">
-<blockquote>
-<p><a href="https://developers.google.com/gtagjs/reference/event?hl=zh-cn" target="_blank" rel="noopener">gtag.js 事件參考和參數參考</a>&gt; <a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn" target="_blank" rel="noopener">gtag.js 收集增強型電子商務數據</a></p>
-</blockquote>
+<div class="note info">官方文件：<br><a href="https://developers.google.com/gtagjs/reference/event?hl=zh-cn" target="_blank" rel="noopener">gtag.js 事件參考和參數參考</a><br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn" target="_blank" rel="noopener">gtag.js 收集增強型電子商務數據</a><br></div>
+
 <hr>
 <h3 id="viewcontent-瀏覽商品設定"><a href="#viewcontent-瀏覽商品設定" class="headerlink" title="viewcontent 瀏覽商品設定"></a>viewcontent 瀏覽商品設定</h3><p>紀錄使用者在瀏覽商品項目時，當進某商品頁面時，<br>我們可以「詳細紀錄」使用者瀏覽哪個商品。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'view_item'</span>, &#123;</span><br><span class="line">  items: [</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P12345'</span>,</span><br><span class="line">      name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'Google'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Black'</span>,</span><br><span class="line">      list_position: <span class="number">1</span>,</span><br><span class="line">      quantity: <span class="number">2</span>,</span><br><span class="line">      price: <span class="string">'2.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>補充：關於「展示數據」，「id、name」參數為必填，其餘的為選填。</p>
 <img src="/2018/11/14/WebTracking/webanalytice_64.png">
-<blockquote>
-<p>跟踪商品詳情查看：<a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_a_product_details_view" target="_blank" rel="noopener">view_item</a><br>增強型電子商務：<a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#impression_data" target="_blank" rel="noopener">展示數據</a></p>
-</blockquote>
+<div class="note info">官方文件<br>跟踪商品詳情查看：<a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_a_product_details_view" target="_blank" rel="noopener">view_item</a><br>增強型電子商務：<a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#impression_data" target="_blank" rel="noopener">展示數據</a><br></div>
+
 <hr>
 <h3 id="add-to-cart-加入購物車設定"><a href="#add-to-cart-加入購物車設定" class="headerlink" title="add_to_cart 加入購物車設定"></a>add_to_cart 加入購物車設定</h3><p>當使用者將產品加入購物車時，觸發 GA 去紀錄使用者的產品資訊。</p>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 監聽 加入購物車 按鈕</span></span><br><span class="line"><span class="keyword">const</span> btn_addCart = <span class="built_in">document</span>.querySelector(<span class="string">'#addCart'</span>);</span><br><span class="line"></span><br><span class="line">btn_addCart.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  gtag(<span class="string">'event'</span>, <span class="string">'add_to_cart'</span>, &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="string">'P12345'</span>,</span><br><span class="line">        name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">        list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">        brand: <span class="string">'Google'</span>,</span><br><span class="line">        category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">        variant: <span class="string">'Black'</span>,</span><br><span class="line">        list_position: <span class="number">1</span>,</span><br><span class="line">        quantity: <span class="number">2</span>,</span><br><span class="line">        price: <span class="string">'2.0'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>補充：關於「商品數據」，「id、name」參數為必填，其餘的為選填。</p>
 <img src="/2018/11/14/WebTracking/webanalytice_66.png">
-<blockquote>
-<p><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_additions_to_and_removals_from_shopping_cart" target="_blank" rel="noopener">跟踪將商品添加到購物車或從購物車中移除商品的操作</a> &gt; <a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#product_data" target="_blank" rel="noopener">商品數據</a></p>
-</blockquote>
+<div class="note info">官方文件<br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_additions_to_and_removals_from_shopping_cart" target="_blank" rel="noopener">跟踪將商品添加到購物車或從購物車中移除商品的操作</a><br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#product_data" target="_blank" rel="noopener">商品數據</a><br></div>
+
 <hr>
 <h3 id="begin-checkout-結帳行為設定"><a href="#begin-checkout-結帳行為設定" class="headerlink" title="begin_checkout 結帳行為設定"></a>begin_checkout 結帳行為設定</h3><p>當使用者開始進行結帳時，可紀錄目前的資訊，<br>若結帳需經過「多次的操作」的話，也可紀錄使用者操作到哪個頁面，<br>而放棄最終結帳行為，進而分析優化結帳流程。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 結帳頁面</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'begin_checkout'</span>, &#123;</span><br><span class="line">  items: [</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P12345'</span>,</span><br><span class="line">      name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'Google'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Black'</span>,</span><br><span class="line">      list_position: <span class="number">1</span>,</span><br><span class="line">      quantity: <span class="number">2</span>,</span><br><span class="line">      price: <span class="string">'2.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  coupon: <span class="string">''</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -800,9 +794,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'purchase'</span>, &#123;</span><br><span class="line">  transaction_id: <span class="string">'24.031608523954162'</span>,</span><br><span class="line">  affiliation: <span class="string">'Google online store'</span>,</span><br><span class="line">  value: <span class="number">23.07</span>,</span><br><span class="line">  currency: <span class="string">'USD'</span>,</span><br><span class="line">  tax: <span class="number">1.24</span>,</span><br><span class="line">  shipping: <span class="number">0</span>,</span><br><span class="line">  items: [</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P12345'</span>,</span><br><span class="line">      name: <span class="string">'Android Warhol T-Shirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'Google'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Black'</span>,</span><br><span class="line">      list_position: <span class="number">1</span>,</span><br><span class="line">      quantity: <span class="number">2</span>,</span><br><span class="line">      price: <span class="string">'2.0'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      id: <span class="string">'P67890'</span>,</span><br><span class="line">      name: <span class="string">'Flame challenge TShirt'</span>,</span><br><span class="line">      list_name: <span class="string">'Search Results'</span>,</span><br><span class="line">      brand: <span class="string">'MyBrand'</span>,</span><br><span class="line">      category: <span class="string">'Apparel/T-Shirts'</span>,</span><br><span class="line">      variant: <span class="string">'Red'</span>,</span><br><span class="line">      list_position: <span class="number">2</span>,</span><br><span class="line">      quantity: <span class="number">1</span>,</span><br><span class="line">      price: <span class="string">'3.0'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>補充：關於「操作數據」，「transaction_id」參數為必填，其餘的為選填。</p>
 <img src="/2018/11/14/WebTracking/webanalytice_67.png">
-<blockquote>
-<p><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_purchases" target="_blank" rel="noopener">跟踪購買情況</a><br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#action_data" target="_blank" rel="noopener">操作數據</a></p>
-</blockquote>
+<div class="note info">官方文件<br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_purchases" target="_blank" rel="noopener">跟踪購買情況</a><br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#action_data" target="_blank" rel="noopener">操作數據</a><br></div>
+
 <hr>
 <h3 id="客制自訂事件"><a href="#客制自訂事件" class="headerlink" title="客制自訂事件"></a>客制自訂事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line">gtag(<span class="string">'event'</span>, &lt;action&gt;, &#123;</span><br><span class="line">  <span class="string">'event_category'</span>: &lt;category&gt;,</span><br><span class="line">  'event_label': &lt;label&gt;,</span><br><span class="line">  'value': &lt;value&gt;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 實際範例：</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'下載電子書'</span>, &#123;</span><br><span class="line">  event_category: <span class="string">'點擊連結'</span>,</span><br><span class="line">  event_label: <span class="string">'下載行銷密技電子書'</span>,</span><br><span class="line">  value: <span class="number">10</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -871,18 +864,15 @@
 <hr>
 <h3 id="從-UTM-觀看轉換成效"><a href="#從-UTM-觀看轉換成效" class="headerlink" title="從 UTM 觀看轉換成效"></a>從 UTM 觀看轉換成效</h3><p>選擇「來源/媒介」，再搭配選擇「轉換」選項後，可以用來分析從哪個地方來的使用者，達成的轉換率(註冊、結帳)比較高，我們就可以嘗試增加廣告費用，來測試轉換率是否還會再提高。</p>
 <img src="/2018/11/14/WebTracking/webanalytice_81.png">
-<hr>
-<p>其他參考文章：</p>
-<blockquote>
-<p><a href="https://ianchuu.com/2018/04/25/gaevents/index.html" target="_blank" rel="noopener">Google analytics 事件追蹤、轉換目標設定教學</a><br><a href="https://pickydigest.com/digital-marketing/google-analytics-getting-started/" target="_blank" rel="noopener">超詳細 GA 網站分析入門大全</a><br><a href="https://ithelp.ithome.com.tw/users/20107582/ironman/1471" target="_blank" rel="noopener">Google Tag Manager Micro Challenge</a></p>
-</blockquote>
+<div class="note info">其他參考文章：<br><a href="https://ianchuu.com/2018/04/25/gaevents/index.html" target="_blank" rel="noopener">Google analytics 事件追蹤、轉換目標設定教學</a><br><a href="https://pickydigest.com/digital-marketing/google-analytics-getting-started/" target="_blank" rel="noopener">超詳細 GA 網站分析入門大全</a><br><a href="https://ithelp.ithome.com.tw/users/20107582/ironman/1471" target="_blank" rel="noopener">Google Tag Manager Micro Challenge</a><br></div>
+
 <hr>
 <h2 id="分流短網址服務"><a href="#分流短網址服務" class="headerlink" title="分流短網址服務"></a>分流短網址服務</h2><blockquote>
 <p>官方連結：<a href="https://lihi.io/" target="_blank" rel="noopener">https://lihi.io/</a></p>
 </blockquote>
-<h3 id="活動網址"><a href="#活動網址" class="headerlink" title="活動網址"></a>活動網址</h3><p>情境說明：</p>
+<h3 id="活動網址"><a href="#活動網址" class="headerlink" title="活動網址"></a>活動網址</h3><p><span id="inline-blue">情境說明</span></p>
 <p>假設我有一個活動公告，要發送給所有的客戶，<br>而第一次發佈(簡訊)時，發現不小心填錯活動網址，<br>這時要回收這些訊息，已無法達成，<br>所以我們可以透過「Lihi 短網址」功能，<br>發送「短網址」給客戶，所以更正為正確網址，<br>此時「短網址」也會自動導向正確的網址。</p>
-<p>範例：</p>
+<p><span id="inline-yellow">範例</span></p>
 <p>可注意下列紅框的部份(短網址)，都是一樣的，<br>而藍框的部份(網址)，則長的不一樣。</p>
 <ul>
 <li>第一次發佈網址</li>
@@ -902,9 +892,7 @@
 <img src="/2018/11/14/WebTracking/webanalytice_87.png">
 <hr>
 <h2 id="四張前端必看的-GA-報表"><a href="#四張前端必看的-GA-報表" class="headerlink" title="四張前端必看的 GA 報表"></a>四張前端必看的 GA 報表</h2><p>前端常用報表</p>
-<ol>
-<li>特定頁面在瀏覽器上的跳出率與停留時間</li>
-</ol>
+<p><span id="inline-toc">1.</span> 特定頁面在瀏覽器上的跳出率與停留時間</p>
 <ul>
 <li>位置：行為 &gt; 網站內容 &gt; 內容深度分析</li>
 <li>維度：瀏覽器</li>
@@ -916,9 +904,7 @@
 </li>
 </ul>
 <img src="/2018/11/14/WebTracking/webanalytice_88.png">
-<ol start="2">
-<li>響應式網頁的使用體驗查詢</li>
-</ol>
+<p><span id="inline-toc">2.</span> 響應式網頁的使用體驗查詢</p>
 <ul>
 <li>位置：目標對象 &gt; 行動裝置 &gt; 總覽</li>
 <li>維度：螢幕解析度</li>
@@ -939,9 +925,7 @@
 </li>
 </ul>
 <img src="/2018/11/14/WebTracking/webanalytice_89.png">
-<ol start="3">
-<li>網頁效能查詢</li>
-</ol>
+<p><span id="inline-toc">3.</span> 網頁效能查詢</p>
 <ul>
 <li>位置：行為 &gt; 網站速度 &gt; 總覽</li>
 <li>維度：無</li>
@@ -952,9 +936,7 @@
 </li>
 </ul>
 <img src="/2018/11/14/WebTracking/webanalytice_90.png">
-<ol start="4">
-<li>特定系統上的瀏覽器是否有問題</li>
-</ol>
+<p><span id="inline-toc">4.</span> 特定系統上的瀏覽器是否有問題</p>
 <ul>
 <li>位置：目標對象 &gt; 技術 &gt; 瀏覽器與作業系統</li>
 <li>維度：主要維度(作業系統) + 次要維度 (瀏覽器)</li>
@@ -988,7 +970,8 @@
 <li>每個產品的業績，與客戶特性</li>
 <li>各載具的結帳、購買轉換率</li>
 </ul>
-<h3 id="重點字句"><a href="#重點字句" class="headerlink" title="重點字句"></a>重點字句</h3><ul>
+<p><span id="inline-purple">重點字句</span></p>
+<ul>
 <li>100 個人來到你的網站，超過 3%的「轉換率」，可撐起一家公司</li>
 <li>從 100% 的顧客中，尋找出 10% 願意付費的使用者</li>
 </ul>
@@ -1198,7 +1181,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FB-UTM-工具"><span class="nav-number">1.</span> <span class="nav-text">FB UTM 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#觸及的網址"><span class="nav-number">1.1.</span> <span class="nav-text">觸及的網址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#說明"><span class="nav-number">1.2.</span> <span class="nav-text">說明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轉換與行為"><span class="nav-number">2.</span> <span class="nav-text">轉換與行為</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例說明"><span class="nav-number">2.1.</span> <span class="nav-text">範例說明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixpanel"><span class="nav-number">3.</span> <span class="nav-text">Mixpanel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#設計轉換漏斗"><span class="nav-number">3.1.</span> <span class="nav-text">設計轉換漏斗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#篩選條件"><span class="nav-number">3.2.</span> <span class="nav-text">篩選條件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FB-追蹤設定"><span class="nav-number">4.</span> <span class="nav-text">FB 追蹤設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立及設定-FB-Pixel"><span class="nav-number">4.1.</span> <span class="nav-text">建立及設定 FB Pixel</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-建立"><span class="nav-number">4.1.1.</span> <span class="nav-text">1. 建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-選擇「手動安裝」"><span class="nav-number">4.1.2.</span> <span class="nav-text">2. 選擇「手動安裝」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-複製追蹤程式碼，嵌入在頁面"><span class="nav-number">4.1.3.</span> <span class="nav-text">3. 複製追蹤程式碼，嵌入在頁面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可新增額外「追蹤資訊」"><span class="nav-number">4.1.4.</span> <span class="nav-text">4. 可新增額外「追蹤資訊」</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#驗證是否綁定成功"><span class="nav-number">4.2.</span> <span class="nav-text">驗證是否綁定成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#追蹤事件與參數設定"><span class="nav-number">4.3.</span> <span class="nav-text">追蹤事件與參數設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何自訂事件"><span class="nav-number">4.4.</span> <span class="nav-text">如何自訂事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立廣告受眾"><span class="nav-number">4.5.</span> <span class="nav-text">建立廣告受眾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立類似廣告受眾"><span class="nav-number">4.6.</span> <span class="nav-text">建立類似廣告受眾</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-選擇哪個當基底"><span class="nav-number">4.6.1.</span> <span class="nav-text">1. 選擇哪個當基底</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-建立類似廣告受眾"><span class="nav-number">4.6.2.</span> <span class="nav-text">2. 建立類似廣告受眾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-設定條件"><span class="nav-number">4.6.3.</span> <span class="nav-text">3. 設定條件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-完成畫面"><span class="nav-number">4.6.4.</span> <span class="nav-text">4. 完成畫面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#廣告系統介紹"><span class="nav-number">4.7.</span> <span class="nav-text">廣告系統介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-廣告優化流程"><span class="nav-number">4.8.</span> <span class="nav-text">FB 廣告優化流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自訂轉換流程"><span class="nav-number">4.9.</span> <span class="nav-text">自訂轉換流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-分析建立客製化漏斗"><span class="nav-number">4.10.</span> <span class="nav-text">FB 分析建立客製化漏斗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-分析-營業額與顧客終生價值"><span class="nav-number">4.11.</span> <span class="nav-text">FB 分析-營業額與顧客終生價值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Analytics"><span class="nav-number">5.</span> <span class="nav-text">Google Analytics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#開啟電子商務增強版"><span class="nav-number">5.1.</span> <span class="nav-text">開啟電子商務增強版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GA-事件"><span class="nav-number">5.2.</span> <span class="nav-text">GA 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#購物行為事件名稱"><span class="nav-number">5.3.</span> <span class="nav-text">購物行為事件名稱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewcontent-瀏覽商品設定"><span class="nav-number">5.4.</span> <span class="nav-text">viewcontent 瀏覽商品設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#add-to-cart-加入購物車設定"><span class="nav-number">5.5.</span> <span class="nav-text">add_to_cart 加入購物車設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#begin-checkout-結帳行為設定"><span class="nav-number">5.6.</span> <span class="nav-text">begin_checkout 結帳行為設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#purchase-購買事件設定"><span class="nav-number">5.7.</span> <span class="nav-text">purchase 購買事件設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客制自訂事件"><span class="nav-number">5.8.</span> <span class="nav-text">客制自訂事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定目標-程序視覺呈現"><span class="nav-number">5.9.</span> <span class="nav-text">設定目標 - 程序視覺呈現</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作流程"><span class="nav-number">5.9.1.</span> <span class="nav-text">操作流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#從事件設定轉換目標"><span class="nav-number">5.10.</span> <span class="nav-text">從事件設定轉換目標</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多管道程序"><span class="nav-number">5.11.</span> <span class="nav-text">多管道程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#從-UTM-觀看轉換成效"><span class="nav-number">5.12.</span> <span class="nav-text">從 UTM 觀看轉換成效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分流短網址服務"><span class="nav-number">6.</span> <span class="nav-text">分流短網址服務</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#活動網址"><span class="nav-number">6.1.</span> <span class="nav-text">活動網址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lihi-之參數功能"><span class="nav-number">6.2.</span> <span class="nav-text">lihi 之參數功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-B-測試"><span class="nav-number">6.3.</span> <span class="nav-text">A/B 測試</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四張前端必看的-GA-報表"><span class="nav-number">7.</span> <span class="nav-text">四張前端必看的 GA 報表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重點字句"><span class="nav-number">7.1.</span> <span class="nav-text">重點字句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GTM"><span class="nav-number">8.</span> <span class="nav-text">GTM</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-GA、FB"><span class="nav-number">8.0.0.0.1.</span> <span class="nav-text">tags: GA、FB</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FB-UTM-工具"><span class="nav-number">1.</span> <span class="nav-text">FB UTM 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#觸及的網址"><span class="nav-number">1.1.</span> <span class="nav-text">觸及的網址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#說明"><span class="nav-number">1.2.</span> <span class="nav-text">說明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轉換與行為"><span class="nav-number">2.</span> <span class="nav-text">轉換與行為</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#範例說明"><span class="nav-number">2.1.</span> <span class="nav-text">範例說明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixpanel"><span class="nav-number">3.</span> <span class="nav-text">Mixpanel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#設計轉換漏斗"><span class="nav-number">3.1.</span> <span class="nav-text">設計轉換漏斗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#篩選條件"><span class="nav-number">3.2.</span> <span class="nav-text">篩選條件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FB-追蹤設定"><span class="nav-number">4.</span> <span class="nav-text">FB 追蹤設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立及設定-FB-Pixel"><span class="nav-number">4.1.</span> <span class="nav-text">建立及設定 FB Pixel</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-建立"><span class="nav-number">4.1.1.</span> <span class="nav-text">1. 建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-選擇「手動安裝」"><span class="nav-number">4.1.2.</span> <span class="nav-text">2. 選擇「手動安裝」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-複製追蹤程式碼，嵌入在頁面"><span class="nav-number">4.1.3.</span> <span class="nav-text">3. 複製追蹤程式碼，嵌入在頁面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可新增額外「追蹤資訊」"><span class="nav-number">4.1.4.</span> <span class="nav-text">4. 可新增額外「追蹤資訊」</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#驗證是否綁定成功"><span class="nav-number">4.2.</span> <span class="nav-text">驗證是否綁定成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#追蹤事件與參數設定"><span class="nav-number">4.3.</span> <span class="nav-text">追蹤事件與參數設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何自訂事件"><span class="nav-number">4.4.</span> <span class="nav-text">如何自訂事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立廣告受眾"><span class="nav-number">4.5.</span> <span class="nav-text">建立廣告受眾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立類似廣告受眾"><span class="nav-number">4.6.</span> <span class="nav-text">建立類似廣告受眾</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-選擇哪個當基底"><span class="nav-number">4.6.1.</span> <span class="nav-text">1. 選擇哪個當基底</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-建立類似廣告受眾"><span class="nav-number">4.6.2.</span> <span class="nav-text">2. 建立類似廣告受眾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-設定條件"><span class="nav-number">4.6.3.</span> <span class="nav-text">3. 設定條件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-完成畫面"><span class="nav-number">4.6.4.</span> <span class="nav-text">4. 完成畫面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#廣告系統介紹"><span class="nav-number">4.7.</span> <span class="nav-text">廣告系統介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-廣告優化流程"><span class="nav-number">4.8.</span> <span class="nav-text">FB 廣告優化流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自訂轉換流程"><span class="nav-number">4.9.</span> <span class="nav-text">自訂轉換流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-分析建立客製化漏斗"><span class="nav-number">4.10.</span> <span class="nav-text">FB 分析建立客製化漏斗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FB-分析-營業額與顧客終生價值"><span class="nav-number">4.11.</span> <span class="nav-text">FB 分析-營業額與顧客終生價值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Analytics"><span class="nav-number">5.</span> <span class="nav-text">Google Analytics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#開啟電子商務增強版"><span class="nav-number">5.1.</span> <span class="nav-text">開啟電子商務增強版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GA-事件"><span class="nav-number">5.2.</span> <span class="nav-text">GA 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#購物行為事件名稱"><span class="nav-number">5.3.</span> <span class="nav-text">購物行為事件名稱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewcontent-瀏覽商品設定"><span class="nav-number">5.4.</span> <span class="nav-text">viewcontent 瀏覽商品設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#add-to-cart-加入購物車設定"><span class="nav-number">5.5.</span> <span class="nav-text">add_to_cart 加入購物車設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#begin-checkout-結帳行為設定"><span class="nav-number">5.6.</span> <span class="nav-text">begin_checkout 結帳行為設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#purchase-購買事件設定"><span class="nav-number">5.7.</span> <span class="nav-text">purchase 購買事件設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客制自訂事件"><span class="nav-number">5.8.</span> <span class="nav-text">客制自訂事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定目標-程序視覺呈現"><span class="nav-number">5.9.</span> <span class="nav-text">設定目標 - 程序視覺呈現</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作流程"><span class="nav-number">5.9.1.</span> <span class="nav-text">操作流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#從事件設定轉換目標"><span class="nav-number">5.10.</span> <span class="nav-text">從事件設定轉換目標</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多管道程序"><span class="nav-number">5.11.</span> <span class="nav-text">多管道程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#從-UTM-觀看轉換成效"><span class="nav-number">5.12.</span> <span class="nav-text">從 UTM 觀看轉換成效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分流短網址服務"><span class="nav-number">6.</span> <span class="nav-text">分流短網址服務</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#活動網址"><span class="nav-number">6.1.</span> <span class="nav-text">活動網址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lihi-之參數功能"><span class="nav-number">6.2.</span> <span class="nav-text">lihi 之參數功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-B-測試"><span class="nav-number">6.3.</span> <span class="nav-text">A/B 測試</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四張前端必看的-GA-報表"><span class="nav-number">7.</span> <span class="nav-text">四張前端必看的 GA 報表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GTM"><span class="nav-number">8.</span> <span class="nav-text">GTM</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-GA、FB"><span class="nav-number">8.0.0.0.1.</span> <span class="nav-text">tags: GA、FB</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
