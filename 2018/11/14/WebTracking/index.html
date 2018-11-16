@@ -115,7 +115,7 @@
 <meta name="description" content="整理 網頁追蹤與分析 筆記">
 <meta name="keywords" content="網頁追蹤,GA,FB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebTracking">
+<meta property="og:title" content="網頁追蹤">
 <meta property="og:url" content="https://kanboo.github.io/2018/11/14/WebTracking/index.html">
 <meta property="og:site_name" content="Kanboo Notes">
 <meta property="og:description" content="整理 網頁追蹤與分析 筆記">
@@ -210,9 +210,9 @@
 <meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_88.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_89.png">
 <meta property="og:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytice_90.png">
-<meta property="og:updated_time" content="2018-11-15T01:48:06.151Z">
+<meta property="og:updated_time" content="2018-11-15T01:52:25.513Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebTracking">
+<meta name="twitter:title" content="網頁追蹤">
 <meta name="twitter:description" content="整理 網頁追蹤與分析 筆記">
 <meta name="twitter:image" content="https://kanboo.github.io/2018/11/14/WebTracking/webanalytics.jpg">
 
@@ -249,7 +249,7 @@
 
 
 
-  <title>WebTracking | Kanboo Notes</title>
+  <title>網頁追蹤 | Kanboo Notes</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -460,7 +460,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WebTracking</h1>
+          <h1 class="post-title" itemprop="name headline">網頁追蹤</h1>
         
 
         <div class="post-meta">
@@ -797,7 +797,7 @@
 <div class="note info">官方文件<br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#track_purchases" target="_blank" rel="noopener">跟踪購買情況</a><br><a href="https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce?hl=zh-cn#action_data" target="_blank" rel="noopener">操作數據</a><br></div>
 
 <hr>
-<h3 id="客制自訂事件"><a href="#客制自訂事件" class="headerlink" title="客制自訂事件"></a>客制自訂事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line">gtag(<span class="string">'event'</span>, &lt;action&gt;, &#123;</span><br><span class="line">  <span class="string">'event_category'</span>: &lt;category&gt;,</span><br><span class="line">  'event_label': &lt;label&gt;,</span><br><span class="line">  'value': &lt;value&gt;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="客制自訂事件"><a href="#客制自訂事件" class="headerlink" title="客制自訂事件"></a>客制自訂事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式</span></span><br><span class="line">gtag(<span class="string">'event'</span>, &lt;action&gt;, &#123;</span><br><span class="line">  <span class="string">'event_category'</span>: <span class="xml"><span class="tag">&lt;<span class="name">category</span>&gt;</span>,</span></span><br><span class="line">  'event_label': &lt;label&gt;,</span><br><span class="line">  'value': &lt;value&gt;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 實際範例：</span></span><br><span class="line">gtag(<span class="string">'event'</span>, <span class="string">'下載電子書'</span>, &#123;</span><br><span class="line">  event_category: <span class="string">'點擊連結'</span>,</span><br><span class="line">  event_label: <span class="string">'下載行銷密技電子書'</span>,</span><br><span class="line">  value: <span class="number">10</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>&lt;action&gt;</code>是在 Google Analytics（分析）事件報告中顯示為事件操作的字符串。</li>
